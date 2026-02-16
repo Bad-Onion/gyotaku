@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://di2taruoodm0o"]
+
+[ext_resource type="PackedScene" uid="uid://bvdwissx0fkdy" path="res://scenes/ui/main_menu/main_menu.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bpfpb7waly5i3" path="res://scenes/ui/pause_menu/pause_menu.tscn" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://cgminbcnigia7" path="res://scripts/utilities/state_machine.gd" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://cobst2jjni16h" path="res://core/game_states/main_menu_state.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://c1dbsjxnrqvmi" path="res://core/game_states/playing_state.gd" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bnk2jwk8ek25f" path="res://scenes/levels/level_1.tscn" id="6_272bh"]
+[ext_resource type="Script" uid="uid://y743pjc6d1ba" path="res://core/game_states/pause_state.gd" id="7_272bh"]
+
+[node name="Main" type="Node2D" unique_id=809898196]
+
+[node name="UIContainer" type="CanvasLayer" parent="." unique_id=1584003394]
+
+[node name="MainMenu" parent="UIContainer" unique_id=531070255 instance=ExtResource("1_h2yge")]
+
+[node name="PauseMenu" parent="UIContainer" unique_id=767540166 instance=ExtResource("2_1bvp3")]
+visible = false
+
+[node name="LevelContainer" type="Node2D" parent="." unique_id=1444049853]
+
+[node name="GameStateMachine" type="Node" parent="." unique_id=1508962240 node_paths=PackedStringArray("initial_state")]
+process_mode = 3
+script = ExtResource("3_lquwl")
+initial_state = NodePath("MainMenuState")
+
+[node name="MainMenuState" type="Node" parent="GameStateMachine" unique_id=768499536 node_paths=PackedStringArray("main_menu_ui", "level_container")]
+script = ExtResource("4_1bvp3")
+main_menu_ui = NodePath("../../UIContainer/MainMenu")
+level_container = NodePath("../../LevelContainer")
+
+[node name="PlayingState" type="Node" parent="GameStateMachine" unique_id=294920540 node_paths=PackedStringArray("level_container")]
+script = ExtResource("5_7mycd")
+level_container = NodePath("../../LevelContainer")
+level_scene = ExtResource("6_272bh")
+
+[node name="PauseState" type="Node" parent="GameStateMachine" unique_id=703954833 node_paths=PackedStringArray("pause_menu_ui")]
+script = ExtResource("7_272bh")
+pause_menu_ui = NodePath("../../UIContainer/PauseMenu")

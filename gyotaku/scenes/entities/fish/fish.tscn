@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cgb7ob0db0t1f"]
+
+[ext_resource type="Script" uid="uid://baetghgq6xdu0" path="res://scenes/entities/fish/fish.gd" id="1_0xdpr"]
+[ext_resource type="Texture2D" uid="uid://cs5yobrwvgrao" path="res://assets/sprites/pixel-art-cartoon-fish-character-png.png" id="2_6bt7h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5g8u2"]
+radius = 6.0
+
+[node name="Fish" type="CharacterBody2D" unique_id=69548390]
+z_index = 1
+collision_mask = 0
+script = ExtResource("1_0xdpr")
+base_speed = 50.0
+
+[node name="FishSprite" type="Sprite2D" parent="." unique_id=244246104]
+scale = Vector2(0.04857142, 0.04857142)
+texture = ExtResource("2_6bt7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=502182990]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_5g8u2")

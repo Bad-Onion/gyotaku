@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://mp300i7css66"]
+
+[ext_resource type="Texture2D" uid="uid://glrkeutf2hky" path="res://assets/icons/icon.svg" id="1_jow3v"]
+[ext_resource type="Script" uid="uid://87abuo83oxqw" path="res://scenes/mechanics/fishing_bait_mechanic/fishing_hook.gd" id="1_l8o40"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8o40"]
+radius = 5.0
+
+[node name="FishingHook" type="Area2D" unique_id=2042041991]
+script = ExtResource("1_l8o40")
+
+[node name="HookSprite" type="Sprite2D" parent="." unique_id=936541698]
+scale = Vector2(0.078125, 0.078125)
+texture = ExtResource("1_jow3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1349494476]
+shape = SubResource("CircleShape2D_l8o40")

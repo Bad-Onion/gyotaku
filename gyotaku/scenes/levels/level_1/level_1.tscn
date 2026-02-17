@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bnk2jwk8ek25f"]
+
+[ext_resource type="PackedScene" uid="uid://mp300i7css66" path="res://scenes/mechanics/fishing_bait_mechanic/fishing_hook.tscn" id="1_7uxs1"]
+[ext_resource type="Script" uid="uid://c8d754vqus2jd" path="res://scenes/mechanics/fishing_mechanic/fishing_mechanic_system.gd" id="2_3lh42"]
+[ext_resource type="Script" uid="uid://ci7g83sbukdl2" path="res://scenes/mechanics/fishing_mechanic/player_fishing_input.gd" id="3_vmhy7"]
+[ext_resource type="Script" uid="uid://d4im07ios3cej" path="res://scenes/mechanics/fishing_mechanic/fish_spawner.gd" id="4_58uyj"]
+[ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fish/fish.tscn" id="5_ojo11"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7u6i3"]
+load_path = "res://.godot/imported/player.png-e1eaffe0873063c60a0d0b322e4d87d9.ctex"
+
+[node name="Level1" type="Node2D" unique_id=1565577455]
+
+[node name="Background" type="Node" parent="." unique_id=2001595502]
+
+[node name="Sky" type="ColorRect" parent="Background" unique_id=6831725]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+color = Color(0.35686275, 0.75686276, 0.93333334, 1)
+
+[node name="Water" type="ColorRect" parent="Background" unique_id=1337434954]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.124716125, 0.6877827, 0.9413924, 1)
+
+[node name="Player" type="Node" parent="." unique_id=1540698255]
+
+[node name="Player" type="Sprite2D" parent="Player" unique_id=393233768]
+z_index = 1
+position = Vector2(175, 76.00001)
+scale = Vector2(0.056086756, 0.05608676)
+texture = SubResource("CompressedTexture2D_7u6i3")
+
+[node name="FishingHook" parent="Player" unique_id=2042041991 instance=ExtResource("1_7uxs1")]
+unique_name_in_owner = true
+position = Vector2(160, 135)
+
+[node name="FishingMechanicSystem" type="Node" parent="." unique_id=976759568 node_paths=PackedStringArray("input_system", "center_point")]
+unique_name_in_owner = true
+script = ExtResource("2_3lh42")
+input_system = NodePath("../PlayerFishingInput")
+center_point = NodePath("../CenterPoint")
+
+[node name="PlayerFishingInput" type="Node" parent="." unique_id=1893260175]
+script = ExtResource("3_vmhy7")
+
+[node name="CenterPoint" type="Marker2D" parent="." unique_id=1032141304]
+position = Vector2(160, 135)
+
+[node name="FishSpawner" type="Node2D" parent="." unique_id=1585078721 node_paths=PackedStringArray("fishes_container")]
+position = Vector2(160, 135)
+script = ExtResource("4_58uyj")
+fish_scene = ExtResource("5_ojo11")
+spawn_area_size = Vector2(280, 60)
+fishes_container = NodePath("../FishesContainer")
+
+[node name="FishesContainer" type="Node2D" parent="." unique_id=35673712]
+position = Vector2(160, 130)

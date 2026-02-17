@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cgminbcnigia7" path="res://scripts/utilities/state_machine.gd" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://cobst2jjni16h" path="res://core/game_states/main_menu_state.gd" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://c1dbsjxnrqvmi" path="res://core/game_states/playing_state.gd" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://bnk2jwk8ek25f" path="res://scenes/levels/level_1.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://bnk2jwk8ek25f" path="res://scenes/levels/level_1/level_1.tscn" id="6_272bh"]
 [ext_resource type="Script" uid="uid://y743pjc6d1ba" path="res://core/game_states/pause_state.gd" id="7_272bh"]
 
 [node name="Main" type="Node2D" unique_id=809898196]

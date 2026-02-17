@@ -3,12 +3,14 @@ extends Node2D
 
 
 @export var fish_scene: PackedScene
-@export var spawn_area_size: Vector2 = Vector2(1000, 400)
+@export var spawn_area_size: Vector2 = Vector2(560, 180)
 @export var max_fishes: int = 5
 @export var fishes_container: Node
 
 
 func _ready() -> void:
+	await get_tree().physics_frame
+
 	for i in range(max_fishes):
 		spawn_fish()
 
@@ -35,6 +37,7 @@ func spawn_fish() -> void:
 	# Set random spawn position
 	var random_x := randf_range(min_x, max_x)
 	var random_y := randf_range(min_y, max_y)
+
 	fish_instance.global_position = Vector2(random_x, random_y)
 
 	# Inject horizontal bounds

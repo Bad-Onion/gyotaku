@@ -28,10 +28,15 @@ func _physics_process(_delta: float) -> void:
 	velocity.x = base_speed * movement_direction
 	move_and_slide()
 
+	print("Fish X: ", global_position.x, " | Vel: ", velocity.x, " | Dir: ", movement_direction)
+
 	if global_position.x <= min_x_bound and movement_direction < 0:
 		movement_direction = 1
 	elif global_position.x >= max_x_bound and movement_direction > 0:
 		movement_direction = -1
+
+	if is_on_wall():
+		movement_direction *= -1
 
 
 func apply_impulse(force_x: float) -> void:

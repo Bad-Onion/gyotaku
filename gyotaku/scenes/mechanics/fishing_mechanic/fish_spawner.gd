@@ -41,7 +41,7 @@ func spawn_fish() -> void:
 	fish_instance.global_position = Vector2(random_x, random_y)
 
 	# Inject horizontal bounds
-	fish_instance.set_bounds(min_x, max_x)
+	fish_instance.set_bounds(min_x, max_x, min_y, max_y)
 
 	# Randomize initial direction
 	fish_instance.movement_direction = 1 if randf() > 0.5 else -1

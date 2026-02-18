@@ -140,7 +140,7 @@ position = Vector2(186.89476, 174.5)
 scale = Vector2(1.0789473, 1.0789474)
 sprite_frames = SubResource("SpriteFrames_q7p11")
 autoplay = "default"
-frame_progress = 0.5117396
+frame_progress = 0.21664254
 script = ExtResource("4_w3g2g")
 
 [node name="Player" type="AnimatedSprite2D" parent="Boat/Boat" unique_id=2146925344]
@@ -173,7 +173,7 @@ fishes_container = NodePath("../FishesContainer")
 
 [node name="FishesContainer" type="Node2D" parent="." unique_id=35673712]
 
-[node name="FishingHook" parent="." unique_id=2042041991 instance=ExtResource("1_7uxs1")]
+[node name="FishingHook" parent="." unique_id=2042041991 groups=["bait"] instance=ExtResource("1_7uxs1")]
 unique_name_in_owner = true
 position = Vector2(320, 270)
 

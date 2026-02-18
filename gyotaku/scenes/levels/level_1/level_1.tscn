@@ -182,6 +182,7 @@ position = Vector2(320, 270)
 [node name="FishingCursorUI" parent="HUD" unique_id=782493889 node_paths=PackedStringArray("mechanic_system", "input_system") instance=ExtResource("9_31rk5")]
 unique_name_in_owner = true
 visible = false
+z_index = 2
 script = ExtResource("10_w3g2g")
 mechanic_system = NodePath("../../FishingMechanicSystem")
 input_system = NodePath("../../PlayerFishingInput")

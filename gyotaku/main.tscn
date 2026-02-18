@@ -11,11 +11,13 @@
 [node name="Main" type="Node2D" unique_id=809898196]
 
 [node name="UIContainer" type="CanvasLayer" parent="." unique_id=1584003394]
+layer = 100
 
 [node name="MainMenu" parent="UIContainer" unique_id=531070255 instance=ExtResource("1_h2yge")]
 
 [node name="PauseMenu" parent="UIContainer" unique_id=767540166 instance=ExtResource("2_1bvp3")]
 visible = false
+z_index = 10
 
 [node name="LevelContainer" type="Node2D" parent="." unique_id=1444049853]
 

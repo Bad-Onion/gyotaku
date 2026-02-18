@@ -49,6 +49,9 @@ func _process(delta: float) -> void:
 	if not visible or not mechanic_system or not input_system:
 		return
 
+	if Input.get_mouse_mode() != Input.MOUSE_MODE_HIDDEN:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 	global_position = get_global_mouse_position()
 
 	_update_arrow()

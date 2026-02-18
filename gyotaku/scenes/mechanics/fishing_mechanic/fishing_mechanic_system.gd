@@ -11,7 +11,7 @@ signal line_broke
 @export var center_point: Marker2D
 
 @export_group("Zones & Depth")
-@export var safe_zone_radius: float = 30.0
+@export var safe_zone_radius: float = 60.0
 @export var danger_zone_radius: float = 120.0
 @export var max_depth: float = 100.0
 @export var depth_pull_up_speed: float = 20.0
@@ -26,8 +26,8 @@ signal line_broke
 @export var impulse_penalty_force: float = 100.0
 @export var player_pull_power: float = 1.5
 @export var fish_struggle_power: float = 60.0
-@export var sweet_spot_min: float = 30.0
-@export var sweet_spot_max: float = 70.0
+@export var sweet_spot_min: float = 10.0
+@export var sweet_spot_max: float = 80.0
 
 @export_group("Visual Mapping")
 @export var surface_y: float = 190.0
@@ -89,8 +89,9 @@ func _process_depth(delta: float) -> void:
 	var distance_from_center := absf(fish.global_position.x - center_point.global_position.x)
 
 	var is_tension_good: bool = current_tension >= sweet_spot_min and current_tension <= sweet_spot_max
+	var is_super_centered: bool = distance_from_center <= (safe_zone_radius * 0.5)
 
-	if distance_from_center <= safe_zone_radius and is_tension_good:
+	if distance_from_center <= safe_zone_radius and (is_tension_good or is_super_centered):
 		current_depth -= depth_pull_up_speed * delta # Sobe
 	elif distance_from_center <= danger_zone_radius:
 		current_depth += depth_sink_slow_speed * delta # Desce lentamente

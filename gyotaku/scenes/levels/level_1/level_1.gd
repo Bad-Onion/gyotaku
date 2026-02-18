@@ -23,14 +23,19 @@ func _on_fish_hooked(fish: Fish) -> void:
 
 func _on_fish_caught() -> void:
 	print("Success: Fish Caught!")
-	fishing_cursor_ui.deactivate()
+	_end_minigame()
 
 
 func _on_fish_escaped() -> void:
 	print("Fail: Fish Escaped!")
-	fishing_cursor_ui.deactivate()
+	_end_minigame()
 
 
 func _on_line_broke() -> void:
 	print("Fail: Line Broke!")
+	_end_minigame()
+
+
+func _end_minigame() -> void:
 	fishing_cursor_ui.deactivate()
+	fishing_hook.reset()

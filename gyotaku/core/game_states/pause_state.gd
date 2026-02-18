@@ -6,6 +6,8 @@ extends GameState
 
 func enter() -> void:
 	get_tree().paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 	pause_menu_ui.show()
 	pause_menu_ui.resume_requested.connect(_on_resume)
 	pause_menu_ui.quit_to_menu_requested.connect(_on_quit)

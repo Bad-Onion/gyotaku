@@ -27,6 +27,10 @@ signal line_broke
 @export var player_pull_power: float = 1.5
 @export var fish_struggle_power: float = 60.0
 
+@export_group("Visual Mapping")
+@export var surface_y: float = 190.0
+@export var bottom_y: float = 340.0
+
 var fish: Fish
 var current_tension: float = 0.0
 var current_depth: float = 50.0
@@ -89,6 +93,9 @@ func _process_depth(delta: float) -> void:
 		current_depth += depth_sink_slow_speed * delta # Desce lentamente
 	else:
 		current_depth += depth_sink_fast_speed * delta # Desce rápido
+
+	current_depth = clampf(current_depth, 0.0, max_depth)
+	fish.global_position.y = remap(current_depth, 0.0, max_depth, surface_y, bottom_y)
 
 
 func _apply_escape_impulse() -> void:

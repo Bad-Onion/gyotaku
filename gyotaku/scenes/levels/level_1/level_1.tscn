@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://crid57sx6bisi" path="res://assets/sprites/Barco.png" id="2_58uyj"]
 [ext_resource type="Script" uid="uid://ci7g83sbukdl2" path="res://scenes/mechanics/fishing_mechanic/player_fishing_input.gd" id="3_vmhy7"]
 [ext_resource type="Script" uid="uid://d4im07ios3cej" path="res://scenes/mechanics/fishing_mechanic/fish_spawner.gd" id="4_58uyj"]
+[ext_resource type="Script" uid="uid://byhdwncbhrg0u" path="res://scenes/interactables/boat/boat_floating.gd" id="4_w3g2g"]
 [ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fish/fish.tscn" id="5_ojo11"]
+[ext_resource type="PackedScene" uid="uid://up571wp5o825" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.tscn" id="9_31rk5"]
+[ext_resource type="Script" uid="uid://df0awv8y88e4b" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.gd" id="10_w3g2g"]
 
 [node name="Level1" type="Node2D" unique_id=1565577455]
 script = ExtResource("1_58uyj")
@@ -23,20 +26,23 @@ anchor_bottom = 1.0
 offset_top = -180.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 color = Color(0.14768377, 0.696969, 0.88238794, 0.58431375)
 
-[node name="Player" type="Node" parent="." unique_id=1540698255]
+[node name="Boat" type="Node" parent="." unique_id=439834229]
 
-[node name="Player" type="Sprite2D" parent="Player" unique_id=393233768]
-z_index = 1
-position = Vector2(177, 157.83653)
-scale = Vector2(0.95152205, 0.9515222)
-texture = ExtResource("1_vmhy7")
-
-[node name="Boat" type="Sprite2D" parent="Player" unique_id=1870913298]
+[node name="Boat" type="Sprite2D" parent="Boat" unique_id=1870913298]
 z_index = 2
 position = Vector2(193, 169.83653)
 texture = ExtResource("2_58uyj")
+script = ExtResource("4_w3g2g")
+
+[node name="Player" type="Sprite2D" parent="Boat/Boat" unique_id=393233768]
+z_index = 1
+z_as_relative = false
+position = Vector2(-16, -12)
+scale = Vector2(0.95152205, 0.9515222)
+texture = ExtResource("1_vmhy7")
 
 [node name="FishingMechanicSystem" type="Node" parent="." unique_id=976759568 node_paths=PackedStringArray("input_system", "center_point")]
 unique_name_in_owner = true
@@ -62,3 +68,12 @@ fishes_container = NodePath("../FishesContainer")
 [node name="FishingHook" parent="." unique_id=2042041991 instance=ExtResource("1_7uxs1")]
 unique_name_in_owner = true
 position = Vector2(320, 270)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2041958202]
+
+[node name="FishingCursorUI" parent="HUD" unique_id=782493889 node_paths=PackedStringArray("mechanic_system", "input_system") instance=ExtResource("9_31rk5")]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("10_w3g2g")
+mechanic_system = NodePath("../../FishingMechanicSystem")
+input_system = NodePath("../../PlayerFishingInput")

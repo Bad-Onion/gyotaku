@@ -2,32 +2,78 @@
 
 [ext_resource type="PackedScene" uid="uid://mp300i7css66" path="res://scenes/mechanics/fishing_bait_mechanic/fishing_hook.tscn" id="1_7uxs1"]
 [ext_resource type="Script" uid="uid://c6offhed2uwqi" path="res://scenes/levels/level_1/level_1.gd" id="1_58uyj"]
-[ext_resource type="Texture2D" uid="uid://cwc4wyukhft2b" path="res://assets/sprites/IdosoJapones.png" id="1_vmhy7"]
 [ext_resource type="Script" uid="uid://c8d754vqus2jd" path="res://scenes/mechanics/fishing_mechanic/fishing_mechanic_system.gd" id="2_3lh42"]
-[ext_resource type="Texture2D" uid="uid://crid57sx6bisi" path="res://assets/sprites/Barco.png" id="2_58uyj"]
+[ext_resource type="Texture2D" uid="uid://crid57sx6bisi" path="res://assets/sprites/boat/Barco.png" id="2_58uyj"]
+[ext_resource type="Texture2D" uid="uid://djljh5k7mj4fa" path="res://assets/backgrounds/shiva-arkaplann.jpg" id="2_napug"]
 [ext_resource type="Script" uid="uid://ci7g83sbukdl2" path="res://scenes/mechanics/fishing_mechanic/player_fishing_input.gd" id="3_vmhy7"]
 [ext_resource type="Script" uid="uid://d4im07ios3cej" path="res://scenes/mechanics/fishing_mechanic/fish_spawner.gd" id="4_58uyj"]
 [ext_resource type="Script" uid="uid://byhdwncbhrg0u" path="res://scenes/interactables/boat/boat_floating.gd" id="4_w3g2g"]
+[ext_resource type="Texture2D" uid="uid://dkuo3b67elw7v" path="res://assets/sprites/player/IdosoJapones-Sheet.png" id="5_napug"]
 [ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fish/fish.tscn" id="5_ojo11"]
 [ext_resource type="PackedScene" uid="uid://up571wp5o825" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.tscn" id="9_31rk5"]
 [ext_resource type="Script" uid="uid://df0awv8y88e4b" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.gd" id="10_w3g2g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_napug"]
+atlas = ExtResource("5_napug")
+region = Rect2(0, 210, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jeig"]
+atlas = ExtResource("5_napug")
+region = Rect2(100, 210, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhmec"]
+atlas = ExtResource("5_napug")
+region = Rect2(200, 210, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfdrs"]
+atlas = ExtResource("5_napug")
+region = Rect2(300, 210, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldw0e"]
+atlas = ExtResource("5_napug")
+region = Rect2(400, 210, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmnd1"]
+atlas = ExtResource("5_napug")
+region = Rect2(500, 210, 100, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wloe5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_napug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jeig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhmec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfdrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldw0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmnd1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="Level1" type="Node2D" unique_id=1565577455]
 script = ExtResource("1_58uyj")
 
 [node name="Background" type="Node" parent="." unique_id=2001595502]
 
-[node name="Water" type="ColorRect" parent="Background" unique_id=1337434954]
+[node name="Water" type="Sprite2D" parent="Background" unique_id=1963824193]
+modulate = Color(0.2784314, 0.78431374, 1, 0.6117647)
 z_index = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -180.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-color = Color(0.14768377, 0.696969, 0.88238794, 0.58431375)
+position = Vector2(320, 360)
+scale = Vector2(0.33399886, 0.33399886)
+texture = ExtResource("2_napug")
 
 [node name="Boat" type="Node" parent="." unique_id=439834229]
 
@@ -37,12 +83,14 @@ position = Vector2(193, 169.83653)
 texture = ExtResource("2_58uyj")
 script = ExtResource("4_w3g2g")
 
-[node name="Player" type="Sprite2D" parent="Boat/Boat" unique_id=393233768]
+[node name="Player" type="AnimatedSprite2D" parent="Boat/Boat" unique_id=2146925344]
 z_index = 1
 z_as_relative = false
-position = Vector2(-16, -12)
+position = Vector2(14, -25.836533)
 scale = Vector2(0.95152205, 0.9515222)
-texture = ExtResource("1_vmhy7")
+sprite_frames = SubResource("SpriteFrames_wloe5")
+autoplay = "default"
+frame_progress = 0.75292003
 
 [node name="FishingMechanicSystem" type="Node" parent="." unique_id=976759568 node_paths=PackedStringArray("input_system", "center_point")]
 unique_name_in_owner = true

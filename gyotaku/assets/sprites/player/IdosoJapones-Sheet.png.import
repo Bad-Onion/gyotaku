@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccxha327uwpcl"
-path="res://.godot/imported/sr2e72fbd0562aws3.png-241edd8c277db7ca2119c1556ae21d77.ctex"
+uid="uid://dkuo3b67elw7v"
+path="res://.godot/imported/IdosoJapones-Sheet.png-1ecd15e5218f2347661bc033973b1c3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/sr2e72fbd0562aws3.png"
-dest_files=["res://.godot/imported/sr2e72fbd0562aws3.png-241edd8c277db7ca2119c1556ae21d77.ctex"]
+source_file="res://assets/sprites/player/IdosoJapones-Sheet.png"
+dest_files=["res://.godot/imported/IdosoJapones-Sheet.png-1ecd15e5218f2347661bc033973b1c3d.ctex"]
 
 [params]
 

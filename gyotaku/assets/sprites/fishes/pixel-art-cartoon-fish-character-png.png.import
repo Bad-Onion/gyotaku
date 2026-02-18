@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwc4wyukhft2b"
-path="res://.godot/imported/IdosoJapones.png-f8c010b58fd00c302f6a92392fbae08f.ctex"
+uid="uid://cs5yobrwvgrao"
+path="res://.godot/imported/pixel-art-cartoon-fish-character-png.png-9bf95efbd3d46044a35ac568ea3b0575.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/IdosoJapones.png"
-dest_files=["res://.godot/imported/IdosoJapones.png-f8c010b58fd00c302f6a92392fbae08f.ctex"]
+source_file="res://assets/sprites/fishes/pixel-art-cartoon-fish-character-png.png"
+dest_files=["res://.godot/imported/pixel-art-cartoon-fish-character-png.png-9bf95efbd3d46044a35ac568ea3b0575.ctex"]
 
 [params]
 

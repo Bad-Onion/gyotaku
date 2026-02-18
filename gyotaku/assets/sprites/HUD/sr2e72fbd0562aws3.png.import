@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crid57sx6bisi"
-path="res://.godot/imported/Barco.png-35a832c3ea24fc80498b770fbb091c02.ctex"
+uid="uid://ccxha327uwpcl"
+path="res://.godot/imported/sr2e72fbd0562aws3.png-3e2407b12122ab51dbd024a0532af3b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Barco.png"
-dest_files=["res://.godot/imported/Barco.png-35a832c3ea24fc80498b770fbb091c02.ctex"]
+source_file="res://assets/sprites/HUD/sr2e72fbd0562aws3.png"
+dest_files=["res://.godot/imported/sr2e72fbd0562aws3.png-3e2407b12122ab51dbd024a0532af3b9.ctex"]
 
 [params]
 

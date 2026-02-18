@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs5yobrwvgrao"
-path="res://.godot/imported/pixel-art-cartoon-fish-character-png.png-a7d8da55f349938afb126a1477d9fc3f.ctex"
+uid="uid://crid57sx6bisi"
+path="res://.godot/imported/Barco.png-c6eca370aedda1342b9a022e7fe4d6c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/pixel-art-cartoon-fish-character-png.png"
-dest_files=["res://.godot/imported/pixel-art-cartoon-fish-character-png.png-a7d8da55f349938afb126a1477d9fc3f.ctex"]
+source_file="res://assets/sprites/boat/Barco.png"
+dest_files=["res://.godot/imported/Barco.png-c6eca370aedda1342b9a022e7fe4d6c1.ctex"]
 
 [params]
 

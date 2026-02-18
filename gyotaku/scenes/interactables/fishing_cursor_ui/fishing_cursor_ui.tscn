@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://up571wp5o825"]
 
-[ext_resource type="Texture2D" uid="uid://strfaqn8wah7" path="res://assets/sprites/a-retro-styled-pixel-art-illustration-of-a-fishing-rod-free-png.webp" id="1_7gxyw"]
-[ext_resource type="Texture2D" uid="uid://ccxha327uwpcl" path="res://assets/sprites/sr2e72fbd0562aws3.png" id="2_xla6n"]
+[ext_resource type="Texture2D" uid="uid://strfaqn8wah7" path="res://assets/sprites/HUD/a-retro-styled-pixel-art-illustration-of-a-fishing-rod-free-png.webp" id="1_7gxyw"]
+[ext_resource type="Texture2D" uid="uid://ccxha327uwpcl" path="res://assets/sprites/HUD/sr2e72fbd0562aws3.png" id="2_xla6n"]
 [ext_resource type="Script" uid="uid://df0awv8y88e4b" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.gd" id="3_2duka"]
 
 [node name="FishingCursorUI" type="Node2D" unique_id=782493889]

@@ -11,8 +11,8 @@ signal line_broke
 @export var center_point: Marker2D
 
 @export_group("Zones & Depth")
-@export var safe_zone_radius: float = 15.0
-@export var danger_zone_radius: float = 60.0
+@export var safe_zone_radius: float = 30.0
+@export var danger_zone_radius: float = 120.0
 @export var max_depth: float = 100.0
 @export var depth_pull_up_speed: float = 20.0
 @export var depth_sink_slow_speed: float = 5.0
@@ -24,6 +24,8 @@ signal line_broke
 @export var tension_recovery_rate: float = 40.0
 @export var critical_tension_threshold: float = 90.0
 @export var impulse_penalty_force: float = 100.0
+@export var player_pull_power: float = 1.5
+@export var fish_struggle_power: float = 60.0
 
 var fish: Fish
 var current_tension: float = 0.0
@@ -39,6 +41,7 @@ func start_minigame(hooked_fish: Fish) -> void:
 	fish = hooked_fish
 	current_tension = 0.0
 	current_depth = 50.0
+	fish.velocity.x = fish_struggle_power * fish.movement_direction
 	set_physics_process(true)
 
 
@@ -46,8 +49,10 @@ func _physics_process(delta: float) -> void:
 	if not fish or not input_system:
 		return
 
+	_process_tug_of_war(delta)
 	_process_tension(delta)
 	_process_depth(delta)
+	_debug_logs()
 	_check_end_conditions()
 
 
@@ -71,7 +76,7 @@ func _process_tension(delta: float) -> void:
 		if was_dragging_last_frame and current_tension >= critical_tension_threshold:
 			_apply_escape_impulse()
 
-	current_tension = clamp(current_tension, 0.0, max_tension)
+	current_tension = clampf(current_tension, 0.0, max_tension)
 	was_dragging_last_frame = is_dragging
 
 
@@ -104,3 +109,35 @@ func _check_end_conditions() -> void:
 	elif current_depth >= max_depth:
 		fish_escaped.emit()
 		set_physics_process(false)
+
+
+func _process_tug_of_war(delta: float) -> void:
+	var drag_vector := input_system.get_drag_vector()
+	var is_dragging := input_system.is_active()
+
+	# 1. The fish constantly wants to swim away in its current direction
+	var desired_fish_velocity := fish.movement_direction * fish_struggle_power
+
+	# 2. Player pull force
+	var player_velocity := 0.0
+
+	if is_dragging:
+		var drag_dir := signf(drag_vector.x)
+		# The player only applies force if dragging opposite to the fish's desire
+		if drag_dir != 0.0 and drag_dir != fish.movement_direction:
+			player_velocity = drag_vector.x * player_pull_power
+
+	# 3. Combine forces and apply to fish
+	var net_velocity := desired_fish_velocity + player_velocity
+	fish.velocity.x = move_toward(fish.velocity.x, net_velocity, 400.0 * delta)
+
+	# Update the fish sprite visually based on which way it is actually moving
+	if fish.velocity.x != 0 and fish.sprite:
+		var current_physical_dir = signf(fish.velocity.x)
+		fish.sprite.flip_h = (current_physical_dir < 0)
+
+
+func _debug_logs() -> void:
+	# Temporary method to visualize the mechanics
+	var dist = absf(fish.global_position.x - center_point.global_position.x)
+	print("Depth: %3.1f | Tension: %3.1f | Center Dist: %3.1f" % [current_depth, current_tension, dist])

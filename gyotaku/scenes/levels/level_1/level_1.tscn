@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnk2jwk8ek25f"]
 
 [ext_resource type="PackedScene" uid="uid://mp300i7css66" path="res://scenes/mechanics/fishing_bait_mechanic/fishing_hook.tscn" id="1_7uxs1"]
+[ext_resource type="Script" uid="uid://c6offhed2uwqi" path="res://scenes/levels/level_1/level_1.gd" id="1_58uyj"]
 [ext_resource type="Texture2D" uid="uid://cwc4wyukhft2b" path="res://assets/sprites/IdosoJapones.png" id="1_vmhy7"]
 [ext_resource type="Script" uid="uid://c8d754vqus2jd" path="res://scenes/mechanics/fishing_mechanic/fishing_mechanic_system.gd" id="2_3lh42"]
 [ext_resource type="Texture2D" uid="uid://crid57sx6bisi" path="res://assets/sprites/Barco.png" id="2_58uyj"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fish/fish.tscn" id="5_ojo11"]
 
 [node name="Level1" type="Node2D" unique_id=1565577455]
+script = ExtResource("1_58uyj")
 
 [node name="Background" type="Node" parent="." unique_id=2001595502]
 

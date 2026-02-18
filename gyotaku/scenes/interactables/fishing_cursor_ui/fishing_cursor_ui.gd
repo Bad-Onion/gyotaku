@@ -103,18 +103,19 @@ func _update_string_physics() -> void:
 	var start_pos = tip_marker.global_position
 	var end_pos = mechanic_system.fish.global_position
 
-	# Calcular a tensão normalizada (0.0 a 1.0)
-	# Tensão 0 = linha frouxa (muita curva)
-	# Tensão 100 = linha esticada (reta)
-	var tension_ratio = clampf(mechanic_system.current_tension / 100.0, 0.0, 1.0)
+	# Se a tensão atual for maior ou igual ao mínimo do "Sweet Spot" (zona verde),
+	# consideramos a linha visualmente esticada (1.0).
+	# Se for menor, interpolamos de 0.0 até 1.0.
+	var raw_tension = mechanic_system.current_tension
+	var visual_tension_ratio = remap(raw_tension, 0.0, sweet_spot_min, 0.0, 1.0)
+	visual_tension_ratio = clampf(visual_tension_ratio, 0.0, 1.0)
 
 	# Criar curva de Bezier quadrática
 	# O ponto de controle fica no meio, mas cai para baixo dependendo da "falta" de tensão
 	var mid_point = (start_pos + end_pos) / 2.0
 
 	# Quanto menor a tensão, mais a linha "cai" (sag)
-	# Ajuste o valor 150.0 para controlar o quanto a linha cai
-	var sag_amount = lerp(150.0, 0.0, tension_ratio)
+	var sag_amount = lerp(150.0, 0.0, visual_tension_ratio)
 
 	# Adiciona gravidade ao ponto de controle
 	var control_point = mid_point + Vector2(0, sag_amount)

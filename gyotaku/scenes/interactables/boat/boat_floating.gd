@@ -1,5 +1,5 @@
 class_name BoatFloating
-extends Sprite2D
+extends AnimatedSprite2D
 
 
 @export var vertical_float_speed: float = 2.0

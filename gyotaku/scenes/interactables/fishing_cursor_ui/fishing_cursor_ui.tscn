@@ -5,11 +5,16 @@
 [ext_resource type="Script" uid="uid://df0awv8y88e4b" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.gd" id="3_2duka"]
 
 [node name="FishingCursorUI" type="Node2D" unique_id=782493889]
+z_index = 5
 
 [node name="RodSprite" type="Sprite2D" parent="." unique_id=2066038344]
 unique_name_in_owner = true
 scale = Vector2(0.013010205, 0.013010205)
 texture = ExtResource("1_7gxyw")
+
+[node name="TipMarker" type="Marker2D" parent="RodSprite" unique_id=1987311679]
+unique_name_in_owner = true
+position = Vector2(461.17645, -384.3137)
 
 [node name="ArrowSprite" type="Sprite2D" parent="." unique_id=2137930341]
 unique_name_in_owner = true
@@ -18,3 +23,9 @@ rotation = -0.7261898
 scale = Vector2(0.007812512, 0.007812512)
 texture = ExtResource("2_xla6n")
 script = ExtResource("3_2duka")
+
+[node name="FishingLine" type="Line2D" parent="." unique_id=216516106]
+unique_name_in_owner = true
+width = 2.0
+begin_cap_mode = 2
+end_cap_mode = 2

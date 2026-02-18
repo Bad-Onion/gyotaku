@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://mp300i7css66" path="res://scenes/mechanics/fishing_bait_mechanic/fishing_hook.tscn" id="1_7uxs1"]
 [ext_resource type="Script" uid="uid://c6offhed2uwqi" path="res://scenes/levels/level_1/level_1.gd" id="1_58uyj"]
 [ext_resource type="Script" uid="uid://c8d754vqus2jd" path="res://scenes/mechanics/fishing_mechanic/fishing_mechanic_system.gd" id="2_3lh42"]
-[ext_resource type="Texture2D" uid="uid://crid57sx6bisi" path="res://assets/sprites/boat/Barco.png" id="2_58uyj"]
 [ext_resource type="Texture2D" uid="uid://djljh5k7mj4fa" path="res://assets/backgrounds/shiva-arkaplann.jpg" id="2_napug"]
+[ext_resource type="Texture2D" uid="uid://bol4gj83bfk5p" path="res://assets/sprites/boat/Barco-Sheet.png" id="3_napug"]
 [ext_resource type="Script" uid="uid://ci7g83sbukdl2" path="res://scenes/mechanics/fishing_mechanic/player_fishing_input.gd" id="3_vmhy7"]
 [ext_resource type="Script" uid="uid://d4im07ios3cej" path="res://scenes/mechanics/fishing_mechanic/fish_spawner.gd" id="4_58uyj"]
 [ext_resource type="Script" uid="uid://byhdwncbhrg0u" path="res://scenes/interactables/boat/boat_floating.gd" id="4_w3g2g"]
@@ -12,6 +12,63 @@
 [ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fishes/fish.tscn" id="5_ojo11"]
 [ext_resource type="PackedScene" uid="uid://up571wp5o825" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.tscn" id="9_31rk5"]
 [ext_resource type="Script" uid="uid://df0awv8y88e4b" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.gd" id="10_w3g2g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wloe5"]
+atlas = ExtResource("3_napug")
+region = Rect2(0, 0, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8spg0"]
+atlas = ExtResource("3_napug")
+region = Rect2(0, 38, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d3u7"]
+atlas = ExtResource("3_napug")
+region = Rect2(84, 38, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41r28"]
+atlas = ExtResource("3_napug")
+region = Rect2(168, 38, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iula"]
+atlas = ExtResource("3_napug")
+region = Rect2(0, 76, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0dvh"]
+atlas = ExtResource("3_napug")
+region = Rect2(84, 76, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fq2y"]
+atlas = ExtResource("3_napug")
+region = Rect2(168, 76, 84, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7p11"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wloe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8spg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d3u7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41r28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iula")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0dvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fq2y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_napug"]
 atlas = ExtResource("5_napug")
@@ -77,10 +134,13 @@ texture = ExtResource("2_napug")
 
 [node name="Boat" type="Node" parent="." unique_id=439834229]
 
-[node name="Boat" type="Sprite2D" parent="Boat" unique_id=1870913298]
+[node name="Boat" type="AnimatedSprite2D" parent="Boat" unique_id=1587030661]
 z_index = 2
-position = Vector2(193, 169.83653)
-texture = ExtResource("2_58uyj")
+position = Vector2(186.89476, 174.5)
+scale = Vector2(1.0789473, 1.0789474)
+sprite_frames = SubResource("SpriteFrames_q7p11")
+autoplay = "default"
+frame_progress = 0.5117396
 script = ExtResource("4_w3g2g")
 
 [node name="Player" type="AnimatedSprite2D" parent="Boat/Boat" unique_id=2146925344]

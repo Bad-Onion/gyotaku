@@ -3,9 +3,9 @@ extends CharacterBody2D
 
 
 @export var base_speed: float = 20.0
-@export var movement_direction: int = 1 # 1 para a direita, -1 para a esquerda
+@export var movement_direction: int = -1 # 1 para a direita, -1 para a esquerda
 
-@onready var sprite: Sprite2D = %FishSprite
+@onready var sprite: AnimatedSprite2D = %FishSprite
 
 var min_x_bound: float
 var max_x_bound: float
@@ -31,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 	if sprite:
-		sprite.flip_h = (movement_direction < 0)
+		sprite.flip_h = (movement_direction > 0)
 
 	# Boundary check to reverse direction
 	if global_position.x <= min_x_bound and movement_direction < 0:

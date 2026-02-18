@@ -140,7 +140,7 @@ func _process_tug_of_war(delta: float) -> void:
 	# TODO: Move this visual update to the Fish class, maybe via a signal or direct method call
 	if fish.velocity.x != 0 and fish.sprite:
 		var current_physical_dir = signf(fish.velocity.x)
-		fish.sprite.flip_h = (current_physical_dir < 0)
+		fish.sprite.flip_h = (current_physical_dir > 0)
 
 
 func _debug_logs() -> void:

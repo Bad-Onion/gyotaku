@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://d4im07ios3cej" path="res://scenes/mechanics/fishing_mechanic/fish_spawner.gd" id="4_58uyj"]
 [ext_resource type="Script" uid="uid://byhdwncbhrg0u" path="res://scenes/interactables/boat/boat_floating.gd" id="4_w3g2g"]
 [ext_resource type="Texture2D" uid="uid://dkuo3b67elw7v" path="res://assets/sprites/player/IdosoJapones-Sheet.png" id="5_napug"]
-[ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fish/fish.tscn" id="5_ojo11"]
+[ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fishes/fish.tscn" id="5_ojo11"]
 [ext_resource type="PackedScene" uid="uid://up571wp5o825" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.tscn" id="9_31rk5"]
 [ext_resource type="Script" uid="uid://df0awv8y88e4b" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.gd" id="10_w3g2g"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs5yobrwvgrao"
-path="res://.godot/imported/pixel-art-cartoon-fish-character-png.png-9bf95efbd3d46044a35ac568ea3b0575.ctex"
+uid="uid://imwffhuc7mdb"
+path="res://.godot/imported/Gurukun-Sheet.png-c0ae9ad191b0f47009b8eef97c1b9567.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fishes/pixel-art-cartoon-fish-character-png.png"
-dest_files=["res://.godot/imported/pixel-art-cartoon-fish-character-png.png-9bf95efbd3d46044a35ac568ea3b0575.ctex"]
+source_file="res://assets/sprites/fishes/gorukun/Gurukun-Sheet.png"
+dest_files=["res://.godot/imported/Gurukun-Sheet.png-c0ae9ad191b0f47009b8eef97c1b9567.ctex"]
 
 [params]
 

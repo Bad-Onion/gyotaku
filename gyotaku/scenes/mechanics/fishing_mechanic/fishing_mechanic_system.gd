@@ -26,6 +26,8 @@ signal line_broke
 @export var impulse_penalty_force: float = 100.0
 @export var player_pull_power: float = 1.5
 @export var fish_struggle_power: float = 60.0
+@export var sweet_spot_min: float = 30.0
+@export var sweet_spot_max: float = 70.0
 
 @export_group("Visual Mapping")
 @export var surface_y: float = 190.0
@@ -56,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	_process_tug_of_war(delta)
 	_process_tension(delta)
 	_process_depth(delta)
-	_debug_logs()
+	# _debug_logs()
 	_check_end_conditions()
 
 
@@ -66,14 +68,13 @@ func _process_tension(delta: float) -> void:
 
 	if is_dragging:
 		var drag_direction := signf(drag_vector.x)
-		var fish_direction := signf(fish.velocity.x)
 
-		# Verifica se está a arrastar na direção oposta ao peixe
-		if drag_direction != 0 and drag_direction != fish_direction:
+		# Verifica se está arrastando na direção oposta ao peixe
+		if drag_direction != 0 and drag_direction != fish.movement_direction:
 			var pull_force := absf(drag_vector.x) * tension_increase_multiplier
 			current_tension += pull_force * delta
 	else:
-		# Recupera a tensão quando não está a puxar
+		# Recupera a tensão quando não está puxando
 		current_tension -= tension_recovery_rate * delta
 
 		# Regra: Se a linha quase quebrar e o jogador largar, o peixe ganha impulso
@@ -87,7 +88,9 @@ func _process_tension(delta: float) -> void:
 func _process_depth(delta: float) -> void:
 	var distance_from_center := absf(fish.global_position.x - center_point.global_position.x)
 
-	if distance_from_center <= safe_zone_radius:
+	var is_tension_good: bool = current_tension >= sweet_spot_min and current_tension <= sweet_spot_max
+
+	if distance_from_center <= safe_zone_radius and is_tension_good:
 		current_depth -= depth_pull_up_speed * delta # Sobe
 	elif distance_from_center <= danger_zone_radius:
 		current_depth += depth_sink_slow_speed * delta # Desce lentamente
@@ -122,10 +125,7 @@ func _process_tug_of_war(delta: float) -> void:
 	var drag_vector := input_system.get_drag_vector()
 	var is_dragging := input_system.is_active()
 
-	# 1. The fish constantly wants to swim away in its current direction
 	var desired_fish_velocity := fish.movement_direction * fish_struggle_power
-
-	# 2. Player pull force
 	var player_velocity := 0.0
 
 	if is_dragging:
@@ -134,17 +134,15 @@ func _process_tug_of_war(delta: float) -> void:
 		if drag_dir != 0.0 and drag_dir != fish.movement_direction:
 			player_velocity = drag_vector.x * player_pull_power
 
-	# 3. Combine forces and apply to fish
 	var net_velocity := desired_fish_velocity + player_velocity
 	fish.velocity.x = move_toward(fish.velocity.x, net_velocity, 400.0 * delta)
 
-	# Update the fish sprite visually based on which way it is actually moving
+	# TODO: Move this visual update to the Fish class, maybe via a signal or direct method call
 	if fish.velocity.x != 0 and fish.sprite:
 		var current_physical_dir = signf(fish.velocity.x)
 		fish.sprite.flip_h = (current_physical_dir < 0)
 
 
 func _debug_logs() -> void:
-	# Temporary method to visualize the mechanics
 	var dist = absf(fish.global_position.x - center_point.global_position.x)
 	print("Depth: %3.1f | Tension: %3.1f | Center Dist: %3.1f" % [current_depth, current_tension, dist])

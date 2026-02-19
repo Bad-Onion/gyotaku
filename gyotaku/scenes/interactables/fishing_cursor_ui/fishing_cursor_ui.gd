@@ -12,6 +12,7 @@ extends Node2D
 @onready var fishing_line: FishingLineRenderer = %FishingLine
 @onready var tip_marker: Marker2D = %RodSprite/TipMarker
 
+# TODO: Refactor to use a .tres for these settings if they grow more complex
 @export_group("Colors & Thresholds")
 @export var color_low: Color = Color.YELLOW
 @export var color_perfect: Color = Color.GREEN
@@ -92,20 +93,17 @@ func _update_arrow() -> void:
 func _update_rod(delta: float) -> void:
 	var drag_length := input_system.get_drag_vector().length()
 	var pull_intensity := clampf(drag_length / max_expected_drag, 0.0, 1.0)
-	var drag_dir := signf(input_system.get_drag_vector().x)
+	var drag_direction := signf(input_system.get_drag_vector().x)
 
-	if drag_dir == 0:
-		drag_dir = 1.0
+	if drag_direction == 0:
+		drag_direction = 1.0
 
-	var target_rotation := pull_intensity * (PI / 4.0) * drag_dir
+	var target_rotation := pull_intensity * (PI / 4.0) * drag_direction
 	rod_sprite.rotation = lerp_angle(rod_sprite.rotation, target_rotation, 15.0 * delta)
 
 
 func _update_string_physics() -> void:
-	# Note: Accessing mechanic_system._fish requires an exposed variable or getter.
-	# For clean code, assume get_hooked_fish() exists in FishingMechanicSystem,
-	# or change '_fish' to 'hooked_fish' in the system script.
-	var current_fish = mechanic_system._fish # Replace with getter if you encapsulated this
+	var current_fish = mechanic_system.get_hooked_fish()
 
 	if not current_fish or not tip_marker:
 		fishing_line.clear_points()

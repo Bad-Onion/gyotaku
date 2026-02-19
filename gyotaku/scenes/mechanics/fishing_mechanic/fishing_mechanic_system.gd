@@ -37,6 +37,10 @@ func start_minigame(hooked_fish: Fish) -> void:
 	_set_minigame_active(true)
 
 
+func get_hooked_fish() -> Fish:
+	return _fish
+
+
 func _physics_process(delta: float) -> void:
 	if not _is_minigame_active or not _fish or not input_system:
 		return

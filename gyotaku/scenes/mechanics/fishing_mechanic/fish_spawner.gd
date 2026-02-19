@@ -2,6 +2,7 @@ class_name FishSpawner
 extends Node2D
 
 
+# TODO: Use a .tres for spawn settings
 @export var fish_scene: PackedScene
 @export var spawn_area_size: Vector2 = Vector2(560, 180)
 @export var max_fishes: int = 5
@@ -27,7 +28,7 @@ func spawn_fish() -> void:
 
 	fishes_container.add_child(fish_instance)
 
-	# Calculate bounds relative to the spawner's global position
+	# TODO: Use a struct or class to hold spawn area settings
 	var half_extents := spawn_area_size / 2.0
 	var min_x := global_position.x - half_extents.x
 	var max_x := global_position.x + half_extents.x

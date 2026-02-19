@@ -1,7 +1,7 @@
 class_name FishMovement
 extends Node
 
-
+# TODO: Refactor to use a .tres file for all fishes to allow for easier tweaking of movement parameters without code changes, and to enable different fish types with unique movement behaviors
 @export var base_speed: float = 50.0
 @export var chase_speed: float = 85.0
 @export var wander_radius_y: float = 40.0
@@ -25,6 +25,7 @@ func _ready() -> void:
 	_vertical_frequency = randf_range(0.001, 0.002)
 
 
+# TODO: Refactor to use a single method for setting bounds with a struct or class for better organization and type safety
 func set_bounds(min_x: float, max_x: float, min_y: float, max_y: float, current_y: float) -> void:
 	min_x_bound = min_x
 	max_x_bound = max_x
@@ -48,8 +49,8 @@ func calculate_velocity(current_posistion: Vector2, current_velocity: Vector2, t
 		elif current_posistion.x >= max_x_bound:
 			new_direction = -1
 
-		var speed_var = 1.0 + sin(Time.get_ticks_msec() * _swim_frequency + _time_offset) * 0.2
-		target_velocity.x = new_direction * base_speed * speed_var
+		var speed_variation = 1.0 + sin(Time.get_ticks_msec() * _swim_frequency + _time_offset) * 0.2
+		target_velocity.x = new_direction * base_speed * speed_variation
 
 		var y_wave = sin(Time.get_ticks_msec() * _vertical_frequency + _time_offset) * wander_radius_y
 		var target_y = clampf(spawn_y + y_wave, min_y_bound, max_y_bound)
@@ -63,9 +64,12 @@ func calculate_velocity(current_posistion: Vector2, current_velocity: Vector2, t
 
 
 func find_target(current_pos: Vector2, current_target: Node2D) -> Node2D:
+	# TODO: Refactor to use a single method for target detection that can handle both bait and other potential targets, with better separation of concerns
+	# TODO: Replace hardcoded group name "bait" with a constant or enum for better maintainability
 	if current_target and not current_target.is_in_group("bait"):
 		return null
 
+	# TODO: Refactor to use a more efficient spatial query for target detection instead of iterating through all nodes in the group, for better performance
 	if not current_target:
 		var baits = get_tree().get_nodes_in_group("bait")
 		if baits.size() > 0:

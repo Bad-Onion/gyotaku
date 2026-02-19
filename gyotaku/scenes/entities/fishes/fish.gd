@@ -15,6 +15,7 @@ func _ready() -> void:
 		push_error("Fish: Missing components.")
 
 
+# TODO: Refactor to use a single method for setting bounds with a struct or class for better organization and type safety
 func set_bounds(min_x: float, max_x: float, min_y: float, max_y: float) -> void:
 	movement_component.set_bounds(min_x, max_x, min_y, max_y, global_position.y)
 
@@ -28,10 +29,12 @@ func hook() -> void:
 
 func apply_impulse(force_x: float) -> void:
 	velocity.x += force_x
+
 	if velocity.x != 0:
 		movement_direction = int(signf(velocity.x))
 
 
+# TODO: Refactor so that the visuals component can handle all animation states, including struggling and normal swimming, for better separation of concerns
 func update_facing_direction(dir: float) -> void:
 	if visuals_component and visuals_component.sprite:
 		visuals_component.sprite.flip_h = (dir > 0)

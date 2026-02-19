@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://baetghgq6xdu0" path="res://scenes/entities/fishes/fish.gd" id="1_0xdpr"]
 [ext_resource type="Texture2D" uid="uid://imwffhuc7mdb" path="res://assets/sprites/fishes/gorukun/Gurukun-Sheet.png" id="2_73y4s"]
+[ext_resource type="Script" uid="uid://s3jlwcgbvv2h" path="res://scenes/entities/fishes/components/fish_movement.gd" id="3_ym86q"]
+[ext_resource type="Script" uid="uid://cn1lit6n5jbjw" path="res://scenes/entities/fishes/components/fish_visuals.gd" id="4_1o0gn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yxacc"]
 atlas = ExtResource("2_73y4s")
@@ -77,12 +79,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0pc3"]
 size = Vector2(18, 5)
 
-[node name="Fish" type="CharacterBody2D" unique_id=69548390]
+[node name="Fish" type="CharacterBody2D" unique_id=69548390 node_paths=PackedStringArray("movement_component", "visuals_component")]
 z_index = 1
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_0xdpr")
-base_speed = 50.0
+movement_component = NodePath("MovementComponent")
+visuals_component = NodePath("VisualsComponent")
 
 [node name="FishSprite" type="AnimatedSprite2D" parent="." unique_id=341686494]
 unique_name_in_owner = true
@@ -93,3 +96,10 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=502182990]
 position = Vector2(2, 0.5)
 shape = SubResource("RectangleShape2D_a0pc3")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1380834197]
+script = ExtResource("3_ym86q")
+
+[node name="VisualsComponent" type="Node" parent="." unique_id=872419871 node_paths=PackedStringArray("sprite")]
+script = ExtResource("4_1o0gn")
+sprite = NodePath("../FishSprite")

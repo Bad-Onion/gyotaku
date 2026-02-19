@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://strfaqn8wah7" path="res://assets/sprites/HUD/a-retro-styled-pixel-art-illustration-of-a-fishing-rod-free-png.webp" id="1_7gxyw"]
 [ext_resource type="Texture2D" uid="uid://ccxha327uwpcl" path="res://assets/sprites/HUD/sr2e72fbd0562aws3.png" id="2_xla6n"]
 [ext_resource type="Script" uid="uid://df0awv8y88e4b" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.gd" id="3_2duka"]
+[ext_resource type="Script" uid="uid://bp6jpcuc73prj" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_line_renderer.gd" id="4_kpmcx"]
 
 [node name="FishingCursorUI" type="Node2D" unique_id=782493889]
 z_index = 5
@@ -29,3 +30,4 @@ unique_name_in_owner = true
 width = 2.0
 begin_cap_mode = 2
 end_cap_mode = 2
+script = ExtResource("4_kpmcx")

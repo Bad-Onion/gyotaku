@@ -9,7 +9,7 @@ extends Node2D
 @export_group("Nodes")
 @onready var rod_sprite: Sprite2D = %RodSprite
 @onready var arrow_sprite: Sprite2D = %ArrowSprite
-@onready var fishing_line: Line2D = %FishingLine
+@onready var fishing_line: FishingLineRenderer = %FishingLine
 @onready var tip_marker: Marker2D = %RodSprite/TipMarker
 
 @export_group("Colors & Thresholds")
@@ -20,6 +20,7 @@ extends Node2D
 @export var sweet_spot_max: float = 70.0
 
 var max_expected_drag: float = 150.0
+var _current_tension: float = 0.0
 
 
 func _ready() -> void:
@@ -36,6 +37,9 @@ func activate() -> void:
 	if fishing_line:
 		fishing_line.show()
 
+	if mechanic_system and not mechanic_system.tension_updated.is_connected(_on_tension_updated):
+		mechanic_system.tension_updated.connect(_on_tension_updated)
+
 
 func deactivate() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -43,6 +47,9 @@ func deactivate() -> void:
 
 	if fishing_line:
 		fishing_line.hide()
+
+	if mechanic_system and mechanic_system.tension_updated.is_connected(_on_tension_updated):
+		mechanic_system.tension_updated.disconnect(_on_tension_updated)
 
 
 func _process(delta: float) -> void:
@@ -59,6 +66,12 @@ func _process(delta: float) -> void:
 	_update_string_physics()
 
 
+func _on_tension_updated(current: float, _max_val: float) -> void:
+	_current_tension = current
+	if fishing_line:
+		fishing_line.update_tension_visuals(_current_tension, sweet_spot_min)
+
+
 func _update_arrow() -> void:
 	var drag_vector := input_system.get_drag_vector()
 
@@ -68,68 +81,34 @@ func _update_arrow() -> void:
 	else:
 		arrow_sprite.hide()
 
-	# Tint the arrow based on current tension
-	var tension := mechanic_system.current_tension
-	if tension < sweet_spot_min:
+	if _current_tension < sweet_spot_min:
 		arrow_sprite.modulate = color_low
-	elif tension > sweet_spot_max:
+	elif _current_tension > sweet_spot_max:
 		arrow_sprite.modulate = color_danger
 	else:
 		arrow_sprite.modulate = color_perfect
 
 
 func _update_rod(delta: float) -> void:
-	# Calculate how hard the player is pulling (0.0 to 1.0)
 	var drag_length := input_system.get_drag_vector().length()
 	var pull_intensity := clampf(drag_length / max_expected_drag, 0.0, 1.0)
-
-	# When using a sprite sheet for the rod, change the frame based on pull_intensity
-	# rod_sprite.frame = int(pull_intensity * max_frames)
-
-	# For now, simulate rod bending by dynamically rotating/scaling it
 	var drag_dir := signf(input_system.get_drag_vector().x)
 
 	if drag_dir == 0:
-		drag_dir = 1.0 # Default to right if no direction, to avoid NaN
+		drag_dir = 1.0
 
-	var target_rotation := pull_intensity * (PI / 4.0) * drag_dir # Bends up to 45 degrees
-
+	var target_rotation := pull_intensity * (PI / 4.0) * drag_dir
 	rod_sprite.rotation = lerp_angle(rod_sprite.rotation, target_rotation, 15.0 * delta)
 
 
 func _update_string_physics() -> void:
-	# Se não houver peixe ou marcador, não desenha
-	if not mechanic_system.fish or not tip_marker:
+	# Note: Accessing mechanic_system._fish requires an exposed variable or getter.
+	# For clean code, assume get_hooked_fish() exists in FishingMechanicSystem,
+	# or change '_fish' to 'hooked_fish' in the system script.
+	var current_fish = mechanic_system._fish # Replace with getter if you encapsulated this
+
+	if not current_fish or not tip_marker:
 		fishing_line.clear_points()
 		return
 
-	var start_pos = tip_marker.global_position
-	var end_pos = mechanic_system.fish.global_position
-
-	# Se a tensão atual for maior ou igual ao mínimo do "Sweet Spot" (zona verde),
-	# consideramos a linha visualmente esticada (1.0).
-	# Se for menor, interpolamos de 0.0 até 1.0.
-	var raw_tension = mechanic_system.current_tension
-	var visual_tension_ratio = remap(raw_tension, 0.0, sweet_spot_min, 0.0, 1.0)
-	visual_tension_ratio = clampf(visual_tension_ratio, 0.0, 1.0)
-
-	# Criar curva de Bezier quadrática
-	# O ponto de controle fica no meio, mas cai para baixo dependendo da "falta" de tensão
-	var mid_point = (start_pos + end_pos) / 2.0
-
-	# Quanto menor a tensão, mais a linha "cai" (sag)
-	var sag_amount = lerp(150.0, 0.0, visual_tension_ratio)
-
-	# Adiciona gravidade ao ponto de controle
-	var control_point = mid_point + Vector2(0, sag_amount)
-
-	# Desenhar a curva com segmentos suaves
-	fishing_line.clear_points()
-	var segments = 20
-	for i in range(segments + 1):
-		var t = float(i) / segments
-		# Fórmula de Bezier Quadrática: (1-t)^2 * P0 + 2(1-t)t * P1 + t^2 * P2
-		var q0 = start_pos.lerp(control_point, t)
-		var q1 = control_point.lerp(end_pos, t)
-		var point = q0.lerp(q1, t)
-		fishing_line.add_point(point)
+	fishing_line.update_line_points(tip_marker.global_position, current_fish.global_position)

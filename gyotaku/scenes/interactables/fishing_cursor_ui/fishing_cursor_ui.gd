@@ -20,9 +20,6 @@ var _current_tension: float = 0.0
 func _ready() -> void:
 	hide()
 
-	if fishing_line:
-		fishing_line.top_level = true
-
 
 func activate() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -102,4 +99,5 @@ func _update_string_physics() -> void:
 		fishing_line.clear_points()
 		return
 
-	fishing_line.update_line_points(tip_marker.global_position, current_fish.global_position)
+	var fish_screen_position = current_fish.get_global_transform_with_canvas().origin
+	fishing_line.update_line_points(tip_marker.global_position, fish_screen_position)

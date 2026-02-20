@@ -19,6 +19,7 @@ var _current_tension: float = 0.0
 var _current_depth: float = 50.0
 var _was_dragging_last_frame: bool = false
 var _is_minigame_active: bool = false
+var _minigame_start_y: float = 0.0
 
 
 func _ready() -> void:
@@ -89,7 +90,12 @@ func _calculate_depth(delta: float) -> void:
 		_current_depth += _current_config.depth_sink_fast_speed * delta # Sink faster if fish is too far from center
 
 	_current_depth = clampf(_current_depth, 0.0, _current_config.max_depth)
-	_fish.set_vertical_position(remap(_current_depth, 0.0, _current_config.max_depth, _current_config.surface_y, _current_config.bottom_y))
+
+	var range_size := absf(_current_config.bottom_y - _current_config.surface_y)
+	var top_limit := _minigame_start_y - (range_size / 2.0)
+	var bottom_limit := _minigame_start_y + (range_size / 2.0)
+
+	_fish.set_vertical_position(remap(_current_depth, 0.0, _current_config.max_depth, top_limit, bottom_limit))
 	depth_updated.emit(_current_depth, _current_config.max_depth)
 
 
@@ -106,7 +112,15 @@ func _apply_escape_impulse() -> void:
 
 func _reset_state() -> void:
 	_current_tension = 0.0
-	_current_depth = 50.0
+
+	if _fish and _current_config:
+		_current_depth = _current_config.max_depth / 2.0
+	else:
+		_current_depth = 50.0
+
+	if _fish:
+		_minigame_start_y = _fish.global_position.y
+
 	_was_dragging_last_frame = false
 
 

@@ -8,15 +8,12 @@ var current_drag_vector: Vector2 = Vector2.ZERO
 
 
 func _unhandled_input(event: InputEvent) -> void:
-    # TODO: Create a custom input action for fishing and use it instead of hardcoding mouse button checks
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			is_dragging = true
-			drag_start_position = event.position
-		else:
-			is_dragging = false
-			current_drag_vector = Vector2.ZERO
-
+	if event.is_action_pressed(InputActions.FISHING_DRAG):
+		is_dragging = true
+		drag_start_position = event.position
+	elif event.is_action_released(InputActions.FISHING_DRAG):
+		is_dragging = false
+		current_drag_vector = Vector2.ZERO
 	elif event is InputEventMouseMotion and is_dragging:
 		current_drag_vector = event.position - drag_start_position
 

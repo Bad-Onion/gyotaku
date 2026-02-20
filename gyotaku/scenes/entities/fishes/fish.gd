@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @export var movement_component: FishMovement
 @export var visuals_component: FishVisuals
+@export var fishing_config: FishingConfig
 
 var is_hooked: bool = false
 var movement_direction: int = 1
@@ -15,9 +16,8 @@ func _ready() -> void:
 		push_error("Fish: Missing components.")
 
 
-# TODO: Refactor to use a single method for setting bounds with a struct or class for better organization and type safety
-func set_bounds(min_x: float, max_x: float, min_y: float, max_y: float) -> void:
-	movement_component.set_bounds(min_x, max_x, min_y, max_y, global_position.y)
+func set_bounds(bounds: FishMovement.FishBounds) -> void:
+	movement_component.set_bounds(bounds)
 
 
 func hook() -> void:

@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cgb7ob0db0t1f"]
 
 [ext_resource type="Script" uid="uid://baetghgq6xdu0" path="res://scenes/entities/fishes/fish.gd" id="1_0xdpr"]
+[ext_resource type="Resource" uid="uid://c6u65drbrt1sa" path="res://resources/default_fish_dificulty.tres" id="2_71dcr"]
 [ext_resource type="Texture2D" uid="uid://imwffhuc7mdb" path="res://assets/sprites/fishes/gorukun/Gurukun-Sheet.png" id="2_73y4s"]
 [ext_resource type="Script" uid="uid://s3jlwcgbvv2h" path="res://scenes/entities/fishes/components/fish_movement.gd" id="3_ym86q"]
 [ext_resource type="Script" uid="uid://cn1lit6n5jbjw" path="res://scenes/entities/fishes/components/fish_visuals.gd" id="4_1o0gn"]
+[ext_resource type="Resource" uid="uid://cjj465csurnjw" path="res://resources/default_fish_movement.tres" id="5_87yys"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yxacc"]
 atlas = ExtResource("2_73y4s")
@@ -86,6 +88,7 @@ motion_mode = 1
 script = ExtResource("1_0xdpr")
 movement_component = NodePath("MovementComponent")
 visuals_component = NodePath("VisualsComponent")
+fishing_config = ExtResource("2_71dcr")
 
 [node name="FishSprite" type="AnimatedSprite2D" parent="." unique_id=341686494]
 unique_name_in_owner = true
@@ -99,6 +102,7 @@ shape = SubResource("RectangleShape2D_a0pc3")
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1380834197]
 script = ExtResource("3_ym86q")
+movement_config = ExtResource("5_87yys")
 
 [node name="VisualsComponent" type="Node" parent="." unique_id=872419871 node_paths=PackedStringArray("sprite")]
 script = ExtResource("4_1o0gn")

@@ -28,7 +28,6 @@ func spawn_fish() -> void:
 
 	fishes_container.add_child(fish_instance)
 
-	# TODO: Use a struct or class to hold spawn area settings
 	var half_extents := spawn_area_size / 2.0
 	var min_x := global_position.x - half_extents.x
 	var max_x := global_position.x + half_extents.x
@@ -41,8 +40,13 @@ func spawn_fish() -> void:
 
 	fish_instance.global_position = Vector2(random_x, random_y)
 
+	var spawn_bounds = FishMovement.FishBounds.new(
+		Rect2(min_x, min_y, max_x - min_x, max_y - min_y),
+		random_y
+	)
+
 	# Inject horizontal bounds
-	fish_instance.set_bounds(min_x, max_x, min_y, max_y)
+	fish_instance.set_bounds(spawn_bounds)
 
 	# Randomize initial direction
 	fish_instance.movement_direction = 1 if randf() > 0.5 else -1

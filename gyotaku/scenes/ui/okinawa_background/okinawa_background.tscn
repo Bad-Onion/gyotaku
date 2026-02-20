@@ -7,33 +7,62 @@
 [ext_resource type="Texture2D" uid="uid://fteem8mo0l4" path="res://assets/backgrounds/okinawa/Montanha_Esquerda_2.png" id="5_d637k"]
 [ext_resource type="Texture2D" uid="uid://bpd5wedggpu32" path="res://assets/backgrounds/okinawa/Montanha_Esquerda_1.png" id="6_8p0c7"]
 [ext_resource type="Texture2D" uid="uid://bj5lakp8jvqde" path="res://assets/backgrounds/okinawa/Montanha_Direita_1.png" id="7_1d3g0"]
+[ext_resource type="Shader" uid="uid://deysuyxq0n05p" path="res://scenes/ui/okinawa_background/okinawa_backgroundwater_reflection_shader.gdshader" id="8_4f0ou"]
+[ext_resource type="Script" uid="uid://crit8ctfvvnnv" path="res://scenes/ui/okinawa_background/water_visuals.gd" id="9_uekg8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uekg8"]
+shader = ExtResource("8_4f0ou")
+shader_parameter/horizon_level = 0.53
+shader_parameter/wave_amplitude = 0.01
+shader_parameter/wave_frequency = 25.0
+shader_parameter/wave_speed = 2.0
+shader_parameter/water_tint = Color(0.1, 0.4, 0.7, 0.3)
 
 [node name="OkinawaBackground" type="Node" unique_id=1616347244]
 
 [node name="Sky" type="Sprite2D" parent="." unique_id=1428202544]
+z_index = 1
 position = Vector2(320, 180)
 texture = ExtResource("1_mtm42")
 
 [node name="FarMountains" type="Sprite2D" parent="." unique_id=1424857524]
+z_index = 1
 position = Vector2(320, 192)
 texture = ExtResource("2_4f0ou")
 
 [node name="LeftMountain3" type="Sprite2D" parent="." unique_id=100659417]
+z_index = 1
 position = Vector2(164, 196)
 texture = ExtResource("3_uekg8")
 
 [node name="RightMountain2" type="Sprite2D" parent="." unique_id=919601365]
+z_index = 1
 position = Vector2(576, 175)
 texture = ExtResource("4_pmoxm")
 
 [node name="LeftMountain2" type="Sprite2D" parent="." unique_id=1469487905]
+z_index = 1
 position = Vector2(54, 175)
 texture = ExtResource("5_d637k")
 
 [node name="LeftMountain1" type="Sprite2D" parent="." unique_id=530648550]
+z_index = 1
 position = Vector2(57, 195)
 texture = ExtResource("6_8p0c7")
 
 [node name="RightMountain1" type="Sprite2D" parent="." unique_id=1316389444]
+z_index = 1
 position = Vector2(534, 172)
 texture = ExtResource("7_1d3g0")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=1514620730]
+position = Vector2(320, 133.5)
+scale = Vector2(3.2, 1.3349999)
+copy_mode = 2
+
+[node name="WaterReflection" type="ColorRect" parent="." unique_id=1188473057]
+material = SubResource("ShaderMaterial_uekg8")
+offset_top = 211.0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("9_uekg8")

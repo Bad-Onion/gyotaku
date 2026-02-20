@@ -133,6 +133,7 @@ frame_progress = 0.21664254
 script = ExtResource("4_w3g2g")
 
 [node name="Player" parent="Boat/Boat" unique_id=448418749 instance=ExtResource("7_hhmec")]
+z_index = 1
 z_as_relative = false
 position = Vector2(14, -24.073181)
 animation = &"idle"

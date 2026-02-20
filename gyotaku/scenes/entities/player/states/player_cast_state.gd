@@ -11,8 +11,8 @@ extends GameState
 
 
 func enter() -> void:
-	# TODO: Replace this with a constant in the animation player, and use that instead. This is because the animation name can be changed, and we don't want to have to change the code every time that happens.
-	animated_sprite.play("cast_line")
+	# TODO: This should be changed to a "transition" state/animation
+	animated_sprite.play(PlayerStates.CAST_ANIMATION)
 	animated_sprite.animation_finished.connect(_on_animation_finished)
 
 	fishing_mechanic_system.fish_caught.connect(_on_minigame_ended)
@@ -39,7 +39,7 @@ func _on_minigame_ended() -> void:
 
 
 func _on_animation_finished() -> void:
-	if animated_sprite.animation == "cast_line":
+	if animated_sprite.animation == PlayerStates.CAST_ANIMATION:
 		animated_sprite.animation_finished.disconnect(_on_animation_finished)
 
 		fishing_hook.cast_line(rod_tip_marker.global_position)

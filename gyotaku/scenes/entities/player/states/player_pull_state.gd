@@ -7,8 +7,8 @@ extends GameState
 
 
 func enter() -> void:
-	# TODO: Replace this with a constant
-	animated_sprite.play("pull_line")
+	# TODO: This should be changed to a "transition" state/animation
+	animated_sprite.play(PlayerStates.PULL_ANIMATION)
 	animated_sprite.animation_finished.connect(_on_animation_finished)
 
 
@@ -18,7 +18,7 @@ func exit() -> void:
 
 
 func _on_animation_finished() -> void:
-	if animated_sprite.animation == "pull_line":
+	if animated_sprite.animation == PlayerStates.PULL_ANIMATION:
 		transitioned.emit(self, ready_state.get_id())
 
 

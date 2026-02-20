@@ -7,13 +7,13 @@ extends GameState
 
 
 func enter() -> void:
-	# TODO: Replace this with a constant in the animation player, and use that instead. This is because the animation name can be changed, and we don't want to have to change the code every time that happens.
-	animated_sprite.play("equip_rod")
+	# TODO: This should be changed to a "transition" state/animation
+	animated_sprite.play(PlayerStates.EQUIP_ANIMATION)
 	animated_sprite.animation_finished.connect(_on_animation_finished)
 
 
 func _on_animation_finished() -> void:
-	if animated_sprite.animation == "equip_rod":
+	if animated_sprite.animation == PlayerStates.EQUIP_ANIMATION:
 		animated_sprite.animation_finished.disconnect(_on_animation_finished)
 		transitioned.emit(self, ready_state.get_id())
 

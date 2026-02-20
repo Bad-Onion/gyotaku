@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bcbxhrgo0wlfw"]
+
+[ext_resource type="Texture2D" uid="uid://b5lapoffabm7g" path="res://assets/backgrounds/okinawa/Ceu.png" id="1_mtm42"]
+[ext_resource type="Texture2D" uid="uid://byle31p7kt338" path="res://assets/backgrounds/okinawa/Montanha_Horizonte.png" id="2_4f0ou"]
+[ext_resource type="Texture2D" uid="uid://dntumpylymxgp" path="res://assets/backgrounds/okinawa/Montanha_Esquerda_3.png" id="3_uekg8"]
+[ext_resource type="Texture2D" uid="uid://wv4wi3ood24s" path="res://assets/backgrounds/okinawa/Montanha_Direita__2.png" id="4_pmoxm"]
+[ext_resource type="Texture2D" uid="uid://fteem8mo0l4" path="res://assets/backgrounds/okinawa/Montanha_Esquerda_2.png" id="5_d637k"]
+[ext_resource type="Texture2D" uid="uid://bpd5wedggpu32" path="res://assets/backgrounds/okinawa/Montanha_Esquerda_1.png" id="6_8p0c7"]
+[ext_resource type="Texture2D" uid="uid://bj5lakp8jvqde" path="res://assets/backgrounds/okinawa/Montanha_Direita_1.png" id="7_1d3g0"]
+
+[node name="OkinawaBackground" type="Node" unique_id=1616347244]
+
+[node name="Sky" type="Sprite2D" parent="." unique_id=1428202544]
+position = Vector2(320, 180)
+texture = ExtResource("1_mtm42")
+
+[node name="FarMountains" type="Sprite2D" parent="." unique_id=1424857524]
+position = Vector2(320, 192)
+texture = ExtResource("2_4f0ou")
+
+[node name="LeftMountain3" type="Sprite2D" parent="." unique_id=100659417]
+position = Vector2(164, 196)
+texture = ExtResource("3_uekg8")
+
+[node name="RightMountain2" type="Sprite2D" parent="." unique_id=919601365]
+position = Vector2(576, 175)
+texture = ExtResource("4_pmoxm")
+
+[node name="LeftMountain2" type="Sprite2D" parent="." unique_id=1469487905]
+position = Vector2(54, 175)
+texture = ExtResource("5_d637k")
+
+[node name="LeftMountain1" type="Sprite2D" parent="." unique_id=530648550]
+position = Vector2(57, 195)
+texture = ExtResource("6_8p0c7")
+
+[node name="RightMountain1" type="Sprite2D" parent="." unique_id=1316389444]
+position = Vector2(534, 172)
+texture = ExtResource("7_1d3g0")

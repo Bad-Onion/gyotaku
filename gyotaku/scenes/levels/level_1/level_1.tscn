@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://d4im07ios3cej" path="res://scenes/mechanics/fishing_mechanic/fish_spawner.gd" id="4_58uyj"]
 [ext_resource type="Script" uid="uid://byhdwncbhrg0u" path="res://scenes/interactables/boat/boat_floating.gd" id="4_w3g2g"]
 [ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fishes/fish.tscn" id="5_ojo11"]
+[ext_resource type="PackedScene" uid="uid://bcbxhrgo0wlfw" path="res://scenes/ui/okinawa_background/okinawa_background.tscn" id="5_v0dvh"]
 [ext_resource type="Resource" uid="uid://c6u65drbrt1sa" path="res://resources/default_fish_dificulty.tres" id="7_1jeig"]
 [ext_resource type="PackedScene" uid="uid://dqn76wtt7lna1" path="res://scenes/entities/player/player.tscn" id="7_hhmec"]
 [ext_resource type="Script" uid="uid://cgminbcnigia7" path="res://scripts/utilities/state_machine.gd" id="8_8spg0"]
@@ -113,9 +114,13 @@ scale = Vector2(0.33399886, 0.33396265)
 texture = ExtResource("2_napug")
 
 [node name="BackgroundLandscape" type="AnimatedSprite2D" parent="Background" unique_id=1308207994]
+visible = false
+z_index = 1
 position = Vector2(320, 180.00002)
 scale = Vector2(0.25008067, 0.2500807)
 sprite_frames = SubResource("SpriteFrames_wfdrs")
+
+[node name="OkinawaBackground" parent="Background" unique_id=1616347244 instance=ExtResource("5_v0dvh")]
 
 [node name="Boat" type="Node" parent="." unique_id=439834229]
 

@@ -5,20 +5,13 @@ extends Node2D
 @export_group("Dependencies")
 @export var mechanic_system: FishingMechanicSystem
 @export var input_system: PlayerFishingInput
+@export var hud_config: FishingHudConfig
 
 @export_group("Nodes")
 @onready var rod_sprite: Sprite2D = %RodSprite
 @onready var arrow_sprite: Sprite2D = %ArrowSprite
 @onready var fishing_line: FishingLineRenderer = %FishingLine
 @onready var tip_marker: Marker2D = %RodSprite/TipMarker
-
-# TODO: Refactor to use a .tres for these settings if they grow more complex
-@export_group("Colors & Thresholds")
-@export var color_low: Color = Color.YELLOW
-@export var color_perfect: Color = Color.GREEN
-@export var color_danger: Color = Color.RED
-@export var sweet_spot_min: float = 30.0
-@export var sweet_spot_max: float = 70.0
 
 var max_expected_drag: float = 150.0
 var _current_tension: float = 0.0
@@ -70,7 +63,7 @@ func _process(delta: float) -> void:
 func _on_tension_updated(current: float, _max_val: float) -> void:
 	_current_tension = current
 	if fishing_line:
-		fishing_line.update_tension_visuals(_current_tension, sweet_spot_min)
+		fishing_line.update_tension_visuals(_current_tension, hud_config.sweet_spot_min)
 
 
 func _update_arrow() -> void:
@@ -82,12 +75,12 @@ func _update_arrow() -> void:
 	else:
 		arrow_sprite.hide()
 
-	if _current_tension < sweet_spot_min:
-		arrow_sprite.modulate = color_low
-	elif _current_tension > sweet_spot_max:
-		arrow_sprite.modulate = color_danger
+	if _current_tension < hud_config.sweet_spot_min:
+		arrow_sprite.modulate = hud_config.color_low
+	elif _current_tension > hud_config.sweet_spot_max:
+		arrow_sprite.modulate = hud_config.color_danger
 	else:
-		arrow_sprite.modulate = color_perfect
+		arrow_sprite.modulate = hud_config.color_perfect
 
 
 func _update_rod(delta: float) -> void:

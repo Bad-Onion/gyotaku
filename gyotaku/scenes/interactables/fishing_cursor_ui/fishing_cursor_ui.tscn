@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://up571wp5o825"]
 
 [ext_resource type="Texture2D" uid="uid://strfaqn8wah7" path="res://assets/sprites/HUD/a-retro-styled-pixel-art-illustration-of-a-fishing-rod-free-png.webp" id="1_7gxyw"]
+[ext_resource type="Script" uid="uid://csx5k7ay4wh0r" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_hud_config.gd" id="2_d6030"]
 [ext_resource type="Texture2D" uid="uid://ccxha327uwpcl" path="res://assets/sprites/HUD/sr2e72fbd0562aws3.png" id="2_xla6n"]
 [ext_resource type="Script" uid="uid://df0awv8y88e4b" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.gd" id="3_2duka"]
 [ext_resource type="Script" uid="uid://bp6jpcuc73prj" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_line_renderer.gd" id="4_kpmcx"]
 
+[sub_resource type="Resource" id="Resource_a4k06"]
+script = ExtResource("2_d6030")
+metadata/_custom_type_script = "uid://csx5k7ay4wh0r"
+
 [node name="FishingCursorUI" type="Node2D" unique_id=782493889]
 z_index = 5
+script = ExtResource("3_2duka")
+hud_config = SubResource("Resource_a4k06")
 
 [node name="RodSprite" type="Sprite2D" parent="." unique_id=2066038344]
 unique_name_in_owner = true

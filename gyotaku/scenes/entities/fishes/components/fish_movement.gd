@@ -82,3 +82,7 @@ func find_target(current_position: Vector2, current_target: Node2D) -> Node2D:
 		return null
 
 	return current_target
+
+
+func move(current_velocity_x: float, force_x: float, delta: float) -> float:
+	return move_toward(current_velocity_x, force_x, movement_config.force_smoothness * delta)

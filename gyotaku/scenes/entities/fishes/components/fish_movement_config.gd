@@ -6,3 +6,4 @@ extends Resource
 @export var chase_speed: float = 85.0
 @export var wander_radius_y: float = 40.0
 @export var detection_radius: float = 70.0
+@export var force_smoothness: float = 400.0

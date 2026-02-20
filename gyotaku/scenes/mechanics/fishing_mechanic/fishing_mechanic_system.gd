@@ -56,10 +56,7 @@ func _handle_tug_of_war_physics(delta: float) -> void:
 	var player_pull_velocity = _get_player_pull_velocity()
 	var fish_target_velocity = _get_fish_struggle_velocity() + player_pull_velocity
 
-	# TODO: Create a method like _fish.apply_external_force(velocity) to encapsulate this logic inside the Fish class
-	_fish.velocity.x = move_toward(_fish.velocity.x, fish_target_velocity, 400.0 * delta)
-
-	if _fish.velocity.x != 0: _fish.update_facing_direction(signf(_fish.velocity.x))
+	_fish.apply_external_force(fish_target_velocity, delta)
 
 
 func _calculate_tension(delta: float) -> void:
@@ -92,11 +89,7 @@ func _calculate_depth(delta: float) -> void:
 		_current_depth += _current_config.depth_sink_fast_speed * delta # Sink faster if fish is too far from center
 
 	_current_depth = clampf(_current_depth, 0.0, _current_config.max_depth)
-
-	# TODO: Create a method like _fish.set_vertical_position(y) to encapsulate this logic inside the Fish class
-	var new_vertical_position = remap(_current_depth, 0.0, _current_config.max_depth, _current_config.surface_y, _current_config.bottom_y)
-	_fish.global_position.y = new_vertical_position
-
+	_fish.set_vertical_position(remap(_current_depth, 0.0, _current_config.max_depth, _current_config.surface_y, _current_config.bottom_y))
 	depth_updated.emit(_current_depth, _current_config.max_depth)
 
 
@@ -140,13 +133,13 @@ func _set_minigame_active(active: bool) -> void:
 
 
 func _assign_dificulty_config() -> void:
-	# TODO: Add a way to assign different configs based on fish type
-	# For now, we use the system default dificulty config
-	_current_config = default_config
+	if _fish.fishing_config:
+		_current_config = _fish.fishing_config
+	else:
+		_current_config = default_config
 
 	if not _current_config:
 		push_error("FishingMechanicSystem: No FishingConfig provided!")
-		return
 
 
 func _get_fish_struggle_velocity() -> float:

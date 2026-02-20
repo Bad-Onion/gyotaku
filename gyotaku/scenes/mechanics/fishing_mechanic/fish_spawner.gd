@@ -2,7 +2,6 @@ class_name FishSpawner
 extends Node2D
 
 
-# TODO: Use a .tres for spawn settings
 @export var fish_scene: PackedScene
 @export var spawn_area_size: Vector2 = Vector2(560, 180)
 @export var max_fishes: int = 5

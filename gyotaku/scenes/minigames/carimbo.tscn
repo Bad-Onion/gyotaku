@@ -78,6 +78,26 @@ grow_vertical = 2
 columns = 3
 script = ExtResource("2_5dofo")
 
+[node name="ColorRect3" type="ColorRect" parent="Panel/GridContainer" unique_id=1875651656]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Panel/GridContainer" unique_id=479864985]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0, 1, 0, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Panel/GridContainer" unique_id=1853967813]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Panel/GridContainer" unique_id=1620822803]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
 [node name="ColorRect7" type="ColorRect" parent="Panel/GridContainer" unique_id=774643722]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
@@ -87,30 +107,10 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 color = Color(1, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Panel/GridContainer" unique_id=479864985]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(0, 1, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Panel/GridContainer" unique_id=1875651656]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(0, 0, 1, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Panel/GridContainer" unique_id=1620822803]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(0, 0, 0, 1)
-
 [node name="ColorRect5" type="ColorRect" parent="Panel/GridContainer" unique_id=1160602180]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 color = Color(0.46229059, 0.46229059, 0.46229059, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="Panel/GridContainer" unique_id=1853967813]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(1, 1, 0, 1)
 
 [node name="CorAtual" type="ColorRect" parent="Panel" unique_id=1828001850]
 custom_minimum_size = Vector2(20, 20)

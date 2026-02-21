@@ -3,23 +3,11 @@
 [ext_resource type="Script" uid="uid://byw66ndwd0aja" path="res://carimbo.gd" id="1_af0jy"]
 [ext_resource type="Script" uid="uid://cixtt81vnpfk1" path="res://cores_de_tinta.gd" id="2_5dofo"]
 [ext_resource type="PackedScene" uid="uid://d28xw0r1f3qul" path="res://scenes/peixes/peixeteste.tscn" id="2_xwurr"]
+[ext_resource type="PackedScene" uid="uid://dksa5sfa1b54q" path="res://scenes/cursor/cursor.tscn" id="5_fxhco"]
 [ext_resource type="Script" uid="uid://y1xhtxmwaj7v" path="res://area_de_cor.gd" id="5_x33oj"]
-[ext_resource type="Texture2D" uid="uid://b1a51irwxqr5k" path="res://assets/cursor/largo.png" id="6_xwurr"]
-[ext_resource type="Script" uid="uid://g82ca33qqw7a" path="res://cursor_pincel.gd" id="7_i8l8x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dofo"]
 bg_color = Color(0.09239706, 0.09239707, 0.092397, 1)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fxhco"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_xwurr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Carimbo" type="CanvasLayer" unique_id=2108949112]
 script = ExtResource("1_af0jy")
@@ -136,8 +124,5 @@ offset_right = 53.0
 offset_bottom = 59.0
 color = Color(1, 0, 0, 1)
 
-[node name="CursorPincel" type="AnimatedSprite2D" parent="." unique_id=1618438045]
-texture_filter = 1
-position = Vector2(544, 269)
-sprite_frames = SubResource("SpriteFrames_fxhco")
-script = ExtResource("7_i8l8x")
+[node name="Cursor" parent="." unique_id=1434074555 instance=ExtResource("5_fxhco")]
+position = Vector2(9, 12)

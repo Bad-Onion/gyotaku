@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dksa5sfa1b54q"]
+
+[ext_resource type="Texture2D" uid="uid://b1a51irwxqr5k" path="res://assets/cursor/largo.png" id="1_hu3fh"]
+[ext_resource type="Script" uid="uid://g82ca33qqw7a" path="res://cursor_pincel.gd" id="2_roth4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghxni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hu3fh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cursor" type="Node2D" unique_id=1434074555]
+
+[node name="CursorPincel" type="AnimatedSprite2D" parent="." unique_id=1090630000]
+texture_filter = 1
+position = Vector2(9, 9)
+sprite_frames = SubResource("SpriteFrames_ghxni")
+script = ExtResource("2_roth4")

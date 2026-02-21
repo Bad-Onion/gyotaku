@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const cursor = preload("uid://b1a51irwxqr5k")
+const cursor = preload("uid://coru6fhwvtq6i")
 
 func _ready() -> void:
-	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, Vector2(0,0))

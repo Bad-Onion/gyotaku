@@ -1,7 +1,8 @@
+class_name Imagem
+
 extends Sprite2D
 
-@onready var cor_atual: ColorRect = $"../Panel/CorAtual"
-
+@onready var cor_atual: ColorRect = $"../../../Panel/CorAtual"
 #Cor inicial
 @export var paint_color : Color = Color.RED :
 	#Atualiza o indicador de cor atual
@@ -9,19 +10,20 @@ extends Sprite2D
 		paint_color = value
 		cor_atual.color = value
 @export var img_size = Vector2i(640,360)
-@export var brush_size = 5
+@export var brush_size = 10
+@export var cor_fundo : Color
 
 var img : Image
 
 func _ready() -> void:
 	#Cria imagem branca vazia
 	img = Image.create_empty(img_size.x, img_size.y, false, Image.FORMAT_RGBA8)
-	img.fill(Color.WHITE)
+	#img.fill(cor_fundo)
 	texture = ImageTexture.create_from_image(img)
 	
 func _paint_tex(pos) -> void:
 	#Pinta um retângulo de acordo com o brush size no mouse
-	img.fill_rect(Rect2i(pos, Vector2i(0,20)).grow(brush_size/2), paint_color)
+	img.fill_rect(Rect2i(pos, Vector2i(0,6)).grow(brush_size/2), paint_color)
 
 func _input(event: InputEvent) -> void:
 	#Inputs do mouse:
@@ -58,3 +60,6 @@ func _input(event: InputEvent) -> void:
 #Atualiza tamanho do brush com o valor da barrinha
 func _on_h_slider_value_changed(value: float) -> void:
 	brush_size = value
+	
+func salvar_imagem() -> void:
+	pass

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d28xw0r1f3qul"]
+
+[ext_resource type="Texture2D" uid="uid://dwqi2tr1fbc4i" path="res://assets/peixes/peixetest.png" id="1_nguc3"]
+[ext_resource type="Script" uid="uid://3wo874p8ylik" path="res://scenes/minigames/imagem.gd" id="2_cddau"]
+[ext_resource type="Texture2D" uid="uid://lktma7v1xfd6" path="res://assets/peixes/peixetest contorno.png" id="3_00gkt"]
+[ext_resource type="Texture2D" uid="uid://2xifux7llwyp" path="res://assets/peixes/peixetest só o contorno.png" id="4_fpqax"]
+
+[node name="PeixeTeste" type="Node2D" unique_id=975544837]
+
+[node name="Peixetest" type="Sprite2D" parent="." unique_id=1020902100]
+clip_children = 1
+texture_filter = 1
+position = Vector2(346, 170.99998)
+scale = Vector2(7.4999995, 7.4999995)
+texture = ExtResource("1_nguc3")
+
+[node name="Imagem" type="Sprite2D" parent="Peixetest" unique_id=1362288757]
+scale = Vector2(0.18113206, 0.18113206)
+script = ExtResource("2_cddau")
+
+[node name="Overlay de Textura" type="Sprite2D" parent="." unique_id=462743569]
+clip_children = 2
+texture_filter = 1
+position = Vector2(346, 170.99998)
+scale = Vector2(7.4999995, 7.4999995)
+texture = ExtResource("3_00gkt")
+
+[node name="Contorno" type="Sprite2D" parent="." unique_id=208805421]
+clip_children = 2
+texture_filter = 1
+position = Vector2(346, 170.99998)
+scale = Vector2(7.4999995, 7.4999995)
+texture = ExtResource("4_fpqax")

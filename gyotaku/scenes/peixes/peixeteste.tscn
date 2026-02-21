@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d28xw0r1f3qul"]
 
 [ext_resource type="Texture2D" uid="uid://dwqi2tr1fbc4i" path="res://assets/peixes/peixetest.png" id="1_nguc3"]
-[ext_resource type="Script" uid="uid://3wo874p8ylik" path="res://scenes/minigames/imagem.gd" id="2_cddau"]
+[ext_resource type="Script" uid="uid://3wo874p8ylik" path="res://imagem.gd" id="2_cddau"]
 [ext_resource type="Texture2D" uid="uid://lktma7v1xfd6" path="res://assets/peixes/peixetest contorno.png" id="3_00gkt"]
 [ext_resource type="Texture2D" uid="uid://2xifux7llwyp" path="res://assets/peixes/peixetest só o contorno.png" id="4_fpqax"]
 

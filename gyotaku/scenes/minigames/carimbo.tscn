@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://beeo85ftp1hn"]
 
-[ext_resource type="Script" uid="uid://byw66ndwd0aja" path="res://scenes/minigames/carimbo.gd" id="1_af0jy"]
-[ext_resource type="Script" uid="uid://cixtt81vnpfk1" path="res://scenes/minigames/cores_de_tinta.gd" id="2_5dofo"]
+[ext_resource type="Script" uid="uid://byw66ndwd0aja" path="res://carimbo.gd" id="1_af0jy"]
+[ext_resource type="Script" uid="uid://cixtt81vnpfk1" path="res://cores_de_tinta.gd" id="2_5dofo"]
 [ext_resource type="PackedScene" uid="uid://d28xw0r1f3qul" path="res://scenes/peixes/peixeteste.tscn" id="2_xwurr"]
-[ext_resource type="Script" uid="uid://y1xhtxmwaj7v" path="res://scenes/minigames/area_de_cor.gd" id="5_x33oj"]
+[ext_resource type="Script" uid="uid://y1xhtxmwaj7v" path="res://area_de_cor.gd" id="5_x33oj"]
 [ext_resource type="Texture2D" uid="uid://b1a51irwxqr5k" path="res://assets/cursor/largo.png" id="6_xwurr"]
-[ext_resource type="Script" uid="uid://g82ca33qqw7a" path="res://scenes/minigames/cursor_pincel.gd" id="7_i8l8x"]
+[ext_resource type="Script" uid="uid://g82ca33qqw7a" path="res://cursor_pincel.gd" id="7_i8l8x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dofo"]
 bg_color = Color(0.09239706, 0.09239707, 0.092397, 1)

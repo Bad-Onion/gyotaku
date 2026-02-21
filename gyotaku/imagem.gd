@@ -12,6 +12,7 @@ extends Sprite2D
 @export var img_size = Vector2i(640,360)
 @export var brush_size = 10
 @export var cor_fundo : Color
+@onready var brush_slide: HSlider = $"../../../Panel/HSlider"
 
 var img : Image
 
@@ -24,6 +25,9 @@ func _ready() -> void:
 func _paint_tex(pos) -> void:
 	#Pinta um retângulo de acordo com o brush size no mouse
 	img.fill_rect(Rect2i(pos, Vector2i(0,6)).grow(brush_size/2), paint_color)
+
+func _process(delta: float) -> void:
+	brush_size = brush_slide.value
 
 func _input(event: InputEvent) -> void:
 	#Inputs do mouse:
@@ -56,10 +60,6 @@ func _input(event: InputEvent) -> void:
 					_paint_tex(impos)
 				
 			texture.update(img)
-
-#Atualiza tamanho do brush com o valor da barrinha
-func _on_h_slider_value_changed(value: float) -> void:
-	brush_size = value
 	
 func salvar_imagem() -> void:
 	pass

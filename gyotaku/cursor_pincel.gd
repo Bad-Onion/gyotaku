@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	else:
 		cursor_pincel.play("default")
 		var offset_vector = get_size()
-		var offset_y = offset_vector.y / 2.5
+		var offset_y = offset_vector.y / 4
 		cursor_pincel.offset = Vector2(0,offset_y)
 
 func get_size() -> Vector2:

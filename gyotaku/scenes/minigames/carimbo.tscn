@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dksa5sfa1b54q" path="res://scenes/cursor/cursor.tscn" id="5_fxhco"]
 [ext_resource type="Script" uid="uid://dhcf3dxcscjkt" path="res://scenes/minigames/redefinir.gd" id="5_i8l8x"]
 [ext_resource type="Script" uid="uid://dbc2qqmyr7hfd" path="res://scenes/minigames/salvar.gd" id="5_xwurr"]
+[ext_resource type="Script" uid="uid://cfcg84d4obhdb" path="res://scenes/minigames/catalogo.gd" id="6_i8l8x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dofo"]
 bg_color = Color(0.09239706, 0.09239707, 0.092397, 1)
@@ -21,7 +22,6 @@ bg_color = Color(0.21950099, 0.21950105, 0.21950087, 1)
 script = ExtResource("1_af0jy")
 
 [node name="Background" type="ColorRect" parent="." unique_id=708901314]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,7 +41,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5dofo")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 16.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 18.0
 grow_horizontal = 2
 min_value = 5.0
 max_value = 20.0
@@ -141,8 +144,21 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_i8l8x")
 text = "Redefinir"
 script = ExtResource("5_i8l8x")
 
+[node name="Catalogo" type="Button" parent="Panel" unique_id=1229915821]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 224.0
+offset_right = 82.0
+offset_bottom = 255.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fxhco")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xwurr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8l8x")
+text = "Catálogo"
+script = ExtResource("6_i8l8x")
+
 [node name="Cursor" parent="." unique_id=1434074555 instance=ExtResource("5_fxhco")]
 position = Vector2(9, 12)
 
 [connection signal="pressed" from="Panel/Salvar" to="Panel/Salvar" method="_on_pressed"]
 [connection signal="pressed" from="Panel/Redefinir" to="Panel/Redefinir" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Catalogo" to="Panel/Catalogo" method="_on_pressed"]

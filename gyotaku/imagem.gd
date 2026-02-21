@@ -11,7 +11,8 @@ extends Sprite2D
 		paint_color = value
 		cor_atual.color = value
 var img_size
-@export var brush_size = 10
+@export var init_brush_size = 10
+var brush_size = init_brush_size
 @export var cor_fundo : Color
 @onready var brush_slide: HSlider = $"../../../Panel/HSlider"
 

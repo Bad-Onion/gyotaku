@@ -1,14 +1,21 @@
 [gd_scene format=3 uid="uid://dksa5sfa1b54q"]
 
-[ext_resource type="Texture2D" uid="uid://b1a51irwxqr5k" path="res://assets/cursor/largo.png" id="1_hu3fh"]
-[ext_resource type="Texture2D" uid="uid://t14c0p7j0ceg" path="res://assets/cursor/largo_virado.png" id="1_roth4"]
+[ext_resource type="Texture2D" uid="uid://c64cvsej0rn50" path="res://assets/cursor/Cursor-Sheet.png" id="2_ghxni"]
 [ext_resource type="Script" uid="uid://g82ca33qqw7a" path="res://cursor_pincel.gd" id="2_roth4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75asm"]
+atlas = ExtResource("2_ghxni")
+region = Rect2(161, 0, 23, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu3fh"]
+atlas = ExtResource("2_ghxni")
+region = Rect2(138, 0, 23, 19)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ghxni"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_roth4")
+"texture": SubResource("AtlasTexture_75asm")
 }],
 "loop": true,
 "name": &"click",
@@ -16,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_hu3fh")
+"texture": SubResource("AtlasTexture_hu3fh")
 }],
 "loop": true,
 "name": &"default",
@@ -28,7 +35,6 @@ script = ExtResource("2_roth4")
 
 [node name="CursorPincel" type="AnimatedSprite2D" parent="." unique_id=1090630000]
 texture_filter = 1
-position = Vector2(9, 0)
+position = Vector2(12, 4)
 sprite_frames = SubResource("SpriteFrames_ghxni")
-animation = &"click"
 autoplay = "default"

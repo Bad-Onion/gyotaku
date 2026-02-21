@@ -2,18 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dt4rrortstg0f" path="res://assets/peixes/Gurukun.png" id="1_nguc3"]
 [ext_resource type="Script" uid="uid://3wo874p8ylik" path="res://imagem.gd" id="2_cddau"]
-[ext_resource type="Texture2D" uid="uid://2xifux7llwyp" path="res://assets/peixes/peixetest só o contorno.png" id="4_fpqax"]
 
 [node name="PeixeTeste" type="Node2D" unique_id=975544837]
 
-[node name="Overlay de Textura" type="Sprite2D" parent="." unique_id=462743569]
-clip_children = 2
-texture_filter = 1
-position = Vector2(346, 170.99998)
-texture = ExtResource("1_nguc3")
-
 [node name="Peixetest" type="Sprite2D" parent="." unique_id=1020902100]
-clip_children = 1
+clip_children = 2
 texture_filter = 1
 position = Vector2(346, 170.99998)
 texture = ExtResource("1_nguc3")
@@ -22,10 +15,3 @@ texture = ExtResource("1_nguc3")
 modulate = Color(1, 1, 1, 0.6666667)
 script = ExtResource("2_cddau")
 cor_fundo = Color(1, 1, 1, 1)
-
-[node name="Contorno" type="Sprite2D" parent="." unique_id=208805421]
-visible = false
-clip_children = 2
-texture_filter = 1
-position = Vector2(346, 170.99998)
-texture = ExtResource("4_fpqax")

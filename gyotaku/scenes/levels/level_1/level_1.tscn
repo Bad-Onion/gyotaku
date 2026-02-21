@@ -136,8 +136,7 @@ script = ExtResource("4_w3g2g")
 z_index = 1
 z_as_relative = false
 position = Vector2(14, -24.073181)
-animation = &"idle"
-frame = 0
+animation = &"pull_line"
 frame_progress = 0.0
 
 [node name="PlayerStateMachine" type="Node" parent="Boat/Boat/Player" unique_id=1698381403 node_paths=PackedStringArray("initial_state")]
@@ -149,10 +148,11 @@ script = ExtResource("9_5d3u7")
 equip_state = NodePath("../EquipState")
 animated_sprite = NodePath("../..")
 
-[node name="ReadyState" type="Node" parent="Boat/Boat/Player/PlayerStateMachine" unique_id=1118159932 node_paths=PackedStringArray("cast_state", "player_input")]
+[node name="ReadyState" type="Node" parent="Boat/Boat/Player/PlayerStateMachine" unique_id=1118159932 node_paths=PackedStringArray("cast_state", "player_input", "animated_sprite")]
 script = ExtResource("10_41r28")
 cast_state = NodePath("../CastState")
 player_input = NodePath("../../../../../PlayerFishingInput")
+animated_sprite = NodePath("../..")
 
 [node name="EquipState" type="Node" parent="Boat/Boat/Player/PlayerStateMachine" unique_id=1362441224 node_paths=PackedStringArray("ready_state", "animated_sprite")]
 script = ExtResource("11_1iula")
@@ -174,7 +174,7 @@ ready_state = NodePath("../ReadyState")
 animated_sprite = NodePath("../..")
 
 [node name="RodTipMarker" type="Marker2D" parent="Boat/Boat/Player" unique_id=679528639]
-position = Vector2(38.92686, 0.4390333)
+position = Vector2(29.65857, -12.536575)
 
 [node name="FishingMechanicSystem" type="Node" parent="." unique_id=976759568 node_paths=PackedStringArray("input_system", "center_point")]
 unique_name_in_owner = true

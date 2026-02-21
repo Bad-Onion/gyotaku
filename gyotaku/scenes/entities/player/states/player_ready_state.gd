@@ -4,10 +4,11 @@ extends GameState
 
 @export var cast_state: PlayerCastState
 @export var player_input: PlayerFishingInput
+@export var animated_sprite: AnimatedSprite2D
 
 
 func enter() -> void:
-	pass
+	animated_sprite.play(PlayerStates.READY_ANIMATION)
 
 
 func update(_delta: float) -> void:

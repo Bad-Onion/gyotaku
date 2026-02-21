@@ -18,6 +18,9 @@ var img_size
 var img : Image
 
 func _ready() -> void:
+	redefinir_imagem()
+	
+func redefinir_imagem():
 	#Cria imagem branca vazia
 	img_size = Vector2i(500,300)
 	img = Image.create_empty(img_size.x, img_size.y, false, Image.FORMAT_RGBA8)

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cixtt81vnpfk1" path="res://cores_de_tinta.gd" id="2_5dofo"]
 [ext_resource type="PackedScene" uid="uid://d28xw0r1f3qul" path="res://scenes/peixes/peixeteste.tscn" id="2_xwurr"]
 [ext_resource type="PackedScene" uid="uid://dksa5sfa1b54q" path="res://scenes/cursor/cursor.tscn" id="5_fxhco"]
+[ext_resource type="Script" uid="uid://dhcf3dxcscjkt" path="res://scenes/minigames/redefinir.gd" id="5_i8l8x"]
 [ext_resource type="Script" uid="uid://dbc2qqmyr7hfd" path="res://scenes/minigames/salvar.gd" id="5_xwurr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dofo"]
@@ -68,7 +69,7 @@ anchor_bottom = 0.5
 offset_left = -34.0
 offset_top = -98.0
 offset_right = 34.0
-offset_bottom = 125.0
+offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 3
@@ -128,7 +129,20 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_i8l8x")
 text = "Salvar"
 script = ExtResource("5_xwurr")
 
+[node name="Redefinir" type="Button" parent="Panel" unique_id=1649230164]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 260.0
+offset_right = 82.0
+offset_bottom = 291.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fxhco")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xwurr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8l8x")
+text = "Redefinir"
+script = ExtResource("5_i8l8x")
+
 [node name="Cursor" parent="." unique_id=1434074555 instance=ExtResource("5_fxhco")]
 position = Vector2(9, 12)
 
 [connection signal="pressed" from="Panel/Salvar" to="Panel/Salvar" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Redefinir" to="Panel/Redefinir" method="_on_pressed"]

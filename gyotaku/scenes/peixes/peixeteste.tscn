@@ -19,7 +19,7 @@ position = Vector2(346, 170.99998)
 texture = ExtResource("1_nguc3")
 
 [node name="Imagem" type="Sprite2D" parent="Peixetest" unique_id=1362288757]
-modulate = Color(1, 1, 1, 0.49803922)
+modulate = Color(1, 1, 1, 0.6666667)
 script = ExtResource("2_cddau")
 cor_fundo = Color(1, 1, 1, 1)
 

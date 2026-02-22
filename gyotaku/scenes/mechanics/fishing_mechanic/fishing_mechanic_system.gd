@@ -11,7 +11,8 @@ signal depth_updated(current: float, max_val: float)
 @export_group("Dependencies")
 @export var input_system: PlayerFishingInput
 @export var center_point: Marker2D
-@export var default_config: FishingConfig # Default difficulty if the fish doesn't have one
+@export var default_config: FishingConfig
+@export var boat_reference: Node2D
 
 var _fish: Fish
 var _current_config: FishingConfig

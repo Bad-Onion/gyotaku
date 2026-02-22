@@ -88,16 +88,7 @@ position = Vector2(320, 180)
 position_smoothing_enabled = true
 script = ExtResource("2_hhmec")
 
-[node name="Background" type="Node" parent="." unique_id=2001595502]
-
-[node name="OkinawaBackground" parent="Background" unique_id=1616347244 instance=ExtResource("5_v0dvh")]
-
-[node name="OkinawaUnderwaterBackground" parent="Background" unique_id=1010358310 instance=ExtResource("4_1iula")]
-position = Vector2(0, 360)
-
-[node name="Boat" type="Node" parent="." unique_id=439834229]
-
-[node name="Boat" type="AnimatedSprite2D" parent="Boat" unique_id=1587030661]
+[node name="Boat" type="AnimatedSprite2D" parent="." unique_id=1587030661]
 z_index = 2
 position = Vector2(306.8947, 269.5)
 scale = Vector2(1.0789473, 1.0789474)
@@ -105,7 +96,7 @@ sprite_frames = SubResource("SpriteFrames_q7p11")
 frame_progress = 0.21664254
 script = ExtResource("4_w3g2g")
 
-[node name="Player" parent="Boat/Boat" unique_id=448418749 instance=ExtResource("7_hhmec")]
+[node name="Player" parent="Boat" unique_id=448418749 instance=ExtResource("7_hhmec")]
 z_index = 1
 z_as_relative = false
 position = Vector2(14, -24.073181)
@@ -113,64 +104,49 @@ animation = &"pull_line"
 frame = 0
 frame_progress = 0.0
 
-[node name="PlayerStateMachine" type="Node" parent="Boat/Boat/Player" unique_id=1698381403 node_paths=PackedStringArray("initial_state")]
+[node name="PlayerStateMachine" type="Node" parent="Boat/Player" unique_id=1698381403 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("8_8spg0")
 initial_state = NodePath("IdleState")
 
-[node name="IdleState" type="Node" parent="Boat/Boat/Player/PlayerStateMachine" unique_id=265377835 node_paths=PackedStringArray("equip_state", "animated_sprite")]
+[node name="IdleState" type="Node" parent="Boat/Player/PlayerStateMachine" unique_id=265377835 node_paths=PackedStringArray("equip_state", "animated_sprite")]
 script = ExtResource("9_5d3u7")
 equip_state = NodePath("../EquipState")
 animated_sprite = NodePath("../..")
 
-[node name="ReadyState" type="Node" parent="Boat/Boat/Player/PlayerStateMachine" unique_id=1118159932 node_paths=PackedStringArray("cast_state", "player_input", "animated_sprite")]
+[node name="ReadyState" type="Node" parent="Boat/Player/PlayerStateMachine" unique_id=1118159932 node_paths=PackedStringArray("cast_state", "player_input", "animated_sprite")]
 script = ExtResource("10_41r28")
 cast_state = NodePath("../CastState")
-player_input = NodePath("../../../../../PlayerFishingInput")
+player_input = NodePath("../../../../Systems/PlayerFishingInput")
 animated_sprite = NodePath("../..")
 
-[node name="EquipState" type="Node" parent="Boat/Boat/Player/PlayerStateMachine" unique_id=1362441224 node_paths=PackedStringArray("ready_state", "animated_sprite")]
+[node name="EquipState" type="Node" parent="Boat/Player/PlayerStateMachine" unique_id=1362441224 node_paths=PackedStringArray("ready_state", "animated_sprite")]
 script = ExtResource("11_1iula")
 ready_state = NodePath("../ReadyState")
 animated_sprite = NodePath("../..")
 
-[node name="CastState" type="Node" parent="Boat/Boat/Player/PlayerStateMachine" unique_id=365707445 node_paths=PackedStringArray("pull_state", "animated_sprite", "fishing_hook", "game_camera", "rod_tip_marker", "fishing_mechanic_system")]
+[node name="CastState" type="Node" parent="Boat/Player/PlayerStateMachine" unique_id=365707445 node_paths=PackedStringArray("pull_state", "animated_sprite", "fishing_hook", "game_camera", "rod_tip_marker", "fishing_mechanic_system")]
 script = ExtResource("12_v0dvh")
 pull_state = NodePath("../PlayerPullState")
 animated_sprite = NodePath("../..")
-fishing_hook = NodePath("../../../../../FishingHook")
-game_camera = NodePath("../../../../../MainCamera")
+fishing_hook = NodePath("../../../../FishingHook")
+game_camera = NodePath("../../../../MainCamera")
 rod_tip_marker = NodePath("../../RodTipMarker")
-fishing_mechanic_system = NodePath("../../../../../FishingMechanicSystem")
+fishing_mechanic_system = NodePath("../../../../Systems/FishingMechanicSystem")
 
-[node name="PlayerPullState" type="Node" parent="Boat/Boat/Player/PlayerStateMachine" unique_id=233060263 node_paths=PackedStringArray("ready_state", "animated_sprite")]
+[node name="PlayerPullState" type="Node" parent="Boat/Player/PlayerStateMachine" unique_id=233060263 node_paths=PackedStringArray("ready_state", "animated_sprite")]
 script = ExtResource("13_5d3u7")
 ready_state = NodePath("../ReadyState")
 animated_sprite = NodePath("../..")
 
-[node name="RodTipMarker" type="Marker2D" parent="Boat/Boat/Player" unique_id=679528639]
+[node name="RodTipMarker" type="Marker2D" parent="Boat/Player" unique_id=679528639]
 position = Vector2(29.65857, -12.536575)
 
-[node name="FishingMechanicSystem" type="Node" parent="." unique_id=976759568 node_paths=PackedStringArray("input_system", "center_point")]
-unique_name_in_owner = true
-script = ExtResource("2_3lh42")
-input_system = NodePath("../PlayerFishingInput")
-center_point = NodePath("../CenterPoint")
-default_config = ExtResource("7_1jeig")
+[node name="Background" type="Node" parent="." unique_id=2001595502]
 
-[node name="PlayerFishingInput" type="Node" parent="." unique_id=1893260175]
-script = ExtResource("3_vmhy7")
+[node name="OkinawaBackground" parent="Background" unique_id=1616347244 instance=ExtResource("5_v0dvh")]
 
-[node name="CenterPoint" type="Marker2D" parent="." unique_id=1032141304]
-position = Vector2(320, 451)
-
-[node name="FishSpawner" type="Node2D" parent="." unique_id=1585078721 node_paths=PackedStringArray("fishes_container")]
-position = Vector2(320, 451)
-script = ExtResource("4_58uyj")
-fish_scene = ExtResource("5_ojo11")
-spawn_area_size = Vector2(560, 140)
-fishes_container = NodePath("../FishesContainer")
-
-[node name="FishesContainer" type="Node2D" parent="." unique_id=35673712]
+[node name="OkinawaUnderwaterBackground" parent="Background" unique_id=1010358310 instance=ExtResource("4_1iula")]
+position = Vector2(0, 360)
 
 [node name="FishingHook" parent="." unique_id=2042041991 groups=["bait"] instance=ExtResource("1_7uxs1")]
 unique_name_in_owner = true
@@ -183,16 +159,47 @@ position = Vector2(320, 451)
 unique_name_in_owner = true
 visible = false
 z_index = 2
-mechanic_system = NodePath("../../FishingMechanicSystem")
-input_system = NodePath("../../PlayerFishingInput")
+mechanic_system = NodePath("../../Systems/FishingMechanicSystem")
+input_system = NodePath("../../Systems/PlayerFishingInput")
 
 [node name="WorldLineController" type="Node" parent="." unique_id=1844155221 node_paths=PackedStringArray("world_line_renderer", "player_rod_tip", "fishing_hook", "mechanic_system")]
 script = ExtResource("21_1iula")
 world_line_renderer = NodePath("WorldFishingLine")
-player_rod_tip = NodePath("../Boat/Boat/Player/RodTipMarker")
+player_rod_tip = NodePath("../Boat/Player/RodTipMarker")
 fishing_hook = NodePath("../FishingHook")
-mechanic_system = NodePath("../FishingMechanicSystem")
+mechanic_system = NodePath("../Systems/FishingMechanicSystem")
 
 [node name="WorldFishingLine" type="Line2D" parent="WorldLineController" unique_id=1826571213]
 width = 1.0
 script = ExtResource("21_41r28")
+
+[node name="Systems" type="Node" parent="." unique_id=358187130]
+
+[node name="FishingMechanicSystem" type="Node" parent="Systems" unique_id=976759568 node_paths=PackedStringArray("input_system", "center_point", "boat_reference")]
+unique_name_in_owner = true
+script = ExtResource("2_3lh42")
+input_system = NodePath("../PlayerFishingInput")
+center_point = NodePath("../CenterPoint")
+default_config = ExtResource("7_1jeig")
+boat_reference = NodePath("../../Boat")
+
+[node name="PlayerFishingInput" type="Node" parent="Systems" unique_id=1893260175]
+script = ExtResource("3_vmhy7")
+
+[node name="CenterPoint" type="Marker2D" parent="Systems" unique_id=1032141304]
+position = Vector2(320, 451)
+
+[node name="FishSpawner" type="Node2D" parent="Systems" unique_id=1585078721 node_paths=PackedStringArray("fishes_container")]
+position = Vector2(320, 451)
+script = ExtResource("4_58uyj")
+fish_scene = ExtResource("5_ojo11")
+spawn_area_size = Vector2(560, 140)
+fishes_container = NodePath("../FishesContainer")
+
+[node name="SpawnTimer" type="Timer" parent="Systems/FishSpawner" unique_id=1816201795]
+wait_time = 2.0
+autostart = true
+
+[node name="FishesContainer" type="Node2D" parent="Systems" unique_id=35673712]
+
+[connection signal="timeout" from="Systems/FishSpawner/SpawnTimer" to="Systems/FishSpawner" method="_on_spawn_timer_timeout"]

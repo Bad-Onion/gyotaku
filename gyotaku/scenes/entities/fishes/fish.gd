@@ -65,3 +65,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	rotation = visuals_component.update_visuals(velocity, rotation, delta)
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	pass # Replace with function body.
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	pass # Replace with function body.

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FishMovementConfig" format=3 uid="uid://dlgdnqnl18esb"]
+
+[ext_resource type="Script" uid="uid://bw0qelw0wu8gy" path="res://scenes/entities/fishes/components/fish_movement_config.gd" id="1_0ftav"]
+
+[resource]
+script = ExtResource("1_0ftav")
+metadata/_custom_type_script = "uid://bw0qelw0wu8gy"

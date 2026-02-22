@@ -96,7 +96,7 @@ scale = Vector2(0.7803869, 0.7803869)
 sprite_frames = SubResource("SpriteFrames_1qwp3")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=502182990]
+[node name="FishCollision" type="CollisionShape2D" parent="." unique_id=502182990]
 position = Vector2(2, 0.5)
 shape = SubResource("RectangleShape2D_a0pc3")
 

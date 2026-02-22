@@ -2,7 +2,7 @@ class_name FishSpawner
 extends Node2D
 
 
-@export var fish_scene: PackedScene
+@export var spawn_pool: Array[FishSpawnConfig]
 @export var spawn_area_size: Vector2 = Vector2(560, 180)
 @export var initial_fishes: int = 3
 @export var max_fishes: int = 10
@@ -18,11 +18,15 @@ func _ready() -> void:
 
 
 func spawn_fish(spawn_inside: bool) -> void:
-	if not fish_scene or not fishes_container:
-		push_error("FishSpawner: Missing dependencies.")
+	if not fishes_container:
+		push_error("FishSpawner: Missing fishes_container.")
 		return
 
-	var fish_instance := fish_scene.instantiate() as Fish
+	var selected_scene := _get_random_fish_scene()
+	if not selected_scene:
+		return
+
+	var fish_instance := selected_scene.instantiate() as Fish
 	if not fish_instance:
 		push_error("FishSpawner: Instantiated scene is not a Fish.")
 		return
@@ -66,3 +70,24 @@ func spawn_fish(spawn_inside: bool) -> void:
 func _on_spawn_timer_timeout() -> void:
 	if fishes_container and fishes_container.get_child_count() < max_fishes:
 		spawn_fish(false)
+
+
+func _get_random_fish_scene() -> PackedScene:
+	if spawn_pool.is_empty():
+		push_error("FishSpawner: Spawn pool is empty!")
+		return null
+
+	var total_weight := 0.0
+	for config in spawn_pool:
+		total_weight += config.spawn_weight
+
+	var random_value := randf_range(0.0, total_weight)
+	var current_weight := 0.0
+
+	for config in spawn_pool:
+		current_weight += config.spawn_weight
+
+		if random_value <= current_weight:
+			return config.fish_scene
+
+	return spawn_pool[0].fish_scene

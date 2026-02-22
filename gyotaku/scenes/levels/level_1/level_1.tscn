@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cct68w64r5qsd" path="res://scenes/ui/okinawa_background/okinawa_underwater_background.tscn" id="4_1iula"]
 [ext_resource type="Script" uid="uid://d4im07ios3cej" path="res://scenes/mechanics/fishing_mechanic/fish_spawner.gd" id="4_58uyj"]
 [ext_resource type="Script" uid="uid://byhdwncbhrg0u" path="res://scenes/interactables/boat/boat_floating.gd" id="4_w3g2g"]
-[ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fishes/fish.tscn" id="5_ojo11"]
 [ext_resource type="PackedScene" uid="uid://bcbxhrgo0wlfw" path="res://scenes/ui/okinawa_background/okinawa_background.tscn" id="5_v0dvh"]
 [ext_resource type="Resource" uid="uid://c6u65drbrt1sa" path="res://resources/default_fish_dificulty.tres" id="7_1jeig"]
 [ext_resource type="PackedScene" uid="uid://dqn76wtt7lna1" path="res://scenes/entities/player/player.tscn" id="7_hhmec"]
@@ -22,6 +21,9 @@
 [ext_resource type="Script" uid="uid://b5trg2v7qwdrj" path="res://scenes/entities/player/states/player_pull_state.gd" id="13_5d3u7"]
 [ext_resource type="Script" uid="uid://btmllpkc3kjpr" path="res://scenes/interactables/fishing_cursor_ui/components/world_line_controller.gd" id="21_1iula"]
 [ext_resource type="Script" uid="uid://bp6jpcuc73prj" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_line_renderer.gd" id="21_41r28"]
+[ext_resource type="Script" uid="uid://14b38vmfp2df" path="res://scenes/entities/fishes/components/fish_spawn_config.gd" id="22_1fq2y"]
+[ext_resource type="PackedScene" uid="uid://cqg1mwy0btwtj" path="res://scenes/entities/fishes/gurukun/gurukun.tscn" id="23_q7p11"]
+[ext_resource type="PackedScene" uid="uid://cshlrv7ow3bj4" path="res://scenes/entities/fishes/arraia/arraia.tscn" id="24_vva6n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wloe5"]
 atlas = ExtResource("3_napug")
@@ -79,6 +81,18 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Resource" id="Resource_vm2d2"]
+script = ExtResource("22_1fq2y")
+fish_scene = ExtResource("23_q7p11")
+spawn_weight = 10.0
+metadata/_custom_type_script = "uid://14b38vmfp2df"
+
+[sub_resource type="Resource" id="Resource_hws8l"]
+script = ExtResource("22_1fq2y")
+fish_scene = ExtResource("24_vva6n")
+spawn_weight = 6.0
+metadata/_custom_type_script = "uid://14b38vmfp2df"
 
 [node name="Level1" type="Node2D" unique_id=1565577455]
 script = ExtResource("1_58uyj")
@@ -192,7 +206,7 @@ position = Vector2(320, 451)
 [node name="FishSpawner" type="Node2D" parent="Systems" unique_id=1585078721 node_paths=PackedStringArray("fishes_container")]
 position = Vector2(320, 451)
 script = ExtResource("4_58uyj")
-fish_scene = ExtResource("5_ojo11")
+spawn_pool = Array[ExtResource("22_1fq2y")]([SubResource("Resource_vm2d2"), SubResource("Resource_hws8l")])
 spawn_area_size = Vector2(560, 140)
 fishes_container = NodePath("../FishesContainer")
 

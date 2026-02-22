@@ -9,6 +9,8 @@ extends CharacterBody2D
 var is_hooked: bool = false
 var movement_direction: int = 1
 var _current_target: Node2D = null
+var _has_entered_screen: bool = false
+var _is_escaping: bool = false
 
 
 func _ready() -> void:
@@ -25,6 +27,24 @@ func hook() -> void:
 	velocity = Vector2.ZERO
 	rotation = 0
 	visuals_component.set_struggle_state(true)
+
+
+func catch(target_position: Vector2) -> void:
+	is_hooked = false
+	set_physics_process(false)
+
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", target_position, 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_callback(queue_free)
+
+
+func escape() -> void:
+	is_hooked = false
+	_is_escaping = true
+	visuals_component.set_struggle_state(false)
+
+	velocity.x = 800.0 * signf(movement_direction) if movement_direction != 0 else 800.0
+	velocity.y = 0
 
 
 func apply_external_force(force_x: float, delta: float) -> void:
@@ -56,6 +76,10 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
+	if _is_escaping:
+		move_and_slide()
+		return
+
 	_current_target = movement_component.find_target(global_position, _current_target)
 
 	var movement_data = movement_component.calculate_velocity(global_position, velocity, _current_target, movement_direction, delta)
@@ -68,8 +92,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	pass # Replace with function body.
+	_has_entered_screen = true
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	pass # Replace with function body.
+	if _has_entered_screen and not is_hooked:
+		queue_free()

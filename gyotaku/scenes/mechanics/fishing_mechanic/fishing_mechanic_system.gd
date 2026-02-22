@@ -127,12 +127,17 @@ func _reset_state() -> void:
 
 func _check_end_conditions() -> void:
 	if _current_tension >= _current_config.max_tension:
+		_fish.escape()
 		line_broke.emit()
 		_end_game()
+
 	elif _current_depth <= 0:
+		_fish.catch(boat_reference.global_position if boat_reference else center_point.global_position)
 		fish_caught.emit()
 		_end_game()
+
 	elif _current_depth >= _current_config.max_depth:
+		_fish.escape()
 		fish_escaped.emit()
 		_end_game()
 

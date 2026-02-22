@@ -3,7 +3,7 @@ class_name Imagem
 extends Sprite2D
 
 @onready var peixetest: Sprite2D = $".."
-@onready var cor_atual: ColorRect = $"../../../Panel/CorAtual"
+@onready var cor_atual: ColorRect = $"../../../CorAtual"
 #Cor inicial
 @export var paint_color : Color = Color8(31,31,31):
 	#Atualiza o indicador de cor atual
@@ -14,7 +14,7 @@ var img_size
 @export var init_brush_size = 10
 var brush_size = init_brush_size
 @export var cor_fundo : Color
-@onready var brush_slide: HSlider = $"../../../Panel/HSlider"
+@onready var brush_slide: HSlider = $"../../../HSlider"
 
 var img : Image
 

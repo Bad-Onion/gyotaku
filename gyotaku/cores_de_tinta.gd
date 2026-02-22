@@ -1,6 +1,6 @@
 extends GridContainer
 
-@onready var imagem: Sprite2D = $"../../PeixeTeste/Peixetest/Imagem"
+@onready var imagem: Sprite2D = $"../PeixeTeste/Peixetest/Imagem"
 
 #Pega cor da paleta de cores quando clica nela
 func _ready() -> void:

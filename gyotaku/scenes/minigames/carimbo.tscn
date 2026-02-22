@@ -9,9 +9,6 @@
 [ext_resource type="Script" uid="uid://dbc2qqmyr7hfd" path="res://scenes/minigames/salvar.gd" id="5_xwurr"]
 [ext_resource type="Script" uid="uid://cfcg84d4obhdb" path="res://scenes/minigames/catalogo.gd" id="6_i8l8x"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dofo"]
-bg_color = Color(0.09239706, 0.09239707, 0.092397, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxhco"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwurr"]
@@ -22,34 +19,72 @@ bg_color = Color(0.21950099, 0.21950105, 0.21950087, 1)
 [node name="Carimbo" type="CanvasLayer" unique_id=2108949112]
 script = ExtResource("1_af0jy")
 
+[node name="Cores" type="GridContainer" parent="." unique_id=967469729]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.0
+offset_top = -114.0
+offset_right = -237.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3346537, 1.4513531)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+script = ExtResource("2_5dofo")
+
+[node name="ColorRect2" type="ColorRect" parent="Cores" unique_id=479864985]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0, 1, 0, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Cores" unique_id=1853967813]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Cores" unique_id=1620822803]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.12, 0.12, 0.12, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Cores" unique_id=2124805505]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Cores" unique_id=1160602180]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0.49803922, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Cores" unique_id=1875651656]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0, 0, 1, 1)
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=922152868]
 offset_right = 640.0
 offset_bottom = 360.0
+mouse_filter = 2
 texture = ExtResource("2_fqe24")
 
 [node name="PeixeTeste" parent="." unique_id=975544837 instance=ExtResource("2_xwurr")]
 
-[node name="Panel" type="Panel" parent="." unique_id=1488364260]
-offset_left = 9.0
-offset_top = 12.0
-offset_right = 95.0
-offset_bottom = 346.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5dofo")
-
-[node name="HSlider" type="HSlider" parent="Panel" unique_id=984835367]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 5.0
-offset_top = 2.0
-offset_right = -5.0
-offset_bottom = 18.0
-grow_horizontal = 2
+[node name="HSlider" type="HSlider" parent="." unique_id=984835367]
+offset_left = 17.0
+offset_top = 10.0
+offset_right = 93.0
+offset_bottom = 26.0
 min_value = 5.0
 max_value = 20.0
 value = 10.0
 
-[node name="Label" type="Label" parent="Panel/HSlider" unique_id=1783935917]
+[node name="Label" type="Label" parent="HSlider" unique_id=1783935917]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -61,100 +96,54 @@ offset_bottom = 36.0
 grow_horizontal = 2
 text = "Brush Size"
 
-[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=967469729]
-layout_mode = 1
-anchors_preset = 8
+[node name="CorAtual" type="ColorRect" parent="." unique_id=1828001850]
+custom_minimum_size = Vector2(20, 20)
+offset_left = 6.0
+offset_top = 55.0
+offset_right = 26.0
+offset_bottom = 75.0
+color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+
+[node name="Cursor" parent="." unique_id=1434074555 instance=ExtResource("5_fxhco")]
+position = Vector2(9, 12)
+
+[node name="GridContainer2" type="GridContainer" parent="." unique_id=1021050278]
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -98.0
-offset_right = 34.0
-offset_bottom = 86.0
+anchor_bottom = 1.0
+offset_left = -97.5
+offset_top = 325.0
+offset_right = 97.5
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 3
-script = ExtResource("2_5dofo")
 
-[node name="ColorRect3" type="ColorRect" parent="Panel/GridContainer" unique_id=1875651656]
-custom_minimum_size = Vector2(20, 20)
+[node name="Salvar" type="Button" parent="GridContainer2" unique_id=337073859]
 layout_mode = 2
-color = Color(0, 0, 1, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Panel/GridContainer" unique_id=479864985]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(0, 1, 0, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="Panel/GridContainer" unique_id=1853967813]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(1, 1, 0, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Panel/GridContainer" unique_id=1620822803]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(0.12, 0.12, 0.12, 1)
-
-[node name="ColorRect" type="ColorRect" parent="Panel/GridContainer" unique_id=2124805505]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(1, 0, 0, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="Panel/GridContainer" unique_id=1160602180]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(0.46229059, 0.46229059, 0.46229059, 1)
-
-[node name="CorAtual" type="ColorRect" parent="Panel" unique_id=1828001850]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_left = 33.0
-offset_top = 39.0
-offset_right = 53.0
-offset_bottom = 59.0
-color = Color(0.12156863, 0.12156863, 0.12156863, 1)
-
-[node name="Salvar" type="Button" parent="Panel" unique_id=337073859]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 295.0
-offset_right = 82.0
-offset_bottom = 326.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_fxhco")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xwurr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i8l8x")
 text = "Salvar"
 script = ExtResource("5_xwurr")
 
-[node name="Redefinir" type="Button" parent="Panel" unique_id=1649230164]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 260.0
-offset_right = 82.0
-offset_bottom = 291.0
+[node name="Redefinir" type="Button" parent="GridContainer2" unique_id=1649230164]
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_fxhco")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xwurr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i8l8x")
 text = "Redefinir"
 script = ExtResource("5_i8l8x")
 
-[node name="Catalogo" type="Button" parent="Panel" unique_id=1229915821]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 224.0
-offset_right = 82.0
-offset_bottom = 255.0
+[node name="Catalogo" type="Button" parent="GridContainer2" unique_id=1229915821]
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_fxhco")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xwurr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i8l8x")
 text = "Catálogo"
 script = ExtResource("6_i8l8x")
 
-[node name="Cursor" parent="." unique_id=1434074555 instance=ExtResource("5_fxhco")]
-position = Vector2(9, 12)
-
-[connection signal="pressed" from="Panel/Salvar" to="Panel/Salvar" method="_on_pressed"]
-[connection signal="pressed" from="Panel/Redefinir" to="Panel/Redefinir" method="_on_pressed"]
-[connection signal="pressed" from="Panel/Catalogo" to="Panel/Catalogo" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/Salvar" to="GridContainer2/Salvar" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/Redefinir" to="GridContainer2/Redefinir" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/Catalogo" to="GridContainer2/Catalogo" method="_on_pressed"]

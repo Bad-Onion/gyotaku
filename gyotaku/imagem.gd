@@ -30,7 +30,27 @@ func redefinir_imagem():
 	
 func _paint_tex(pos) -> void:
 	#Pinta um retângulo de acordo com o brush size no mouse
-	img.fill_rect(Rect2i(pos, Vector2i(0,1)).grow(brush_size/2), paint_color)
+	#img.fill_rect(Rect2i(pos, Vector2i(0,1)).grow(brush_size/2), paint_color)
+	
+	#Pinta um círculo
+	var raio = brush_size / 2.0
+	var raio_quadrado = raio * raio
+	
+	# Define a área quadrada (bounding box) ao redor do centro do pincel
+	var min_x = int(pos.x - raio)
+	var max_x = int(pos.x + raio)
+	var min_y = int(pos.y - raio)
+	var max_y = int(pos.y + raio)
+	
+	# Percorre os pixels dessa área quadrada
+	for x in range(min_x, max_x + 1):
+		for y in range(min_y, max_y + 1):
+			if x >= 0 and x < img_size.x and y >= 0 and y < img_size.y:
+				# Calcula a distância do pixel atual até o centro do clique
+				var distancia_quadrado = Vector2(x - pos.x, y - pos.y).length_squared()
+				# Se a distância ao quadrado for menor ou igual ao raio ao quadrado, o pixel faz parte do círculo
+				if distancia_quadrado <= raio_quadrado:
+					img.set_pixel(x, y, paint_color)
 
 func _process(delta: float) -> void:
 	if brush_slide != null:

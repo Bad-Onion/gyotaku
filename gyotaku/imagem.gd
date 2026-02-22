@@ -5,7 +5,7 @@ extends Sprite2D
 @onready var peixetest: Sprite2D = $".."
 @onready var cor_atual: ColorRect = $"../../../Panel/CorAtual"
 #Cor inicial
-@export var paint_color : Color = Color.WHITE :
+@export var paint_color : Color = Color8(31,31,31):
 	#Atualiza o indicador de cor atual
 	set(value):
 		paint_color = value
@@ -25,10 +25,11 @@ func redefinir_imagem():
 	#Cria imagem branca vazia
 	img_size = Vector2i(500,300)
 	img = Image.create_empty(img_size.x, img_size.y, false, Image.FORMAT_RGBA8)
-	#img.fill(cor_fundo)
+	img.fill(cor_fundo)
 	texture = ImageTexture.create_from_image(img)
+	#get_parent().material.set_shader_parameter("paint_texture", img)
 	
-func _paint_tex(pos) -> void:
+func _paint_tex(pos) -> void:	
 	#Pinta um retângulo de acordo com o brush size no mouse
 	#img.fill_rect(Rect2i(pos, Vector2i(0,1)).grow(brush_size/2), paint_color)
 	

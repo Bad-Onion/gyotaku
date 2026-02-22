@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj5lakp8jvqde"
-path="res://.godot/imported/Montanha_Direita_1.png-5909cf1031314c40af2477ea028ed123.ctex"
+uid="uid://dj6j23lby6twa"
+path="res://.godot/imported/Arraia-Sheet.png-8635ff8296d75304f752fdf7e2835056.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/okinawa/Montanha_Direita_1.png"
-dest_files=["res://.godot/imported/Montanha_Direita_1.png-5909cf1031314c40af2477ea028ed123.ctex"]
+source_file="res://assets/sprites/fishes/arraia/Arraia-Sheet.png"
+dest_files=["res://.godot/imported/Arraia-Sheet.png-8635ff8296d75304f752fdf7e2835056.ctex"]
 
 [params]
 

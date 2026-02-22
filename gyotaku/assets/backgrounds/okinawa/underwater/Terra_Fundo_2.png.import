@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hursjd8g8ixf"
-path="res://.godot/imported/agua.png-d7a1fe7ee7a60119a3042dfd56264000.ctex"
+uid="uid://cwcfdqwxnup4j"
+path="res://.godot/imported/Terra_Fundo_2.png-ab89316e2c65dbb1b839ae320765a109.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/okinawa/agua.png"
-dest_files=["res://.godot/imported/agua.png-d7a1fe7ee7a60119a3042dfd56264000.ctex"]
+source_file="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_2.png"
+dest_files=["res://.godot/imported/Terra_Fundo_2.png-ab89316e2c65dbb1b839ae320765a109.ctex"]
 
 [params]
 

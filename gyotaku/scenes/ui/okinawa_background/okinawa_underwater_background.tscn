@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cct68w64r5qsd"]
+
+[ext_resource type="Texture2D" uid="uid://j361mvliix5y" path="res://assets/backgrounds/okinawa/underwater/Fundo_Agua.png" id="1_0vsfu"]
+[ext_resource type="Texture2D" uid="uid://dru8g3y7swt3w" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_7.png" id="2_epons"]
+[ext_resource type="Texture2D" uid="uid://cslaelrs6suqj" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_6.png" id="3_a3prl"]
+[ext_resource type="Texture2D" uid="uid://bdsl53phsgjcp" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_5.png" id="4_2wyvv"]
+[ext_resource type="Texture2D" uid="uid://dl6722yxg065m" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_4.png" id="5_vgbym"]
+[ext_resource type="Texture2D" uid="uid://dw5ku1msm4gk6" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_3.png" id="6_6i0im"]
+[ext_resource type="Texture2D" uid="uid://cwcfdqwxnup4j" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_2.png" id="7_s4f0x"]
+[ext_resource type="Texture2D" uid="uid://oaj6dwr63xoh" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_1.png" id="8_rbxeu"]
+
+[node name="OkinawaUnderwaterBackground" type="Node2D" unique_id=1010358310]
+
+[node name="WaterBackground" type="Sprite2D" parent="." unique_id=942469248]
+position = Vector2(320, 250)
+texture = ExtResource("1_0vsfu")
+
+[node name="WaterBack7" type="Sprite2D" parent="." unique_id=1472713179]
+position = Vector2(320, 250)
+texture = ExtResource("2_epons")
+
+[node name="WaterBack6" type="Sprite2D" parent="." unique_id=1847503277]
+position = Vector2(320, 250)
+texture = ExtResource("3_a3prl")
+
+[node name="WaterBack5" type="Sprite2D" parent="." unique_id=1084239104]
+position = Vector2(320, 250)
+texture = ExtResource("4_2wyvv")
+
+[node name="WaterBack4" type="Sprite2D" parent="." unique_id=1687866065]
+position = Vector2(320, 250)
+texture = ExtResource("5_vgbym")
+
+[node name="WaterBack3" type="Sprite2D" parent="." unique_id=1439087591]
+position = Vector2(320, 250)
+texture = ExtResource("6_6i0im")
+
+[node name="WaterBack2" type="Sprite2D" parent="." unique_id=606494064]
+position = Vector2(320, 250)
+texture = ExtResource("7_s4f0x")
+
+[node name="WaterBack1" type="Sprite2D" parent="." unique_id=1281090587]
+position = Vector2(320, 250)
+texture = ExtResource("8_rbxeu")

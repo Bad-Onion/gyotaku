@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://strfaqn8wah7"
-path="res://.godot/imported/a-retro-styled-pixel-art-illustration-of-a-fishing-rod-free-png.webp-d19efad97b40c4be18a344dd604edf44.ctex"
+uid="uid://byle31p7kt338"
+path="res://.godot/imported/Montanha_Horizonte.png-cea4a3b44c98923ac2c41ae509202573.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/HUD/a-retro-styled-pixel-art-illustration-of-a-fishing-rod-free-png.webp"
-dest_files=["res://.godot/imported/a-retro-styled-pixel-art-illustration-of-a-fishing-rod-free-png.webp-d19efad97b40c4be18a344dd604edf44.ctex"]
+source_file="res://assets/backgrounds/okinawa/surface/Montanha_Horizonte.png"
+dest_files=["res://.godot/imported/Montanha_Horizonte.png-cea4a3b44c98923ac2c41ae509202573.ctex"]
 
 [params]
 

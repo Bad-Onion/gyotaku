@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://up571wp5o825"]
 
-[ext_resource type="Texture2D" uid="uid://strfaqn8wah7" path="res://assets/sprites/HUD/a-retro-styled-pixel-art-illustration-of-a-fishing-rod-free-png.webp" id="1_7gxyw"]
 [ext_resource type="Script" uid="uid://csx5k7ay4wh0r" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_hud_config.gd" id="2_d6030"]
-[ext_resource type="Texture2D" uid="uid://ccxha327uwpcl" path="res://assets/sprites/HUD/sr2e72fbd0562aws3.png" id="2_xla6n"]
 [ext_resource type="Script" uid="uid://df0awv8y88e4b" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.gd" id="3_2duka"]
+[ext_resource type="Texture2D" uid="uid://big7vr8yu8ock" path="res://assets/sprites/fishing_rod/fishing_cursor.png" id="3_d6030"]
+[ext_resource type="Texture2D" uid="uid://eebee6qdtu0p" path="res://assets/sprites/HUD/fishing_cursor_arrow_hud.png" id="4_a4k06"]
 [ext_resource type="Script" uid="uid://bp6jpcuc73prj" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_line_renderer.gd" id="4_kpmcx"]
 
 [sub_resource type="Resource" id="Resource_a4k06"]
@@ -17,24 +17,24 @@ hud_config = SubResource("Resource_a4k06")
 
 [node name="RodSprite" type="Sprite2D" parent="." unique_id=2066038344]
 unique_name_in_owner = true
-scale = Vector2(0.013010205, 0.013010205)
-texture = ExtResource("1_7gxyw")
+scale = Vector2(0.76795846, 0.76795846)
+texture = ExtResource("3_d6030")
 
 [node name="TipMarker" type="Marker2D" parent="RodSprite" unique_id=1987311679]
 unique_name_in_owner = true
-position = Vector2(461.17645, -384.3137)
+position = Vector2(7.812923, -6.510769)
 
 [node name="ArrowSprite" type="Sprite2D" parent="." unique_id=2137930341]
 unique_name_in_owner = true
-position = Vector2(12.000001, -12)
+position = Vector2(13.028747, -13.326645)
 rotation = -0.7261898
-scale = Vector2(0.007812512, 0.007812512)
-texture = ExtResource("2_xla6n")
+scale = Vector2(0.3340224, 0.3340224)
+texture = ExtResource("4_a4k06")
 script = ExtResource("3_2duka")
 
 [node name="FishingLine" type="Line2D" parent="." unique_id=216516106]
 unique_name_in_owner = true
-width = 2.0
+width = 1.0
 begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("4_kpmcx")

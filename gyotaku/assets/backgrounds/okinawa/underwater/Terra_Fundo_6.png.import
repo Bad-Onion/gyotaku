@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4h4fox58pool"
-path="res://.godot/imported/fishing_hook_minecraft.png-13262aded924ca68948c133422c90a05.ctex"
+uid="uid://cslaelrs6suqj"
+path="res://.godot/imported/Terra_Fundo_6.png-6b01283c5bf842c94108e422efe5bbe9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fishing_rod/fishing_hook_minecraft.png"
-dest_files=["res://.godot/imported/fishing_hook_minecraft.png-13262aded924ca68948c133422c90a05.ctex"]
+source_file="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_6.png"
+dest_files=["res://.godot/imported/Terra_Fundo_6.png-6b01283c5bf842c94108e422efe5bbe9.ctex"]
 
 [params]
 

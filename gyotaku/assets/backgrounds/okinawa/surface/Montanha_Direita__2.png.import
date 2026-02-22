@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dntumpylymxgp"
-path="res://.godot/imported/Montanha_Esquerda_3.png-9bed5013130c4a7578762fc784350af4.ctex"
+uid="uid://wv4wi3ood24s"
+path="res://.godot/imported/Montanha_Direita__2.png-628ce39aed97083983ec5adb015b6d88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/okinawa/Montanha_Esquerda_3.png"
-dest_files=["res://.godot/imported/Montanha_Esquerda_3.png-9bed5013130c4a7578762fc784350af4.ctex"]
+source_file="res://assets/backgrounds/okinawa/surface/Montanha_Direita__2.png"
+dest_files=["res://.godot/imported/Montanha_Direita__2.png-628ce39aed97083983ec5adb015b6d88.ctex"]
 
 [params]
 

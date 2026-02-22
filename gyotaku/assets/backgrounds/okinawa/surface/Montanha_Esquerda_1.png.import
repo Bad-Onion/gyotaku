@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djljh5k7mj4fa"
-path="res://.godot/imported/shiva-arkaplann.jpg-4ab260641aacd210ddf8a39f7fd1b215.ctex"
+uid="uid://bpd5wedggpu32"
+path="res://.godot/imported/Montanha_Esquerda_1.png-7a6d92cb4388f528213aec1af4c01c15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/shiva-arkaplann.jpg"
-dest_files=["res://.godot/imported/shiva-arkaplann.jpg-4ab260641aacd210ddf8a39f7fd1b215.ctex"]
+source_file="res://assets/backgrounds/okinawa/surface/Montanha_Esquerda_1.png"
+dest_files=["res://.godot/imported/Montanha_Esquerda_1.png-7a6d92cb4388f528213aec1af4c01c15.ctex"]
 
 [params]
 

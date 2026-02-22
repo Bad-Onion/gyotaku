@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5lapoffabm7g"
-path="res://.godot/imported/Ceu.png-7878c237e5bf9ebe916aa3f998d3e467.ctex"
+path="res://.godot/imported/Ceu.png-21ccad690d868fb2470e3cc7d69bfc82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/okinawa/Ceu.png"
-dest_files=["res://.godot/imported/Ceu.png-7878c237e5bf9ebe916aa3f998d3e467.ctex"]
+source_file="res://assets/backgrounds/okinawa/surface/Ceu.png"
+dest_files=["res://.godot/imported/Ceu.png-21ccad690d868fb2470e3cc7d69bfc82.ctex"]
 
 [params]
 

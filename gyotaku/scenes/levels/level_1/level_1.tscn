@@ -4,10 +4,9 @@
 [ext_resource type="Script" uid="uid://c6offhed2uwqi" path="res://scenes/levels/level_1/level_1.gd" id="1_58uyj"]
 [ext_resource type="Script" uid="uid://c8d754vqus2jd" path="res://scenes/mechanics/fishing_mechanic/fishing_mechanic_system.gd" id="2_3lh42"]
 [ext_resource type="Script" uid="uid://cvequxdehv1n8" path="res://scenes/mechanics/camera/fishing_camera.gd" id="2_hhmec"]
-[ext_resource type="Texture2D" uid="uid://djljh5k7mj4fa" path="res://assets/backgrounds/shiva-arkaplann.jpg" id="2_napug"]
-[ext_resource type="Texture2D" uid="uid://cwxvuk7jqel8d" path="res://assets/backgrounds/okinawa_background.png" id="3_1jeig"]
 [ext_resource type="Texture2D" uid="uid://bol4gj83bfk5p" path="res://assets/sprites/boat/Barco-Sheet.png" id="3_napug"]
 [ext_resource type="Script" uid="uid://ci7g83sbukdl2" path="res://scenes/mechanics/fishing_mechanic/player_fishing_input.gd" id="3_vmhy7"]
+[ext_resource type="PackedScene" uid="uid://cct68w64r5qsd" path="res://scenes/ui/okinawa_background/okinawa_underwater_background.tscn" id="4_1iula"]
 [ext_resource type="Script" uid="uid://d4im07ios3cej" path="res://scenes/mechanics/fishing_mechanic/fish_spawner.gd" id="4_58uyj"]
 [ext_resource type="Script" uid="uid://byhdwncbhrg0u" path="res://scenes/interactables/boat/boat_floating.gd" id="4_w3g2g"]
 [ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fishes/fish.tscn" id="5_ojo11"]
@@ -23,21 +22,6 @@
 [ext_resource type="Script" uid="uid://b5trg2v7qwdrj" path="res://scenes/entities/player/states/player_pull_state.gd" id="13_5d3u7"]
 [ext_resource type="Script" uid="uid://btmllpkc3kjpr" path="res://scenes/interactables/fishing_cursor_ui/components/world_line_controller.gd" id="21_1iula"]
 [ext_resource type="Script" uid="uid://bp6jpcuc73prj" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_line_renderer.gd" id="21_41r28"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhmec"]
-atlas = ExtResource("3_1jeig")
-region = Rect2(0, 0, 2560, 1440)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_wfdrs"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hhmec")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wloe5"]
 atlas = ExtResource("3_napug")
@@ -106,21 +90,10 @@ script = ExtResource("2_hhmec")
 
 [node name="Background" type="Node" parent="." unique_id=2001595502]
 
-[node name="Water" type="Sprite2D" parent="Background" unique_id=1963824193]
-modulate = Color(0.2784314, 0.78431374, 1, 0.6117647)
-z_index = 3
-position = Vector2(320, 540.33984)
-scale = Vector2(0.33399886, 0.33396265)
-texture = ExtResource("2_napug")
-
-[node name="BackgroundLandscape" type="AnimatedSprite2D" parent="Background" unique_id=1308207994]
-visible = false
-z_index = 1
-position = Vector2(320, 180.00002)
-scale = Vector2(0.25008067, 0.2500807)
-sprite_frames = SubResource("SpriteFrames_wfdrs")
-
 [node name="OkinawaBackground" parent="Background" unique_id=1616347244 instance=ExtResource("5_v0dvh")]
+
+[node name="OkinawaUnderwaterBackground" parent="Background" unique_id=1010358310 instance=ExtResource("4_1iula")]
+position = Vector2(0, 360)
 
 [node name="Boat" type="Node" parent="." unique_id=439834229]
 
@@ -137,6 +110,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(14, -24.073181)
 animation = &"pull_line"
+frame = 0
 frame_progress = 0.0
 
 [node name="PlayerStateMachine" type="Node" parent="Boat/Boat/Player" unique_id=1698381403 node_paths=PackedStringArray("initial_state")]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wv4wi3ood24s"
-path="res://.godot/imported/Montanha_Direita__2.png-0e7c9e8f86d0eb77373803e50591c63e.ctex"
+uid="uid://big7vr8yu8ock"
+path="res://.godot/imported/fishing_cursor.png-de92c65d00cda478fe2469529cce757e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/okinawa/Montanha_Direita__2.png"
-dest_files=["res://.godot/imported/Montanha_Direita__2.png-0e7c9e8f86d0eb77373803e50591c63e.ctex"]
+source_file="res://assets/sprites/fishing_rod/fishing_cursor.png"
+dest_files=["res://.godot/imported/fishing_cursor.png-de92c65d00cda478fe2469529cce757e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhnvadvnm5sj8"
-path="res://.godot/imported/Passaro_1-Sheet.png-51eb2a4d32afb26a36e9c7d4e5a05693.ctex"
+uid="uid://oaj6dwr63xoh"
+path="res://.godot/imported/Terra_Fundo_1.png-0321afb535533803692d47b630bf353e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/okinawa/Passaro_1-Sheet.png"
-dest_files=["res://.godot/imported/Passaro_1-Sheet.png-51eb2a4d32afb26a36e9c7d4e5a05693.ctex"]
+source_file="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_1.png"
+dest_files=["res://.godot/imported/Terra_Fundo_1.png-0321afb535533803692d47b630bf353e.ctex"]
 
 [params]
 

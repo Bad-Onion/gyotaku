@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://14b38vmfp2df" path="res://scenes/entities/fishes/components/fish_spawn_config.gd" id="22_1fq2y"]
 [ext_resource type="PackedScene" uid="uid://cqg1mwy0btwtj" path="res://scenes/entities/fishes/gurukun/gurukun.tscn" id="23_q7p11"]
 [ext_resource type="PackedScene" uid="uid://cshlrv7ow3bj4" path="res://scenes/entities/fishes/arraia/arraia.tscn" id="24_vva6n"]
+[ext_resource type="PackedScene" uid="uid://b8bsagrbkjjak" path="res://scenes/entities/fishes/ghost_fish/ghost_fish.tscn" id="25_q7p11"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wloe5"]
 atlas = ExtResource("3_napug")
@@ -91,6 +92,12 @@ metadata/_custom_type_script = "uid://14b38vmfp2df"
 [sub_resource type="Resource" id="Resource_hws8l"]
 script = ExtResource("22_1fq2y")
 fish_scene = ExtResource("24_vva6n")
+spawn_weight = 6.0
+metadata/_custom_type_script = "uid://14b38vmfp2df"
+
+[sub_resource type="Resource" id="Resource_vva6n"]
+script = ExtResource("22_1fq2y")
+fish_scene = ExtResource("25_q7p11")
 spawn_weight = 6.0
 metadata/_custom_type_script = "uid://14b38vmfp2df"
 
@@ -206,7 +213,7 @@ position = Vector2(320, 451)
 [node name="FishSpawner" type="Node2D" parent="Systems" unique_id=1585078721 node_paths=PackedStringArray("fishes_container")]
 position = Vector2(320, 451)
 script = ExtResource("4_58uyj")
-spawn_pool = Array[ExtResource("22_1fq2y")]([SubResource("Resource_vm2d2"), SubResource("Resource_hws8l")])
+spawn_pool = Array[ExtResource("22_1fq2y")]([SubResource("Resource_vm2d2"), SubResource("Resource_hws8l"), SubResource("Resource_vva6n")])
 spawn_area_size = Vector2(560, 140)
 fishes_container = NodePath("../FishesContainer")
 

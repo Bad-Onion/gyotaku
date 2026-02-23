@@ -47,8 +47,8 @@ func calculate_velocity(current_position: Vector2, current_velocity: Vector2, ta
 		target_velocity = direction * movement_config.chase_speed
 		new_direction = 1 if direction.x > 0 else -1
 
-		var final_velocity = current_velocity.lerp(target_velocity, 5.0 * delta)
-		return MovementResult.new(final_velocity, new_direction)
+		var final_current_velocity = current_velocity.lerp(target_velocity, 5.0 * delta)
+		return MovementResult.new(final_current_velocity, new_direction)
 
 	# --- Organic Wander Logic (Burst and Coast) ---
 	_state_timer -= delta

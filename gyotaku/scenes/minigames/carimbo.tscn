@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dhcf3dxcscjkt" path="res://scenes/minigames/redefinir.gd" id="5_i8l8x"]
 [ext_resource type="Script" uid="uid://dbc2qqmyr7hfd" path="res://scenes/minigames/salvar.gd" id="5_xwurr"]
 [ext_resource type="Script" uid="uid://cfcg84d4obhdb" path="res://scenes/minigames/catalogo.gd" id="6_i8l8x"]
+[ext_resource type="Script" uid="uid://doc1snuosefne" path="res://scenes/minigames/pinceis.gd" id="6_x33oj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxhco"]
 
@@ -26,9 +27,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -281.0
-offset_top = -114.0
+offset_top = -80.0
 offset_right = -237.0
-offset_bottom = 70.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.3346537, 1.4513531)
@@ -37,37 +38,38 @@ size_flags_vertical = 3
 columns = 2
 script = ExtResource("2_5dofo")
 
-[node name="ColorRect2" type="ColorRect" parent="Cores" unique_id=479864985]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(0, 1, 0, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="Cores" unique_id=1853967813]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(1, 1, 0, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Cores" unique_id=1620822803]
+[node name="Preto" type="ColorRect" parent="Cores" unique_id=1620822803]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 color = Color(0.12, 0.12, 0.12, 1)
 
-[node name="ColorRect" type="ColorRect" parent="Cores" unique_id=2124805505]
+[node name="Vermelho" type="ColorRect" parent="Cores" unique_id=2124805505]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 color = Color(1, 0, 0, 1)
 
-[node name="ColorRect5" type="ColorRect" parent="Cores" unique_id=1160602180]
+[node name="Verde" type="ColorRect" parent="Cores" unique_id=479864985]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(1, 0.49803922, 0, 1)
+color = Color(0, 1, 0, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="Cores" unique_id=1875651656]
+[node name="Azul" type="ColorRect" parent="Cores" unique_id=1875651656]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 color = Color(0, 0, 1, 1)
 
+[node name="Laranja" type="ColorRect" parent="Cores" unique_id=1160602180]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0.49803922, 0, 1)
+
+[node name="Amarelo" type="ColorRect" parent="Cores" unique_id=1853967813]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=922152868]
+texture_filter = 1
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
@@ -75,28 +77,8 @@ texture = ExtResource("2_fqe24")
 
 [node name="PeixeTeste" parent="." unique_id=975544837 instance=ExtResource("2_xwurr")]
 
-[node name="HSlider" type="HSlider" parent="." unique_id=984835367]
-offset_left = 17.0
-offset_top = 10.0
-offset_right = 93.0
-offset_bottom = 26.0
-min_value = 5.0
-max_value = 20.0
-value = 10.0
-
-[node name="Label" type="Label" parent="HSlider" unique_id=1783935917]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -40.0
-offset_top = 13.0
-offset_right = 40.0
-offset_bottom = 36.0
-grow_horizontal = 2
-text = "Brush Size"
-
 [node name="CorAtual" type="ColorRect" parent="." unique_id=1828001850]
+visible = false
 custom_minimum_size = Vector2(20, 20)
 offset_left = 6.0
 offset_top = 55.0
@@ -104,8 +86,47 @@ offset_right = 26.0
 offset_bottom = 75.0
 color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 
-[node name="Cursor" parent="." unique_id=1434074555 instance=ExtResource("5_fxhco")]
-position = Vector2(9, 12)
+[node name="Pinceis" type="GridContainer" parent="." unique_id=508290725]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -126.0
+offset_right = -238.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3859177, 1.0260599)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+script = ExtResource("6_x33oj")
+
+[node name="5" type="ColorRect" parent="Pinceis" unique_id=502114674]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="10" type="ColorRect" parent="Pinceis" unique_id=995905015]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="15" type="ColorRect" parent="Pinceis" unique_id=301529904]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="20" type="ColorRect" parent="Pinceis" unique_id=869706209]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
 
 [node name="GridContainer2" type="GridContainer" parent="." unique_id=1021050278]
 anchors_preset = 13
@@ -143,6 +164,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_xwurr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i8l8x")
 text = "Catálogo"
 script = ExtResource("6_i8l8x")
+
+[node name="Cursor" parent="." unique_id=1434074555 instance=ExtResource("5_fxhco")]
+position = Vector2(9, 12)
 
 [connection signal="pressed" from="GridContainer2/Salvar" to="GridContainer2/Salvar" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer2/Redefinir" to="GridContainer2/Redefinir" method="_on_pressed"]

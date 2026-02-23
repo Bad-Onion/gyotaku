@@ -3,22 +3,86 @@
 [ext_resource type="Texture2D" uid="uid://c64cvsej0rn50" path="res://assets/cursor/Cursor-Sheet.png" id="2_ghxni"]
 [ext_resource type="Script" uid="uid://g82ca33qqw7a" path="res://cursor_pincel.gd" id="2_roth4"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_roth4"]
+atlas = ExtResource("2_ghxni")
+region = Rect2(69, 0, 23, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghxni"]
+atlas = ExtResource("2_ghxni")
+region = Rect2(115, 0, 23, 19)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_75asm"]
 atlas = ExtResource("2_ghxni")
 region = Rect2(161, 0, 23, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5wmr"]
+atlas = ExtResource("2_ghxni")
+region = Rect2(23, 0, 23, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdtef"]
+atlas = ExtResource("2_ghxni")
+region = Rect2(46, 0, 23, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nghos"]
+atlas = ExtResource("2_ghxni")
+region = Rect2(92, 0, 23, 19)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hu3fh"]
 atlas = ExtResource("2_ghxni")
 region = Rect2(138, 0, 23, 19)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fc3j"]
+atlas = ExtResource("2_ghxni")
+region = Rect2(0, 0, 23, 19)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ghxni"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roth4")
+}],
+"loop": true,
+"name": &"click10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghxni")
+}],
+"loop": true,
+"name": &"click15",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_75asm")
 }],
 "loop": true,
-"name": &"click",
+"name": &"click20",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5wmr")
+}],
+"loop": true,
+"name": &"click5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdtef")
+}],
+"loop": true,
+"name": &"default10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nghos")
+}],
+"loop": true,
+"name": &"default15",
 "speed": 5.0
 }, {
 "frames": [{
@@ -26,7 +90,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_hu3fh")
 }],
 "loop": true,
-"name": &"default",
+"name": &"default20",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fc3j")
+}],
+"loop": true,
+"name": &"default5",
 "speed": 5.0
 }]
 
@@ -37,4 +109,4 @@ script = ExtResource("2_roth4")
 texture_filter = 1
 position = Vector2(12, 4)
 sprite_frames = SubResource("SpriteFrames_ghxni")
-autoplay = "default"
+animation = &"click20"

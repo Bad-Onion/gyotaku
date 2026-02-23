@@ -1,23 +1,19 @@
 extends Node2D
 
 @onready var imagem: Sprite2D = $"../PeixeTeste/Peixetest/Imagem"
-@onready var scale_fac = imagem.brush_size
 @onready var cursor_pincel: AnimatedSprite2D = $CursorPincel
 
 func _process(delta: float) -> void:
 	global_position = get_global_mouse_position()
 	
-	scale.x = imagem.brush_size / scale_fac
-	scale.y = imagem.brush_size / scale_fac
-	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		cursor_pincel.play("click")
-		cursor_pincel.offset = Vector2.ZERO
-	else:
-		cursor_pincel.play("default")
-		var offset_vector = get_size()
-		var offset_y = offset_vector.y / 4
-		cursor_pincel.offset = Vector2(0,offset_y)
+		cursor_pincel.play("click" + str(imagem.brush_size))
+	elif imagem.brush_size != null:
+		cursor_pincel.play("default" + str(imagem.brush_size))
+		
+	var offset_vector = get_size()
+	var offset_y = offset_vector.y / (imagem.brush_size)
+	cursor_pincel.offset = Vector2(0,offset_y)
 
 func get_size() -> Vector2:
 	# 1. Get the current animation's name and frame index

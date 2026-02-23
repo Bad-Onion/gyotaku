@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cy6ns2hik1l2k"]
+
+[ext_resource type="Shader" uid="uid://dq2mwlk6asw3" path="res://shader/catalogo shader decente.tres" id="1_xipdu"]
+[ext_resource type="FastNoiseLite" uid="uid://vhbua2y22r5a" path="res://shader/noise_bem_random.tres" id="2_butht"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_747k7"]
+width = 500
+height = 300
+noise = ExtResource("2_butht")
+seamless = true
+as_normal_map = true
+normalize = false
+bump_strength = 1.1
+
+[resource]
+shader = ExtResource("1_xipdu")
+shader_parameter/paper_noise = SubResource("NoiseTexture2D_747k7")
+shader_parameter/ink_threshold = 0.5

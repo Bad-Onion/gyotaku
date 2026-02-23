@@ -1,0 +1,26 @@
+[gd_resource type="Shader" format=3 uid="uid://dq2mwlk6asw3"]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform sampler2D paper_noise; 
+// Ajuste esse valor no inspector para controlar o quanto de tinta \"falha\"
+uniform float ink_threshold : hint_range(0.0, 1.0) = 0.5; 
+
+void fragment() {
+    // Pega a imagem do peixe já mesclado
+    vec4 final_image = texture(TEXTURE, UV);
+    
+    // Pega o ruído
+    vec4 noise = texture(paper_noise, UV);
+    
+    // Se existe imagem ali E o ruído do papel é forte...
+    if (final_image.a > 0.0 && noise.r > ink_threshold) {
+        // --- A MUDANÇA É AQUI ---
+        // Em vez de subtrair, a gente ZERA a opacidade.
+        // O pixel desaparece completamente.
+        final_image.a = 0.0; 
+    }
+    
+    COLOR = final_image;
+}"

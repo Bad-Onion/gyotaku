@@ -1,3 +1,40 @@
 [gd_scene format=3 uid="uid://pd1h80fdgo1f"]
 
-[node name="Catalogo" type="Node2D" unique_id=690653136]
+[ext_resource type="Script" uid="uid://ttl0ihm3pvm5" path="res://scenes/minigames/catalogo_manager.gd" id="1_cykm1"]
+[ext_resource type="PackedScene" uid="uid://bobyx43df4on0" path="res://scenes/minigames/peixe_catalogo.tscn" id="1_lrpdc"]
+[ext_resource type="Material" uid="uid://cy6ns2hik1l2k" path="res://shader/shader_papel_decente.tres" id="3_3aiqf"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3aiqf"]
+
+[node name="Catalogo" type="Control" unique_id=1923325422]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cykm1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1718586371]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_3aiqf")
+
+[node name="PeixeCatalogo" parent="." unique_id=177133395 instance=ExtResource("1_lrpdc")]
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=382424990]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Peixe" type="TextureRect" parent="GridContainer" unique_id=1030937587]
+texture_filter = 1
+material = ExtResource("3_3aiqf")
+layout_mode = 2

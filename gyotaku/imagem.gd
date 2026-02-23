@@ -53,10 +53,6 @@ func _paint_tex(pos) -> void:
 				if distancia_quadrado <= raio_quadrado:
 					img.set_pixel(x, y, paint_color)
 
-func _process(delta: float) -> void:
-	if brush_slide != null:
-		brush_size = brush_slide.value
-
 func _input(event: InputEvent) -> void:
 	#Inputs do mouse:
 	if event is InputEventMouseButton:

@@ -149,7 +149,7 @@ animated_sprite = NodePath("../..")
 script = ExtResource("12_v0dvh")
 pull_state = NodePath("../PlayerPullState")
 animated_sprite = NodePath("../..")
-fishing_hook = NodePath("../../../../FishingHook")
+fishing_hook = NodePath("../../../../FishingHook/FishingHook")
 game_camera = NodePath("../../../../MainCamera")
 rod_tip_marker = NodePath("../../RodTipMarker")
 fishing_mechanic_system = NodePath("../../../../Systems/FishingMechanicSystem")
@@ -168,31 +168,6 @@ position = Vector2(29.65857, -12.536575)
 
 [node name="OkinawaUnderwaterBackground" parent="Background" unique_id=1010358310 instance=ExtResource("4_1iula")]
 position = Vector2(0, 360)
-
-[node name="FishingHook" parent="." unique_id=2042041991 groups=["bait"] instance=ExtResource("1_7uxs1")]
-unique_name_in_owner = true
-z_index = 2
-position = Vector2(320, 451)
-
-[node name="HUD" type="CanvasLayer" parent="." unique_id=2041958202]
-
-[node name="FishingCursorUI" parent="HUD" unique_id=782493889 node_paths=PackedStringArray("mechanic_system", "input_system") instance=ExtResource("9_31rk5")]
-unique_name_in_owner = true
-visible = false
-z_index = 2
-mechanic_system = NodePath("../../Systems/FishingMechanicSystem")
-input_system = NodePath("../../Systems/PlayerFishingInput")
-
-[node name="WorldLineController" type="Node" parent="." unique_id=1844155221 node_paths=PackedStringArray("world_line_renderer", "player_rod_tip", "fishing_hook", "mechanic_system")]
-script = ExtResource("21_1iula")
-world_line_renderer = NodePath("WorldFishingLine")
-player_rod_tip = NodePath("../Boat/Player/RodTipMarker")
-fishing_hook = NodePath("../FishingHook")
-mechanic_system = NodePath("../Systems/FishingMechanicSystem")
-
-[node name="WorldFishingLine" type="Line2D" parent="WorldLineController" unique_id=1826571213]
-width = 1.0
-script = ExtResource("21_41r28")
 
 [node name="Systems" type="Node" parent="." unique_id=358187130]
 
@@ -222,5 +197,32 @@ wait_time = 2.0
 autostart = true
 
 [node name="FishesContainer" type="Node2D" parent="Systems" unique_id=35673712]
+
+[node name="FishingHook" type="Node" parent="." unique_id=209616824]
+
+[node name="FishingHook" parent="FishingHook" unique_id=2042041991 groups=["bait"] instance=ExtResource("1_7uxs1")]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(320, 451)
+
+[node name="HUD" type="CanvasLayer" parent="FishingHook" unique_id=2041958202]
+
+[node name="FishingCursorUI" parent="FishingHook/HUD" unique_id=782493889 node_paths=PackedStringArray("mechanic_system", "input_system") instance=ExtResource("9_31rk5")]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+mechanic_system = NodePath("../../../Systems/FishingMechanicSystem")
+input_system = NodePath("../../../Systems/PlayerFishingInput")
+
+[node name="WorldLineController" type="Node" parent="FishingHook" unique_id=1844155221 node_paths=PackedStringArray("world_line_renderer", "player_rod_tip", "fishing_hook", "mechanic_system")]
+script = ExtResource("21_1iula")
+world_line_renderer = NodePath("WorldFishingLine")
+player_rod_tip = NodePath("../../Boat/Player/RodTipMarker")
+fishing_hook = NodePath("../FishingHook")
+mechanic_system = NodePath("../../Systems/FishingMechanicSystem")
+
+[node name="WorldFishingLine" type="Line2D" parent="FishingHook/WorldLineController" unique_id=1826571213]
+width = 1.0
+script = ExtResource("21_41r28")
 
 [connection signal="timeout" from="Systems/FishSpawner/SpawnTimer" to="Systems/FishSpawner" method="_on_spawn_timer_timeout"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csx5k7ay4wh0r" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_hud_config.gd" id="2_d6030"]
 [ext_resource type="Script" uid="uid://df0awv8y88e4b" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.gd" id="3_2duka"]
-[ext_resource type="Texture2D" uid="uid://big7vr8yu8ock" path="res://assets/sprites/fishing_rod/fishing_cursor.png" id="3_d6030"]
+[ext_resource type="Texture2D" uid="uid://dx7myx2ppsrsr" path="res://assets/sprites/fishing_rod/VaraUi-sheet.png" id="3_d6030"]
 [ext_resource type="Texture2D" uid="uid://eebee6qdtu0p" path="res://assets/sprites/HUD/fishing_cursor_arrow_hud.png" id="4_a4k06"]
 [ext_resource type="Script" uid="uid://bp6jpcuc73prj" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_line_renderer.gd" id="4_kpmcx"]
 
@@ -10,15 +10,135 @@
 script = ExtResource("2_d6030")
 metadata/_custom_type_script = "uid://csx5k7ay4wh0r"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4k06"]
+atlas = ExtResource("3_d6030")
+region = Rect2(0, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c2hr"]
+atlas = ExtResource("3_d6030")
+region = Rect2(17, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofsge"]
+atlas = ExtResource("3_d6030")
+region = Rect2(34, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsxie"]
+atlas = ExtResource("3_d6030")
+region = Rect2(51, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlkeq"]
+atlas = ExtResource("3_d6030")
+region = Rect2(68, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fsqu"]
+atlas = ExtResource("3_d6030")
+region = Rect2(85, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_047fv"]
+atlas = ExtResource("3_d6030")
+region = Rect2(102, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gh70d"]
+atlas = ExtResource("3_d6030")
+region = Rect2(119, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15e6s"]
+atlas = ExtResource("3_d6030")
+region = Rect2(136, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynjr1"]
+atlas = ExtResource("3_d6030")
+region = Rect2(153, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0fjw"]
+atlas = ExtResource("3_d6030")
+region = Rect2(170, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgpdt"]
+atlas = ExtResource("3_d6030")
+region = Rect2(187, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uke2"]
+atlas = ExtResource("3_d6030")
+region = Rect2(204, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fxte"]
+atlas = ExtResource("3_d6030")
+region = Rect2(221, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uk0e"]
+atlas = ExtResource("3_d6030")
+region = Rect2(238, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkxoy"]
+atlas = ExtResource("3_d6030")
+region = Rect2(255, 0, 17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rupu8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4k06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c2hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofsge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsxie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlkeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fsqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_047fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gh70d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15e6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynjr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0fjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgpdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uke2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fxte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uk0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkxoy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
 [node name="FishingCursorUI" type="Node2D" unique_id=782493889]
 z_index = 5
 script = ExtResource("3_2duka")
 hud_config = SubResource("Resource_a4k06")
 
-[node name="RodSprite" type="Sprite2D" parent="." unique_id=2066038344]
+[node name="RodSprite" type="AnimatedSprite2D" parent="." unique_id=534154115]
 unique_name_in_owner = true
 scale = Vector2(0.76795846, 0.76795846)
-texture = ExtResource("3_d6030")
+sprite_frames = SubResource("SpriteFrames_rupu8")
 
 [node name="TipMarker" type="Marker2D" parent="RodSprite" unique_id=1987311679]
 unique_name_in_owner = true
@@ -34,6 +154,7 @@ script = ExtResource("3_2duka")
 
 [node name="FishingLine" type="Line2D" parent="." unique_id=216516106]
 unique_name_in_owner = true
+points = PackedVector2Array(3, -3)
 width = 1.0
 begin_cap_mode = 2
 end_cap_mode = 2

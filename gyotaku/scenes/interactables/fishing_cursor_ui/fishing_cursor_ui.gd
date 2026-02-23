@@ -8,13 +8,15 @@ extends Node2D
 @export var hud_config: FishingHudConfig
 
 @export_group("Nodes")
-@onready var rod_sprite: Sprite2D = %RodSprite
+@onready var rod_sprite: AnimatedSprite2D = %RodSprite
 @onready var arrow_sprite: Sprite2D = %ArrowSprite
 @onready var fishing_line: FishingLineRenderer = %FishingLine
 @onready var tip_marker: Marker2D = %RodSprite/TipMarker
 
 var max_expected_drag: float = 150.0
 var _current_tension: float = 0.0
+var _drag_start_global: Vector2 = Vector2.ZERO
+var _was_dragging: bool = false
 
 
 func _ready() -> void:
@@ -50,7 +52,18 @@ func _process(delta: float) -> void:
 	if Input.get_mouse_mode() != Input.MOUSE_MODE_HIDDEN:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
-	global_position = get_global_mouse_position()
+	if input_system.is_active():
+		if not _was_dragging:
+			_drag_start_global = global_position
+			_was_dragging = true
+
+		global_position = _drag_start_global + input_system.get_drag_vector()
+	else:
+		if _was_dragging:
+			_was_dragging = false
+			get_viewport().warp_mouse(global_position)
+		else:
+			global_position = get_global_mouse_position()
 
 	_update_arrow()
 	_update_rod(delta)
@@ -59,6 +72,7 @@ func _process(delta: float) -> void:
 
 func _on_tension_updated(current: float, _max_val: float) -> void:
 	_current_tension = current
+
 	if fishing_line:
 		fishing_line.update_tension_visuals(_current_tension, hud_config.sweet_spot_min)
 

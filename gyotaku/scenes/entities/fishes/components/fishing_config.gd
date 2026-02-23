@@ -26,3 +26,6 @@ extends Resource
 @export_group("Visual Mapping")
 @export var surface_y: float = 190.0
 @export var bottom_y: float = 340.0
+
+@export_group("Resistance")
+@export var rod_resistance_multiplier: float = 0.5

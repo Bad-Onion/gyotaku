@@ -55,10 +55,11 @@ func _physics_process(delta: float) -> void:
 
 # --- Core Mechanics ---
 func _handle_tug_of_war_physics(delta: float) -> void:
-	var player_pull_velocity = _get_player_pull_velocity()
-	var fish_target_velocity = _get_fish_struggle_velocity() + player_pull_velocity
+	var fish_target_velocity = _get_fish_struggle_velocity() + _get_player_pull_velocity()
 
 	_fish.apply_external_force(fish_target_velocity, delta)
+
+	_calculate_and_apply_fish_resistance_force()
 
 
 func _calculate_tension(delta: float) -> void:
@@ -113,6 +114,7 @@ func _apply_escape_impulse() -> void:
 
 func _reset_state() -> void:
 	_current_tension = 0.0
+	input_system.apply_resistance(Vector2.ZERO, 1.0)
 
 	if _fish and _current_config:
 		_current_depth = _current_config.max_depth / 2.0
@@ -189,3 +191,13 @@ func _get_fish_distance_from_center() -> float:
 
 func _is_fish_centered() -> bool:
 	return _get_fish_distance_from_center() <= _current_config.safe_zone_radius * 0.5
+
+
+func _calculate_and_apply_fish_resistance_force() -> void:
+	if _is_minigame_active and input_system.is_active():
+		var directional_pull := _get_fish_struggle_velocity() * _current_config.rod_resistance_multiplier
+		var stiffness := 1.0 + _current_config.rod_resistance_multiplier
+
+		input_system.apply_resistance(Vector2(directional_pull, 0), stiffness)
+	else:
+		input_system.apply_resistance(Vector2.ZERO, 1.0)

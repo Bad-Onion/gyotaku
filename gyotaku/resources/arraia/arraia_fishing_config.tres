@@ -6,4 +6,5 @@
 script = ExtResource("1_wvmnu")
 player_pull_power = 1.3
 fish_struggle_power = 80.0
+rod_resistance_multiplier = 0.8
 metadata/_custom_type_script = "uid://c50nau0nqic1d"

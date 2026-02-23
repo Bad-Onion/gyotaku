@@ -88,14 +88,3 @@ func _input(event: InputEvent) -> void:
 					_paint_tex(impos)
 				
 			texture.update(img)
-		
-func salvar_imagem() -> void:
-	var file_path = "user://peixe.png"
-	img.flip_y()
-	var error = img.save_png(file_path)
-	
-	if error != OK:
-		print("Deu erro")
-		push_error("Could not save image to " + file_path)
-	else:
-		print("Image saved successfully to: " + file_path)

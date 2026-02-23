@@ -27,6 +27,7 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_3aiqf")
 
 [node name="PeixeCatalogo" parent="." unique_id=177133395 instance=ExtResource("1_lrpdc")]
+tipo = "raya"
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=382424990]
 layout_mode = 1

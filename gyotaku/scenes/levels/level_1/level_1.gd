@@ -13,10 +13,9 @@ extends Node2D
 @onready var ceiling_water_sprite: Sprite2D = $Background/OkinawaUnderwaterBackground/CeilingLayer/UnderwaterCeiling
 
 const BOAT_SURFACE_Y: float = 269.5
-const BOAT_UNDERWATER_Y: float = 392.0
+const BOAT_UNDERWATER_Y: float = 360.0
 const WATERLINE_Y: float = 360.0
 
-var _surface_y_top: float = 0.0
 var _last_cam_y: float = 0.0
 var _boat_target_y: float = BOAT_SURFACE_Y
 
@@ -77,7 +76,7 @@ func _handle_perspective_transition() -> void:
 	_last_cam_y = cam_y
 
 	# Calculate a single unified transition weight to ensure 0 gaps.
-	var start_transition_y: float = 269.5
+	var start_transition_y: float = 220.0
 	var end_transition_y: float = 500.0
 	var transition_weight: float = clamp((cam_y - start_transition_y) / (end_transition_y - start_transition_y), 0.0, 1.0)
 

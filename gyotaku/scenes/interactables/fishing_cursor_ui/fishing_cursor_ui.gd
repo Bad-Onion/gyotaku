@@ -67,6 +67,7 @@ func _process(delta: float) -> void:
 
 	_update_arrow()
 	_update_rod(delta)
+	_update_reel_animation()
 	_update_string_physics()
 
 
@@ -115,3 +116,20 @@ func _update_string_physics() -> void:
 
 	var fish_screen_position = current_fish.get_global_transform_with_canvas().origin
 	fishing_line.update_line_points(tip_marker.global_position, fish_screen_position)
+
+
+func _update_reel_animation() -> void:
+	if input_system.is_active():
+		var drag_length := input_system.get_drag_vector().length()
+		var pull_intensity := clampf(drag_length / max_expected_drag, 0.0, 1.0)
+
+		if not rod_sprite.is_playing():
+			rod_sprite.play()
+
+		var min_anim_speed := 1.0
+		var max_anim_speed := 10.0
+		rod_sprite.speed_scale = lerpf(min_anim_speed, max_anim_speed, pull_intensity)
+	else:
+		if rod_sprite.is_playing():
+			rod_sprite.stop()
+			rod_sprite.frame = 0

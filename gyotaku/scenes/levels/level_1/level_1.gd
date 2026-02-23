@@ -12,8 +12,13 @@ extends Node2D
 @onready var surface_water_sprite: Sprite2D = $Background/OkinawaBackground/SurfaceWater/Water
 @onready var ceiling_water_sprite: Sprite2D = $Background/OkinawaUnderwaterBackground/CeilingLayer/UnderwaterCeiling
 
+const BOAT_SURFACE_Y: float = 269.5
 const BOAT_UNDERWATER_Y: float = 392.0
 const WATERLINE_Y: float = 360.0
+
+var _surface_y_top: float = 0.0
+var _last_cam_y: float = 0.0
+var _boat_target_y: float = BOAT_SURFACE_Y
 
 
 func _ready() -> void:
@@ -56,11 +61,20 @@ func _end_minigame() -> void:
 
 
 func _handle_perspective_transition() -> void:
+	if not main_camera: return
+
 	var cam_y: float = main_camera.global_position.y
 
 	if boat:
-		var boat_target_y: float = cam_y + 89.5
-		boat.base_y = min(boat_target_y, BOAT_UNDERWATER_Y)
+		var cam_delta: float = cam_y - _last_cam_y
+		# If the delta is massive (camera snapped on frame 1), ignore it to prevent teleportation
+		if cam_delta > 0.0 and cam_delta < 50.0:
+			_boat_target_y += cam_delta
+
+		_boat_target_y = min(_boat_target_y, BOAT_UNDERWATER_Y)
+		boat.base_y = _boat_target_y
+
+	_last_cam_y = cam_y
 
 	# Calculate a single unified transition weight to ensure 0 gaps.
 	var start_transition_y: float = 269.5

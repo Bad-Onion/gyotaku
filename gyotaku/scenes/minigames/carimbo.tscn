@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://byw66ndwd0aja" path="res://carimbo.gd" id="1_af0jy"]
 [ext_resource type="Script" uid="uid://cixtt81vnpfk1" path="res://cores_de_tinta.gd" id="2_5dofo"]
 [ext_resource type="Texture2D" uid="uid://bbk71vwxpksn7" path="res://assets/background/CenaCarimbo.png" id="2_fqe24"]
-[ext_resource type="PackedScene" uid="uid://d28xw0r1f3qul" path="res://scenes/peixes/peixeteste.tscn" id="2_xwurr"]
+[ext_resource type="PackedScene" uid="uid://d28xw0r1f3qul" path="res://scenes/peixes/peixe.tscn" id="2_xwurr"]
 [ext_resource type="PackedScene" uid="uid://dksa5sfa1b54q" path="res://scenes/cursor/cursor.tscn" id="5_fxhco"]
 [ext_resource type="Script" uid="uid://dhcf3dxcscjkt" path="res://scenes/minigames/redefinir.gd" id="5_i8l8x"]
 [ext_resource type="Script" uid="uid://dbc2qqmyr7hfd" path="res://scenes/minigames/salvar.gd" id="5_xwurr"]
@@ -75,7 +75,8 @@ offset_bottom = 360.0
 mouse_filter = 2
 texture = ExtResource("2_fqe24")
 
-[node name="PeixeTeste" parent="." unique_id=975544837 instance=ExtResource("2_xwurr")]
+[node name="Peixe" parent="." unique_id=975544837 instance=ExtResource("2_xwurr")]
+tipo = "gurukun"
 
 [node name="Pinceis" type="GridContainer" parent="." unique_id=508290725]
 anchors_preset = 8

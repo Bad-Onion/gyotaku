@@ -1,6 +1,6 @@
 extends GridContainer
 
-@onready var imagem: Sprite2D = $"../PeixeTeste/Peixetest/Imagem"
+@onready var imagem: Sprite2D = $"../Peixe/Sprite/Imagem"
 
 #Pega pincel certo quando clica nele:
 func _ready() -> void:

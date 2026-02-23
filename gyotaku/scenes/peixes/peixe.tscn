@@ -1,27 +1,26 @@
 [gd_scene format=3 uid="uid://d28xw0r1f3qul"]
 
-[ext_resource type="Texture2D" uid="uid://dt4rrortstg0f" path="res://assets/peixes/Gurukun.png" id="1_nguc3"]
+[ext_resource type="Script" uid="uid://daklesqhhv11r" path="res://scenes/peixes/peixe.gd" id="1_thkon"]
 [ext_resource type="Script" uid="uid://3wo874p8ylik" path="res://imagem.gd" id="2_cddau"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o0idy"]
 blend_mode = 3
 
-[node name="PeixeTeste" type="Node2D" unique_id=975544837]
+[node name="Peixe" type="Node2D" unique_id=975544837]
+script = ExtResource("1_thkon")
 
 [node name="Sombra" type="Sprite2D" parent="." unique_id=888552946]
 modulate = Color(0, 0, 0, 0.33333334)
 clip_children = 2
 texture_filter = 1
 position = Vector2(344, 172.99998)
-texture = ExtResource("1_nguc3")
 
-[node name="Peixetest" type="Sprite2D" parent="." unique_id=1020902100]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1020902100]
 clip_children = 2
 texture_filter = 1
 position = Vector2(346, 170.99998)
-texture = ExtResource("1_nguc3")
 
-[node name="Imagem" type="Sprite2D" parent="Peixetest" unique_id=1362288757]
+[node name="Imagem" type="Sprite2D" parent="Sprite" unique_id=1362288757]
 material = SubResource("CanvasItemMaterial_o0idy")
 script = ExtResource("2_cddau")
 cor_fundo = Color(1, 1, 1, 1)

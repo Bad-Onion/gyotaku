@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var imagem: Sprite2D = $"../PeixeTeste/Peixetest/Imagem"
+@onready var imagem: Sprite2D = $"../Peixe/Sprite/Imagem"
 @onready var cursor_pincel: AnimatedSprite2D = $CursorPincel
 
 func _process(delta: float) -> void:

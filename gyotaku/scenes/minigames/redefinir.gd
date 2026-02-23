@@ -1,6 +1,6 @@
 extends Button
 
-@onready var imagem: Sprite2D = $"../../PeixeTeste/Peixetest/Imagem"
+@onready var imagem: Sprite2D = $"../../Peixe/Sprite/Imagem"
 @onready var h_slider: HSlider = $"../HSlider"
 
 func _on_pressed() -> void:

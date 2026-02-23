@@ -8,37 +8,48 @@
 [ext_resource type="Texture2D" uid="uid://dw5ku1msm4gk6" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_3.png" id="6_6i0im"]
 [ext_resource type="Texture2D" uid="uid://cwcfdqwxnup4j" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_2.png" id="7_s4f0x"]
 [ext_resource type="Texture2D" uid="uid://oaj6dwr63xoh" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_1.png" id="8_rbxeu"]
+[ext_resource type="Texture2D" uid="uid://5hjy04akbdl5" path="res://assets/backgrounds/okinawa/underwater/water_effect.png" id="9_epons"]
 
-[node name="OkinawaUnderwaterBackground" type="Node2D" unique_id=1010358310]
+[node name="OkinawaUnderwaterBackground" type="ParallaxBackground" unique_id=288098495]
 
-[node name="WaterBackground" type="Sprite2D" parent="." unique_id=942469248]
-position = Vector2(320, 250)
+[node name="DepthLayer" type="ParallaxLayer" parent="." unique_id=1523264890]
+position = Vector2(0, 424)
+motion_scale = Vector2(1, 0.8)
+
+[node name="UnderwaterDepth" type="Sprite2D" parent="DepthLayer" unique_id=942469248]
+position = Vector2(320, 230)
 texture = ExtResource("1_0vsfu")
 
-[node name="WaterBack7" type="Sprite2D" parent="." unique_id=1472713179]
-position = Vector2(320, 250)
+[node name="WaterBack7" type="Sprite2D" parent="DepthLayer" unique_id=1472713179]
+position = Vector2(320, 210)
 texture = ExtResource("2_epons")
 
-[node name="WaterBack6" type="Sprite2D" parent="." unique_id=1847503277]
-position = Vector2(320, 250)
+[node name="WaterBack6" type="Sprite2D" parent="DepthLayer" unique_id=1847503277]
+position = Vector2(320, 210)
 texture = ExtResource("3_a3prl")
 
-[node name="WaterBack5" type="Sprite2D" parent="." unique_id=1084239104]
-position = Vector2(320, 250)
+[node name="WaterBack5" type="Sprite2D" parent="DepthLayer" unique_id=1084239104]
+position = Vector2(320, 210)
 texture = ExtResource("4_2wyvv")
 
-[node name="WaterBack4" type="Sprite2D" parent="." unique_id=1687866065]
-position = Vector2(320, 250)
+[node name="WaterBack4" type="Sprite2D" parent="DepthLayer" unique_id=1687866065]
+position = Vector2(320, 210)
 texture = ExtResource("5_vgbym")
 
-[node name="WaterBack3" type="Sprite2D" parent="." unique_id=1439087591]
-position = Vector2(320, 250)
+[node name="WaterBack3" type="Sprite2D" parent="DepthLayer" unique_id=1439087591]
+position = Vector2(320, 210)
 texture = ExtResource("6_6i0im")
 
-[node name="WaterBack2" type="Sprite2D" parent="." unique_id=606494064]
-position = Vector2(320, 250)
+[node name="WaterBack2" type="Sprite2D" parent="DepthLayer" unique_id=606494064]
+position = Vector2(320, 210)
 texture = ExtResource("7_s4f0x")
 
-[node name="WaterBack1" type="Sprite2D" parent="." unique_id=1281090587]
-position = Vector2(320, 250)
+[node name="WaterBack1" type="Sprite2D" parent="DepthLayer" unique_id=1281090587]
+position = Vector2(320, 210)
 texture = ExtResource("8_rbxeu")
+
+[node name="CellingLayer" type="ParallaxLayer" parent="." unique_id=1331441684]
+
+[node name="UnderwaterCelling" type="Sprite2D" parent="CellingLayer" unique_id=566132218]
+position = Vector2(320, 392)
+texture = ExtResource("9_epons")

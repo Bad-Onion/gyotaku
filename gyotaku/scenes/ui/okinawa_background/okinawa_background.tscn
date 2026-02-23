@@ -9,41 +9,46 @@
 [ext_resource type="Texture2D" uid="uid://bj5lakp8jvqde" path="res://assets/backgrounds/okinawa/surface/Montanha_Direita_1.png" id="7_1d3g0"]
 [ext_resource type="Texture2D" uid="uid://hursjd8g8ixf" path="res://assets/backgrounds/okinawa/surface/agua.png" id="8_4f0ou"]
 
-[node name="OkinawaBackground" type="Node" unique_id=1616347244]
+[node name="OkinawaBackground" type="ParallaxBackground" unique_id=1771425792]
 
-[node name="Sky" type="Sprite2D" parent="." unique_id=1428202544]
+[node name="Scenario" type="ParallaxLayer" parent="." unique_id=1970804716]
+motion_scale = Vector2(1, 0.5)
+
+[node name="Sky" type="Sprite2D" parent="Scenario" unique_id=1428202544]
 position = Vector2(320, 180)
 texture = ExtResource("1_mtm42")
 
-[node name="FarMountains" type="Sprite2D" parent="." unique_id=1424857524]
+[node name="FarMountains" type="Sprite2D" parent="Scenario" unique_id=1424857524]
 position = Vector2(320, 192)
 texture = ExtResource("2_4f0ou")
 
-[node name="LeftMountain3" type="Sprite2D" parent="." unique_id=100659417]
+[node name="LeftMountain3" type="Sprite2D" parent="Scenario" unique_id=100659417]
 z_index = 1
 position = Vector2(164, 196)
 texture = ExtResource("3_uekg8")
 
-[node name="RightMountain2" type="Sprite2D" parent="." unique_id=919601365]
+[node name="RightMountain2" type="Sprite2D" parent="Scenario" unique_id=919601365]
 z_index = 1
 position = Vector2(576, 175)
 texture = ExtResource("4_pmoxm")
 
-[node name="LeftMountain2" type="Sprite2D" parent="." unique_id=1469487905]
+[node name="LeftMountain2" type="Sprite2D" parent="Scenario" unique_id=1469487905]
 z_index = 1
 position = Vector2(54, 175)
 texture = ExtResource("5_d637k")
 
-[node name="LeftMountain1" type="Sprite2D" parent="." unique_id=530648550]
+[node name="LeftMountain1" type="Sprite2D" parent="Scenario" unique_id=530648550]
 z_index = 1
 position = Vector2(57, 195)
 texture = ExtResource("6_8p0c7")
 
-[node name="RightMountain1" type="Sprite2D" parent="." unique_id=1316389444]
+[node name="RightMountain1" type="Sprite2D" parent="Scenario" unique_id=1316389444]
 z_index = 1
 position = Vector2(534, 172)
 texture = ExtResource("7_1d3g0")
 
-[node name="Water" type="Sprite2D" parent="." unique_id=7033961]
+[node name="SurfaceWater" type="ParallaxLayer" parent="." unique_id=1864668906]
+
+[node name="Water" type="Sprite2D" parent="SurfaceWater" unique_id=7033961]
 position = Vector2(320, 180)
 texture = ExtResource("8_4f0ou")

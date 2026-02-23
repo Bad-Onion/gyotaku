@@ -105,6 +105,7 @@ metadata/_custom_type_script = "uid://14b38vmfp2df"
 script = ExtResource("1_58uyj")
 
 [node name="MainCamera" type="Camera2D" parent="." unique_id=2093425651]
+unique_name_in_owner = true
 position = Vector2(320, 180)
 limit_top = 0
 limit_bottom = 884
@@ -112,7 +113,8 @@ position_smoothing_enabled = true
 script = ExtResource("2_hhmec")
 
 [node name="Boat" type="AnimatedSprite2D" parent="." unique_id=1587030661]
-z_index = 2
+unique_name_in_owner = true
+z_index = 1
 position = Vector2(306.895, 269.5)
 scale = Vector2(1.0789473, 1.0789474)
 sprite_frames = SubResource("SpriteFrames_q7p11")
@@ -120,6 +122,7 @@ frame_progress = 0.21664254
 script = ExtResource("4_w3g2g")
 
 [node name="Player" parent="Boat" unique_id=448418749 instance=ExtResource("7_hhmec")]
+show_behind_parent = true
 z_index = 1
 z_as_relative = false
 position = Vector2(14, -24.073181)
@@ -165,10 +168,13 @@ animated_sprite = NodePath("../..")
 position = Vector2(29.65857, -12.536575)
 
 [node name="Background" type="Node" parent="." unique_id=2001595502]
+unique_name_in_owner = true
 
 [node name="OkinawaBackground" parent="Background" unique_id=1616347244 instance=ExtResource("5_v0dvh")]
+unique_name_in_owner = true
 
 [node name="OkinawaUnderwaterBackground" parent="Background" unique_id=1010358310 instance=ExtResource("4_1iula")]
+unique_name_in_owner = true
 
 [node name="Systems" type="Node" parent="." unique_id=358187130]
 

@@ -19,6 +19,7 @@ position = Vector2(320, 180)
 texture = ExtResource("1_mtm42")
 
 [node name="FarMountains" type="Sprite2D" parent="Scenario" unique_id=1424857524]
+z_index = 1
 position = Vector2(320, 192)
 texture = ExtResource("2_4f0ou")
 
@@ -48,7 +49,9 @@ position = Vector2(534, 172)
 texture = ExtResource("7_1d3g0")
 
 [node name="SurfaceWater" type="ParallaxLayer" parent="." unique_id=1864668906]
+unique_name_in_owner = true
 
 [node name="Water" type="Sprite2D" parent="SurfaceWater" unique_id=7033961]
-position = Vector2(320, 180)
+unique_name_in_owner = true
 texture = ExtResource("8_4f0ou")
+centered = false

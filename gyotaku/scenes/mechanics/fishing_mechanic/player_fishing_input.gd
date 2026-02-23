@@ -20,13 +20,9 @@ func apply_resistance(directional_pull: Vector2, stiffness: float = 1.0) -> void
 
 func _physics_process(delta: float) -> void:
 	if is_dragging:
-		# 1. Reduce raw mouse movement based on stiffness (simulates heavy weight)
 		var dampened_drag := _raw_drag_vector / _stiffness
-
-		# 2. Add the directional yank from the fish
 		var target_vector := dampened_drag + _resistance_vector
 
-		# 3. Apply the brutal hard cap so the line physically cannot stretch infinitely
 		if target_vector.length() > max_drag_distance:
 			target_vector = target_vector.limit_length(max_drag_distance)
 

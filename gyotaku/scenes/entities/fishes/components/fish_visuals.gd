@@ -13,7 +13,7 @@ func update_visuals(velocity: Vector2, current_rotation: float, delta: float) ->
 	var target_angle := 0.0
 
 	if absf(velocity.x) > 1.0:
-		var slope = velocity.y / absf(velocity.x)
+		var slope = velocity.y / velocity.x
 		target_angle = clampf(slope, -0.6, 0.6)
 
 	return lerp_angle(current_rotation, target_angle, 8.0 * delta)

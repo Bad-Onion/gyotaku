@@ -80,7 +80,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
-	_current_target = movement_component.find_target(global_position, _current_target)
+	_current_target = movement_component.find_target(self, _current_target, delta)
 
 	var movement_data = movement_component.calculate_velocity(global_position, velocity, _current_target, movement_direction, delta)
 	velocity = movement_data.velocity

@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_1buhx")
+rod_resistance_multiplier = 0.8
 metadata/_custom_type_script = "uid://c50nau0nqic1d"

@@ -5,14 +5,22 @@ extends Control
 @onready var peixe: TextureRect = $GridContainer/Peixe
 
 func _ready() -> void:
-	adicionar_peixe_ao_catalogo(pintura.texture)
+	Input.set_custom_mouse_cursor(null)
 
-func adicionar_peixe_ao_catalogo(pintura_salva: Texture2D):
-	# 1. Coloca a pintura que o jogador fez lá no estúdio invisível
-	pintura.texture = pintura_salva
+	if Global.ultimo_peixe_carimbado != "":
+		trocar_peixe_na_tela(Global.ultimo_peixe_carimbado)
+	else:
+		trocar_peixe_na_tela("gurukun")
+
+func trocar_peixe_na_tela(nome_do_peixe: String):
+	# 1. Manda o SubViewport trocar as texturas internas dele
+	peixe_catalogo.atualizar_peixe(nome_do_peixe)
 	
-	# 2. Espera 1 frame pro Godot processar o Clip e o Multiply no SubViewport
+	# 2. Pede pra atualizar a tela
+	adicionar_peixe_ao_catalogo()
+
+func adicionar_peixe_ao_catalogo():
+	# Espera o SubViewport processar o Clip+Draw
 	await get_tree().process_frame
-	
-	# 3. Pega o resultado pronto e joga na cara do jogador no catálogo!
+	# Pega o resultado mesclado e joga na cara do jogador
 	peixe.texture = peixe_catalogo.get_texture()

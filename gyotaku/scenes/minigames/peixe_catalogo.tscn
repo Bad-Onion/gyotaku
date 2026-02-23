@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://bobyx43df4on0"]
 
 [ext_resource type="Script" uid="uid://buai3v5byl7kv" path="res://scenes/minigames/peixe_catalogo.gd" id="1_fmcqn"]
-[ext_resource type="Texture2D" uid="uid://dgt8q1hy2ubhm" path="res://assets/peixes/Gurukun sem contornos.png" id="1_xox23"]
-[ext_resource type="Texture2D" uid="uid://dejwovb6uxrx8" path="res://assets/peixes/pintura teste.png" id="2_xox23"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xox23"]
 blend_mode = 3
@@ -16,8 +14,6 @@ script = ExtResource("1_fmcqn")
 clip_children = 2
 texture_filter = 1
 position = Vector2(346, 170.99998)
-texture = ExtResource("1_xox23")
 
 [node name="Pintura" type="Sprite2D" parent="Peixe" unique_id=581131280]
 material = SubResource("CanvasItemMaterial_xox23")
-texture = ExtResource("2_xox23")

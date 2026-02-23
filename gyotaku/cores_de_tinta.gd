@@ -9,4 +9,5 @@ func _ready() -> void:
 			if input is InputEventMouseButton:
 				if input.pressed and input.button_index == MOUSE_BUTTON_LEFT:
 					imagem.paint_color = c.color
+					imagem.atualizar_cor_do_cursor(c.color)
 			)

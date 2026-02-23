@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://dksa5sfa1b54q"]
 
+[ext_resource type="Shader" uid="uid://c2mqduumuvl3n" path="res://scenes/cursor/cursor.gdshader" id="2_75asm"]
 [ext_resource type="Texture2D" uid="uid://c64cvsej0rn50" path="res://assets/cursor/Cursor-Sheet.png" id="2_ghxni"]
 [ext_resource type="Script" uid="uid://g82ca33qqw7a" path="res://cursor_pincel.gd" id="2_roth4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5wmr"]
+shader = ExtResource("2_75asm")
+shader_parameter/paint_color = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_roth4"]
 atlas = ExtResource("2_ghxni")
@@ -107,6 +112,7 @@ script = ExtResource("2_roth4")
 
 [node name="CursorPincel" type="AnimatedSprite2D" parent="." unique_id=1090630000]
 texture_filter = 1
+material = SubResource("ShaderMaterial_e5wmr")
 position = Vector2(12, 4)
 sprite_frames = SubResource("SpriteFrames_ghxni")
 animation = &"click20"

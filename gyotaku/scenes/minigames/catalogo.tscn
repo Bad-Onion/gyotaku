@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://cy6ns2hik1l2k" path="res://shader/shader_papel_decente.tres" id="3_3aiqf"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_3aiqf"]
+texture_filter = 1
 
 [node name="Catalogo" type="Control" unique_id=1923325422]
 layout_mode = 3
@@ -16,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_cykm1")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1718586371]
+modulate = Color(1, 1, 0.75686276, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

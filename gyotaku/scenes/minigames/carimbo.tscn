@@ -77,15 +77,6 @@ texture = ExtResource("2_fqe24")
 
 [node name="PeixeTeste" parent="." unique_id=975544837 instance=ExtResource("2_xwurr")]
 
-[node name="CorAtual" type="ColorRect" parent="." unique_id=1828001850]
-visible = false
-custom_minimum_size = Vector2(20, 20)
-offset_left = 6.0
-offset_top = 55.0
-offset_right = 26.0
-offset_bottom = 75.0
-color = Color(0.12156863, 0.12156863, 0.12156863, 1)
-
 [node name="Pinceis" type="GridContainer" parent="." unique_id=508290725]
 anchors_preset = 8
 anchor_left = 0.5

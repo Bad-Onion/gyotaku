@@ -3,13 +3,13 @@ class_name Imagem
 extends Sprite2D
 
 @onready var peixetest: Sprite2D = $".."
-@onready var cor_atual: ColorRect = $"../../../CorAtual"
+@onready var cursor: AnimatedSprite2D = $"../../../Cursor/CursorPincel"
 #Cor inicial
-@export var paint_color : Color = Color8(31,31,31):
-	#Atualiza o indicador de cor atual
+@export var paint_color : Color = Color8(31,31,31) :
+	#Atualiza o indicador de cor atual e o cursor
 	set(value):
 		paint_color = value
-		cor_atual.color = value
+		atualizar_cor_do_cursor(value)
 var img_size
 @export var init_brush_size = 10
 var brush_size = init_brush_size
@@ -19,6 +19,7 @@ var brush_size = init_brush_size
 var img : Image
 
 func _ready() -> void:
+	atualizar_cor_do_cursor(paint_color)
 	redefinir_imagem()
 	
 func redefinir_imagem():
@@ -28,7 +29,10 @@ func redefinir_imagem():
 	img.fill(cor_fundo)
 	texture = ImageTexture.create_from_image(img)
 	#get_parent().material.set_shader_parameter("paint_texture", img)
-	
+
+func atualizar_cor_do_cursor(nova_cor: Color) -> void:
+	(cursor.material as ShaderMaterial).set_shader_parameter("paint_color", nova_cor)
+
 func _paint_tex(pos) -> void:	
 	#Pinta um retângulo de acordo com o brush size no mouse
 	#img.fill_rect(Rect2i(pos, Vector2i(0,1)).grow(brush_size/2), paint_color)

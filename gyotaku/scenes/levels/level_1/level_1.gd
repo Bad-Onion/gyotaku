@@ -9,8 +9,8 @@ extends Node2D
 @onready var main_camera: FishingCamera = %MainCamera
 @onready var boat: AnimatedSprite2D = %Boat
 
-@onready var surface_water_sprite: Sprite2D = $Background/OkinawaBackground/SurfaceWater/Water
-@onready var ceiling_water_sprite: Sprite2D = $Background/OkinawaUnderwaterBackground/CeilingLayer/UnderwaterCeiling
+@onready var surface_water_sprite: Sprite2D = %Background/OkinawaBackground/SurfaceWater/Water
+@onready var ceiling_water_sprite: Sprite2D = %Background/OkinawaUnderwaterBackground/CeilingLayer/UnderwaterCeiling
 
 const BOAT_SURFACE_Y: float = 269.5
 const BOAT_UNDERWATER_Y: float = 360.0

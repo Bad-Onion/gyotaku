@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bobyx43df4on0" path="res://scenes/minigames/peixe_catalogo.tscn" id="1_lrpdc"]
 [ext_resource type="Material" uid="uid://cy6ns2hik1l2k" path="res://shader/shader_papel_decente.tres" id="3_3aiqf"]
 [ext_resource type="Script" uid="uid://0bnbjp2ba4iu" path="res://scenes/minigames/peixes_seletor.gd" id="4_747k7"]
+[ext_resource type="Script" uid="uid://bis58b30cdteo" path="res://scenes/minigames/carimbar.gd" id="5_uq8ag"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_3aiqf"]
 texture_filter = 1
@@ -72,5 +73,18 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
 text = "Raya"
 
+[node name="Carimbar" type="Button" parent="." unique_id=1025366672]
+layout_mode = 0
+offset_left = 563.0
+offset_top = 330.0
+offset_right = 632.0
+offset_bottom = 353.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
+text = "Carimbar"
+script = ExtResource("5_uq8ag")
+
 [connection signal="pressed" from="Peixes/gurukun" to="Peixes/gurukun" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/raya" to="Peixes/raya" method="_on_pressed"]
+[connection signal="pressed" from="Carimbar" to="Carimbar" method="_on_pressed"]

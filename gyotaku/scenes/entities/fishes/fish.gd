@@ -98,3 +98,19 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	if _has_entered_screen and not is_hooked:
 		queue_free()
+
+
+func reel_in_to(target_node: Node2D, duration: float) -> void:
+	var start_pos: Vector2 = global_position
+	var tween: Tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+	tween.tween_method(
+		func(weight: float) -> void:
+			if is_instance_valid(target_node) and is_instance_valid(self):
+				global_position = start_pos.lerp(target_node.global_position, weight),
+		0.0,
+		1.0,
+		duration
+	)
+
+	tween.tween_callback(queue_free)

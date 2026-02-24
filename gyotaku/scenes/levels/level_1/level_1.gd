@@ -3,6 +3,7 @@ extends Node2D
 
 
 @export var main_camera: Camera2D
+@export var fish_chest_marker: Marker2D
 
 @onready var fishing_hook: FishingHook = %FishingHook
 @onready var fishing_mechanic_system: FishingMechanicSystem = %FishingMechanicSystem
@@ -24,6 +25,10 @@ func _on_fish_hooked(fish: Fish) -> void:
 
 func _on_fish_caught() -> void:
 	print("Success: Fish Caught!")
+
+	if fishing_hook.hooked_fish and fish_chest_marker:
+		fishing_hook.hooked_fish.reel_in_to(fish_chest_marker, 0.7)
+
 	_end_minigame()
 
 
@@ -39,6 +44,7 @@ func _on_line_broke() -> void:
 
 func _end_minigame() -> void:
 	fishing_cursor_ui.deactivate()
+	fishing_hook.hide()
 
 	if main_camera:
 		main_camera.target = null

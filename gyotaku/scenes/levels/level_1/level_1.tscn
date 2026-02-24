@@ -102,10 +102,10 @@ fish_scene = ExtResource("25_q7p11")
 spawn_weight = 6.0
 metadata/_custom_type_script = "uid://14b38vmfp2df"
 
-[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "boat")]
+[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "fish_chest_marker")]
 script = ExtResource("1_58uyj")
 main_camera = NodePath("MainCamera")
-boat = NodePath("Boat")
+fish_chest_marker = NodePath("Boat/FishChestMarker")
 
 [node name="MainCamera" type="Camera2D" parent="." unique_id=2093425651]
 unique_name_in_owner = true
@@ -170,6 +170,9 @@ animated_sprite = NodePath("../..")
 [node name="RodTipMarker" type="Marker2D" parent="Boat/Player" unique_id=679528639]
 position = Vector2(29.65857, -12.536575)
 
+[node name="FishChestMarker" type="Marker2D" parent="Boat" unique_id=250055488]
+position = Vector2(-11.024624, 1.3902438)
+
 [node name="Background" type="Node" parent="." unique_id=2001595502]
 unique_name_in_owner = true
 
@@ -196,10 +199,10 @@ script = ExtResource("3_vmhy7")
 position = Vector2(320, 451)
 
 [node name="FishSpawner" type="Node2D" parent="Systems" unique_id=1585078721 node_paths=PackedStringArray("fishes_container")]
-position = Vector2(320, 451)
+position = Vector2(320, 550)
 script = ExtResource("4_58uyj")
 spawn_pool = Array[ExtResource("22_1fq2y")]([SubResource("Resource_vm2d2"), SubResource("Resource_hws8l"), SubResource("Resource_vva6n")])
-spawn_area_size = Vector2(560, 140)
+spawn_area_size = Vector2(560, 200)
 fishes_container = NodePath("../FishesContainer")
 
 [node name="SpawnTimer" type="Timer" parent="Systems/FishSpawner" unique_id=1816201795]

@@ -13,9 +13,6 @@ const BOAT_SURFACE_Y: float = 269.5
 const BOAT_UNDERWATER_Y: float = 360.0
 const WATERLINE_Y: float = 360.0
 
-var _last_cam_y: float = 0.0
-var _boat_target_y: float = BOAT_SURFACE_Y
-
 
 func _ready() -> void:
 	_setup_perfect_anchors()
@@ -30,26 +27,18 @@ func _handle_perspective_transition() -> void:
 
 	var camera_y: float = main_camera.global_position.y
 
-	if boat:
-		var cam_delta: float = camera_y - _last_cam_y
-
-		if cam_delta > 0.0 and cam_delta < 50.0:
-			_boat_target_y += cam_delta
-
-		_boat_target_y = min(_boat_target_y, BOAT_UNDERWATER_Y)
-		boat.base_y = _boat_target_y
-
-	_last_cam_y = camera_y
-
-	var start_transition_y: float = 220.0
+	var start_transition_y: float = 240.0
 	var end_transition_y: float = 500.0
 	var transition_weight: float = clamp((camera_y - start_transition_y) / (end_transition_y - start_transition_y), 0.0, 1.0)
+
+	if boat:
+		boat.base_y = lerp(BOAT_SURFACE_Y, BOAT_UNDERWATER_Y, transition_weight)
 
 	if surface_water_sprite:
 		surface_water_sprite.scale.y = 1.0 - transition_weight
 
 	if ceiling_water_sprite:
-		ceiling_water_sprite.scale.y = transition_weight
+		ceiling_water_sprite.scale.y = transition_weight * 1.2
 
 
 func _setup_perfect_anchors() -> void:

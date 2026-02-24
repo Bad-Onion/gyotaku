@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://btmllpkc3kjpr" path="res://scenes/interactables/fishing_cursor_ui/components/world_line_controller.gd" id="21_1iula"]
 [ext_resource type="Script" uid="uid://bp6jpcuc73prj" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_line_renderer.gd" id="21_41r28"]
 [ext_resource type="Script" uid="uid://14b38vmfp2df" path="res://scenes/entities/fishes/components/fish_spawn_config.gd" id="22_1fq2y"]
+[ext_resource type="Script" uid="uid://dkhbiegwf0u0s" path="res://scenes/mechanics/camera/perspective_transition_controller.gd" id="22_vva6n"]
 [ext_resource type="PackedScene" uid="uid://cqg1mwy0btwtj" path="res://scenes/entities/fishes/gurukun/gurukun.tscn" id="23_q7p11"]
 [ext_resource type="PackedScene" uid="uid://cshlrv7ow3bj4" path="res://scenes/entities/fishes/arraia/arraia.tscn" id="24_vva6n"]
 [ext_resource type="PackedScene" uid="uid://b8bsagrbkjjak" path="res://scenes/entities/fishes/ghost_fish/ghost_fish.tscn" id="25_q7p11"]
@@ -204,6 +205,11 @@ wait_time = 2.0
 autostart = true
 
 [node name="FishesContainer" type="Node2D" parent="Systems" unique_id=35673712]
+
+[node name="PerspectiveTransitionController" type="Node" parent="Systems" unique_id=1399474559 node_paths=PackedStringArray("main_camera", "boat")]
+script = ExtResource("22_vva6n")
+main_camera = NodePath("../../MainCamera")
+boat = NodePath("../../Boat")
 
 [node name="FishingHook" type="Node" parent="." unique_id=209616824]
 

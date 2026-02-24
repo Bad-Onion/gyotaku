@@ -25,9 +25,9 @@ func _process(_delta: float) -> void:
 func _handle_perspective_transition() -> void:
 	if not main_camera: return
 
-	var camera_y: float = main_camera.global_position.y
+	var camera_y: float = main_camera.get_screen_center_position().y
 
-	var start_transition_y: float = 240.0
+	var start_transition_y: float = 180.0
 	var end_transition_y: float = 500.0
 	var transition_weight: float = clamp((camera_y - start_transition_y) / (end_transition_y - start_transition_y), 0.0, 1.0)
 

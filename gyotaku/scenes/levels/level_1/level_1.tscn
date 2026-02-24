@@ -102,8 +102,10 @@ fish_scene = ExtResource("25_q7p11")
 spawn_weight = 6.0
 metadata/_custom_type_script = "uid://14b38vmfp2df"
 
-[node name="Level1" type="Node2D" unique_id=1565577455]
+[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "boat")]
 script = ExtResource("1_58uyj")
+main_camera = NodePath("MainCamera")
+boat = NodePath("Boat")
 
 [node name="MainCamera" type="Camera2D" parent="." unique_id=2093425651]
 unique_name_in_owner = true

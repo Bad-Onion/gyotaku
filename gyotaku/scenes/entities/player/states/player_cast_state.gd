@@ -34,7 +34,6 @@ func exit() -> void:
 
 
 func _on_minigame_ended() -> void:
-	game_camera.target = animated_sprite
 	transitioned.emit(self, pull_state.get_id())
 
 

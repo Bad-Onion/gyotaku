@@ -2,17 +2,20 @@ class_name FishingHook
 extends Area2D
 
 
+signal water_entered
 signal fish_hooked(fish: Fish)
 
 const MONITORING := "monitoring"
 
 @export var sink_speed: float = 150.0
 @export var max_y_limit: float = 500.0
+@export var water_level_y: float = 350.0
 @export var max_interested_fishes: int = 3
 
 var is_sinking: bool = false
 var hooked_fish: Fish = null
 var _interested_fishes: Array[Fish] = []
+var _has_entered_water: bool = false
 
 
 func _ready() -> void:
@@ -26,6 +29,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_sinking:
 		global_position.y += sink_speed * delta
+
+		if not _has_entered_water and global_position.y >= water_level_y:
+			_has_entered_water = true
+			water_entered.emit()
 
 		if global_position.y >= max_y_limit:
 			global_position.y = max_y_limit
@@ -61,6 +68,7 @@ func cast_line(start_position: Vector2) -> void:
 	show()
 	set_deferred(MONITORING, true)
 	is_sinking = true
+	_has_entered_water = false
 	set_physics_process(true)
 
 	if not is_in_group(NodeGroups.BAIT_GROUP):
@@ -97,3 +105,4 @@ func reset() -> void:
 
 	if is_in_group(NodeGroups.BAIT_GROUP):
 		remove_from_group(NodeGroups.BAIT_GROUP)
+

@@ -2,6 +2,8 @@ class_name PlayerCastState
 extends GameState
 
 
+signal hook_casted
+
 @export var pull_state: PlayerPullState
 @export var animated_sprite: AnimatedSprite2D
 @export var fishing_hook: FishingHook
@@ -43,3 +45,5 @@ func _on_animation_finished() -> void:
 
 		fishing_hook.cast_line(rod_tip_marker.global_position)
 		game_camera.target = fishing_hook
+
+		hook_casted.emit()

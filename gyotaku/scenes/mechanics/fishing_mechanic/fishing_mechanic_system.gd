@@ -2,6 +2,7 @@ class_name FishingMechanicSystem
 extends Node
 
 
+signal minigame_started
 signal fish_caught
 signal fish_escaped
 signal line_broke
@@ -32,11 +33,11 @@ func start_minigame(hooked_fish: Fish) -> void:
 	_assign_dificulty_config()
 	_reset_state()
 
-	# Apply initial struggle velocity
 	if _fish:
 		_fish.velocity.x = _get_fish_struggle_velocity()
 
 	_set_minigame_active(true)
+	minigame_started.emit()
 
 
 func get_hooked_fish() -> Fish:

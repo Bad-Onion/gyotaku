@@ -24,8 +24,16 @@
 [ext_resource type="Script" uid="uid://14b38vmfp2df" path="res://scenes/entities/fishes/components/fish_spawn_config.gd" id="22_1fq2y"]
 [ext_resource type="Script" uid="uid://dkhbiegwf0u0s" path="res://scenes/mechanics/camera/perspective_transition_controller.gd" id="22_vva6n"]
 [ext_resource type="PackedScene" uid="uid://cqg1mwy0btwtj" path="res://scenes/entities/fishes/gurukun/gurukun.tscn" id="23_q7p11"]
+[ext_resource type="Script" uid="uid://bokq5kklafrbo" path="res://core/fishing_audio_manager.gd" id="23_yivqu"]
+[ext_resource type="AudioStream" uid="uid://btt4lhi2jxc6b" path="res://assets/sfx/spinning_reel_slow.wav" id="24_g76na"]
 [ext_resource type="PackedScene" uid="uid://cshlrv7ow3bj4" path="res://scenes/entities/fishes/arraia/arraia.tscn" id="24_vva6n"]
+[ext_resource type="AudioStream" uid="uid://c8126jtqma1i5" path="res://assets/sfx/spinning_reel_normal.wav" id="25_658j2"]
 [ext_resource type="PackedScene" uid="uid://b8bsagrbkjjak" path="res://scenes/entities/fishes/ghost_fish/ghost_fish.tscn" id="25_q7p11"]
+[ext_resource type="AudioStream" uid="uid://pthos621k23s" path="res://assets/sfx/spinning_reel_fast.wav" id="26_7nyn5"]
+[ext_resource type="AudioStream" uid="uid://dd8yg1yngmmfe" path="res://assets/audio/estacao1.ogg" id="27_dycye"]
+[ext_resource type="AudioStream" uid="uid://brqp3hbnojxvx" path="res://assets/audio/estacao animada.ogg" id="28_g76na"]
+[ext_resource type="AudioStream" uid="uid://buoqckixsaroc" path="res://assets/sfx/throw_hook.wav" id="28_ynakb"]
+[ext_resource type="AudioStream" uid="uid://b8jqqaebbgoy5" path="res://assets/sfx/splash_water.wav" id="29_5ocxp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wloe5"]
 atlas = ExtResource("3_napug")
@@ -179,7 +187,7 @@ unique_name_in_owner = true
 [node name="OkinawaBackground" parent="Background" unique_id=1616347244 instance=ExtResource("5_v0dvh")]
 unique_name_in_owner = true
 
-[node name="OkinawaUnderwaterBackground" parent="Background" unique_id=1010358310 instance=ExtResource("4_1iula")]
+[node name="OkinawaUnderwaterBackground" parent="Background" unique_id=1010358310 groups=["water"] instance=ExtResource("4_1iula")]
 unique_name_in_owner = true
 
 [node name="Systems" type="Node" parent="." unique_id=358187130]
@@ -215,6 +223,35 @@ autostart = true
 script = ExtResource("22_vva6n")
 main_camera = NodePath("../../MainCamera")
 boat = NodePath("../../Boat")
+
+[node name="FishingAudioManager" type="Node" parent="Systems" unique_id=2062989114 node_paths=PackedStringArray("fishing_mechanic_system", "player_cast_state", "fishing_hook", "bgm_calm_player", "bgm_active_player", "sfx_throw", "sfx_splash", "sfx_reel")]
+script = ExtResource("23_yivqu")
+fishing_mechanic_system = NodePath("../FishingMechanicSystem")
+player_cast_state = NodePath("../../Boat/Player/PlayerStateMachine/CastState")
+fishing_hook = NodePath("../../FishingHook/FishingHook")
+bgm_calm_player = NodePath("BGMCalmPlayer")
+bgm_active_player = NodePath("BGMActivePlayer")
+sfx_throw = NodePath("SFXThrow")
+sfx_splash = NodePath("SFXSplash")
+sfx_reel = NodePath("SFXReel")
+reel_slow = ExtResource("24_g76na")
+reel_normal = ExtResource("25_658j2")
+reel_fast = ExtResource("26_7nyn5")
+
+[node name="BGMCalmPlayer" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=438632089]
+stream = ExtResource("27_dycye")
+autoplay = true
+
+[node name="BGMActivePlayer" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=335751966]
+stream = ExtResource("28_g76na")
+
+[node name="SFXThrow" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=1119236680]
+stream = ExtResource("28_ynakb")
+
+[node name="SFXSplash" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=1065680345]
+stream = ExtResource("29_5ocxp")
+
+[node name="SFXReel" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=300887856]
 
 [node name="FishingHook" type="Node" parent="." unique_id=209616824]
 

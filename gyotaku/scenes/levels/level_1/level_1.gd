@@ -3,6 +3,7 @@ extends Node2D
 
 
 signal total_coins_changed(total: int)
+signal market_requested
 
 @export var main_camera: Camera2D
 @export var fish_chest_marker: Marker2D
@@ -12,9 +13,11 @@ signal total_coins_changed(total: int)
 @onready var fishing_hook: FishingHook = %FishingHook
 @onready var fishing_mechanic_system: FishingMechanicSystem = %FishingMechanicSystem
 @onready var fishing_cursor_ui: FishingCursorUI = %FishingCursorUI
+@onready var market_button: Button = %MarketButton
 
 
 func _ready() -> void:
+	market_button.pressed.connect(func(): market_requested.emit())
 	fishing_hook.fish_hooked.connect(_on_fish_hooked)
 	fishing_mechanic_system.fish_caught.connect(_on_fish_caught)
 	fishing_mechanic_system.fish_escaped.connect(_on_fish_escaped)

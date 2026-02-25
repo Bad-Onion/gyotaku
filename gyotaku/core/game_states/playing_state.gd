@@ -15,6 +15,7 @@ func enter() -> void:
 		level_container.add_child(current_level)
 
 	current_level.total_coins_changed.connect(func(total: int): coins_updated.emit(total))
+	current_level.market_requested.connect(func(): transitioned.emit(self, GameStates.State.MARKET))
 
 
 func exit() -> void:

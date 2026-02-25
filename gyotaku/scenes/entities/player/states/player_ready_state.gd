@@ -11,8 +11,8 @@ func enter() -> void:
 	animated_sprite.play(PlayerStates.READY_ANIMATION)
 
 
-func update(_delta: float) -> void:
-	if Input.is_action_just_pressed(InputActions.THROW_HOOK):
+func handle_input(event: InputEvent) -> void:
+	if event.is_action_pressed(InputActions.THROW_HOOK):
 		transitioned.emit(self, cast_state.get_id())
 
 

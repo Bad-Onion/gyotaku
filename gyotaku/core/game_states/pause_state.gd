@@ -26,7 +26,7 @@ func handle_input(event: InputEvent) -> void:
 
 
 func _on_resume() -> void:
-	transitioned.emit(self, GameStates.State.PLAYING)
+	transitioned.emit(self, GameStates.State.PREVIOUS)
 
 
 func _on_quit() -> void:

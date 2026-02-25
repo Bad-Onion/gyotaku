@@ -34,6 +34,8 @@
 [ext_resource type="AudioStream" uid="uid://brqp3hbnojxvx" path="res://assets/audio/estacao animada.ogg" id="28_g76na"]
 [ext_resource type="AudioStream" uid="uid://buoqckixsaroc" path="res://assets/sfx/throw_hook.wav" id="28_ynakb"]
 [ext_resource type="AudioStream" uid="uid://b8jqqaebbgoy5" path="res://assets/sfx/splash_water.wav" id="29_5ocxp"]
+[ext_resource type="Script" uid="uid://bgs43pjot25cq" path="res://core/economy_system.gd" id="31_7nyn5"]
+[ext_resource type="PackedScene" uid="uid://cv55e06k5bift" path="res://scenes/ui/coin_hud/coin_hud.tscn" id="36_dycye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wloe5"]
 atlas = ExtResource("3_napug")
@@ -110,10 +112,12 @@ fish_scene = ExtResource("25_q7p11")
 spawn_weight = 6.0
 metadata/_custom_type_script = "uid://14b38vmfp2df"
 
-[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "fish_chest_marker")]
+[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "fish_chest_marker", "economy_system", "coin_hud")]
 script = ExtResource("1_58uyj")
 main_camera = NodePath("MainCamera")
 fish_chest_marker = NodePath("Boat/FishChestMarker")
+economy_system = NodePath("Systems/EconomySystem")
+coin_hud = NodePath("HUD/CoinHUD")
 
 [node name="MainCamera" type="Camera2D" parent="." unique_id=2093425651]
 unique_name_in_owner = true
@@ -253,6 +257,9 @@ stream = ExtResource("29_5ocxp")
 
 [node name="SFXReel" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=300887856]
 
+[node name="EconomySystem" type="Node" parent="Systems" unique_id=884181062]
+script = ExtResource("31_7nyn5")
+
 [node name="FishingHook" type="Node" parent="." unique_id=209616824]
 
 [node name="FishingHook" parent="FishingHook" unique_id=2042041991 groups=["bait"] instance=ExtResource("1_7uxs1")]
@@ -279,5 +286,9 @@ mechanic_system = NodePath("../../Systems/FishingMechanicSystem")
 [node name="WorldFishingLine" type="Line2D" parent="FishingHook/WorldLineController" unique_id=1826571213]
 width = 1.0
 script = ExtResource("21_41r28")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=124579816]
+
+[node name="CoinHUD" parent="HUD" unique_id=2050263438 instance=ExtResource("36_dycye")]
 
 [connection signal="timeout" from="Systems/FishSpawner/SpawnTimer" to="Systems/FishSpawner" method="_on_spawn_timer_timeout"]

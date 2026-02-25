@@ -1,6 +1,8 @@
 extends GameState
 
 
+signal coins_updated(total: int)
+
 @export var level_container: Node
 @export var level_scene: PackedScene
 
@@ -11,6 +13,8 @@ func enter() -> void:
 	if not current_level:
 		current_level = level_scene.instantiate()
 		level_container.add_child(current_level)
+
+	current_level.total_coins_changed.connect(func(total: int): coins_updated.emit(total))
 
 
 func exit() -> void:

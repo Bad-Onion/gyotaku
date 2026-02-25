@@ -39,3 +39,5 @@ level_scene = ExtResource("6_272bh")
 [node name="PauseState" type="Node" parent="GameStateMachine" unique_id=703954833 node_paths=PackedStringArray("pause_menu_ui")]
 script = ExtResource("7_272bh")
 pause_menu_ui = NodePath("../../UIContainer/PauseMenu")
+
+[connection signal="coins_updated" from="GameStateMachine/PlayingState" to="UIContainer/PauseMenu" method="update_coin_display"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bpfpb7waly5i3"]
 
 [ext_resource type="Script" uid="uid://b8g5j68aiaosf" path="res://scenes/ui/pause_menu/pause_menu.gd" id="1_kgchh"]
+[ext_resource type="PackedScene" uid="uid://cv55e06k5bift" path="res://scenes/ui/coin_hud/coin_hud.tscn" id="2_rbnsh"]
 
 [node name="PauseMenu" type="Control" unique_id=889904353]
 process_mode = 3
@@ -44,3 +45,8 @@ text = "Continuar"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Voltar Para o Menu"
+
+[node name="CoinHUD" parent="." unique_id=2050263438 instance=ExtResource("2_rbnsh")]
+unique_name_in_owner = true
+layout_mode = 0
+is_always_visible = true

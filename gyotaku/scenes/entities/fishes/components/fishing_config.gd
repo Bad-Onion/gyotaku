@@ -29,3 +29,6 @@ extends Resource
 
 @export_group("Resistance")
 @export var rod_resistance_multiplier: float = 0.5
+
+@export_group("Economy")
+@export var coin_reward: int = 10

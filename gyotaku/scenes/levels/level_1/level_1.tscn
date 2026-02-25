@@ -127,9 +127,18 @@ limit_bottom = 884
 position_smoothing_enabled = true
 script = ExtResource("2_hhmec")
 
+[node name="Background" type="Node" parent="." unique_id=2001595502]
+unique_name_in_owner = true
+
+[node name="OkinawaBackground" parent="Background" unique_id=1616347244 instance=ExtResource("5_v0dvh")]
+unique_name_in_owner = true
+
+[node name="OkinawaUnderwaterBackground" parent="Background" unique_id=1010358310 groups=["water"] instance=ExtResource("4_1iula")]
+unique_name_in_owner = true
+layer = -1
+
 [node name="Boat" type="AnimatedSprite2D" parent="." unique_id=1587030661]
 unique_name_in_owner = true
-z_index = 1
 position = Vector2(306.895, 269.5)
 scale = Vector2(1.0789473, 1.0789474)
 sprite_frames = SubResource("SpriteFrames_q7p11")
@@ -138,7 +147,6 @@ script = ExtResource("4_w3g2g")
 
 [node name="Player" parent="Boat" unique_id=448418749 instance=ExtResource("7_hhmec")]
 show_behind_parent = true
-z_index = 1
 z_as_relative = false
 position = Vector2(14, -24.073181)
 animation = &"pull_line"
@@ -184,15 +192,6 @@ position = Vector2(29.65857, -12.536575)
 
 [node name="FishChestMarker" type="Marker2D" parent="Boat" unique_id=250055488]
 position = Vector2(-11.024624, 1.3902438)
-
-[node name="Background" type="Node" parent="." unique_id=2001595502]
-unique_name_in_owner = true
-
-[node name="OkinawaBackground" parent="Background" unique_id=1616347244 instance=ExtResource("5_v0dvh")]
-unique_name_in_owner = true
-
-[node name="OkinawaUnderwaterBackground" parent="Background" unique_id=1010358310 groups=["water"] instance=ExtResource("4_1iula")]
-unique_name_in_owner = true
 
 [node name="Systems" type="Node" parent="." unique_id=358187130]
 
@@ -264,7 +263,7 @@ script = ExtResource("31_7nyn5")
 
 [node name="FishingHook" parent="FishingHook" unique_id=2042041991 groups=["bait"] instance=ExtResource("1_7uxs1")]
 unique_name_in_owner = true
-z_index = 2
+z_index = 20
 position = Vector2(320, 451)
 
 [node name="HUD" type="CanvasLayer" parent="FishingHook" unique_id=2041958202]
@@ -284,6 +283,7 @@ fishing_hook = NodePath("../FishingHook")
 mechanic_system = NodePath("../../Systems/FishingMechanicSystem")
 
 [node name="WorldFishingLine" type="Line2D" parent="FishingHook/WorldLineController" unique_id=1826571213]
+z_index = 20
 width = 1.0
 script = ExtResource("21_41r28")
 

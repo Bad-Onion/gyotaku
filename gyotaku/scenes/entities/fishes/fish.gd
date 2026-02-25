@@ -14,6 +14,8 @@ var _is_escaping: bool = false
 
 
 func _ready() -> void:
+	z_index = 10
+	
 	if not movement_component or not visuals_component:
 		push_error("Fish: Missing components.")
 

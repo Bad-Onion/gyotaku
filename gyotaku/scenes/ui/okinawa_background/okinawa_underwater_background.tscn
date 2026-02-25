@@ -62,6 +62,7 @@ unique_name_in_owner = true
 
 [node name="UnderwaterCeiling" type="Sprite2D" parent="CeilingLayer" unique_id=566132218]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(0, 360)
 texture = ExtResource("9_epons")
 centered = false

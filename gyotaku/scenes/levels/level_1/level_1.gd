@@ -73,3 +73,6 @@ func _on_coins_changed(total_coins: int, added_amount: int) -> void:
 		coin_hud.update_coins(total_coins, added_amount)
 
 	total_coins_changed.emit(total_coins)
+
+
+

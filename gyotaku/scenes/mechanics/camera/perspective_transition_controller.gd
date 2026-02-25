@@ -16,6 +16,7 @@ const WATERLINE_Y: float = 360.0
 
 func _ready() -> void:
 	_setup_perfect_anchors()
+	_setup_rendering_order()
 
 
 func _process(_delta: float) -> void:
@@ -65,3 +66,16 @@ func _setup_perfect_anchors() -> void:
 		ceiling_water_sprite.offset = Vector2(0, 0)
 		ceiling_water_sprite.position = Vector2(start_x, WATERLINE_Y)
 		ceiling_water_sprite.scale.y = 0.0
+
+
+func _setup_rendering_order() -> void:
+	if ceiling_water_sprite and ceiling_water_sprite.get_parent():
+		ceiling_water_sprite.get_parent().remove_child(ceiling_water_sprite)
+		add_child(ceiling_water_sprite)
+
+		ceiling_water_sprite.modulate.a = 0.9
+		ceiling_water_sprite.z_index = 5
+
+	if boat:
+		boat.z_index = 0
+

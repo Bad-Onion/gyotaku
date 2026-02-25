@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://buai3v5byl7kv" path="res://scenes/minigames/peixe_catalogo.gd" id="1_fmcqn"]
 [ext_resource type="Shader" uid="uid://c5s3dtu56nl84" path="res://scenes/minigames/sprite_com_pintura.gdshader" id="2_xox23"]
+[ext_resource type="Texture2D" uid="uid://looocptmvug0" path="res://assets/peixes/Raya sem contornos p%b.png" id="3_fmcqn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fmcqn"]
 shader = ExtResource("2_xox23")
@@ -17,4 +18,5 @@ script = ExtResource("1_fmcqn")
 clip_children = 2
 texture_filter = 1
 material = SubResource("ShaderMaterial_fmcqn")
-position = Vector2(346, 170.99998)
+position = Vector2(245, 150)
+texture = ExtResource("3_fmcqn")

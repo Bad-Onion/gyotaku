@@ -4,5 +4,5 @@ extends Button
 @onready var h_slider: HSlider = $"../HSlider"
 
 func _on_pressed() -> void:
-	imagem.redefinir_imagem()
+	imagem.criar_imagem_nova()
 	imagem.brush_size = imagem.init_brush_size

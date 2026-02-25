@@ -9,7 +9,7 @@ const RAYA = preload("uid://cvk6cnuie07k1")
 @onready var sombra: Sprite2D = $Sombra
 
 func _ready() -> void:
-	if Global.peixe_a_carimbar != null:
+	if Global.peixe_a_carimbar != "":
 		tipo = Global.peixe_a_carimbar
 	
 	if tipo == "gurukun":

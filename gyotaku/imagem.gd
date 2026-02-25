@@ -2,6 +2,7 @@ class_name Imagem
 
 extends Sprite2D
 
+@onready var peixe: Node2D = $"../.."
 @onready var peixetest: Sprite2D = $".."
 @onready var cursor: AnimatedSprite2D = $"../../../Cursor/CursorPincel"
 #Cor inicial
@@ -20,18 +21,31 @@ var img : Image
 
 func _ready() -> void:
 	atualizar_cor_do_cursor(paint_color)
+	await get_tree().process_frame
 	redefinir_imagem()
 	
 func redefinir_imagem():
-	#Cria imagem branca vazia
 	img_size = Vector2i(500,300)
+	var caminho_do_arquivo = "user://" + peixe.tipo + ".png"
+	
+	if FileAccess.file_exists(caminho_do_arquivo):
+		img = Image.load_from_file(caminho_do_arquivo)
+		
+		if img.get_format() != Image.FORMAT_RGBA8:
+			img.convert(Image.FORMAT_RGBA8)
+	else:
+		criar_imagem_nova()
+		
+	texture = ImageTexture.create_from_image(img)
+
+func criar_imagem_nova():
+	# Se não existir arquivo, cria a tela do zero
 	img = Image.create_empty(img_size.x, img_size.y, false, Image.FORMAT_RGBA8)
 	img.fill(cor_fundo)
 	texture = ImageTexture.create_from_image(img)
-	#get_parent().material.set_shader_parameter("paint_texture", img)
 
 func atualizar_cor_do_cursor(nova_cor: Color) -> void:
-	(cursor.material as ShaderMaterial).set_shader_parameter("paint_color", nova_cor)
+	(cursor.material as ShaderMaterial).set_shader_parameter("paint_color", nova_cor)	
 
 func _paint_tex(pos) -> void:	
 	#Pinta um retângulo de acordo com o brush size no mouse

@@ -22,6 +22,6 @@ void fragment() {
     if (noise.r > ink_threshold) {
         final_image.a -= 0.5;
     }
-    
+    	
     COLOR = final_image;
 }

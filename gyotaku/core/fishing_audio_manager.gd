@@ -19,9 +19,17 @@ extends Node
 @export var reel_normal: AudioStream
 @export var reel_fast: AudioStream
 
+var _bgm_tween: Tween
+const FADE_DURATION: float = 0.7
+const MIN_VOL: float = -80.0
+const MAX_VOL: float = 0.0
+
 
 func _ready() -> void:
 	_connect_signals()
+
+	bgm_calm_player.volume_db = MAX_VOL
+	bgm_active_player.volume_db = MIN_VOL
 
 
 func _connect_signals() -> void:
@@ -51,9 +59,22 @@ func _on_minigame_ended() -> void:
 
 
 func _crossfade_bgm(from_player: AudioStreamPlayer, to_player: AudioStreamPlayer) -> void:
-	var current_pos := from_player.get_playback_position()
-	from_player.stop()
-	to_player.play(current_pos)
+	if _bgm_tween and _bgm_tween.is_valid():
+		_bgm_tween.kill()
+
+	_bgm_tween = create_tween()
+
+	var current_position := from_player.get_playback_position()
+
+	to_player.volume_db = MIN_VOL
+	to_player.play(current_position)
+
+	_bgm_tween.set_parallel(true)
+	_bgm_tween.tween_property(from_player, "volume_db", MIN_VOL, FADE_DURATION)
+	_bgm_tween.tween_property(to_player, "volume_db", MAX_VOL, FADE_DURATION)
+
+	_bgm_tween.set_parallel(false)
+	_bgm_tween.tween_callback(from_player.stop)
 
 
 # --- SFX ---

@@ -41,7 +41,7 @@ func _paint_tex(pos) -> void:
 	var raio = brush_size / 2.0
 	var raio_quadrado = raio * raio
 	
-	# Define a área quadrada (bounding box) ao redor do centro do pincel
+	# Define a área quadrada
 	var min_x = int(pos.x - raio)
 	var max_x = int(pos.x + raio)
 	var min_y = int(pos.y - raio)

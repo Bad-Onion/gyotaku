@@ -4,7 +4,6 @@
 code = "shader_type canvas_item;
 
 uniform sampler2D paper_noise; 
-// Ajuste esse valor no inspector para controlar o quanto de tinta \"falha\"
 uniform float ink_threshold : hint_range(0.0, 1.0) = 0.5; 
 
 void fragment() {
@@ -16,9 +15,7 @@ void fragment() {
     
     // Se existe imagem ali E o ruído do papel é forte...
     if (final_image.a > 0.0 && noise.r > ink_threshold) {
-        // --- A MUDANÇA É AQUI ---
-        // Em vez de subtrair, a gente ZERA a opacidade.
-        // O pixel desaparece completamente.
+		//Tira o pixel nas falhas
         final_image.a = 0.0; 
     }
     

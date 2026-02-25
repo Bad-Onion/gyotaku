@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="gyotaku"
-run/main_scene="uid://di2taruoodm0o"
+run/main_scene="uid://pd1h80fdgo1f"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://assets/icons/icon.svg"
 

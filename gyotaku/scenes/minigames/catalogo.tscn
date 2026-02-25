@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bis58b30cdteo" path="res://scenes/minigames/carimbar.gd" id="5_uq8ag"]
 [ext_resource type="Texture2D" uid="uid://dwqi2tr1fbc4i" path="res://assets/peixes/peixetest.png" id="7_k7br0"]
 [ext_resource type="Texture2D" uid="uid://o2j2kqbdc7n" path="res://assets/peixes/Raya pequena1.png" id="8_5uvc8"]
+[ext_resource type="PackedScene" uid="uid://v74jwe10ydnv" path="res://scenes/SaveManager.tscn" id="10_8wrta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uq8ag"]
 
@@ -19,9 +20,9 @@ bg_color = Color(0.21950099, 0.21950105, 0.21950087, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5uvc8"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wrta"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0u0o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wrta"]
 
 [node name="Catalogo" type="Control" unique_id=1923325422]
 layout_mode = 3
@@ -30,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_cykm1")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1718586371]
@@ -70,6 +72,7 @@ offset_right = 278.0
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 columns = 10
 script = ExtResource("4_747k7")
 
@@ -88,66 +91,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
 icon = ExtResource("8_5uvc8")
 
-[node name="gurukun2" type="Button" parent="Peixes" unique_id=266222703]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
-icon = ExtResource("7_k7br0")
-
-[node name="raya2" type="Button" parent="Peixes" unique_id=987758648]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
-icon = ExtResource("8_5uvc8")
-
-[node name="gurukun3" type="Button" parent="Peixes" unique_id=2017796756]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
-icon = ExtResource("7_k7br0")
-
-[node name="raya3" type="Button" parent="Peixes" unique_id=180214408]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
-icon = ExtResource("8_5uvc8")
-
-[node name="gurukun4" type="Button" parent="Peixes" unique_id=934488518]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
-icon = ExtResource("7_k7br0")
-
-[node name="raya4" type="Button" parent="Peixes" unique_id=901220454]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
-icon = ExtResource("8_5uvc8")
-
-[node name="gurukun5" type="Button" parent="Peixes" unique_id=2107598049]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
-icon = ExtResource("7_k7br0")
-
-[node name="raya5" type="Button" parent="Peixes" unique_id=87353330]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
-icon = ExtResource("8_5uvc8")
-
 [node name="Carimbar" type="Button" parent="." unique_id=1025366672]
 layout_mode = 0
 offset_left = 563.0
@@ -160,7 +103,26 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
 text = "Carimbar"
 script = ExtResource("5_uq8ag")
 
-[node name="NomeDoPeixe" type="TextEdit" parent="." unique_id=1649778997]
+[node name="NomeDoPeixe" type="LineEdit" parent="." unique_id=1941594480]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 103.0
+offset_right = 600.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.3291589, 0.32915822, 0.32915837, 0.6)
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5uvc8")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_i0u0o")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wrta")
+placeholder_text = "Dar um apelido"
+context_menu_enabled = false
+emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_show_on_focus = false
+
+[node name="NomeCien" type="Label" parent="." unique_id=641826855]
 layout_mode = 0
 offset_left = 356.0
 offset_top = 69.0
@@ -170,35 +132,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5uvc8")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8wrta")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_i0u0o")
-text = "ARRAIONA GOSTOSA"
-context_menu_enabled = false
-emoji_menu_enabled = false
-drag_and_drop_selection_enabled = false
-middle_mouse_paste_enabled = false
-empty_selection_clipboard_enabled = false
-virtual_keyboard_show_on_focus = false
+text = "Nome"
 
-[node name="NomeDoPeixe2" type="Label" parent="." unique_id=888434873]
+[node name="Desc" type="Label" parent="." unique_id=888434873]
 layout_mode = 0
 offset_left = 355.0
-offset_top = 103.0
+offset_top = 143.0
 offset_right = 602.0
 offset_bottom = 317.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "Descrição blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá"
+theme_override_font_sizes/font_size = 16
+text = "Descrição blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá "
 autowrap_mode = 2
+
+[node name="SaveManager" parent="." unique_id=1434010696 instance=ExtResource("10_8wrta")]
 
 [connection signal="pressed" from="Peixes/gurukun" to="Peixes/gurukun" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/raya" to="Peixes/raya" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/gurukun2" to="Peixes/gurukun2" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/raya2" to="Peixes/raya2" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/gurukun3" to="Peixes/gurukun3" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/raya3" to="Peixes/raya3" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/gurukun4" to="Peixes/gurukun4" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/raya4" to="Peixes/raya4" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/gurukun5" to="Peixes/gurukun5" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/raya5" to="Peixes/raya5" method="_on_pressed"]
 [connection signal="pressed" from="Carimbar" to="Carimbar" method="_on_pressed"]
 [connection signal="text_changed" from="NomeDoPeixe" to="." method="_on_nome_do_peixe_text_changed"]

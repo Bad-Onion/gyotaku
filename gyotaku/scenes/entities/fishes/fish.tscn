@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://s3jlwcgbvv2h" path="res://scenes/entities/fishes/components/fish_movement.gd" id="3_ym86q"]
 [ext_resource type="Script" uid="uid://cn1lit6n5jbjw" path="res://scenes/entities/fishes/components/fish_visuals.gd" id="4_1o0gn"]
 [ext_resource type="Resource" uid="uid://cjj465csurnjw" path="res://resources/default_fish_movement.tres" id="5_87yys"]
+[ext_resource type="Resource" uid="uid://cgbak6mlrs4ic" path="res://resources/fishing_upgrades/player_fishing_upgrades.tres" id="6_87yys"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yxacc"]
 atlas = ExtResource("2_73y4s")
@@ -103,6 +104,7 @@ shape = SubResource("RectangleShape2D_a0pc3")
 [node name="MovementComponent" type="Node" parent="." unique_id=1380834197]
 script = ExtResource("3_ym86q")
 movement_config = ExtResource("5_87yys")
+upgrades = ExtResource("6_87yys")
 
 [node name="VisualsComponent" type="Node" parent="." unique_id=872419871 node_paths=PackedStringArray("sprite")]
 script = ExtResource("4_1o0gn")

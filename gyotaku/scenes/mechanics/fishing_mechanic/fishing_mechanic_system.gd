@@ -71,10 +71,11 @@ func _calculate_tension(delta: float) -> void:
 	if is_pulling_effectively:
 		var pull_intensity = absf(pull_velocity)
 		var increase_rate: float = _current_config.tension_increase_multiplier
-
+		print("Increase rate: " + str(increase_rate))
+		# TODO: add condition to check the save file to see if the player already bought the upgrade
 		if upgrades:
 			increase_rate /= upgrades.line_strength_multiplier
-
+		print("Increase rate after upgrade: " + str(increase_rate))
 		_current_tension += pull_intensity * increase_rate * delta
 	else:
 		var recovery_rate: float = _current_config.tension_recovery_rate
@@ -184,6 +185,7 @@ func _get_player_pull_velocity() -> float:
 
 	var base_pull := input_system.get_drag_vector().x * _current_config.player_pull_power
 
+	# TODO: add condition to check the save file to see if the player already bought the upgrade
 	if upgrades:
 		base_pull *= upgrades.reel_force_multiplier
 

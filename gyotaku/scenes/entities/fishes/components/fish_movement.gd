@@ -2,6 +2,7 @@ class_name FishMovement
 extends Node
 
 @export var movement_config: FishMovementConfig
+@export var upgrades: FishingUpgrades
 
 
 enum SwimState { BURST, COAST }
@@ -122,8 +123,16 @@ func find_target(fish: Fish, current_target: Node2D, delta: float) -> Node2D:
 				# Fish is observing the bait
 				_reaction_timer -= delta
 				if _reaction_timer <= 0.0:
+					var final_interest_chance: float = movement_config.bait_interest_chance
+
+					# TODO: add condition to check the save file to see if the player already bought the upgrade
+					if upgrades:
+						final_interest_chance *= upgrades.bait_attraction_multiplier
+
+					final_interest_chance = minf(final_interest_chance, 1.0)
+					print("Interest Chance" + str(final_interest_chance))
 					# Observation complete, make the decision roll
-					if randf() <= movement_config.bait_interest_chance:
+					if randf() <= final_interest_chance:
 						if found_bait.request_interest(fish):
 							_potential_bait = null
 							return found_bait as Node2D
@@ -139,8 +148,7 @@ func find_target(fish: Fish, current_target: Node2D, delta: float) -> Node2D:
 
 	# If the fish has a target but swims too far away, release it and the slot
 	if current_target and fish.global_position.distance_to(current_target.global_position) > movement_config.detection_radius * 1.5:
-		if current_target.has_method("remove_interest"):
-			current_target.remove_interest(fish)
+		current_target.remove_interest(fish)
 		return null
 
 	return current_target

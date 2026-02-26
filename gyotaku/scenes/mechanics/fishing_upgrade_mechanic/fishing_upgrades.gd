@@ -8,7 +8,7 @@ signal upgrades_changed
 @export var reel_force_multiplier: float = 2.0
 @export var hook_depth_multiplier: float = 1.0
 @export var line_strength_multiplier: float = 2.0
-@export var bait_attraction_multiplier: float = 2.0
+@export var bait_attraction_multiplier: float = 5.0
 
 @export_group("Costs")
 @export var reel_cost: int = 10

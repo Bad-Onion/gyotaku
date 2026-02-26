@@ -16,7 +16,7 @@ var img_size
 var brush_size = init_brush_size
 @export var cor_fundo : Color
 @onready var brush_slide: HSlider = $"../../../HSlider"
-
+var estaVazia : bool
 var img : Image
 
 func _ready() -> void:
@@ -31,6 +31,8 @@ func redefinir_imagem():
 	if FileAccess.file_exists(caminho_do_arquivo):
 		img = Image.load_from_file(caminho_do_arquivo)
 		
+		estaVazia = false 
+		
 		if img.get_format() != Image.FORMAT_RGBA8:
 			img.convert(Image.FORMAT_RGBA8)
 	else:
@@ -40,6 +42,7 @@ func redefinir_imagem():
 
 func criar_imagem_nova():
 	# Se não existir arquivo, cria a tela do zero
+	estaVazia = true
 	img = Image.create_empty(img_size.x, img_size.y, false, Image.FORMAT_RGBA8)
 	img.fill(cor_fundo)
 	texture = ImageTexture.create_from_image(img)
@@ -48,6 +51,7 @@ func atualizar_cor_do_cursor(nova_cor: Color) -> void:
 	(cursor.material as ShaderMaterial).set_shader_parameter("paint_color", nova_cor)	
 
 func _paint_tex(pos) -> void:	
+	estaVazia = false
 	#Pinta um retângulo de acordo com o brush size no mouse
 	#img.fill_rect(Rect2i(pos, Vector2i(0,1)).grow(brush_size/2), paint_color)
 	
@@ -71,7 +75,7 @@ func _paint_tex(pos) -> void:
 				if distancia_quadrado <= raio_quadrado:
 					img.set_pixel(x, y, paint_color)
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	#Inputs do mouse:
 	if event is InputEventMouseButton:
 		#Clique esquerdo pra pintar

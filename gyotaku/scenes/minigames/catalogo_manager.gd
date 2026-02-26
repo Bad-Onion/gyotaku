@@ -9,8 +9,8 @@ extends Control
 
 const CAMINHO_SAVE = "user://save_do_jogo.json" 
 
-var tipo : String
 var save_do_jogo : Dictionary = {} 
+var tipo : String
 var regex = RegEx.new()
 
 func _ready() -> void:
@@ -81,8 +81,8 @@ func atualizar_textos_da_tela(tipo_buscado : String):
 		nome_cien.text = save_do_jogo[tipo_buscado]["nome"]
 	else:
 		caixa_de_texto.text = ""
-		desc.text = ""
-		nome_cien.text = ""
+		desc.text = "Descrição desconhecida"
+		nome_cien.text = "Desconhecido"
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

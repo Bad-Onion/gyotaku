@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dhcf3dxcscjkt" path="res://scenes/minigames/redefinir.gd" id="5_i8l8x"]
 [ext_resource type="Script" uid="uid://cfcg84d4obhdb" path="res://scenes/minigames/catalogo.gd" id="6_i8l8x"]
 [ext_resource type="Script" uid="uid://doc1snuosefne" path="res://scenes/minigames/pinceis.gd" id="6_x33oj"]
+[ext_resource type="PackedScene" uid="uid://v74jwe10ydnv" path="res://scenes/SaveManager.tscn" id="9_x33oj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxhco"]
 
@@ -154,6 +155,8 @@ script = ExtResource("6_i8l8x")
 
 [node name="Cursor" parent="." unique_id=1434074555 instance=ExtResource("5_fxhco")]
 position = Vector2(9, 12)
+
+[node name="SaveManager" parent="." unique_id=1434010696 instance=ExtResource("9_x33oj")]
 
 [connection signal="pressed" from="GridContainer2/Redefinir" to="GridContainer2/Redefinir" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer2/Catalogo" to="GridContainer2/Catalogo" method="_on_pressed"]

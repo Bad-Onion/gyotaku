@@ -12,11 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://v74jwe10ydnv" path="res://scenes/SaveManager.tscn" id="10_8wrta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uq8ag"]
+bg_color = Color(0.7221644, 0.54325765, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qv7t"]
-bg_color = Color(0.21950099, 0.21950105, 0.21950087, 1)
+bg_color = Color(0.5399154, 0.40472436, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgowf"]
+bg_color = Color(0.8296207, 0.6285959, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5uvc8"]
 
@@ -69,7 +71,7 @@ anchor_bottom = 1.0
 offset_left = -278.0
 offset_top = 14.0
 offset_right = 278.0
-offset_bottom = 14.0
+offset_bottom = -298.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -78,6 +80,7 @@ script = ExtResource("4_747k7")
 
 [node name="gurukun" type="Button" parent="Peixes" unique_id=827924159]
 texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
@@ -85,6 +88,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
 icon = ExtResource("7_k7br0")
 
 [node name="raya" type="Button" parent="Peixes" unique_id=108063004]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
@@ -93,10 +97,10 @@ icon = ExtResource("8_5uvc8")
 
 [node name="Carimbar" type="Button" parent="." unique_id=1025366672]
 layout_mode = 0
-offset_left = 563.0
-offset_top = 330.0
-offset_right = 632.0
-offset_bottom = 353.0
+offset_left = 353.0
+offset_top = 311.0
+offset_right = 604.0
+offset_bottom = 345.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_uq8ag")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8qv7t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bgowf")
@@ -139,9 +143,9 @@ layout_mode = 0
 offset_left = 355.0
 offset_top = 143.0
 offset_right = 602.0
-offset_bottom = 317.0
+offset_bottom = 303.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 14
 text = "Descrição blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá "
 autowrap_mode = 2
 

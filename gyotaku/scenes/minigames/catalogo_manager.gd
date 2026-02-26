@@ -7,6 +7,10 @@ extends Control
 @onready var desc: Label = $Desc
 @onready var nome_cien: Label = $NomeCien
 
+@onready var container_botoes: Node = $Peixes
+@onready var botao_carimbar: Button = $Carimbar
+@onready var aviso_vazio: Label = $AvisoVazio
+
 const CAMINHO_SAVE = "user://save_do_jogo.json" 
 
 var save_do_jogo : Dictionary = {} 
@@ -19,11 +23,44 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(null)
 
 	carregar_save_completo()
-
-	if Global.ultimo_peixe_carimbado != "":
-		trocar_peixe_na_tela(Global.ultimo_peixe_carimbado)
+	
+	var primeiro_peixe_disponivel = atualizar_botoes_de_selecao()
+	if primeiro_peixe_disponivel != "":
+		alternar_interface(true)
+		
+		if Global.ultimo_peixe_carimbado != "" and save_do_jogo.has(Global.ultimo_peixe_carimbado) and save_do_jogo[Global.ultimo_peixe_carimbado]["pego"] == true:
+			trocar_peixe_na_tela(Global.ultimo_peixe_carimbado)
+		else:
+			trocar_peixe_na_tela(primeiro_peixe_disponivel)
 	else:
-		trocar_peixe_na_tela("gurukun")
+		# Se retornou "", é porque não tem nenhum botão visível
+		alternar_interface(false)
+
+func atualizar_botoes_de_selecao() -> String:
+	var primeiro_peixe = ""
+
+	for botao in container_botoes.get_children():
+		var id_peixe = botao.name 
+
+		# Verifica se o peixe foi pego
+		if save_do_jogo.has(id_peixe) and save_do_jogo[id_peixe]["pego"] == true:
+			botao.visible = true
+			
+			if primeiro_peixe == "":
+				primeiro_peixe = id_peixe
+		else:
+			botao.visible = false
+			
+	return primeiro_peixe
+
+func alternar_interface(tem_peixe: bool):
+	peixe.visible = tem_peixe
+	caixa_de_texto.visible = tem_peixe
+	desc.visible = tem_peixe
+	nome_cien.visible = tem_peixe
+	botao_carimbar.visible = tem_peixe
+	
+	aviso_vazio.visible = !tem_peixe
 
 func trocar_peixe_na_tela(novo_tipo: String):
 	tipo = novo_tipo

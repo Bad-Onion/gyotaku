@@ -151,6 +151,20 @@ autowrap_mode = 2
 
 [node name="SaveManager" parent="." unique_id=1434010696 instance=ExtResource("10_8wrta")]
 
+[node name="AvisoVazio" type="Label" parent="." unique_id=1795255921]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "VOCÊ AINDA NÃO PESCOU NENHUM PEIXE!!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Peixes/gurukun" to="Peixes/gurukun" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/raya" to="Peixes/raya" method="_on_pressed"]
 [connection signal="pressed" from="Carimbar" to="Carimbar" method="_on_pressed"]

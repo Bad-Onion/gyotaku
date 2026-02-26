@@ -70,12 +70,20 @@ func _calculate_tension(delta: float) -> void:
 
 	if is_pulling_effectively:
 		var pull_intensity = absf(pull_velocity)
-		_current_tension += pull_intensity * _current_config.tension_increase_multiplier * delta
-	else:
-		# Player let go or is not pulling effectively -> Recover Tension
-		_current_tension -= _current_config.tension_recovery_rate * delta
+		var increase_rate: float = _current_config.tension_increase_multiplier
 
-		# Fish dashes if player lets go at critical tension
+		if upgrades:
+			increase_rate /= upgrades.line_strength_multiplier
+
+		_current_tension += pull_intensity * increase_rate * delta
+	else:
+		var recovery_rate: float = _current_config.tension_recovery_rate
+
+		if upgrades:
+			recovery_rate *= upgrades.line_strength_multiplier
+
+		_current_tension -= recovery_rate * delta
+
 		if _was_dragging_last_frame and _current_tension >= _current_config.critical_tension_threshold:
 			_apply_escape_impulse()
 

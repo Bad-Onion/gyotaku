@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bobyx43df4on0"]
 
-[ext_resource type="Script" uid="uid://buai3v5byl7kv" path="res://scenes/minigames/peixe_catalogo.gd" id="1_fmcqn"]
-[ext_resource type="Shader" uid="uid://c5s3dtu56nl84" path="res://scenes/minigames/sprite_com_pintura.gdshader" id="2_xox23"]
+[ext_resource type="Script" uid="uid://buai3v5byl7kv" path="res://scripts/peixe_catalogo.gd" id="1_fmcqn"]
+[ext_resource type="Shader" uid="uid://c5s3dtu56nl84" path="res://shader/sprite_com_pintura.gdshader" id="2_xox23"]
 [ext_resource type="Texture2D" uid="uid://looocptmvug0" path="res://assets/peixes/Raya sem contornos p%b.png" id="3_fmcqn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fmcqn"]

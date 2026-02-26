@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dksa5sfa1b54q"]
 
-[ext_resource type="Shader" uid="uid://c2mqduumuvl3n" path="res://scenes/cursor/cursor.gdshader" id="2_75asm"]
+[ext_resource type="Shader" uid="uid://c2mqduumuvl3n" path="res://shader/cursor.gdshader" id="2_75asm"]
 [ext_resource type="Texture2D" uid="uid://c64cvsej0rn50" path="res://assets/cursor/Cursor-Sheet.png" id="2_ghxni"]
-[ext_resource type="Script" uid="uid://g82ca33qqw7a" path="res://cursor_pincel.gd" id="2_roth4"]
+[ext_resource type="Script" uid="uid://g82ca33qqw7a" path="res://scripts/cursor_pincel.gd" id="2_roth4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e5wmr"]
 shader = ExtResource("2_75asm")

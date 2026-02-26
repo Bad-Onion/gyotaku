@@ -5,6 +5,8 @@ extends Control
 signal resume_requested
 signal quit_to_menu_requested
 
+@export var economy_system: EconomySystem
+
 @onready var resume_button: Button = %ResumeButton
 @onready var quit_button: Button = %QuitButton
 @onready var coin_hud: CoinHUD = %CoinHUD
@@ -13,6 +15,9 @@ signal quit_to_menu_requested
 func _ready() -> void:
 	resume_button.pressed.connect(_on_resume_button_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
+
+	if economy_system:
+		economy_system.coins_changed.connect(_on_coins_changed)
 
 
 func _on_resume_button_pressed() -> void:
@@ -23,6 +28,6 @@ func _on_quit_button_pressed() -> void:
 	quit_to_menu_requested.emit()
 
 
-func update_coin_display(total_coins: int) -> void:
+func _on_coins_changed(total_coins: int, _added_amount: int) -> void:
 	if coin_hud:
 		coin_hud.update_coins(total_coins, 0)

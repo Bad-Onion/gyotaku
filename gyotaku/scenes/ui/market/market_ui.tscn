@@ -74,4 +74,5 @@ grow_horizontal = 0
 text = "Voltar"
 
 [node name="MarketMusic" type="AudioStreamPlayer" parent="." unique_id=1783391980]
+unique_name_in_owner = true
 stream = ExtResource("6_yj7p1")

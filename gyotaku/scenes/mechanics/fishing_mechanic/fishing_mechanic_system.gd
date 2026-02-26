@@ -14,6 +14,7 @@ signal depth_updated(current: float, max_val: float)
 @export var center_point: Marker2D
 @export var default_config: FishingConfig
 @export var boat_reference: Node2D
+@export var upgrades: FishingUpgrades
 
 var _fish: Fish
 var _current_config: FishingConfig
@@ -173,7 +174,12 @@ func _get_player_pull_velocity() -> float:
 	if not _is_player_pulling_against_fish():
 		return 0.0
 
-	return input_system.get_drag_vector().x * _current_config.player_pull_power
+	var base_pull := input_system.get_drag_vector().x * _current_config.player_pull_power
+
+	if upgrades:
+		base_pull *= upgrades.reel_force_multiplier
+
+	return base_pull
 
 
 func _is_player_pulling_against_fish() -> bool:

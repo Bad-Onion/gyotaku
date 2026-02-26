@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FishingUpgrades" format=3 uid="uid://cgbak6mlrs4ic"]
+
+[ext_resource type="Script" uid="uid://c2vgveipfffvi" path="res://scenes/mechanics/fishing_upgrade_mechanic/fishing_upgrades.gd" id="1_46eao"]
+
+[resource]
+script = ExtResource("1_46eao")
+metadata/_custom_type_script = "uid://c2vgveipfffvi"

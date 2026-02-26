@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://cdmknqrhjgh4h" path="res://scenes/entities/player/states/player_equip_state.gd" id="11_1iula"]
 [ext_resource type="Script" uid="uid://c303bsdas0x0r" path="res://scenes/entities/player/states/player_cast_state.gd" id="12_v0dvh"]
 [ext_resource type="Script" uid="uid://b5trg2v7qwdrj" path="res://scenes/entities/player/states/player_pull_state.gd" id="13_5d3u7"]
+[ext_resource type="Resource" uid="uid://cgbak6mlrs4ic" path="res://resources/fishing_upgrades/player_fishing_upgrades.tres" id="16_7nyn5"]
 [ext_resource type="Script" uid="uid://btmllpkc3kjpr" path="res://scenes/interactables/fishing_cursor_ui/components/world_line_controller.gd" id="21_1iula"]
 [ext_resource type="Script" uid="uid://bp6jpcuc73prj" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_line_renderer.gd" id="21_41r28"]
 [ext_resource type="Script" uid="uid://14b38vmfp2df" path="res://scenes/entities/fishes/components/fish_spawn_config.gd" id="22_1fq2y"]
@@ -34,8 +35,6 @@
 [ext_resource type="AudioStream" uid="uid://brqp3hbnojxvx" path="res://assets/audio/estacao animada.ogg" id="28_g76na"]
 [ext_resource type="AudioStream" uid="uid://buoqckixsaroc" path="res://assets/sfx/throw_hook.wav" id="28_ynakb"]
 [ext_resource type="AudioStream" uid="uid://b8jqqaebbgoy5" path="res://assets/sfx/splash_water.wav" id="29_5ocxp"]
-[ext_resource type="Script" uid="uid://bgs43pjot25cq" path="res://core/economy_system.gd" id="31_7nyn5"]
-[ext_resource type="PackedScene" uid="uid://cv55e06k5bift" path="res://scenes/ui/coin_hud/coin_hud.tscn" id="36_dycye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wloe5"]
 atlas = ExtResource("3_napug")
@@ -112,12 +111,11 @@ fish_scene = ExtResource("25_q7p11")
 spawn_weight = 6.0
 metadata/_custom_type_script = "uid://14b38vmfp2df"
 
-[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "fish_chest_marker", "economy_system", "coin_hud")]
+[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "fish_chest_marker", "coin_hud")]
 script = ExtResource("1_58uyj")
 main_camera = NodePath("MainCamera")
 fish_chest_marker = NodePath("Boat/FishChestMarker")
-economy_system = NodePath("Systems/EconomySystem")
-coin_hud = NodePath("CoinHUD/CoinHUD")
+coin_hud = NodePath("")
 
 [node name="MainCamera" type="Camera2D" parent="." unique_id=2093425651]
 unique_name_in_owner = true
@@ -202,6 +200,7 @@ input_system = NodePath("../PlayerFishingInput")
 center_point = NodePath("../CenterPoint")
 default_config = ExtResource("7_1jeig")
 boat_reference = NodePath("../../Boat")
+upgrades = ExtResource("16_7nyn5")
 
 [node name="PlayerFishingInput" type="Node" parent="Systems" unique_id=1893260175]
 script = ExtResource("3_vmhy7")
@@ -256,9 +255,6 @@ stream = ExtResource("29_5ocxp")
 
 [node name="SFXReel" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=300887856]
 
-[node name="EconomySystem" type="Node" parent="Systems" unique_id=884181062]
-script = ExtResource("31_7nyn5")
-
 [node name="FishingHook" type="Node" parent="." unique_id=209616824]
 
 [node name="FishingHook" parent="FishingHook" unique_id=2042041991 groups=["bait"] instance=ExtResource("1_7uxs1")]
@@ -286,10 +282,6 @@ mechanic_system = NodePath("../../Systems/FishingMechanicSystem")
 z_index = 20
 width = 1.0
 script = ExtResource("21_41r28")
-
-[node name="CoinHUD" type="CanvasLayer" parent="." unique_id=124579816]
-
-[node name="CoinHUD" parent="CoinHUD" unique_id=2050263438 instance=ExtResource("36_dycye")]
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1672648947]
 

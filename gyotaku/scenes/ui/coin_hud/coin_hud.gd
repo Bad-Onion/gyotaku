@@ -2,6 +2,7 @@ class_name CoinHUD
 extends Control
 
 
+@export var economy_system: EconomySystem
 @export var is_always_visible: bool = false
 @export var display_duration: float = 3.0
 
@@ -19,6 +20,9 @@ func _ready() -> void:
 
 	if not is_always_visible:
 		modulate.a = 0.0
+
+	if economy_system:
+		economy_system.coins_changed.connect(update_coins)
 
 
 func update_coins(total: int, added: int = 0) -> void:

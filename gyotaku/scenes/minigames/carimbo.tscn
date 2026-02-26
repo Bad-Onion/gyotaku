@@ -24,7 +24,7 @@ anchor_bottom = 0.5
 offset_left = -281.0
 offset_top = -80.0
 offset_right = -237.0
-offset_bottom = 104.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.3346537, 1.4513531)
@@ -41,29 +41,44 @@ color = Color(0.12, 0.12, 0.12, 1)
 [node name="Vermelho" type="ColorRect" parent="Cores" unique_id=2124805505]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(1, 0, 0, 1)
+color = Color(1, 0.26, 0.26, 1)
 
 [node name="Verde" type="ColorRect" parent="Cores" unique_id=479864985]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(0, 1, 0, 1)
+color = Color(0.25, 1, 0.25, 1)
 
 [node name="Azul" type="ColorRect" parent="Cores" unique_id=1875651656]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(0, 0, 1, 1)
+color = Color(0.41000003, 0.41000003, 1, 1)
 
 [node name="Laranja" type="ColorRect" parent="Cores" unique_id=1160602180]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(1, 0.49803922, 0, 1)
+color = Color(1, 0.6, 0.19999999, 1)
 
 [node name="Amarelo" type="ColorRect" parent="Cores" unique_id=1853967813]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(1, 1, 0, 1)
+color = Color(1, 1, 0.19999999, 1)
 
-[node name="Branco" type="ColorRect" parent="Cores" unique_id=972520082]
+[node name="Rosa" type="ColorRect" parent="Cores" unique_id=972520082]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0.4285215, 0.82531196, 1)
+
+[node name="Ciano" type="ColorRect" parent="Cores" unique_id=296675265]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.38, 1, 1, 1)
+
+[node name="Roxo" type="ColorRect" parent="Cores" unique_id=860730602]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.81333315, 0.3, 1, 1)
+
+[node name="Roxo2" type="ColorRect" parent="Cores" unique_id=414832750]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -92,6 +107,7 @@ grow_vertical = 2
 scale = Vector2(1.3859177, 1.0260599)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 columns = 2
 script = ExtResource("6_x33oj")
 
@@ -117,6 +133,16 @@ color = Color(1, 0, 0, 1)
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Esponja" type="ColorRect" parent="." unique_id=730189903]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_left = 75.0
+offset_top = 240.0
+offset_right = 95.0
+offset_bottom = 260.0
+mouse_filter = 2
 color = Color(1, 0, 0, 1)
 
 [node name="GridContainer2" type="GridContainer" parent="." unique_id=1021050278]

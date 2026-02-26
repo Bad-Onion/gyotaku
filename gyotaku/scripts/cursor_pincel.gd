@@ -5,15 +5,20 @@ extends Node2D
 
 func _process(delta: float) -> void:
 	global_position = get_global_mouse_position()
-	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		cursor_pincel.play("click" + str(imagem.brush_size))
-	elif imagem.brush_size != null:
-		cursor_pincel.play("default" + str(imagem.brush_size))
+	if imagem.paint_color == Color.WHITE:
+		cursor_pincel.play("esponja")
+		cursor_pincel.offset = Vector2(-5,2)
+		imagem.brush_size = 10
+	else:
+		cursor_pincel.offset = Vector2.ZERO
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			cursor_pincel.play("click" + str(imagem.brush_size))
+		elif imagem.brush_size != null:
+			cursor_pincel.play("default" + str(imagem.brush_size))
 		
-	var offset_vector = get_size()
-	var offset_y = offset_vector.y / (imagem.brush_size)
-	cursor_pincel.offset = Vector2(0,offset_y)
+		var offset_vector = get_size()
+		var offset_y = offset_vector.y / (imagem.brush_size)
+		cursor_pincel.offset = Vector2(0,offset_y)
 
 func get_size() -> Vector2:
 	var current_anim_name = cursor_pincel.animation

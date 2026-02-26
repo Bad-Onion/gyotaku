@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://c2mqduumuvl3n" path="res://shader/cursor.gdshader" id="2_75asm"]
 [ext_resource type="Texture2D" uid="uid://c64cvsej0rn50" path="res://assets/cursor/Cursor-Sheet.png" id="2_ghxni"]
 [ext_resource type="Script" uid="uid://g82ca33qqw7a" path="res://scripts/cursor_pincel.gd" id="2_roth4"]
+[ext_resource type="Texture2D" uid="uid://gq8g0jr6o5d6" path="res://assets/cursor/esponja.png" id="4_ghxni"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e5wmr"]
 shader = ExtResource("2_75asm")
@@ -38,6 +39,10 @@ region = Rect2(138, 0, 23, 19)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1fc3j"]
 atlas = ExtResource("2_ghxni")
+region = Rect2(0, 0, 23, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dicen"]
+atlas = ExtResource("4_ghxni")
 region = Rect2(0, 0, 23, 19)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ghxni"]
@@ -105,6 +110,14 @@ animations = [{
 "loop": true,
 "name": &"default5",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dicen")
+}],
+"loop": true,
+"name": &"esponja",
+"speed": 5.0
 }]
 
 [node name="Cursor" type="Node2D" unique_id=1434074555]
@@ -115,4 +128,4 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_e5wmr")
 position = Vector2(12, 4)
 sprite_frames = SubResource("SpriteFrames_ghxni")
-animation = &"click20"
+animation = &"esponja"

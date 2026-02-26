@@ -6,16 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://d28xw0r1f3qul" path="res://scenes/peixes/peixe.tscn" id="2_xwurr"]
 [ext_resource type="PackedScene" uid="uid://dksa5sfa1b54q" path="res://scenes/cursor/cursor.tscn" id="5_fxhco"]
 [ext_resource type="Script" uid="uid://dhcf3dxcscjkt" path="res://scripts/redefinir.gd" id="5_i8l8x"]
+[ext_resource type="FontFile" uid="uid://c02fyhip3telr" path="res://assets/fontes/KiwiSoda.ttf" id="6_867ab"]
 [ext_resource type="Script" uid="uid://cfcg84d4obhdb" path="res://scripts/catalogo.gd" id="6_i8l8x"]
 [ext_resource type="Script" uid="uid://doc1snuosefne" path="res://scripts/pinceis.gd" id="6_x33oj"]
+[ext_resource type="StyleBox" uid="uid://odrg3nh1h5o1" path="res://assets/background/nine_botao.tres" id="7_y7dd7"]
 [ext_resource type="PackedScene" uid="uid://v74jwe10ydnv" path="res://scenes/SaveManager.tscn" id="9_x33oj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxhco"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwurr"]
-bg_color = Color(0.21950099, 0.21950105, 0.21950087, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8l8x"]
 
 [node name="Carimbo" type="CanvasLayer" unique_id=2108949112]
 script = ExtResource("1_af0jy")
@@ -125,31 +120,42 @@ layout_mode = 2
 color = Color(1, 0, 0, 1)
 
 [node name="GridContainer2" type="GridContainer" parent="." unique_id=1021050278]
+texture_filter = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -97.5
-offset_top = 325.0
-offset_right = 97.5
-offset_bottom = -12.0
+offset_left = -121.0
+offset_top = 309.5
+offset_right = 121.0
+offset_bottom = -6.5
 grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 
 [node name="Redefinir" type="Button" parent="GridContainer2" unique_id=1649230164]
+custom_minimum_size = Vector2(9.86, 25)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_fxhco")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_xwurr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_i8l8x")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("6_867ab")
+theme_override_styles/normal = ExtResource("7_y7dd7")
+theme_override_styles/pressed = ExtResource("7_y7dd7")
+theme_override_styles/hover = ExtResource("7_y7dd7")
 text = "Redefinir"
 script = ExtResource("5_i8l8x")
 
 [node name="Catalogo" type="Button" parent="GridContainer2" unique_id=1229915821]
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_fxhco")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_xwurr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_i8l8x")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("6_867ab")
+theme_override_styles/normal = ExtResource("7_y7dd7")
+theme_override_styles/pressed = ExtResource("7_y7dd7")
+theme_override_styles/hover = ExtResource("7_y7dd7")
 text = "Salvar e Carimbar"
 script = ExtResource("6_i8l8x")
 

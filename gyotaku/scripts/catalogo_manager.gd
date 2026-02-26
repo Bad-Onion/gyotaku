@@ -8,6 +8,13 @@ extends Control
 @onready var nome_cien: Label = $NomeCien
 
 @onready var container_botoes: Node = $Peixes
+@onready var anterior: Button = $Anterior
+@onready var proximo: Button = $Proximo
+
+var pagina_atual : int = 0
+const ITENS_POR_PAGINA : int = 5
+var botoes_desbloqueados : Array[Button] = []
+
 @onready var botao_carimbar: Button = $Carimbar
 @onready var aviso_vazio: Label = $AvisoVazio
 
@@ -36,22 +43,47 @@ func _ready() -> void:
 		# Se retornou "", é porque não tem nenhum botão visível
 		alternar_interface(false)
 
-func atualizar_botoes_de_selecao() -> String:
+func atualizar_botoes_de_selecao(peixe_alvo: String = "") -> String:
+	botoes_desbloqueados.clear()
 	var primeiro_peixe = ""
 
 	for botao in container_botoes.get_children():
-		var id_peixe = botao.name 
-
-		# Verifica se o peixe foi pego
-		if save_do_jogo.has(id_peixe) and save_do_jogo[id_peixe]["pego"] == true:
-			botao.visible = true
-			
-			if primeiro_peixe == "":
-				primeiro_peixe = id_peixe
-		else:
+		if botao is Button: 
 			botao.visible = false
-			
+			var id_peixe = botao.name 
+
+			if save_do_jogo.has(id_peixe) and save_do_jogo[id_peixe]["pego"] == true:
+				botoes_desbloqueados.append(botao)
+				if primeiro_peixe == "":
+					primeiro_peixe = id_peixe
+
+	if peixe_alvo != "":
+		for i in range(botoes_desbloqueados.size()):
+			if botoes_desbloqueados[i].name == peixe_alvo:
+				pagina_atual = i / ITENS_POR_PAGINA 
+				break
+
+	var indice_inicio = pagina_atual * ITENS_POR_PAGINA
+	var indice_fim = indice_inicio + ITENS_POR_PAGINA
+
+	for i in range(botoes_desbloqueados.size()):
+		if i >= indice_inicio and i < indice_fim:
+			botoes_desbloqueados[i].visible = true
+
+	anterior.disabled = (pagina_atual == 0)
+	proximo.disabled = (indice_fim >= botoes_desbloqueados.size())
+
 	return primeiro_peixe
+
+func _on_anterior_pressed() -> void:
+	if pagina_atual > 0:
+		pagina_atual -= 1
+		atualizar_botoes_de_selecao()
+
+func _on_proximo_pressed() -> void:
+	if (pagina_atual + 1) * ITENS_POR_PAGINA < botoes_desbloqueados.size():
+		pagina_atual += 1
+		atualizar_botoes_de_selecao()
 
 func alternar_interface(tem_peixe: bool):
 	peixe.visible = tem_peixe

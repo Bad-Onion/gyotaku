@@ -29,3 +29,17 @@ func stop_music() -> void:
 		fade_tween.kill()
 
 	market_music.stop()
+
+
+func pause_music() -> void:
+	market_music.stream_paused = true
+
+	if fade_tween and fade_tween.is_valid():
+		fade_tween.pause()
+
+
+func resume_music() -> void:
+	market_music.stream_paused = false
+
+	if fade_tween and fade_tween.is_valid():
+		fade_tween.play()

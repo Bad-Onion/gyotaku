@@ -2,6 +2,8 @@ class_name StateMachine
 extends Node
 
 
+signal state_changed(new_state_id: int)
+
 @export var initial_state: GameState
 
 var current_state: GameState
@@ -20,6 +22,7 @@ func _ready() -> void:
 	if initial_state:
 		initial_state.enter()
 		current_state = initial_state
+		state_changed.emit(initial_state.get_id())
 
 
 func _process(delta: float) -> void:
@@ -58,3 +61,4 @@ func on_child_transitioned(state: GameState, target_state_id: int) -> void:
 
 	new_state.enter()
 	current_state = new_state
+	state_changed.emit(new_state_id)

@@ -5,7 +5,7 @@ extends Node
 @export var main_camera: Camera2D
 @export var boat: Node2D
 
-@onready var surface_water_sprite: Sprite2D = %Background/OkinawaBackground/SurfaceWater/Water
+@onready var surface_water_sprite: AnimatedSprite2D = %Background/OkinawaBackground/SurfaceWater/Water
 @onready var ceiling_water_sprite: Sprite2D = %Background/OkinawaUnderwaterBackground/CeilingLayer/UnderwaterCeiling
 @onready var depth_layer: ParallaxLayer = %Background/OkinawaUnderwaterBackground/DepthLayer
 
@@ -43,17 +43,22 @@ func _handle_perspective_transition() -> void:
 
 
 func _setup_perfect_anchors() -> void:
-	if surface_water_sprite and surface_water_sprite.texture:
-		var tex_w: float = surface_water_sprite.texture.get_width()
-		var tex_h: float = surface_water_sprite.texture.get_height()
-		var start_x: float = surface_water_sprite.position.x
+	if surface_water_sprite and surface_water_sprite.sprite_frames:
+		var current_anim: StringName = surface_water_sprite.animation
+		var current_frame: int = surface_water_sprite.frame
+		var tex: Texture2D = surface_water_sprite.sprite_frames.get_frame_texture(current_anim, current_frame)
 
-		if surface_water_sprite.centered:
-			start_x -= tex_w / 2.0
+		if tex:
+			var tex_w: float = tex.get_width()
+			var tex_h: float = tex.get_height()
+			var start_x: float = surface_water_sprite.position.x
 
-		surface_water_sprite.centered = false
-		surface_water_sprite.offset = Vector2(0, -tex_h)
-		surface_water_sprite.position = Vector2(start_x, WATERLINE_Y)
+			if surface_water_sprite.centered:
+				start_x -= tex_w / 2.0
+
+			surface_water_sprite.centered = false
+			surface_water_sprite.offset = Vector2(0, -tex_h)
+			surface_water_sprite.position = Vector2(start_x, WATERLINE_Y)
 
 	if ceiling_water_sprite and ceiling_water_sprite.texture:
 		var tex_w: float = ceiling_water_sprite.texture.get_width()
@@ -78,4 +83,3 @@ func _setup_rendering_order() -> void:
 
 	if boat:
 		boat.z_index = 0
-

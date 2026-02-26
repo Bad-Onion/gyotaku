@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://svc3pphu325r" path="res://assets/sprites/market/upgrades/fishing_line_upgrade_1.png" id="3_yj7p1"]
 [ext_resource type="Texture2D" uid="uid://bv58uf004cley" path="res://assets/sprites/market/upgrades/food_bait_upgrade_1.png" id="4_e6xbh"]
 [ext_resource type="AudioStream" uid="uid://dbquecs78ilcy" path="res://assets/audio/mercado.ogg" id="6_yj7p1"]
+[ext_resource type="PackedScene" uid="uid://cv55e06k5bift" path="res://scenes/ui/coin_hud/coin_hud.tscn" id="7_e6xbh"]
 
 [node name="MarketUI" type="Control" unique_id=1187940312]
 process_mode = 3
@@ -30,6 +31,7 @@ texture = ExtResource("1_5l6t0")
 anchors_preset = 0
 
 [node name="SpinningReelUpgrade" type="TextureButton" parent="UpgradesContainer" unique_id=635568040]
+unique_name_in_owner = true
 show_behind_parent = true
 layout_mode = 0
 offset_left = 105.0
@@ -39,6 +41,7 @@ offset_bottom = 82.0
 texture_normal = ExtResource("2_2pdf6")
 
 [node name="LineStrengthUpgrade" type="TextureButton" parent="UpgradesContainer" unique_id=769347759]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 88.0
 offset_top = 111.0
@@ -47,6 +50,7 @@ offset_bottom = 165.0
 texture_normal = ExtResource("3_yj7p1")
 
 [node name="LineSizeUpgrade" type="TextureButton" parent="UpgradesContainer" unique_id=429807092]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 66.0
 offset_top = 180.0
@@ -55,6 +59,7 @@ offset_bottom = 234.0
 texture_normal = ExtResource("3_yj7p1")
 
 [node name="FoodBaitUpgrade" type="TextureButton" parent="UpgradesContainer" unique_id=198172311]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 226.0
 offset_top = 255.0
@@ -76,3 +81,8 @@ text = "Voltar"
 [node name="MarketMusic" type="AudioStreamPlayer" parent="." unique_id=1783391980]
 unique_name_in_owner = true
 stream = ExtResource("6_yj7p1")
+
+[node name="CoinHUD" parent="." unique_id=2050263438 instance=ExtResource("7_e6xbh")]
+unique_name_in_owner = true
+layout_mode = 0
+is_always_visible = true

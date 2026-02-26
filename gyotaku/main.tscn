@@ -20,8 +20,9 @@ layer = 100
 
 [node name="MainMenu" parent="UIContainer" unique_id=531070255 instance=ExtResource("1_h2yge")]
 
-[node name="MarketUI" parent="UIContainer" unique_id=1187940312 instance=ExtResource("3_kek77")]
+[node name="MarketUI" parent="UIContainer" unique_id=1187940312 node_paths=PackedStringArray("economy_system") instance=ExtResource("3_kek77")]
 visible = false
+economy_system = NodePath("../../EconomySystem")
 
 [node name="PauseMenu" parent="UIContainer" unique_id=767540166 node_paths=PackedStringArray("economy_system") instance=ExtResource("2_1bvp3")]
 visible = false

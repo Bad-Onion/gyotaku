@@ -7,18 +7,25 @@ signal line_strength_upgrade_requested
 signal line_size_upgrade_requested
 signal bait_upgrade_requested
 
+
+@export var economy_system: EconomySystem
+
 @onready var back_button: Button = %BackButton
 @onready var market_music: AudioStreamPlayer = %MarketMusic
 
-@onready var reel_btn: TextureButton = $UpgradesContainer/SpinningReelUpgrade
-@onready var line_strength_btn: TextureButton = $UpgradesContainer/LineStrengthUpgrade
-@onready var line_size_btn: TextureButton = $UpgradesContainer/LineSizeUpgrade
-@onready var bait_btn: TextureButton = $UpgradesContainer/FoodBaitUpgrade
+@onready var reel_btn: TextureButton = %SpinningReelUpgrade
+@onready var line_strength_btn: TextureButton = %LineStrengthUpgrade
+@onready var line_size_btn: TextureButton = %LineSizeUpgrade
+@onready var bait_btn: TextureButton = %FoodBaitUpgrade
+@onready var coin_hud: CoinHUD = %CoinHUD
 
 var fade_tween: Tween
 
 
 func _ready() -> void:
+	if economy_system:
+		economy_system.coins_changed.connect(_on_coins_changed)
+
 	back_button.pressed.connect(func(): back_requested.emit())
 	reel_btn.pressed.connect(func(): reel_upgrade_requested.emit())
 	line_strength_btn.pressed.connect(func(): line_strength_upgrade_requested.emit())
@@ -56,3 +63,8 @@ func resume_music() -> void:
 
 	if fade_tween and fade_tween.is_valid():
 		fade_tween.play()
+
+
+func _on_coins_changed(total_coins: int, _added_amount: int) -> void:
+	if coin_hud:
+		coin_hud.update_coins(total_coins, 0)

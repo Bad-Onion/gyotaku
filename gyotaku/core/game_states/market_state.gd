@@ -6,12 +6,6 @@ extends GameState
 @export var upgrades: FishingUpgrades
 @export var economy_system: EconomySystem
 
-# Temporary fixed costs
-var reel_upgrade_cost: int = 10
-var line_strength_cost: int = 10
-var hook_depth_cost: int = 10
-var bait_cost: int = 10
-
 var _is_pausing: bool = false
 
 
@@ -74,22 +68,22 @@ func _on_global_state_changed(new_state_id: int) -> void:
 
 
 func _on_reel_upgraded() -> void:
-	if _try_purchase(reel_upgrade_cost):
+	if _try_purchase(upgrades.reel_cost):
 		if upgrades: upgrades.upgrade_reel()
 
 
 func _on_line_strength_upgraded() -> void:
-	if _try_purchase(line_strength_cost):
+	if _try_purchase(upgrades.line_strength_cost):
 		if upgrades: upgrades.upgrade_line_strength()
 
 
 func _on_line_size_upgraded() -> void:
-	if _try_purchase(hook_depth_cost):
+	if _try_purchase(upgrades.hook_depth_cost):
 		if upgrades: upgrades.upgrade_hook_depth()
 
 
 func _on_bait_upgraded() -> void:
-	if _try_purchase(bait_cost):
+	if _try_purchase(upgrades.bait_cost):
 		if upgrades: upgrades.upgrade_bait()
 
 
@@ -103,5 +97,5 @@ func _try_purchase(cost: int) -> bool:
 		print("MarketState: You bought successfully")
 		return true
 
-	print("Not enough coins!") # Optional: Trigger a UI feedback signal here later
+	print("Not enough coins!") # Trigger a UI feedback signal here later
 	return false

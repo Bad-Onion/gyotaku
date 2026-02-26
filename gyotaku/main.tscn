@@ -23,6 +23,7 @@ layer = 100
 [node name="MarketUI" parent="UIContainer" unique_id=1187940312 node_paths=PackedStringArray("economy_system") instance=ExtResource("3_kek77")]
 visible = false
 economy_system = NodePath("../../EconomySystem")
+upgrades = ExtResource("10_4c57u")
 
 [node name="PauseMenu" parent="UIContainer" unique_id=767540166 node_paths=PackedStringArray("economy_system") instance=ExtResource("2_1bvp3")]
 visible = false

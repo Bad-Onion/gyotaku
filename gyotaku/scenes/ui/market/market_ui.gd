@@ -34,6 +34,9 @@ var fade_tween: Tween
 
 
 func _ready() -> void:
+	if upgrades:
+		upgrades.upgrades_changed.connect(_update_market_display)
+
 	if economy_system:
 		economy_system.coins_changed.connect(_on_coins_changed)
 
@@ -43,6 +46,7 @@ func _ready() -> void:
 	line_size_btn.pressed.connect(func(): line_size_upgrade_requested.emit())
 	bait_btn.pressed.connect(func(): bait_upgrade_requested.emit())
 
+	_update_market_display()
 	_update_name_labels()
 	_update_cost_labels()
 
@@ -102,3 +106,14 @@ func _update_name_labels() -> void:
 		# bait_name.text = str(upgrades.bait_name)
 	else:
 		push_error("MarketUI: FishingUpgrades resource not assigned.")
+
+
+func _update_market_display() -> void:
+	if upgrades:
+		reel_btn.visible = not upgrades.is_reel_bought
+		line_strength_btn.visible = not upgrades.is_line_strength_bought
+		line_size_btn.visible = not upgrades.is_hook_depth_bought
+		bait_btn.visible = not upgrades.is_bait_bought
+
+		_update_cost_labels()
+		_update_name_labels()

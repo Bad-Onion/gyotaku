@@ -125,12 +125,11 @@ func find_target(fish: Fish, current_target: Node2D, delta: float) -> Node2D:
 				if _reaction_timer <= 0.0:
 					var final_interest_chance: float = movement_config.bait_interest_chance
 
-					# TODO: add condition to check the save file to see if the player already bought the upgrade
 					if upgrades:
 						final_interest_chance *= upgrades.bait_attraction_multiplier
 
 					final_interest_chance = minf(final_interest_chance, 1.0)
-					print("Interest Chance" + str(final_interest_chance))
+
 					# Observation complete, make the decision roll
 					if randf() <= final_interest_chance:
 						if found_bait.request_interest(fish):

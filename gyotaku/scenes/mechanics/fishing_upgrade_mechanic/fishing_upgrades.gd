@@ -4,11 +4,11 @@ extends Resource
 
 signal upgrades_changed
 
-@export_group("Multipliers")
-@export var reel_force_multiplier: float = 2.0
-@export var hook_depth_multiplier: float = 1.0
-@export var line_strength_multiplier: float = 2.0
-@export var bait_attraction_multiplier: float = 5.0
+@export_group("Upgraded Multipliers")
+@export var upgraded_reel_force: float = 2.0
+@export var upgraded_hook_depth: float = 1.0
+@export var upgraded_line_strength: float = 2.0
+@export var upgraded_bait_attraction: float = 2.0
 
 @export_group("Costs")
 @export var reel_cost: int = 10
@@ -22,22 +22,47 @@ signal upgrades_changed
 @export var line_strength_name: String = "Resistencia da Linha"
 @export var bait_name: String = "Isca"
 
-
-func upgrade_reel(amount: float = 0.2) -> void:
-	reel_force_multiplier += amount
-	upgrades_changed.emit()
-
-
-func upgrade_line_strength(amount: float = 0.2) -> void:
-	line_strength_multiplier += amount
-	upgrades_changed.emit()
+var is_reel_bought: bool = false
+var is_hook_depth_bought: bool = false
+var is_line_strength_bought: bool = false
+var is_bait_bought: bool = false
 
 
-func upgrade_hook_depth(amount: float = 0.2) -> void:
-	hook_depth_multiplier += amount
-	upgrades_changed.emit()
+var reel_force_multiplier: float:
+	get: return upgraded_reel_force if is_reel_bought else 1.0
 
 
-func upgrade_bait(amount: float = 0.2) -> void:
-	bait_attraction_multiplier += amount
-	upgrades_changed.emit()
+var hook_depth_multiplier: float:
+	get: return upgraded_hook_depth if is_hook_depth_bought else 1.0
+
+
+var line_strength_multiplier: float:
+	get: return upgraded_line_strength if is_line_strength_bought else 1.0
+
+
+var bait_attraction_multiplier: float:
+	get: return upgraded_bait_attraction if is_bait_bought else 1.0
+
+
+func upgrade_reel() -> void:
+	if not is_reel_bought:
+		is_reel_bought = true
+		upgrades_changed.emit()
+
+
+func upgrade_line_strength() -> void:
+	if not is_line_strength_bought:
+		is_line_strength_bought = true
+		upgrades_changed.emit()
+
+
+func upgrade_hook_depth() -> void:
+	if not is_hook_depth_bought:
+		is_hook_depth_bought = true
+		upgrades_changed.emit()
+
+
+func upgrade_bait() -> void:
+	if not is_bait_bought:
+		is_bait_bought = true
+		upgrades_changed.emit()

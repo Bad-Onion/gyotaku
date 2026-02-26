@@ -12,25 +12,26 @@
 [ext_resource type="Script" uid="uid://bbasgoop7b4k5" path="res://core/game_states/market_state.gd" id="9_4c57u"]
 [ext_resource type="Resource" uid="uid://cgbak6mlrs4ic" path="res://resources/fishing_upgrades/player_fishing_upgrades.tres" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://bgs43pjot25cq" path="res://core/economy_system.gd" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://de2kjg36ieaew" path="res://core/save_system.gd" id="13_ycdy4"]
 
 [node name="Main" type="Node2D" unique_id=809898196]
 
 [node name="UIContainer" type="CanvasLayer" parent="." unique_id=1584003394]
 layer = 100
 
-[node name="MainMenu" parent="UIContainer" unique_id=531070255 instance=ExtResource("1_h2yge")]
-
 [node name="MarketUI" parent="UIContainer" unique_id=1187940312 node_paths=PackedStringArray("economy_system") instance=ExtResource("3_kek77")]
 visible = false
 economy_system = NodePath("../../EconomySystem")
 upgrades = ExtResource("10_4c57u")
 
+[node name="CoinHUD" parent="UIContainer" unique_id=2050263438 node_paths=PackedStringArray("economy_system") instance=ExtResource("4_dg77c")]
+economy_system = NodePath("../../EconomySystem")
+
+[node name="MainMenu" parent="UIContainer" unique_id=531070255 instance=ExtResource("1_h2yge")]
+
 [node name="PauseMenu" parent="UIContainer" unique_id=767540166 node_paths=PackedStringArray("economy_system") instance=ExtResource("2_1bvp3")]
 visible = false
 z_index = 10
-economy_system = NodePath("../../EconomySystem")
-
-[node name="CoinHUD" parent="UIContainer" unique_id=2050263438 node_paths=PackedStringArray("economy_system") instance=ExtResource("4_dg77c")]
 economy_system = NodePath("../../EconomySystem")
 
 [node name="LevelContainer" type="Node2D" parent="." unique_id=1444049853]
@@ -63,3 +64,8 @@ economy_system = NodePath("../../EconomySystem")
 
 [node name="EconomySystem" type="Node" parent="." unique_id=1445282508]
 script = ExtResource("11_efxa6")
+
+[node name="SaveSystem" type="Node" parent="." unique_id=1974578316 node_paths=PackedStringArray("economy_system")]
+script = ExtResource("13_ycdy4")
+economy_system = NodePath("../EconomySystem")
+upgrades = ExtResource("10_4c57u")

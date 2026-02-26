@@ -4,4 +4,4 @@ extends Button
 
 func _on_pressed() -> void:
 	Global.peixe_a_carimbar = peixe_catalogo.tipo
-	Transicao.mudar_cena("res://scenes/minigames/carimbo.tscn")
+	Transicao.mudar_cena("res://scenes/minigames/carimbo.tscn",false)

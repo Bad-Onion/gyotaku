@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpd5wedggpu32"
-path="res://.godot/imported/Montanha_Esquerda_1.png-7a6d92cb4388f528213aec1af4c01c15.ctex"
+uid="uid://ctnhno8wawdxq"
+path="res://.godot/imported/fishing_line_size_upgrade_1.png-208ff96f590e85857dd0108d81dafd64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/okinawa/surface/Montanha_Esquerda_1.png"
-dest_files=["res://.godot/imported/Montanha_Esquerda_1.png-7a6d92cb4388f528213aec1af4c01c15.ctex"]
+source_file="res://assets/sprites/market/upgrades/fishing_line_size_upgrade_1.png"
+dest_files=["res://.godot/imported/fishing_line_size_upgrade_1.png-208ff96f590e85857dd0108d81dafd64.ctex"]
 
 [params]
 

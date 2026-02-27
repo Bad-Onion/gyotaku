@@ -24,6 +24,10 @@ window/size/initial_position_type=3
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
+[gui]
+
+theme/custom="uid://bykb414mnc67f"
+
 [input]
 
 throw_hook={

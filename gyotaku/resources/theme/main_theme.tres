@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://bykb414mnc67f"]
+
+[ext_resource type="FontFile" uid="uid://cji5ct4tdom2p" path="res://assets/fonts/KiwiSoda.ttf" id="1_fvyg7"]
+
+[resource]
+default_font = ExtResource("1_fvyg7")

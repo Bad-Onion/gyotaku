@@ -22,6 +22,12 @@ signal upgrades_changed
 @export var line_strength_name: String = "Resistencia da Linha"
 @export var bait_name: String = "Isca"
 
+@export_group("Descriptions")
+@export var reel_description: String = "Molinete description"
+@export var hook_depth_description: String = "Tamanho da Linha description"
+@export var line_strength_description: String = "Resistencia da Linha description"
+@export var bait_description: String = "Isca description"
+
 var is_reel_bought: bool = false
 var is_hook_depth_bought: bool = false
 var is_line_strength_bought: bool = false

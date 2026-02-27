@@ -20,15 +20,10 @@ signal bait_upgrade_requested
 @onready var bait_btn: TextureButton = %FoodBaitUpgrade
 @onready var coin_hud: CoinHUD = %CoinHUD
 
-@onready var reel_name: Label = %SpinningReelName
-@onready var line_strength_name: Label = %LineStrengthName
-@onready var line_size_name: Label = %LineSizeName
-# @onready var bait_name: Label = %FoodBaitName
-
-@onready var reel_cost: Label = %SpinningReelPrice
-@onready var line_strength_cost: Label = %LineStrengthPrice
-@onready var line_size_cost: Label = %LineSizePrice
-# @onready var bait_cost: Label = %FoodBaitPrice
+@onready var info_panel: Control = %InfoPanel
+@onready var info_name: Label = %InfoPanel/NameLabel
+@onready var info_desc: Label = %InfoPanel/DescriptionLabel
+@onready var info_price: Label = %InfoPanel/PriceLabel
 
 var fade_tween: Tween
 
@@ -40,15 +35,28 @@ func _ready() -> void:
 	if economy_system:
 		economy_system.coins_changed.connect(_on_coins_changed)
 
+	# Click
 	back_button.pressed.connect(func(): back_requested.emit())
 	reel_btn.pressed.connect(func(): reel_upgrade_requested.emit())
 	line_strength_btn.pressed.connect(func(): line_strength_upgrade_requested.emit())
 	line_size_btn.pressed.connect(func(): line_size_upgrade_requested.emit())
 	bait_btn.pressed.connect(func(): bait_upgrade_requested.emit())
 
+	# Hover
+	reel_btn.mouse_entered.connect(_on_hover_reel)
+	line_strength_btn.mouse_entered.connect(_on_hover_line_strength)
+	line_size_btn.mouse_entered.connect(_on_hover_line_size)
+	bait_btn.mouse_entered.connect(_on_hover_bait)
+
+	# Exit
+	var clear_func = Callable(self, "_clear_info")
+	reel_btn.mouse_exited.connect(clear_func)
+	line_strength_btn.mouse_exited.connect(clear_func)
+	line_size_btn.mouse_exited.connect(clear_func)
+	bait_btn.mouse_exited.connect(clear_func)
+
+	_clear_info()
 	_update_market_display()
-	_update_name_labels()
-	_update_cost_labels()
 
 
 func fade_in_music(duration: float = 1.5) -> void:
@@ -88,24 +96,33 @@ func _on_coins_changed(total_coins: int, _added_amount: int) -> void:
 		coin_hud.update_coins(total_coins, 0)
 
 
-func _update_cost_labels() -> void:
-	if upgrades:
-		reel_cost.text = str(upgrades.reel_cost)
-		line_strength_cost.text = str(upgrades.line_strength_cost)
-		line_size_cost.text = str(upgrades.hook_depth_cost)
-		# bait_cost.text = str(upgrades.bait_cost)
-	else:
-		push_error("MarketUI: FishingUpgrades resource not assigned.")
+# Hover Logic
+func _on_hover_reel() -> void:
+	_show_info(upgrades.reel_name, upgrades.reel_description, upgrades.reel_cost)
 
 
-func _update_name_labels() -> void:
-	if upgrades:
-		reel_name.text = str(upgrades.reel_name)
-		line_strength_name.text = str(upgrades.line_strength_name)
-		line_size_name.text = str(upgrades.hook_depth_name)
-		# bait_name.text = str(upgrades.bait_name)
-	else:
-		push_error("MarketUI: FishingUpgrades resource not assigned.")
+func _on_hover_line_strength() -> void:
+	_show_info(upgrades.line_strength_name, upgrades.line_strength_description, upgrades.line_strength_cost)
+
+
+func _on_hover_line_size() -> void:
+	_show_info(upgrades.hook_depth_name, upgrades.hook_depth_description, upgrades.hook_depth_cost)
+
+
+func _on_hover_bait() -> void:
+	_show_info(upgrades.bait_name, upgrades.bait_description, upgrades.bait_cost)
+
+
+# Display Logic
+func _show_info(item_name: String, description: String, cost: int) -> void:
+	info_panel.show()
+	info_name.text = item_name
+	info_desc.text = description
+	info_price.text = "Valor: " + str(cost)
+
+
+func _clear_info() -> void:
+	info_panel.hide()
 
 
 func _update_market_display() -> void:
@@ -115,5 +132,4 @@ func _update_market_display() -> void:
 		line_size_btn.visible = not upgrades.is_hook_depth_bought
 		bait_btn.visible = not upgrades.is_bait_bought
 
-		_update_cost_labels()
-		_update_name_labels()
+		_clear_info()

@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://nwvm1lkr8n4s" path="res://scenes/ui/market/market_ui.gd" id="1_2pdf6"]
 [ext_resource type="Texture2D" uid="uid://ba5w3e81yqm3c" path="res://assets/backgrounds/market/CenaLoja.png" id="1_5l6t0"]
 [ext_resource type="Texture2D" uid="uid://cxtwicnff4o05" path="res://assets/sprites/market/upgrades/spinning_reel_upgrade_1.png" id="2_2pdf6"]
-[ext_resource type="Texture2D" uid="uid://svc3pphu325r" path="res://assets/sprites/market/upgrades/fishing_line_upgrade_1.png" id="3_yj7p1"]
 [ext_resource type="Texture2D" uid="uid://bv58uf004cley" path="res://assets/sprites/market/upgrades/food_bait_upgrade_1.png" id="4_e6xbh"]
+[ext_resource type="Texture2D" uid="uid://ca366056xd4mv" path="res://assets/sprites/market/upgrades/fishing_line_resistance_upgrade_1.png" id="4_mqcme"]
+[ext_resource type="Texture2D" uid="uid://ctnhno8wawdxq" path="res://assets/sprites/market/upgrades/fishing_line_size_upgrade_1.png" id="5_r4stw"]
 [ext_resource type="AudioStream" uid="uid://dbquecs78ilcy" path="res://assets/audio/mercado.ogg" id="6_yj7p1"]
 [ext_resource type="PackedScene" uid="uid://cv55e06k5bift" path="res://scenes/ui/coin_hud/coin_hud.tscn" id="7_e6xbh"]
+[ext_resource type="Texture2D" uid="uid://bj0eyhx3xb6r4" path="res://assets/sprites/market/upgrades/anzol.png" id="7_r4stw"]
 
 [node name="MarketUI" type="Control" unique_id=1187940312]
 process_mode = 3
@@ -34,86 +36,46 @@ anchors_preset = 0
 unique_name_in_owner = true
 show_behind_parent = true
 layout_mode = 0
-offset_left = 105.0
-offset_top = 28.0
-offset_right = 167.0
-offset_bottom = 82.0
+offset_left = 53.0
+offset_top = 156.0
+offset_right = 133.0
+offset_bottom = 220.0
 texture_normal = ExtResource("2_2pdf6")
-
-[node name="SpinningReelName" type="Label" parent="UpgradesContainer/SpinningReelUpgrade" unique_id=884872513]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 72.0
-offset_top = -2.0
-offset_right = 112.0
-offset_bottom = 21.0
-
-[node name="SpinningReelPrice" type="Label" parent="UpgradesContainer/SpinningReelUpgrade" unique_id=1732288878]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 73.0
-offset_top = 26.0
-offset_right = 113.0
-offset_bottom = 49.0
 
 [node name="LineStrengthUpgrade" type="TextureButton" parent="UpgradesContainer" unique_id=769347759]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 88.0
+offset_left = 224.0
 offset_top = 111.0
-offset_right = 137.0
-offset_bottom = 165.0
-texture_normal = ExtResource("3_yj7p1")
-
-[node name="LineStrengthName" type="Label" parent="UpgradesContainer/LineStrengthUpgrade" unique_id=1073644183]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 65.0
-offset_top = -18.0
-offset_right = 105.0
-offset_bottom = 5.0
-
-[node name="LineStrengthPrice" type="Label" parent="UpgradesContainer/LineStrengthUpgrade" unique_id=1981538269]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 65.0
-offset_top = 10.0
-offset_right = 105.0
-offset_bottom = 33.0
+offset_right = 304.0
+offset_bottom = 175.0
+texture_normal = ExtResource("4_mqcme")
 
 [node name="LineSizeUpgrade" type="TextureButton" parent="UpgradesContainer" unique_id=429807092]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 66.0
-offset_top = 180.0
-offset_right = 115.0
-offset_bottom = 234.0
-texture_normal = ExtResource("3_yj7p1")
-
-[node name="LineSizeName" type="Label" parent="UpgradesContainer/LineSizeUpgrade" unique_id=366391974]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 65.0
-offset_top = -16.0
-offset_right = 105.0
-offset_bottom = 7.0
-
-[node name="LineSizePrice" type="Label" parent="UpgradesContainer/LineSizeUpgrade" unique_id=1165349670]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 65.0
-offset_top = 10.0
-offset_right = 105.0
-offset_bottom = 33.0
+offset_left = 86.0
+offset_top = 103.0
+offset_right = 166.0
+offset_bottom = 167.0
+texture_normal = ExtResource("5_r4stw")
 
 [node name="FoodBaitUpgrade" type="TextureButton" parent="UpgradesContainer" unique_id=198172311]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 226.0
-offset_top = 255.0
-offset_right = 249.0
-offset_bottom = 309.0
+offset_left = 119.0
+offset_top = 28.0
+offset_right = 199.0
+offset_bottom = 92.0
 texture_normal = ExtResource("4_e6xbh")
+
+[node name="Hook" type="TextureRect" parent="UpgradesContainer/FoodBaitUpgrade" unique_id=263483127]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -8.0
+offset_right = 66.0
+offset_bottom = 56.0
+texture = ExtResource("7_r4stw")
 
 [node name="BackButton" type="Button" parent="." unique_id=2079234874]
 unique_name_in_owner = true
@@ -134,3 +96,35 @@ stream = ExtResource("6_yj7p1")
 unique_name_in_owner = true
 layout_mode = 0
 is_always_visible = true
+
+[node name="InfoPanel" type="Panel" parent="." unique_id=1128799737]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 323.0
+offset_top = 21.0
+offset_right = 501.0
+offset_bottom = 183.0
+
+[node name="NameLabel" type="Label" parent="InfoPanel" unique_id=890158419]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 11.0
+offset_right = 173.0
+offset_bottom = 23.0
+
+[node name="DescriptionLabel" type="Label" parent="InfoPanel" unique_id=1995190988]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 11.0
+offset_top = 32.0
+offset_right = 171.0
+offset_bottom = 133.0
+autowrap_mode = 3
+
+[node name="PriceLabel" type="Label" parent="InfoPanel" unique_id=1460090419]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 134.0
+offset_right = 50.0
+offset_bottom = 157.0

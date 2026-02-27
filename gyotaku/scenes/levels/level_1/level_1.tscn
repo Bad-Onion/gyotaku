@@ -38,6 +38,8 @@
 [ext_resource type="AudioStream" uid="uid://buoqckixsaroc" path="res://assets/sfx/throw_hook.wav" id="28_ynakb"]
 [ext_resource type="AudioStream" uid="uid://b8jqqaebbgoy5" path="res://assets/sfx/splash_water.wav" id="29_5ocxp"]
 [ext_resource type="AudioStream" uid="uid://cnrhcyjj7ut4l" path="res://assets/audio/estacaosoundscape.wav" id="30_ynakb"]
+[ext_resource type="AudioStream" uid="uid://c5j6en4xm5jmd" path="res://assets/sfx/pegapeixe.wav" id="35_it7jt"]
+[ext_resource type="AudioStream" uid="uid://cq57qv81ffl5f" path="res://assets/sfx/fogepeixe.wav" id="36_3jus6"]
 [ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="39_u4rjv"]
 [ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="40_2wfu0"]
 [ext_resource type="AudioStream" uid="uid://dunuu2nmmuw67" path="res://assets/sfx/pressbutton.wav" id="41_it7jt"]
@@ -260,7 +262,7 @@ main_camera = NodePath("../../MainCamera")
 boat = NodePath("../../Boat")
 gap_filler_layer = NodePath("../../Background/BackgroundExtension")
 
-[node name="FishingAudioManager" type="Node" parent="Systems" unique_id=2062989114 node_paths=PackedStringArray("fishing_mechanic_system", "player_cast_state", "fishing_hook", "bgm_calm_player", "bgm_active_player", "sfx_throw", "sfx_splash", "sfx_reel")]
+[node name="FishingAudioManager" type="Node" parent="Systems" unique_id=2062989114 node_paths=PackedStringArray("fishing_mechanic_system", "player_cast_state", "fishing_hook", "bgm_calm_player", "bgm_active_player", "sfx_throw", "sfx_splash", "sfx_reel", "sfx_caught", "sfx_escaped")]
 script = ExtResource("23_yivqu")
 fishing_mechanic_system = NodePath("../FishingMechanicSystem")
 player_cast_state = NodePath("../../Boat/Player/PlayerStateMachine/CastState")
@@ -270,6 +272,8 @@ bgm_active_player = NodePath("BGMActivePlayer")
 sfx_throw = NodePath("SFXThrow")
 sfx_splash = NodePath("SFXSplash")
 sfx_reel = NodePath("SFXReel")
+sfx_caught = NodePath("SFXCaught")
+sfx_escaped = NodePath("SFXEscaped")
 reel_slow = ExtResource("24_g76na")
 reel_normal = ExtResource("25_658j2")
 reel_fast = ExtResource("26_7nyn5")
@@ -293,6 +297,12 @@ stream = ExtResource("28_ynakb")
 stream = ExtResource("29_5ocxp")
 
 [node name="SFXReel" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=300887856]
+
+[node name="SFXCaught" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=885211614]
+stream = ExtResource("35_it7jt")
+
+[node name="SFXEscaped" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=1975068712]
+stream = ExtResource("36_3jus6")
 
 [node name="FishingHook" type="Node" parent="." unique_id=209616824]
 

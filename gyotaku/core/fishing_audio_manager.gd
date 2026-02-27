@@ -13,6 +13,8 @@ extends Node
 @export var sfx_throw: AudioStreamPlayer
 @export var sfx_splash: AudioStreamPlayer
 @export var sfx_reel: AudioStreamPlayer
+@export var sfx_caught: AudioStreamPlayer
+@export var sfx_escaped: AudioStreamPlayer
 
 @export_group("Audio Streams")
 @export var reel_slow: AudioStream
@@ -37,8 +39,11 @@ func _connect_signals() -> void:
 		fishing_mechanic_system.minigame_started.connect(_on_minigame_started)
 		fishing_mechanic_system.fish_caught.connect(_on_minigame_ended)
 		fishing_mechanic_system.fish_caught.connect(_on_fish_caught)
+
 		fishing_mechanic_system.fish_escaped.connect(_on_minigame_ended)
+		fishing_mechanic_system.fish_escaped.connect(_on_fish_lost)
 		fishing_mechanic_system.line_broke.connect(_on_minigame_ended)
+		fishing_mechanic_system.line_broke.connect(_on_fish_lost)
 		fishing_mechanic_system.tension_updated.connect(_on_tension_updated)
 
 	if player_cast_state:
@@ -84,6 +89,9 @@ func _on_hook_casted() -> void:
 
 func _on_fish_caught() -> void:
 	sfx_splash.play()
+	
+	if sfx_caught:
+		sfx_caught.play()
 
 
 func _on_hook_water_entered() -> void:
@@ -114,3 +122,8 @@ func _play_reel_sound(stream: AudioStream) -> void:
 	var playback_position := sfx_reel.get_playback_position()
 	sfx_reel.stream = stream
 	sfx_reel.play(playback_position)
+
+
+func _on_fish_lost() -> void:
+	if sfx_escaped:
+		sfx_escaped.play()

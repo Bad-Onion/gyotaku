@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 
 signal stamp_finished

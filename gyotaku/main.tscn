@@ -29,6 +29,9 @@ visible = false
 economy_system = NodePath("../../EconomySystem")
 upgrades = ExtResource("10_4c57u")
 
+[node name="StampUI" parent="UIContainer" unique_id=1211058533 instance=ExtResource("15_cegan")]
+visible = false
+
 [node name="CatalogUI" parent="UIContainer" unique_id=1923325422 instance=ExtResource("6_vivmo")]
 visible = false
 
@@ -74,10 +77,9 @@ economy_system = NodePath("../../EconomySystem")
 script = ExtResource("13_2cqfq")
 catalog_ui = NodePath("../../UIContainer/CatalogUI")
 
-[node name="StampState" type="Node" parent="GameStateMachine" unique_id=100572259 node_paths=PackedStringArray("ui_container")]
+[node name="StampState" type="Node" parent="GameStateMachine" unique_id=100572259 node_paths=PackedStringArray("stamp_ui")]
 script = ExtResource("14_074og")
-ui_container = NodePath("../../UIContainer")
-stamp_scene = ExtResource("15_cegan")
+stamp_ui = NodePath("../../UIContainer/StampUI")
 
 [node name="EconomySystem" type="Node" parent="." unique_id=1445282508]
 script = ExtResource("11_efxa6")

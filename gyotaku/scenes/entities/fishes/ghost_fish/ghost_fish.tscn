@@ -71,6 +71,7 @@ animations = [{
 
 [node name="GhostFish" unique_id=69548390 instance=ExtResource("1_ty0vh")]
 fishing_config = ExtResource("2_dinrl")
+catalog_id = "ghost_fish"
 
 [node name="FishSprite" parent="." index="0" unique_id=341686494]
 sprite_frames = SubResource("SpriteFrames_5vofo")

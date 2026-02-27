@@ -6,6 +6,7 @@
 
 [node name="Gurukun" unique_id=69548390 instance=ExtResource("1_dnd3g")]
 fishing_config = ExtResource("2_k387f")
+catalog_id = "gurukun"
 
 [node name="MovementComponent" parent="." index="2" unique_id=1380834197]
 movement_config = ExtResource("3_4i1ug")

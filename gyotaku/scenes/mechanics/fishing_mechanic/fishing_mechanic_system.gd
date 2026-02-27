@@ -16,6 +16,8 @@ signal depth_updated(current: float, max_val: float)
 @export var default_config: FishingConfig
 @export var boat_reference: Node2D
 @export var upgrades: FishingUpgrades
+@export var catalog: FishCatalog
+
 @export var water_surface_y: float = 450.0
 
 
@@ -164,6 +166,7 @@ func _check_end_conditions() -> void:
 		_end_game()
 
 	elif _current_depth <= 0:
+		catalog.mark_fish_caught(_fish.catalog_id)
 		_fish.catch(boat_reference.global_position if boat_reference else center_point.global_position)
 		fish_caught.emit()
 		_end_game()

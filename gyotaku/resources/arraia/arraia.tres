@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FishEntry" format=3 uid="uid://bm8ni3hwyocib"]
+
+[ext_resource type="Script" uid="uid://dnwsws0us2gn1" path="res://core/entries/fish_entry.gd" id="1_mefn1"]
+
+[resource]
+script = ExtResource("1_mefn1")
+id = "arraia"
+fish_name = "Arraia Pintada"
+description = "Majestosa e gigante. Desliza pela água como se estivesse voando. Cuidado com o ferrão!"
+metadata/_custom_type_script = "uid://dnwsws0us2gn1"

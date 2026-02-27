@@ -99,6 +99,7 @@ animations = [{
 
 [node name="Arraia" unique_id=69548390 instance=ExtResource("1_cok0a")]
 fishing_config = ExtResource("2_phj26")
+catalog_id = "arraia"
 
 [node name="FishSprite" parent="." index="0" unique_id=341686494]
 sprite_frames = SubResource("SpriteFrames_fbtw5")

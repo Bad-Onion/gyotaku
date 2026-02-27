@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FishCatalog" format=3 uid="uid://4q1g20kx4k1o"]
+
+[ext_resource type="Script" uid="uid://dnwsws0us2gn1" path="res://core/entries/fish_entry.gd" id="1_txlfv"]
+[ext_resource type="Resource" uid="uid://bm8ni3hwyocib" path="res://resources/arraia/arraia.tres" id="2_0wuk0"]
+[ext_resource type="Script" uid="uid://dutkay3jd44wf" path="res://core/entries/fish_catalog.gd" id="2_2sl4h"]
+[ext_resource type="Resource" uid="uid://llfn0wydagbd" path="res://resources/eel_demon/eel_demon.tres" id="3_dmewn"]
+[ext_resource type="Resource" uid="uid://dw1ed7qjxwany" path="res://resources/ghost_fish/ghost_fish.tres" id="4_02th8"]
+[ext_resource type="Resource" uid="uid://buvfstajr5grk" path="res://resources/gurukun/gurukun.tres" id="5_cnesd"]
+
+[resource]
+script = ExtResource("2_2sl4h")
+entries = Array[ExtResource("1_txlfv")]([ExtResource("2_0wuk0"), ExtResource("3_dmewn"), ExtResource("4_02th8"), ExtResource("5_cnesd")])
+metadata/_custom_type_script = "uid://dutkay3jd44wf"

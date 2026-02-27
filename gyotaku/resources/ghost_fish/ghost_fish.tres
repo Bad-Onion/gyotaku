@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FishEntry" format=3 uid="uid://dw1ed7qjxwany"]
+
+[ext_resource type="Script" uid="uid://dnwsws0us2gn1" path="res://core/entries/fish_entry.gd" id="1_ongmb"]
+
+[resource]
+script = ExtResource("1_ongmb")
+id = "ghost_fish"
+fish_name = "Peixe Fantasma"
+description = "Buuuuuuuu"
+metadata/_custom_type_script = "uid://dnwsws0us2gn1"

@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://cgbak6mlrs4ic" path="res://resources/fishing_upgrades/player_fishing_upgrades.tres" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://bgs43pjot25cq" path="res://core/economy_system.gd" id="11_efxa6"]
 [ext_resource type="Script" uid="uid://de2kjg36ieaew" path="res://core/save_system.gd" id="13_ycdy4"]
+[ext_resource type="Resource" uid="uid://4q1g20kx4k1o" path="res://resources/main_catalog.tres" id="14_w48qg"]
 
 [node name="Main" type="Node2D" unique_id=809898196]
 
@@ -69,3 +70,4 @@ script = ExtResource("11_efxa6")
 script = ExtResource("13_ycdy4")
 economy_system = NodePath("../EconomySystem")
 upgrades = ExtResource("10_4c57u")
+catalog = ExtResource("14_w48qg")

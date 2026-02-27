@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var visuals_component: FishVisuals
 @export var fishing_config: FishingConfig
 
+@export var catalog_id: String = ""
+
 var is_hooked: bool = false
 var movement_direction: int = 1
 var _current_target: Node2D = null
@@ -15,7 +17,7 @@ var _is_escaping: bool = false
 
 func _ready() -> void:
 	z_index = 10
-	
+
 	if not movement_component or not visuals_component:
 		push_error("Fish: Missing components.")
 

@@ -104,8 +104,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Fish" unique_id=69548390 instance=ExtResource("1_cgmk4")]
+[node name="EelDemon" unique_id=69548390 instance=ExtResource("1_cgmk4")]
 fishing_config = ExtResource("2_4xoi2")
+catalog_id = "eel_demon"
 
 [node name="FishSprite" parent="." index="0" unique_id=341686494]
 sprite_frames = SubResource("SpriteFrames_yimgp")

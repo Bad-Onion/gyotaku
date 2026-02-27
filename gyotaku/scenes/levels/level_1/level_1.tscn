@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://c303bsdas0x0r" path="res://scenes/entities/player/states/player_cast_state.gd" id="12_v0dvh"]
 [ext_resource type="Script" uid="uid://b5trg2v7qwdrj" path="res://scenes/entities/player/states/player_pull_state.gd" id="13_5d3u7"]
 [ext_resource type="Resource" uid="uid://cgbak6mlrs4ic" path="res://resources/fishing_upgrades/player_fishing_upgrades.tres" id="16_7nyn5"]
+[ext_resource type="Resource" uid="uid://4q1g20kx4k1o" path="res://resources/main_catalog.tres" id="17_dycye"]
 [ext_resource type="Script" uid="uid://btmllpkc3kjpr" path="res://scenes/interactables/fishing_cursor_ui/components/world_line_controller.gd" id="21_1iula"]
 [ext_resource type="Script" uid="uid://bp6jpcuc73prj" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_line_renderer.gd" id="21_41r28"]
 [ext_resource type="Script" uid="uid://14b38vmfp2df" path="res://scenes/entities/fishes/components/fish_spawn_config.gd" id="22_1fq2y"]
@@ -227,6 +228,7 @@ center_point = NodePath("../CenterPoint")
 default_config = ExtResource("7_1jeig")
 boat_reference = NodePath("../../Boat")
 upgrades = ExtResource("16_7nyn5")
+catalog = ExtResource("17_dycye")
 
 [node name="PlayerFishingInput" type="Node" parent="Systems" unique_id=1893260175]
 script = ExtResource("3_vmhy7")

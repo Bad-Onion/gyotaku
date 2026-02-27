@@ -1,5 +1,10 @@
 extends Control
 
+
+signal back_requested
+
+@export var catalog: FishCatalog
+
 @onready var peixe_catalogo: SubViewport = $PeixeCatalogo
 @onready var pintura: Sprite2D = $PeixeCatalogo/Peixe/Pintura
 @onready var peixe: Sprite2D = $Peixe
@@ -20,9 +25,10 @@ var botoes_desbloqueados : Array[Button] = []
 @onready var botao_carimbar: Button = $Carimbar
 @onready var aviso_vazio: Label = $AvisoVazio
 
-const CAMINHO_SAVE = "user://save_do_jogo.json" 
+@onready var catalog_music: AudioStreamPlayer = $CatalogMusic
+@onready var back_button: Button = %Sair
 
-var save_do_jogo : Dictionary = {} 
+
 var tipo : String
 var regex = RegEx.new()
 
@@ -35,38 +41,48 @@ func _ready() -> void:
 
 	posicao_original_peixe_x = peixe.global_position.x
 
-	carregar_save_completo()
-	
+	visibility_changed.connect(_on_visibility_changed)
+
+	if back_button:
+		for connection in back_button.pressed.get_connections():
+			back_button.pressed.disconnect(connection.callable)
+		back_button.pressed.connect(_on_back_pressed)
+
+	if not catalog:
+		push_error("Catalogo resource missing! Arraste o main_catalog.tres para o Inspector.")
+		return
+
 	var primeiro_peixe_disponivel = atualizar_botoes_de_selecao()
+
 	if primeiro_peixe_disponivel != "":
 		alternar_interface(true)
-		
-		if Global.ultimo_peixe_carimbado != "" and save_do_jogo.has(Global.ultimo_peixe_carimbado) and save_do_jogo[Global.ultimo_peixe_carimbado]["pego"] == true:
-			trocar_peixe_na_tela(Global.ultimo_peixe_carimbado)
-		else:
-			trocar_peixe_na_tela(primeiro_peixe_disponivel)	
+		trocar_peixe_na_tela(primeiro_peixe_disponivel)
 	else:
 		# Se retornou "", é porque não tem nenhum botão visível
 		alternar_interface(false)
+
 
 func atualizar_botoes_de_selecao(peixe_alvo: String = "") -> String:
 	botoes_desbloqueados.clear()
 	var primeiro_peixe = ""
 
 	for botao in container_botoes.get_children():
-		if botao is Button: 
+		if botao is Button:
 			botao.visible = false
-			var id_peixe = botao.name 
+			var id_peixe = botao.name
 
-			if save_do_jogo.has(id_peixe) and save_do_jogo[id_peixe]["pego"] == true:
+			var entry = catalog.get_entry(id_peixe)
+
+			if entry and entry.is_caught:
 				botoes_desbloqueados.append(botao)
+
 				if primeiro_peixe == "":
 					primeiro_peixe = id_peixe
 
 	if peixe_alvo != "":
 		for i in range(botoes_desbloqueados.size()):
 			if botoes_desbloqueados[i].name == peixe_alvo:
-				pagina_atual = i / ITENS_POR_PAGINA 
+				pagina_atual = i / ITENS_POR_PAGINA
 				break
 
 	var indice_inicio = pagina_atual * ITENS_POR_PAGINA
@@ -101,7 +117,7 @@ func alternar_interface(tem_peixe: bool):
 	era_assim.visible = tem_peixe
 	anterior.visible = tem_peixe
 	proximo.visible = tem_peixe
-	
+
 	aviso_vazio.visible = !tem_peixe
 
 func trocar_peixe_na_tela(novo_tipo: String):
@@ -118,8 +134,8 @@ func trocar_peixe_na_tela(novo_tipo: String):
 		peixe.global_position.x = posicao_original_peixe_x
 		if peixe.material:
 			peixe.material.set_shader_parameter("ativar_fade", false)
-	atualizar_textos_da_tela(tipo) 
-	
+
+	atualizar_textos_da_tela(tipo)
 	peixe_catalogo.atualizar_peixe(tipo)
 	adicionar_peixe_ao_catalogo()
 
@@ -133,42 +149,18 @@ func _on_nome_do_peixe_text_changed(texto : String) -> void:
 		var posicao_cursor = caixa_de_texto.caret_column
 		caixa_de_texto.text = texto_limpo
 		caixa_de_texto.caret_column = clamp(posicao_cursor - 1, 0, texto_limpo.length())
-	
-	save_text(texto_limpo)
 
-func save_text(conteudo_digitado : String):
-	if save_do_jogo.has(tipo):
-		save_do_jogo[tipo]["apelido"] = conteudo_digitado
-		
-		var texto_json = JSON.stringify(save_do_jogo, "\t")
-		
-		var file = FileAccess.open(CAMINHO_SAVE, FileAccess.WRITE)
-		if file:
-			file.store_string(texto_json)
-			file.close()
-		else:
-			print("Erro em escrever no arquivo")
-
-func carregar_save_completo():
-	if FileAccess.file_exists(CAMINHO_SAVE):
-		var file = FileAccess.open(CAMINHO_SAVE, FileAccess.READ)
-		if file:
-			var texto_do_arquivo = file.get_as_text()
-			file.close()
-			var json_convertido = JSON.parse_string(texto_do_arquivo)
-			if json_convertido != null and typeof(json_convertido) == TYPE_DICTIONARY:
-				save_do_jogo = json_convertido
-			print("Save carregado na memória.")
-		else:
-			print("Erro para abrir o arquivo de save")
-	else:
-		print("Arquivo de save não encontrado no Catálogo.")
+	if catalog:
+		catalog.set_fish_nickname(tipo, texto_limpo)
 
 func atualizar_textos_da_tela(tipo_buscado : String):
-	if save_do_jogo.has(tipo_buscado):
-		caixa_de_texto.text = save_do_jogo[tipo_buscado]["apelido"]
-		desc.text = save_do_jogo[tipo_buscado]["descricao"]
-		nome_cien.text = save_do_jogo[tipo_buscado]["nome"]
+	var entry = catalog.get_entry(tipo_buscado)
+
+	if entry:
+		caixa_de_texto.text = entry.nickname
+		# TODO: instead of getting the name and description from the json, get it from the resources
+		desc.text = entry.description
+		nome_cien.text = entry.name
 	else:
 		caixa_de_texto.text = ""
 		desc.text = "Descrição desconhecida"
@@ -178,3 +170,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if caixa_de_texto.has_focus():
 			caixa_de_texto.release_focus()
+
+
+func _on_visibility_changed() -> void:
+	if catalog_music:
+		if visible:
+			catalog_music.play()
+		else:
+			catalog_music.stop()
+
+
+func _on_back_pressed() -> void:
+	print("Catalog 'Sair' button pressed cleanly!") 
+	back_requested.emit()

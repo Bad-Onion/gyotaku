@@ -3,18 +3,18 @@
 [ext_resource type="Script" uid="uid://ttl0ihm3pvm5" path="res://scripts/catalogo_manager.gd" id="1_cykm1"]
 [ext_resource type="PackedScene" uid="uid://bobyx43df4on0" path="res://scenes/minigames/peixe_catalogo.tscn" id="1_lrpdc"]
 [ext_resource type="Texture2D" uid="uid://bqj1dwpchdo6j" path="res://assets/background/CenaCatalogo.png" id="2_8wrta"]
+[ext_resource type="Resource" uid="uid://4q1g20kx4k1o" path="res://resources/main_catalog.tres" id="2_akqbu"]
 [ext_resource type="Material" uid="uid://cy6ns2hik1l2k" path="res://shader/shader_papel_decente.tres" id="3_3aiqf"]
-[ext_resource type="Script" uid="uid://0bnbjp2ba4iu" path="res://scripts/peixes_seletor.gd" id="4_747k7"]
+[ext_resource type="Script" path="res://scripts/peixes_seletor.gd" id="4_747k7"]
 [ext_resource type="Texture2D" uid="uid://looocptmvug0" path="res://assets/peixes/Raya sem contornos p%b.png" id="5_bgowf"]
-[ext_resource type="Script" uid="uid://bis58b30cdteo" path="res://scripts/carimbar.gd" id="5_uq8ag"]
+[ext_resource type="Script" path="res://scripts/carimbar.gd" id="5_uq8ag"]
 [ext_resource type="Texture2D" uid="uid://dwqi2tr1fbc4i" path="res://assets/peixes/peixetest.png" id="7_k7br0"]
 [ext_resource type="Texture2D" uid="uid://o2j2kqbdc7n" path="res://assets/peixes/Raya pequena1.png" id="8_5uvc8"]
 [ext_resource type="Texture2D" uid="uid://cs6obyilhc7fe" path="res://assets/peixes/Enguia Demonio/Enguia pequena.png" id="9_ggxav"]
-[ext_resource type="PackedScene" uid="uid://v74jwe10ydnv" path="res://scenes/SaveManager.tscn" id="10_8wrta"]
 [ext_resource type="Texture2D" uid="uid://bllyqiyhkaamq" path="res://assets/peixes/Fantasma/Fantasma pequeno.png" id="10_akqbu"]
 [ext_resource type="StyleBox" uid="uid://odrg3nh1h5o1" path="res://assets/background/nine_botao.tres" id="10_bx3c7"]
 [ext_resource type="FontFile" uid="uid://c02fyhip3telr" path="res://assets/fontes/KiwiSoda.ttf" id="10_i0u0o"]
-[ext_resource type="Script" uid="uid://boilf6cc1626h" path="res://scenes/minigames/sair.gd" id="14_akqbu"]
+[ext_resource type="AudioStream" uid="uid://cv044wmmpvgig" path="res://assets/sons/carimbo.ogg" id="15_akqbu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_akqbu"]
 blend_mode = 3
@@ -47,6 +47,7 @@ gradient = SubResource("Gradient_akqbu")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wrta"]
 
 [node name="Catalogo" type="Control" unique_id=1923325422]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,6 +56,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_cykm1")
+catalog = ExtResource("2_akqbu")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=628513258]
 texture_filter = 1
@@ -187,6 +189,7 @@ text = "Carimbar"
 script = ExtResource("5_uq8ag")
 
 [node name="Sair" type="Button" parent="." unique_id=1857928946]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
 offset_left = 54.0
@@ -201,7 +204,6 @@ theme_override_styles/normal = ExtResource("10_bx3c7")
 theme_override_styles/pressed = ExtResource("10_bx3c7")
 theme_override_styles/hover = ExtResource("10_bx3c7")
 text = "Sair"
-script = ExtResource("14_akqbu")
 
 [node name="NomeDoPeixe" type="LineEdit" parent="." unique_id=1941594480]
 layout_mode = 0
@@ -282,8 +284,6 @@ text = "Descrição blá blá blá blá blá blá blá blá blá blá blá blá 
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="SaveManager" parent="." unique_id=1434010696 instance=ExtResource("10_8wrta")]
-
 [node name="AvisoVazio" type="Label" parent="." unique_id=1795255921]
 visible = false
 layout_mode = 1
@@ -292,11 +292,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "VOCÊ AINDA NÃO PESCOU NENHUM PEIXE!!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CatalogMusic" type="AudioStreamPlayer" parent="." unique_id=374169791]
+stream = ExtResource("15_akqbu")
 
 [connection signal="pressed" from="Peixes/gurukun" to="Peixes/gurukun" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/raya" to="Peixes/raya" method="_on_pressed"]
@@ -305,5 +307,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="Proximo" to="." method="_on_proximo_pressed"]
 [connection signal="pressed" from="Anterior" to="." method="_on_anterior_pressed"]
 [connection signal="pressed" from="Carimbar" to="Carimbar" method="_on_pressed"]
-[connection signal="pressed" from="Sair" to="Sair" method="_on_pressed"]
 [connection signal="text_changed" from="NomeDoPeixe" to="." method="_on_nome_do_peixe_text_changed"]

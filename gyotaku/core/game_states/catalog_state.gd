@@ -2,6 +2,8 @@ class_name CatalogState
 extends GameState
 
 
+@export var catalog_ui: Control
+
 var _is_pausing: bool = false
 
 
@@ -11,25 +13,36 @@ func _ready() -> void:
 		state_machine.state_changed.connect(_on_global_state_changed)
 
 
-func get_id() -> int:
-	return GameStates.State.CATALOG
-
-
 func enter() -> void:
 	if _is_pausing:
 		_is_pausing = false
 
 	get_tree().paused = true
 
+	if catalog_ui:
+		if not catalog_ui.back_requested.is_connected(_on_back_requested):
+			catalog_ui.back_requested.connect(_on_back_requested)
+
+		catalog_ui.show()
+
+
+func get_id() -> int:
+	return GameStates.State.CATALOG
+
 
 func exit() -> void:
+	print("Saindo do catalog state")
 	if _is_pausing:
 		pass
 	else:
 		get_tree().paused = false
 
+	if catalog_ui:
+		catalog_ui.hide()
+
 
 func _on_back_requested() -> void:
+	print("On back requested")
 	_is_pausing = false
 	transitioned.emit(self, GameStates.State.PLAYING)
 

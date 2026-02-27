@@ -8,11 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://cv55e06k5bift" path="res://scenes/ui/coin_hud/coin_hud.tscn" id="4_dg77c"]
 [ext_resource type="Script" uid="uid://c1dbsjxnrqvmi" path="res://core/game_states/playing_state.gd" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bnk2jwk8ek25f" path="res://scenes/levels/level_1/level_1.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://pd1h80fdgo1f" path="res://scenes/minigames/catalogo.tscn" id="6_vivmo"]
 [ext_resource type="Script" uid="uid://y743pjc6d1ba" path="res://core/game_states/pause_state.gd" id="7_272bh"]
 [ext_resource type="Script" uid="uid://bbasgoop7b4k5" path="res://core/game_states/market_state.gd" id="9_4c57u"]
 [ext_resource type="Resource" uid="uid://cgbak6mlrs4ic" path="res://resources/fishing_upgrades/player_fishing_upgrades.tres" id="10_4c57u"]
-[ext_resource type="Script" uid="uid://bgs43pjot25cq" path="res://core/economy_system.gd" id="11_efxa6"]
-[ext_resource type="Script" uid="uid://de2kjg36ieaew" path="res://core/save_system.gd" id="13_ycdy4"]
+[ext_resource type="Script" path="res://core/economy_system.gd" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://dmiot77hxig6c" path="res://core/game_states/catalog_state.gd" id="13_2cqfq"]
+[ext_resource type="Script" path="res://core/save_system.gd" id="13_ycdy4"]
 [ext_resource type="Resource" uid="uid://4q1g20kx4k1o" path="res://resources/main_catalog.tres" id="14_w48qg"]
 
 [node name="Main" type="Node2D" unique_id=809898196]
@@ -24,6 +26,10 @@ layer = 100
 visible = false
 economy_system = NodePath("../../EconomySystem")
 upgrades = ExtResource("10_4c57u")
+
+[node name="CatalogUI" parent="UIContainer" unique_id=1923325422 instance=ExtResource("6_vivmo")]
+visible = false
+catalog = ExtResource("14_w48qg")
 
 [node name="CoinHUD" parent="UIContainer" unique_id=2050263438 node_paths=PackedStringArray("economy_system") instance=ExtResource("4_dg77c")]
 economy_system = NodePath("../../EconomySystem")
@@ -62,6 +68,10 @@ script = ExtResource("9_4c57u")
 market_ui = NodePath("../../UIContainer/MarketUI")
 upgrades = ExtResource("10_4c57u")
 economy_system = NodePath("../../EconomySystem")
+
+[node name="CatalogState" type="Node" parent="GameStateMachine" unique_id=597173765 node_paths=PackedStringArray("catalog_ui")]
+script = ExtResource("13_2cqfq")
+catalog_ui = NodePath("../../UIContainer/CatalogUI")
 
 [node name="EconomySystem" type="Node" parent="." unique_id=1445282508]
 script = ExtResource("11_efxa6")

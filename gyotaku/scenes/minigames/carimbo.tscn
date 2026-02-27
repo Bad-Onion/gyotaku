@@ -36,47 +36,47 @@ script = ExtResource("2_5dofo")
 [node name="Preto" type="ColorRect" parent="Cores" unique_id=1620822803]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(0.12, 0.12, 0.12, 1)
+color = Color(1, 0.6, 0.6745098, 1)
 
 [node name="Vermelho" type="ColorRect" parent="Cores" unique_id=2124805505]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(1, 0.26, 0.26, 1)
+color = Color(0.16470589, 0.6156863, 0.56078434, 1)
 
 [node name="Verde" type="ColorRect" parent="Cores" unique_id=479864985]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(0.25, 1, 0.25, 1)
+color = Color(0.9137255, 0.76862746, 0.41568628, 1)
 
 [node name="Azul" type="ColorRect" parent="Cores" unique_id=1875651656]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(0.41000003, 0.41000003, 1, 1)
+color = Color(0.49803922, 0.33333334, 0.22352941, 1)
 
 [node name="Laranja" type="ColorRect" parent="Cores" unique_id=1160602180]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(1, 0.6, 0.19999999, 1)
+color = Color(0.9529412, 0.44705883, 0.17254902, 1)
 
 [node name="Amarelo" type="ColorRect" parent="Cores" unique_id=1853967813]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(1, 1, 0.19999999, 1)
+color = Color(0.54901963, 0.7019608, 0.4117647, 1)
 
 [node name="Rosa" type="ColorRect" parent="Cores" unique_id=972520082]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(1, 0.4285215, 0.82531196, 1)
+color = Color(0.03137255, 0.40392157, 0.53333336, 1)
 
 [node name="Ciano" type="ColorRect" parent="Cores" unique_id=296675265]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(0.38, 1, 1, 1)
+color = Color(0.91764706, 0.29411766, 0.28235295, 1)
 
 [node name="Roxo" type="ColorRect" parent="Cores" unique_id=860730602]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-color = Color(0.81333315, 0.3, 1, 1)
+color = Color(0.5568628, 0.49019608, 0.74509805, 1)
 
 [node name="Roxo2" type="ColorRect" parent="Cores" unique_id=414832750]
 custom_minimum_size = Vector2(20, 20)

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://0d6u3wmli6ik"]
+
+[ext_resource type="Script" uid="uid://cp45olryn5h7g" path="res://scenes/trans/transicao.gd" id="1_otoi2"]
+[ext_resource type="AudioStream" uid="uid://c4xupif4n12e6" path="res://assets/sons/CARIMBO.wav" id="2_ghneq"]
+[ext_resource type="AudioStream" uid="uid://6k5qq436s11q" path="res://assets/sons/changebutton.wav" id="4_0a1t6"]
+[ext_resource type="AudioStream" uid="uid://cmio3jqxum0rv" path="res://assets/sons/pressbutton.wav" id="5_i7ive"]
+
+[node name="Transicao" type="CanvasLayer" unique_id=146293316]
+layer = 100
+script = ExtResource("1_otoi2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=388390756]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="SfxTransicao" type="AudioStreamPlayer" parent="." unique_id=1052999739]
+stream = ExtResource("2_ghneq")
+volume_db = 3.0
+
+[node name="SfxHover" type="AudioStreamPlayer" parent="." unique_id=1831217503]
+stream = ExtResource("4_0a1t6")
+volume_db = -5.0
+
+[node name="SfxClick" type="AudioStreamPlayer" parent="." unique_id=1131308372]
+stream = ExtResource("5_i7ive")
+volume_db = -5.0

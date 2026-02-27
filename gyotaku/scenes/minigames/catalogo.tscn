@@ -1,0 +1,320 @@
+[gd_scene format=3 uid="uid://pd1h80fdgo1f"]
+
+[ext_resource type="Script" uid="uid://ttl0ihm3pvm5" path="res://scripts/catalogo_manager.gd" id="1_cykm1"]
+[ext_resource type="PackedScene" uid="uid://bobyx43df4on0" path="res://scenes/minigames/peixe_catalogo.tscn" id="1_lrpdc"]
+[ext_resource type="Texture2D" uid="uid://bqj1dwpchdo6j" path="res://assets/background/CenaCatalogo.png" id="2_8wrta"]
+[ext_resource type="Resource" uid="uid://4q1g20kx4k1o" path="res://resources/main_catalog.tres" id="2_akqbu"]
+[ext_resource type="Material" uid="uid://cy6ns2hik1l2k" path="res://shader/shader_papel_decente.tres" id="3_3aiqf"]
+[ext_resource type="Script" path="res://scripts/peixes_seletor.gd" id="4_747k7"]
+[ext_resource type="Texture2D" uid="uid://looocptmvug0" path="res://assets/peixes/Raya sem contornos p%b.png" id="5_bgowf"]
+[ext_resource type="Script" uid="uid://bis58b30cdteo" path="res://scripts/carimbar.gd" id="5_uq8ag"]
+[ext_resource type="Texture2D" uid="uid://dwqi2tr1fbc4i" path="res://assets/peixes/peixetest.png" id="7_k7br0"]
+[ext_resource type="Texture2D" uid="uid://o2j2kqbdc7n" path="res://assets/peixes/Raya pequena1.png" id="8_5uvc8"]
+[ext_resource type="Texture2D" uid="uid://cs6obyilhc7fe" path="res://assets/peixes/Enguia Demonio/Enguia pequena.png" id="9_ggxav"]
+[ext_resource type="Texture2D" uid="uid://bllyqiyhkaamq" path="res://assets/peixes/Fantasma/Fantasma pequeno.png" id="10_akqbu"]
+[ext_resource type="StyleBox" uid="uid://odrg3nh1h5o1" path="res://assets/background/nine_botao.tres" id="10_bx3c7"]
+[ext_resource type="FontFile" uid="uid://c02fyhip3telr" path="res://assets/fontes/KiwiSoda.ttf" id="10_i0u0o"]
+[ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="15_y2l5f"]
+[ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="16_xk605"]
+[ext_resource type="AudioStream" uid="uid://dunuu2nmmuw67" path="res://assets/sfx/pressbutton.wav" id="17_d8uo0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_akqbu"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_akqbu"]
+offsets = PackedFloat32Array(0, 0.43434343)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w3ktt"]
+gradient = SubResource("Gradient_akqbu")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rlum"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggxav"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_akqbu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bx3c7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2l5f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3ktt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf4j0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5uvc8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0u0o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wrta"]
+
+[node name="Catalogo" type="Control" unique_id=1923325422]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_cykm1")
+catalog = ExtResource("2_akqbu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=628513258]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_8wrta")
+
+[node name="PeixeCatalogo" parent="." unique_id=177133395 instance=ExtResource("1_lrpdc")]
+
+[node name="Peixe" type="Sprite2D" parent="." unique_id=2125706914]
+clip_children = 2
+texture_filter = 1
+material = ExtResource("3_3aiqf")
+position = Vector2(185, 219)
+texture = ExtResource("5_bgowf")
+
+[node name="FundoEnguia" type="TextureRect" parent="Peixe" unique_id=1388194294]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_akqbu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -219.0
+offset_right = 100.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_w3ktt")
+
+[node name="Peixes" type="GridContainer" parent="." unique_id=1505429212]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = 14.0
+offset_right = 180.0
+offset_bottom = -298.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+columns = 10
+script = ExtResource("4_747k7")
+
+[node name="gurukun" type="Button" parent="Peixes" unique_id=827924159]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0rlum")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
+icon = ExtResource("7_k7br0")
+
+[node name="arraia" type="Button" parent="Peixes" unique_id=108063004]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0rlum")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
+icon = ExtResource("8_5uvc8")
+
+[node name="eel_demon" type="Button" parent="Peixes" unique_id=1346269186]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0rlum")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
+icon = ExtResource("9_ggxav")
+
+[node name="ghost_fish" type="Button" parent="Peixes" unique_id=2083734836]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0rlum")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
+icon = ExtResource("10_akqbu")
+
+[node name="Proximo" type="Button" parent="." unique_id=1485457812]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 22.0
+offset_right = 469.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_i0u0o")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bx3c7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y2l5f")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w3ktt")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kf4j0")
+text = ">"
+
+[node name="Anterior" type="Button" parent="." unique_id=719076217]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 22.0
+offset_right = 160.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_i0u0o")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bx3c7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y2l5f")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w3ktt")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kf4j0")
+text = "<"
+
+[node name="Carimbar" type="Button" parent="." unique_id=1025366672]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 408.0
+offset_top = 295.0
+offset_right = 572.0
+offset_bottom = 339.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.6012228, 1)
+theme_override_fonts/font = ExtResource("10_i0u0o")
+theme_override_styles/normal = ExtResource("10_bx3c7")
+theme_override_styles/pressed = ExtResource("10_bx3c7")
+theme_override_styles/hover = ExtResource("10_bx3c7")
+text = "Carimbar"
+script = ExtResource("5_uq8ag")
+
+[node name="ButtonSounds" type="Node" parent="Carimbar" unique_id=712940453]
+script = ExtResource("15_y2l5f")
+hover_sfx = ExtResource("16_xk605")
+press_sfx = ExtResource("17_d8uo0")
+
+[node name="Sair" type="Button" parent="." unique_id=1857928946]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 54.0
+offset_top = 15.0
+offset_right = 127.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.6012228, 1)
+theme_override_fonts/font = ExtResource("10_i0u0o")
+theme_override_styles/normal = ExtResource("10_bx3c7")
+theme_override_styles/pressed = ExtResource("10_bx3c7")
+theme_override_styles/hover = ExtResource("10_bx3c7")
+text = "Sair"
+
+[node name="ButtonSounds" type="Node" parent="Sair" unique_id=1944594596]
+script = ExtResource("15_y2l5f")
+hover_sfx = ExtResource("16_xk605")
+press_sfx = ExtResource("17_d8uo0")
+
+[node name="NomeDoPeixe" type="LineEdit" parent="." unique_id=1941594480]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 126.0
+offset_right = 623.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.3291589, 0.32915822, 0.32915837, 0.6)
+theme_override_fonts/font = ExtResource("10_i0u0o")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5uvc8")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_i0u0o")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wrta")
+placeholder_text = "Dar um apelido"
+alignment = 1
+context_menu_enabled = false
+emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_show_on_focus = false
+
+[node name="NomeCien" type="Label" parent="." unique_id=641826855]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 71.0
+offset_right = 608.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_i0u0o")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5uvc8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wrta")
+text = "Nome"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GostoDeChamar" type="Label" parent="." unique_id=893549761]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 101.0
+offset_right = 608.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_i0u0o")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5uvc8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wrta")
+text = "Mas gosto de chamar de:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EraAssim" type="Label" parent="." unique_id=1796086792]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 155.0
+offset_right = 609.0
+offset_bottom = 194.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_i0u0o")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5uvc8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wrta")
+text = "Ele era assim:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc" type="Label" parent="." unique_id=888434873]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 189.0
+offset_right = 600.0
+offset_bottom = 294.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_i0u0o")
+theme_override_font_sizes/font_size = 14
+text = "Descrição blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AvisoVazio" type="Label" parent="." unique_id=1795255921]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "VOCÊ AINDA NÃO PESCOU NENHUM PEIXE!!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Peixes/gurukun" to="Peixes/gurukun" method="_on_pressed"]
+[connection signal="pressed" from="Peixes/arraia" to="Peixes/arraia" method="_on_pressed"]
+[connection signal="pressed" from="Peixes/eel_demon" to="Peixes/eel_demon" method="_on_pressed"]
+[connection signal="pressed" from="Peixes/ghost_fish" to="Peixes/ghost_fish" method="_on_pressed"]
+[connection signal="pressed" from="Proximo" to="." method="_on_proximo_pressed"]
+[connection signal="pressed" from="Anterior" to="." method="_on_anterior_pressed"]
+[connection signal="pressed" from="Carimbar" to="Carimbar" method="_on_pressed"]
+[connection signal="text_changed" from="NomeDoPeixe" to="." method="_on_nome_do_peixe_text_changed"]

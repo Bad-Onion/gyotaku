@@ -1,0 +1,36 @@
+[gd_resource type="Shader" format=3 uid="uid://dq2mwlk6asw3"]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform sampler2D paper_noise; 
+uniform float ink_threshold : hint_range(0.0, 1.0) = 0.5; 
+
+// --- VARIÁVEIS NOVAS PRO FADE DA ENGUIA ---
+uniform bool ativar_fade = false;
+uniform float inicio_fade : hint_range(0.0, 1.0) = 0.5; 
+uniform float fim_fade : hint_range(0.0, 1.0) = 0.95;   
+
+void fragment() {
+    // Pega a imagem do peixe já mesclado
+    vec4 final_image = texture(TEXTURE, UV);
+    
+    // Pega o ruído
+    vec4 noise = texture(paper_noise, UV);
+    
+    // Se existe imagem ali E o ruído do papel é forte...
+    if (final_image.a > 0.0 && noise.r > ink_threshold) {
+        // Tira o pixel nas falhas
+        final_image.a = 0.0; 
+    }
+    
+    // --- O FADE DA ENGUIA ACONTECE AQUI ---
+    if (ativar_fade) {
+        // Calcula o degradê da direita
+        float mascara = 1.0 - smoothstep(inicio_fade, fim_fade, UV.x);
+        // Multiplica o alfa (transparência) pra manter o efeito do papel e sumir a cauda junto!
+        final_image.a *= mascara; 
+    }
+    
+    COLOR = final_image;
+}"

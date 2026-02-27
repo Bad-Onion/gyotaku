@@ -1,0 +1,108 @@
+class_name Imagem
+
+extends Sprite2D
+
+@onready var peixe: Node2D = $"../.."
+@onready var peixetest: Sprite2D = $".."
+@onready var cursor: AnimatedSprite2D = $"../../../Cursor/CursorPincel"
+#Cor inicial
+@export var paint_color : Color = Color8(31,31,31) :
+	#Atualiza o indicador de cor atual e o cursor
+	set(value):
+		paint_color = value
+		atualizar_cor_do_cursor(value)
+var img_size
+@export var init_brush_size = 10
+var brush_size = init_brush_size
+@export var cor_fundo : Color
+@onready var brush_slide: HSlider = $"../../../HSlider"
+var estaVazia : bool
+var img : Image
+
+func _ready() -> void:
+	atualizar_cor_do_cursor(paint_color)
+	await get_tree().process_frame
+	redefinir_imagem()
+	
+func redefinir_imagem():
+	img_size = Vector2i(500,300)
+	var caminho_do_arquivo = "user://" + peixe.tipo + ".png"
+	
+	if FileAccess.file_exists(caminho_do_arquivo):
+		img = Image.load_from_file(caminho_do_arquivo)
+		
+		estaVazia = false 
+		
+		if img.get_format() != Image.FORMAT_RGBA8:
+			img.convert(Image.FORMAT_RGBA8)
+	else:
+		criar_imagem_nova()
+		
+	texture = ImageTexture.create_from_image(img)
+
+func criar_imagem_nova():
+	# Se não existir arquivo, cria a tela do zero
+	estaVazia = true
+	img = Image.create_empty(img_size.x, img_size.y, false, Image.FORMAT_RGBA8)
+	img.fill(cor_fundo)
+	texture = ImageTexture.create_from_image(img)
+
+func atualizar_cor_do_cursor(nova_cor: Color) -> void:
+	(cursor.material as ShaderMaterial).set_shader_parameter("paint_color", nova_cor)	
+
+func _paint_tex(pos) -> void:	
+	estaVazia = false
+	#Pinta um retângulo de acordo com o brush size no mouse
+	#img.fill_rect(Rect2i(pos, Vector2i(0,1)).grow(brush_size/2), paint_color)
+	
+	#Pinta um círculo
+	var raio = brush_size / 2.0
+	var raio_quadrado = raio * raio
+	
+	# Define a área quadrada
+	var min_x = int(pos.x - raio)
+	var max_x = int(pos.x + raio)
+	var min_y = int(pos.y - raio)
+	var max_y = int(pos.y + raio)
+	
+	# Percorre os pixels dessa área quadrada
+	for x in range(min_x, max_x + 1):
+		for y in range(min_y, max_y + 1):
+			if x >= 0 and x < img_size.x and y >= 0 and y < img_size.y:
+				# Calcula a distância do pixel atual até o centro do clique
+				var distancia_quadrado = Vector2(x - pos.x, y - pos.y).length_squared()
+				# Se a distância ao quadrado for menor ou igual ao raio ao quadrado, o pixel faz parte do círculo
+				if distancia_quadrado <= raio_quadrado:
+					img.set_pixel(x, y, paint_color)
+
+func _unhandled_input(event: InputEvent) -> void:
+	#Inputs do mouse:
+	if event is InputEventMouseButton:
+		#Clique esquerdo pra pintar
+		if event.pressed and event.is_echo() == false and event.button_index == MOUSE_BUTTON_LEFT:
+			var lpos = to_local(event.position)
+			var impos = lpos-offset+get_rect().size/2.0
+			
+			_paint_tex(impos)
+			texture.update(img)
+		#Clique direito pra usar conta gotas na posição do mouse
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			var lpos = to_local(event.position)
+			var impos = lpos-offset+get_rect().size/2.0
+			
+			paint_color = img.get_pixelv(impos)
+	#CLicar e arrastar pra fazer linhas
+	if event is InputEventMouseMotion:
+		if event.button_mask == MOUSE_BUTTON_LEFT:
+			var lpos = to_local(event.position)
+			var impos = lpos-offset+get_rect().size/2.0
+			
+			# Suaviza as linhas criando mais pontos entre cada ponto
+			if event.relative.length_squared() > 0:
+				var num = ceili(event.relative.length())
+				var target_pos = impos - (event.relative)
+				for i in num:
+					impos = impos.move_toward(target_pos, 1.0)
+					_paint_tex(impos)
+				
+			texture.update(img)

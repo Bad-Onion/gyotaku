@@ -15,6 +15,11 @@ run/main_scene="uid://di2taruoodm0o"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://assets/icons/icon.svg"
 
+[autoload]
+
+Global="*uid://bl6n7t8dls0ly"
+Transicao="*uid://0d6u3wmli6ik"
+
 [display]
 
 window/size/viewport_width=640
@@ -23,6 +28,7 @@ window/size/mode=3
 window/size/initial_position_type=3
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+<<<<<<<HEADwindow/stretch/mode="canvas_items"
 
 [gui]
 
@@ -40,6 +46,11 @@ fishing_drag={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
+
+[input_devices]
+
+pen_tablet/driver.windows="wintab"
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d28xw0r1f3qul"]
+
+[ext_resource type="Script" uid="uid://daklesqhhv11r" path="res://scripts/peixe.gd" id="1_thkon"]
+[ext_resource type="Script" path="res://scripts/imagem.gd" id="2_cddau"]
+[ext_resource type="Resource" uid="uid://4q1g20kx4k1o" path="res://resources/main_catalog.tres" id="2_thkon"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o0idy"]
+blend_mode = 3
+
+[node name="Peixe" type="Node2D" unique_id=975544837]
+script = ExtResource("1_thkon")
+catalog = ExtResource("2_thkon")
+
+[node name="Sombra" type="Sprite2D" parent="." unique_id=888552946]
+modulate = Color(0, 0, 0, 0.33333334)
+clip_children = 2
+texture_filter = 1
+position = Vector2(344, 172.99998)
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1020902100]
+clip_children = 2
+texture_filter = 1
+position = Vector2(346, 170.99998)
+
+[node name="Imagem" type="Sprite2D" parent="Sprite" unique_id=1362288757]
+material = SubResource("CanvasItemMaterial_o0idy")
+script = ExtResource("2_cddau")
+cor_fundo = Color(1, 1, 1, 1)

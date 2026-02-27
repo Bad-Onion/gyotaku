@@ -4,6 +4,7 @@ extends Node
 
 @export var main_camera: Camera2D
 @export var boat: Node2D
+@export var gap_filler_layer: CanvasLayer
 
 @onready var surface_water_sprite: AnimatedSprite2D = %Background/OkinawaBackground/SurfaceWater/Water
 @onready var ceiling_water_sprite: Sprite2D = %Background/OkinawaUnderwaterBackground/CeilingLayer/UnderwaterCeiling
@@ -40,6 +41,13 @@ func _handle_perspective_transition() -> void:
 
 	if ceiling_water_sprite:
 		ceiling_water_sprite.scale.y = transition_weight * 1.2
+
+	# TODO: This is completely bad practice but I don't have time now
+	if gap_filler_layer:
+		if camera_y >= 565.0 and camera_y <= 800.0:
+			gap_filler_layer.layer = -2
+		else:
+			gap_filler_layer.layer = -3
 
 
 func _setup_perfect_anchors() -> void:

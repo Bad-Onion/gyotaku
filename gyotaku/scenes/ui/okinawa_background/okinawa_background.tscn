@@ -81,6 +81,7 @@ animations = [{
 }]
 
 [node name="OkinawaBackground" type="ParallaxBackground" unique_id=1771425792]
+layer = -1
 
 [node name="Scenario" type="ParallaxLayer" parent="." unique_id=1970804716]
 motion_scale = Vector2(1, 0.5)

@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://5hjy04akbdl5" path="res://assets/backgrounds/okinawa/underwater/water_effect.png" id="9_epons"]
 
 [node name="OkinawaUnderwaterBackground" type="ParallaxBackground" unique_id=288098495]
+layer = -10
 
 [node name="DepthLayer" type="ParallaxLayer" parent="." unique_id=1523264890]
 unique_name_in_owner = true

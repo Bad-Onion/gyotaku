@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cv55e06k5bift"]
 
 [ext_resource type="Script" uid="uid://3ngp6wesvl51" path="res://scenes/ui/coin_hud/coin_hud.gd" id="1_pt2yg"]
-[ext_resource type="Texture2D" uid="uid://d31rwrb77ia81" path="res://assets/sprites/HUD/coin_hud.png" id="2_7l14p"]
+[ext_resource type="Texture2D" uid="uid://b3xnx237s66i1" path="res://assets/icons/Dinheiro.png" id="2_pt2yg"]
 
 [node name="CoinHUD" type="Control" unique_id=2050263438]
 layout_mode = 3
@@ -16,7 +16,7 @@ offset_bottom = 40.0
 [node name="CoinTexture" type="TextureRect" parent="CoinContainer" unique_id=981782105]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-texture = ExtResource("2_7l14p")
+texture = ExtResource("2_pt2yg")
 expand_mode = 1
 stretch_mode = 5
 

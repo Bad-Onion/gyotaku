@@ -42,7 +42,9 @@
 [ext_resource type="AudioStream" uid="uid://cq57qv81ffl5f" path="res://assets/sfx/fogepeixe.wav" id="36_3jus6"]
 [ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="39_u4rjv"]
 [ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="40_2wfu0"]
+[ext_resource type="Texture2D" uid="uid://yk5ygxcss5ws" path="res://assets/icons/iconecatalogo.png" id="41_c101c"]
 [ext_resource type="AudioStream" uid="uid://dunuu2nmmuw67" path="res://assets/sfx/pressbutton.wav" id="41_it7jt"]
+[ext_resource type="Texture2D" uid="uid://clkuvls1j5ouf" path="res://assets/icons/IconeLoja.png" id="45_2avwm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wloe5"]
 atlas = ExtResource("3_napug")
@@ -339,14 +341,14 @@ script = ExtResource("21_41r28")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -121.0
-offset_bottom = 66.0
+offset_left = -52.0
+offset_bottom = 108.0
 grow_horizontal = 0
 
 [node name="CatalogButton" type="Button" parent="HUDLayer/ButtonsContainer" unique_id=1660187939]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Catálogo"
+icon = ExtResource("41_c101c")
 
 [node name="ButtonSounds" type="Node" parent="HUDLayer/ButtonsContainer/CatalogButton" unique_id=583353]
 script = ExtResource("39_u4rjv")
@@ -356,7 +358,7 @@ press_sfx = ExtResource("41_it7jt")
 [node name="MarketButton" type="Button" parent="HUDLayer/ButtonsContainer" unique_id=1554711174]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Loja"
+icon = ExtResource("45_2avwm")
 
 [node name="ButtonSounds" type="Node" parent="HUDLayer/ButtonsContainer/MarketButton" unique_id=1002274180]
 script = ExtResource("39_u4rjv")

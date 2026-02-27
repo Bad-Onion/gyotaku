@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d31rwrb77ia81"
-path="res://.godot/imported/coin_hud.png-027d6b8085316eab6f5876631f52ffc5.ctex"
+uid="uid://b3xnx237s66i1"
+path="res://.godot/imported/Dinheiro.png-b9b6d5ae7d0eea06470cff30faab4b6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/HUD/coin_hud.png"
-dest_files=["res://.godot/imported/coin_hud.png-027d6b8085316eab6f5876631f52ffc5.ctex"]
+source_file="res://assets/icons/Dinheiro.png"
+dest_files=["res://.godot/imported/Dinheiro.png-b9b6d5ae7d0eea06470cff30faab4b6c.ctex"]
 
 [params]
 

@@ -172,7 +172,7 @@ theme_override_styles/hover = ExtResource("7_y7dd7")
 text = "Redefinir"
 script = ExtResource("5_i8l8x")
 
-[node name="Catalogo" type="Button" parent="GridContainer2" unique_id=1229915821]
+[node name="Salvar" type="Button" parent="GridContainer2" unique_id=1229915821]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -191,4 +191,4 @@ position = Vector2(9, 12)
 [node name="SaveManager" parent="." unique_id=1434010696 instance=ExtResource("9_x33oj")]
 
 [connection signal="pressed" from="GridContainer2/Redefinir" to="GridContainer2/Redefinir" method="_on_pressed"]
-[connection signal="pressed" from="GridContainer2/Catalogo" to="GridContainer2/Catalogo" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/Salvar" to="GridContainer2/Salvar" method="_on_pressed"]

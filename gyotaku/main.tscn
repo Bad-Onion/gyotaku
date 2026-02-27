@@ -15,7 +15,9 @@
 [ext_resource type="Script" path="res://core/economy_system.gd" id="11_efxa6"]
 [ext_resource type="Script" uid="uid://dmiot77hxig6c" path="res://core/game_states/catalog_state.gd" id="13_2cqfq"]
 [ext_resource type="Script" path="res://core/save_system.gd" id="13_ycdy4"]
+[ext_resource type="Script" uid="uid://4lahn2557g6f" path="res://core/game_states/stamp_state.gd" id="14_074og"]
 [ext_resource type="Resource" uid="uid://4q1g20kx4k1o" path="res://resources/main_catalog.tres" id="14_w48qg"]
+[ext_resource type="PackedScene" uid="uid://beeo85ftp1hn" path="res://scenes/minigames/carimbo.tscn" id="15_cegan"]
 
 [node name="Main" type="Node2D" unique_id=809898196]
 
@@ -29,7 +31,6 @@ upgrades = ExtResource("10_4c57u")
 
 [node name="CatalogUI" parent="UIContainer" unique_id=1923325422 instance=ExtResource("6_vivmo")]
 visible = false
-catalog = ExtResource("14_w48qg")
 
 [node name="CoinHUD" parent="UIContainer" unique_id=2050263438 node_paths=PackedStringArray("economy_system") instance=ExtResource("4_dg77c")]
 economy_system = NodePath("../../EconomySystem")
@@ -72,6 +73,11 @@ economy_system = NodePath("../../EconomySystem")
 [node name="CatalogState" type="Node" parent="GameStateMachine" unique_id=597173765 node_paths=PackedStringArray("catalog_ui")]
 script = ExtResource("13_2cqfq")
 catalog_ui = NodePath("../../UIContainer/CatalogUI")
+
+[node name="StampState" type="Node" parent="GameStateMachine" unique_id=100572259 node_paths=PackedStringArray("ui_container")]
+script = ExtResource("14_074og")
+ui_container = NodePath("../../UIContainer")
+stamp_scene = ExtResource("15_cegan")
 
 [node name="EconomySystem" type="Node" parent="." unique_id=1445282508]
 script = ExtResource("11_efxa6")

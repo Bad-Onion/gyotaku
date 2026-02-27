@@ -23,15 +23,16 @@ func enter() -> void:
 		if not catalog_ui.back_requested.is_connected(_on_back_requested):
 			catalog_ui.back_requested.connect(_on_back_requested)
 
-		catalog_ui.show()
+		if not catalog_ui.stamp_requested.is_connected(_on_stamp_requested):
+			catalog_ui.stamp_requested.connect(_on_stamp_requested)
 
+		catalog_ui.show()
 
 func get_id() -> int:
 	return GameStates.State.CATALOG
 
 
 func exit() -> void:
-	print("Saindo do catalog state")
 	if _is_pausing:
 		pass
 	else:
@@ -42,7 +43,6 @@ func exit() -> void:
 
 
 func _on_back_requested() -> void:
-	print("On back requested")
 	_is_pausing = false
 	transitioned.emit(self, GameStates.State.PLAYING)
 
@@ -56,3 +56,12 @@ func handle_input(event: InputEvent) -> void:
 func _on_global_state_changed(new_state_id: int) -> void:
 	if new_state_id == GameStates.State.MAIN_MENU:
 		_is_pausing = false
+
+
+func _on_stamp_requested(fish_id: String) -> void:
+	var stamp_state = get_parent().get_node_or_null("StampState")
+
+	if stamp_state:
+		stamp_state.current_fish_id = fish_id
+
+	transitioned.emit(self, GameStates.State.STAMP)

@@ -6,5 +6,6 @@ enum State {
     PLAYING = 1,
     PAUSED = 2,
 	MARKET = 3,
-	CATALOG = 4
+	CATALOG = 4,
+	STAMP = 5
 }

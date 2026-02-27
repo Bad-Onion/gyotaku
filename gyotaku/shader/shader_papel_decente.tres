@@ -16,3 +16,6 @@ bump_strength = 1.1
 shader = ExtResource("1_xipdu")
 shader_parameter/paper_noise = SubResource("NoiseTexture2D_747k7")
 shader_parameter/ink_threshold = 0.5
+shader_parameter/ativar_fade = false
+shader_parameter/inicio_fade = 0.10000000475
+shader_parameter/fim_fade = 1.0

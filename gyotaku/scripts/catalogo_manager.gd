@@ -26,10 +26,14 @@ var save_do_jogo : Dictionary = {}
 var tipo : String
 var regex = RegEx.new()
 
+var posicao_original_peixe_x : float
+
 func _ready() -> void:
 	caixa_de_texto.max_length = 16
 	regex.compile("[^a-zA-Z0-9 áéíóúãõâêîôûçÁÉÍÓÚÃÕÂÊÎÔÛÇ]")
 	Input.set_custom_mouse_cursor(null)
+
+	posicao_original_peixe_x = peixe.global_position.x
 
 	carregar_save_completo()
 	
@@ -40,7 +44,7 @@ func _ready() -> void:
 		if Global.ultimo_peixe_carimbado != "" and save_do_jogo.has(Global.ultimo_peixe_carimbado) and save_do_jogo[Global.ultimo_peixe_carimbado]["pego"] == true:
 			trocar_peixe_na_tela(Global.ultimo_peixe_carimbado)
 		else:
-			trocar_peixe_na_tela(primeiro_peixe_disponivel)
+			trocar_peixe_na_tela(primeiro_peixe_disponivel)	
 	else:
 		# Se retornou "", é porque não tem nenhum botão visível
 		alternar_interface(false)
@@ -102,7 +106,18 @@ func alternar_interface(tem_peixe: bool):
 
 func trocar_peixe_na_tela(novo_tipo: String):
 	tipo = novo_tipo
-	
+	if tipo == "enguia_demonio":
+		peixe.global_position.x = 280
+		if peixe.material:
+			peixe.material.set_shader_parameter("ativar_fade", true)
+	elif tipo == "raya" or tipo == "peixe_fantasma":
+		peixe.global_position.x = 210
+		if peixe.material:
+			peixe.material.set_shader_parameter("ativar_fade", false)
+	else:
+		peixe.global_position.x = posicao_original_peixe_x
+		if peixe.material:
+			peixe.material.set_shader_parameter("ativar_fade", false)
 	atualizar_textos_da_tela(tipo) 
 	
 	peixe_catalogo.atualizar_peixe(tipo)

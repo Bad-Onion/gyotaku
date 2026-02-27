@@ -16,6 +16,16 @@
 [ext_resource type="FontFile" uid="uid://c02fyhip3telr" path="res://assets/fontes/KiwiSoda.ttf" id="10_i0u0o"]
 [ext_resource type="Script" uid="uid://boilf6cc1626h" path="res://scenes/minigames/sair.gd" id="14_akqbu"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_akqbu"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_akqbu"]
+offsets = PackedFloat32Array(0, 0.43434343)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w3ktt"]
+gradient = SubResource("Gradient_akqbu")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rlum"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggxav"]
@@ -56,10 +66,26 @@ texture = ExtResource("2_8wrta")
 [node name="PeixeCatalogo" parent="." unique_id=177133395 instance=ExtResource("1_lrpdc")]
 
 [node name="Peixe" type="Sprite2D" parent="." unique_id=2125706914]
+clip_children = 2
 texture_filter = 1
 material = ExtResource("3_3aiqf")
 position = Vector2(185, 219)
 texture = ExtResource("5_bgowf")
+
+[node name="FundoEnguia" type="TextureRect" parent="Peixe" unique_id=1388194294]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_akqbu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -219.0
+offset_right = 100.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_w3ktt")
 
 [node name="Peixes" type="GridContainer" parent="." unique_id=1505429212]
 texture_filter = 1

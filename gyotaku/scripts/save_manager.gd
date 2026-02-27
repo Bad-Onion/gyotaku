@@ -67,7 +67,7 @@ func criar_save_padrao_do_zero() -> void:
 		"enguia_demonio": {
 			"nome": "Enguia Demônio",
 			"apelido": "",
-			"descricao": "Enguia do diabo",
+			"descricao": "Enguia do diabo. Muito muito MUITO grande. Ela é tão grande que nem coube na tela",
 			"pego": false,
 			"carimbado": false
 		},

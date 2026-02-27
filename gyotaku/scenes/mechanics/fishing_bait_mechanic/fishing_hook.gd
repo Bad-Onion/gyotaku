@@ -4,6 +4,8 @@ extends Area2D
 
 signal water_entered
 signal fish_hooked(fish: Fish)
+signal fishing_started
+signal fishing_ended
 
 const MONITORING := "monitoring"
 
@@ -76,6 +78,7 @@ func cast_line(start_position: Vector2) -> void:
 	is_sinking = true
 	_has_entered_water = false
 	set_physics_process(true)
+	fishing_started.emit()
 
 	if not is_in_group(NodeGroups.BAIT_GROUP):
 		add_to_group(NodeGroups.BAIT_GROUP)
@@ -108,6 +111,7 @@ func reset() -> void:
 	hide()
 	set_deferred(MONITORING, false)
 	set_physics_process(false)
+	fishing_ended.emit()
 
 	if is_in_group(NodeGroups.BAIT_GROUP):
 		remove_from_group(NodeGroups.BAIT_GROUP)

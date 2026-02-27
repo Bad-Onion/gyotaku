@@ -9,6 +9,7 @@ signal line_broke
 signal tension_updated(current: float, max_val: float)
 signal depth_updated(current: float, max_val: float)
 
+
 @export_group("Dependencies")
 @export var input_system: PlayerFishingInput
 @export var center_point: Marker2D
@@ -16,6 +17,7 @@ signal depth_updated(current: float, max_val: float)
 @export var boat_reference: Node2D
 @export var upgrades: FishingUpgrades
 @export var water_surface_y: float = 450.0
+
 
 var _fish: Fish
 var _current_config: FishingConfig

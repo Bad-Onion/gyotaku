@@ -114,10 +114,12 @@ spawn_weight = 6.0
 depth_weight_bonus = 0.5
 metadata/_custom_type_script = "uid://14b38vmfp2df"
 
-[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "fish_chest_marker")]
+[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "fish_chest_marker", "fishing_mechanic_system", "fishing_hook")]
 script = ExtResource("1_58uyj")
 main_camera = NodePath("MainCamera")
 fish_chest_marker = NodePath("Boat/FishChestMarker")
+fishing_mechanic_system = NodePath("Systems/FishingMechanicSystem")
+fishing_hook = NodePath("FishingHook/FishingHook")
 
 [node name="MainCamera" type="Camera2D" parent="." unique_id=2093425651]
 unique_name_in_owner = true
@@ -312,6 +314,7 @@ offset_bottom = 66.0
 grow_horizontal = 0
 
 [node name="CatalogButton" type="Button" parent="HUDLayer/ButtonsContainer" unique_id=1660187939]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Catálogo"
 

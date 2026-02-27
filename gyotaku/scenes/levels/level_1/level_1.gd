@@ -8,16 +8,19 @@ signal market_requested
 @export var main_camera: Camera2D
 @export var fish_chest_marker: Marker2D
 @export var coin_hud: CoinHUD
+@export var fishing_mechanic_system: FishingMechanicSystem
+@export var fishing_hook: FishingHook
 
-@onready var fishing_hook: FishingHook = %FishingHook
-@onready var fishing_mechanic_system: FishingMechanicSystem = %FishingMechanicSystem
 @onready var fishing_cursor_ui: FishingCursorUI = %FishingCursorUI
 @onready var market_button: Button = %MarketButton
+@onready var catalog_button: Button = %CatalogButton
 
 
 func _ready() -> void:
 	market_button.pressed.connect(func(): market_requested.emit())
 	fishing_hook.fish_hooked.connect(_on_fish_hooked)
+	fishing_hook.fishing_started.connect(_on_fishing_started)
+	fishing_hook.fishing_ended.connect(_on_fishing_ended)
 	fishing_mechanic_system.fish_caught.connect(_on_fish_caught)
 	fishing_mechanic_system.fish_escaped.connect(_on_fish_escaped)
 	fishing_mechanic_system.line_broke.connect(_on_line_broke)
@@ -65,3 +68,13 @@ func _end_minigame() -> void:
 
 func _reset_hook_systems() -> void:
 	fishing_hook.reset()
+
+
+func _on_fishing_started() -> void:
+	if market_button: market_button.hide()
+	if catalog_button: catalog_button.hide()
+
+
+func _on_fishing_ended() -> void:
+	if market_button: market_button.show()
+	if catalog_button: catalog_button.show()

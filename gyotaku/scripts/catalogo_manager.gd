@@ -10,6 +10,8 @@ extends Control
 @onready var container_botoes: Node = $Peixes
 @onready var anterior: Button = $Anterior
 @onready var proximo: Button = $Proximo
+@onready var gosto_de_chamar: Label = $GostoDeChamar
+@onready var era_assim: Label = $EraAssim
 
 var pagina_atual : int = 0
 const ITENS_POR_PAGINA : int = 5
@@ -91,6 +93,10 @@ func alternar_interface(tem_peixe: bool):
 	desc.visible = tem_peixe
 	nome_cien.visible = tem_peixe
 	botao_carimbar.visible = tem_peixe
+	gosto_de_chamar.visible = tem_peixe
+	era_assim.visible = tem_peixe
+	anterior.visible = tem_peixe
+	proximo.visible = tem_peixe
 	
 	aviso_vazio.visible = !tem_peixe
 

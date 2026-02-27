@@ -9,7 +9,9 @@
 [ext_resource type="Script" uid="uid://bis58b30cdteo" path="res://scripts/carimbar.gd" id="5_uq8ag"]
 [ext_resource type="Texture2D" uid="uid://dwqi2tr1fbc4i" path="res://assets/peixes/peixetest.png" id="7_k7br0"]
 [ext_resource type="Texture2D" uid="uid://o2j2kqbdc7n" path="res://assets/peixes/Raya pequena1.png" id="8_5uvc8"]
+[ext_resource type="Texture2D" uid="uid://cs6obyilhc7fe" path="res://assets/peixes/Enguia Demonio/Enguia pequena.png" id="9_ggxav"]
 [ext_resource type="PackedScene" uid="uid://v74jwe10ydnv" path="res://scenes/SaveManager.tscn" id="10_8wrta"]
+[ext_resource type="Texture2D" uid="uid://bllyqiyhkaamq" path="res://assets/peixes/Fantasma/Fantasma pequeno.png" id="10_akqbu"]
 [ext_resource type="StyleBox" uid="uid://odrg3nh1h5o1" path="res://assets/background/nine_botao.tres" id="10_bx3c7"]
 [ext_resource type="FontFile" uid="uid://c02fyhip3telr" path="res://assets/fontes/KiwiSoda.ttf" id="10_i0u0o"]
 
@@ -94,43 +96,23 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
 icon = ExtResource("8_5uvc8")
 
-[node name="gurukun2" type="Button" parent="Peixes" unique_id=1922047983]
-texture_filter = 1
+[node name="enguia_demonio" type="Button" parent="Peixes" unique_id=1346269186]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0rlum")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
-icon = ExtResource("7_k7br0")
+icon = ExtResource("9_ggxav")
 
-[node name="raya2" type="Button" parent="Peixes" unique_id=151037613]
+[node name="peixe_fantasma" type="Button" parent="Peixes" unique_id=2083734836]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0rlum")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
-icon = ExtResource("8_5uvc8")
-
-[node name="gurukun3" type="Button" parent="Peixes" unique_id=1811570917]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 48)
-layout_mode = 2
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_0rlum")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
-icon = ExtResource("7_k7br0")
-
-[node name="raya3" type="Button" parent="Peixes" unique_id=153414219]
-custom_minimum_size = Vector2(48, 48)
-layout_mode = 2
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_0rlum")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
-icon = ExtResource("8_5uvc8")
+icon = ExtResource("10_akqbu")
 
 [node name="Proximo" type="Button" parent="." unique_id=1485457812]
 layout_mode = 0
@@ -228,7 +210,7 @@ text = "Mas gosto de chamar de:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GostoDeChamar2" type="Label" parent="." unique_id=1796086792]
+[node name="EraAssim" type="Label" parent="." unique_id=1796086792]
 layout_mode = 0
 offset_left = 356.0
 offset_top = 171.0
@@ -274,10 +256,8 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="Peixes/gurukun" to="Peixes/gurukun" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/raya" to="Peixes/raya" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/gurukun2" to="Peixes/gurukun2" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/raya2" to="Peixes/raya2" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/gurukun3" to="Peixes/gurukun3" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/raya3" to="Peixes/raya3" method="_on_pressed"]
+[connection signal="pressed" from="Peixes/enguia_demonio" to="Peixes/enguia_demonio" method="_on_pressed"]
+[connection signal="pressed" from="Peixes/peixe_fantasma" to="Peixes/peixe_fantasma" method="_on_pressed"]
 [connection signal="pressed" from="Proximo" to="." method="_on_proximo_pressed"]
 [connection signal="pressed" from="Anterior" to="." method="_on_anterior_pressed"]
 [connection signal="pressed" from="Carimbar" to="Carimbar" method="_on_pressed"]

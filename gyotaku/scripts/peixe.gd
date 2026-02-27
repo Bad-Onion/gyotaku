@@ -5,6 +5,8 @@ extends Node2D
 @onready var imagem: Imagem = $Sprite/Imagem
 const GURUKUN = preload("uid://dt4rrortstg0f")
 const RAYA = preload("uid://cvk6cnuie07k1")
+const ENGUIA_DEMONIO = preload("uid://cruwc3xutb6wr")
+const PEIXE_FANTASMA = preload("uid://dmfo171nmdaqw")
 
 const CAMINHO_SAVE = "user://save_do_jogo.json" 
 
@@ -17,13 +19,20 @@ func _ready() -> void:
 	
 	if Global.peixe_a_carimbar != "":
 		tipo = Global.peixe_a_carimbar
-	
-	if tipo == "gurukun":
-		sprite.texture = GURUKUN
-		sombra.texture = GURUKUN
-	if tipo == "raya":
-		sprite.texture = RAYA
-		sombra.texture = RAYA
+
+	sprite.texture = retornar_tipo()
+	sombra.texture = retornar_tipo()
+
+func retornar_tipo():
+	match tipo:
+		"gurukun":
+			return GURUKUN
+		"raya":
+			return RAYA
+		"enguia_demonio":
+			return ENGUIA_DEMONIO
+		"peixe_fantasma":
+			return PEIXE_FANTASMA
 
 func salvar_imagem() -> void:
 	var file_path = "user://" + tipo + ".png"

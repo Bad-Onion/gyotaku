@@ -4,17 +4,17 @@ var ultimo_peixe_carimbado = Global.ultimo_peixe_carimbado
 @export var tipo : String
 @onready var peixe: Sprite2D = $Peixe
 
-#P&B
+#Sprites
 const GURUKUN = preload("uid://dk8bybnxddsr")
 const RAYA = preload("uid://looocptmvug0")
+const ENGUIA_DEMONIO = preload("uid://cx7h8s5lxtmmw")
+const PEIXE_FANTASMA = preload("uid://drxxqsnpsgngb")
+
 
 func atualizar_peixe(novo_tipo: String) -> void:
 	tipo = novo_tipo
 	
-	if tipo == "gurukun":
-		peixe.texture = GURUKUN
-	elif tipo == "raya":
-		peixe.texture = RAYA
+	peixe.texture = retornar_tipo()
 		
 	var pintura_arquivo = pegar_pintura(tipo)
 	
@@ -23,6 +23,17 @@ func atualizar_peixe(novo_tipo: String) -> void:
 	(peixe.material as ShaderMaterial).set_shader_parameter("pintura_tex", pintura_arquivo)
 	var tamanho_do_peixe = peixe.texture.get_size()
 	(peixe.material as ShaderMaterial).set_shader_parameter("fish_size", tamanho_do_peixe)
+
+func retornar_tipo():
+	match tipo:
+		"gurukun":
+			return GURUKUN
+		"raya":
+			return RAYA
+		"enguia_demonio":
+			return ENGUIA_DEMONIO
+		"peixe_fantasma":
+			return PEIXE_FANTASMA
 	
 func pegar_pintura(nome_do_peixe: String) -> Texture2D:
 	var caminho_do_arquivo = "user://" + nome_do_peixe + ".png"

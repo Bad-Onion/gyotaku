@@ -17,7 +17,7 @@ func criar_save_padrao_do_zero() -> void:
 		"gurukun": {
 			"nome": "Gurukun",
 			"apelido": "",
-			"descricao": "Um peixe tropical vermelho muito ágil. É o símbolo de Okinawa e fica lindo em carimbos de papel de arroz.",
+			"descricao": "Um peixe tropical colorido muito ágil. É o símbolo de Okinawa e fica lindo em carimbos de papel de arroz.",
 			"pego": false,
 			"carimbado": false
 		},
@@ -25,6 +25,20 @@ func criar_save_padrao_do_zero() -> void:
 			"nome": "Arraia Pintada",
 			"apelido": "",
 			"descricao": "Majestosa e gigante. Desliza pela água como se estivesse voando. Cuidado com o ferrão!",
+			"pego": false,
+			"carimbado": false
+		},
+		"enguia_demonio": {
+			"nome": "Enguia Demônio",
+			"apelido": "",
+			"descricao": "Enguia do diabo",
+			"pego": false,
+			"carimbado": false
+		},
+		"peixe_fantasma": {
+			"nome": "Peixe Fantasma",
+			"apelido": "",
+			"descricao": "Buuuuuuuu",
 			"pego": false,
 			"carimbado": false
 		}

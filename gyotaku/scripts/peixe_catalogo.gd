@@ -1,6 +1,6 @@
 extends SubViewport
 
-# var ultimo_peixe_carimbado = Global.ultimo_peixe_carimbado
+
 @export var tipo : String
 @onready var peixe: Sprite2D = $Peixe
 

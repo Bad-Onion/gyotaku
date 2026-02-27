@@ -38,8 +38,8 @@ func exit() -> void:
 	else:
 		get_tree().paused = false
 
-	if catalog_ui:
-		catalog_ui.hide()
+		if catalog_ui:
+			catalog_ui.hide()
 
 
 func _on_back_requested() -> void:

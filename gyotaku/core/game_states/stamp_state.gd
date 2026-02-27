@@ -35,9 +35,11 @@ func enter() -> void:
 func exit() -> void:
 	if not _is_pausing:
 		get_tree().paused = false
+		
+		if stamp_ui:
+			stamp_ui.hide()
 
-	if stamp_ui:
-		stamp_ui.hide()
+
 
 
 func get_id() -> int:

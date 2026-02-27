@@ -1,10 +1,20 @@
 extends Button
+
+
+signal stamp_finished
+
+
 @onready var peixe: Node2D = $"../../Peixe"
 
+
+func _ready() -> void:
+	for connection in pressed.get_connections():
+		pressed.disconnect(connection.callable)
+
+	pressed.connect(_on_pressed)
+
+
 func _on_pressed() -> void:
-	print("1")
 	peixe.salvar_imagem()
-	Global.ultimo_peixe_carimbado = peixe.tipo
-	print("2")
-	Transicao.mudar_cena("res://scenes/minigames/catalogo.tscn",true)
-	
+	stamp_finished.emit()
+

@@ -2,6 +2,8 @@ extends Control
 
 
 signal back_requested
+signal stamp_requested(fish_id: String)
+
 
 @export var catalog: FishCatalog
 
@@ -48,18 +50,11 @@ func _ready() -> void:
 			back_button.pressed.disconnect(connection.callable)
 		back_button.pressed.connect(_on_back_pressed)
 
+	if botao_carimbar:
+		botao_carimbar.stamp_requested.connect(func(fish_id): stamp_requested.emit(fish_id))
+
 	if not catalog:
 		push_error("Catalogo resource missing! Arraste o main_catalog.tres para o Inspector.")
-		return
-
-	var primeiro_peixe_disponivel = atualizar_botoes_de_selecao()
-
-	if primeiro_peixe_disponivel != "":
-		alternar_interface(true)
-		trocar_peixe_na_tela(primeiro_peixe_disponivel)
-	else:
-		# Se retornou "", é porque não tem nenhum botão visível
-		alternar_interface(false)
 
 
 func atualizar_botoes_de_selecao(peixe_alvo: String = "") -> String:
@@ -122,11 +117,11 @@ func alternar_interface(tem_peixe: bool):
 
 func trocar_peixe_na_tela(novo_tipo: String):
 	tipo = novo_tipo
-	if tipo == "enguia_demonio":
+	if tipo == "eel_demon":
 		peixe.global_position.x = 280
 		if peixe.material:
 			peixe.material.set_shader_parameter("ativar_fade", true)
-	elif tipo == "raya" or tipo == "peixe_fantasma":
+	elif tipo == "arraia" or tipo == "ghost_fish":
 		peixe.global_position.x = 210
 		if peixe.material:
 			peixe.material.set_shader_parameter("ativar_fade", false)
@@ -158,9 +153,9 @@ func atualizar_textos_da_tela(tipo_buscado : String):
 
 	if entry:
 		caixa_de_texto.text = entry.nickname
-		# TODO: instead of getting the name and description from the json, get it from the resources
+
 		desc.text = entry.description
-		nome_cien.text = entry.name
+		nome_cien.text = entry.fish_name
 	else:
 		caixa_de_texto.text = ""
 		desc.text = "Descrição desconhecida"
@@ -173,13 +168,22 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_visibility_changed() -> void:
-	if catalog_music:
-		if visible:
-			catalog_music.play()
+	if visible:
+		var primeiro_peixe_disponivel = atualizar_botoes_de_selecao()
+
+		if primeiro_peixe_disponivel != "":
+			alternar_interface(true)
+			trocar_peixe_na_tela(primeiro_peixe_disponivel)
 		else:
+			alternar_interface(false)
+
+		if catalog_music:
+			catalog_music.play()
+	else:
+		if catalog_music:
 			catalog_music.stop()
 
 
 func _on_back_pressed() -> void:
-	print("Catalog 'Sair' button pressed cleanly!") 
+	print("Catalog 'Sair' button pressed cleanly!")
 	back_requested.emit()

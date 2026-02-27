@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishMovementConfig" format=3 uid="uid://cxhiro8qjsq6e"]
+
+[ext_resource type="Script" uid="uid://bw0qelw0wu8gy" path="res://scenes/entities/fishes/components/fish_movement_config.gd" id="1_s7mlf"]
+
+[resource]
+script = ExtResource("1_s7mlf")
+bait_interest_chance = 0.3
+reaction_time_min = 1.5
+reaction_time_max = 3.0
+burst_speed_multiplier = 2.0
+metadata/_custom_type_script = "uid://bw0qelw0wu8gy"

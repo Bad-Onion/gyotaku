@@ -2,20 +2,38 @@
 
 [ext_resource type="PackedScene" uid="uid://bvdwissx0fkdy" path="res://scenes/ui/main_menu/main_menu.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bpfpb7waly5i3" path="res://scenes/ui/pause_menu/pause_menu.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dfoa7kon624uq" path="res://scenes/ui/market/market_ui.tscn" id="3_kek77"]
 [ext_resource type="Script" uid="uid://cgminbcnigia7" path="res://scripts/utilities/state_machine.gd" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://cobst2jjni16h" path="res://core/game_states/main_menu_state.gd" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cv55e06k5bift" path="res://scenes/ui/coin_hud/coin_hud.tscn" id="4_dg77c"]
 [ext_resource type="Script" uid="uid://c1dbsjxnrqvmi" path="res://core/game_states/playing_state.gd" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://bnk2jwk8ek25f" path="res://scenes/levels/level_1.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://bnk2jwk8ek25f" path="res://scenes/levels/level_1/level_1.tscn" id="6_272bh"]
 [ext_resource type="Script" uid="uid://y743pjc6d1ba" path="res://core/game_states/pause_state.gd" id="7_272bh"]
+[ext_resource type="Script" uid="uid://bbasgoop7b4k5" path="res://core/game_states/market_state.gd" id="9_4c57u"]
+[ext_resource type="Resource" uid="uid://cgbak6mlrs4ic" path="res://resources/fishing_upgrades/player_fishing_upgrades.tres" id="10_4c57u"]
+[ext_resource type="Script" uid="uid://bgs43pjot25cq" path="res://core/economy_system.gd" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://de2kjg36ieaew" path="res://core/save_system.gd" id="13_ycdy4"]
+[ext_resource type="Resource" uid="uid://4q1g20kx4k1o" path="res://resources/main_catalog.tres" id="14_w48qg"]
 
 [node name="Main" type="Node2D" unique_id=809898196]
 
 [node name="UIContainer" type="CanvasLayer" parent="." unique_id=1584003394]
+layer = 100
+
+[node name="MarketUI" parent="UIContainer" unique_id=1187940312 node_paths=PackedStringArray("economy_system") instance=ExtResource("3_kek77")]
+visible = false
+economy_system = NodePath("../../EconomySystem")
+upgrades = ExtResource("10_4c57u")
+
+[node name="CoinHUD" parent="UIContainer" unique_id=2050263438 node_paths=PackedStringArray("economy_system") instance=ExtResource("4_dg77c")]
+economy_system = NodePath("../../EconomySystem")
 
 [node name="MainMenu" parent="UIContainer" unique_id=531070255 instance=ExtResource("1_h2yge")]
 
-[node name="PauseMenu" parent="UIContainer" unique_id=767540166 instance=ExtResource("2_1bvp3")]
+[node name="PauseMenu" parent="UIContainer" unique_id=767540166 node_paths=PackedStringArray("economy_system") instance=ExtResource("2_1bvp3")]
 visible = false
+z_index = 10
+economy_system = NodePath("../../EconomySystem")
 
 [node name="LevelContainer" type="Node2D" parent="." unique_id=1444049853]
 
@@ -29,11 +47,27 @@ script = ExtResource("4_1bvp3")
 main_menu_ui = NodePath("../../UIContainer/MainMenu")
 level_container = NodePath("../../LevelContainer")
 
-[node name="PlayingState" type="Node" parent="GameStateMachine" unique_id=294920540 node_paths=PackedStringArray("level_container")]
+[node name="PlayingState" type="Node" parent="GameStateMachine" unique_id=294920540 node_paths=PackedStringArray("level_container", "economy_system")]
 script = ExtResource("5_7mycd")
 level_container = NodePath("../../LevelContainer")
 level_scene = ExtResource("6_272bh")
+economy_system = NodePath("../../EconomySystem")
 
 [node name="PauseState" type="Node" parent="GameStateMachine" unique_id=703954833 node_paths=PackedStringArray("pause_menu_ui")]
 script = ExtResource("7_272bh")
 pause_menu_ui = NodePath("../../UIContainer/PauseMenu")
+
+[node name="MarketState" type="Node" parent="GameStateMachine" unique_id=1628840118 node_paths=PackedStringArray("market_ui", "economy_system")]
+script = ExtResource("9_4c57u")
+market_ui = NodePath("../../UIContainer/MarketUI")
+upgrades = ExtResource("10_4c57u")
+economy_system = NodePath("../../EconomySystem")
+
+[node name="EconomySystem" type="Node" parent="." unique_id=1445282508]
+script = ExtResource("11_efxa6")
+
+[node name="SaveSystem" type="Node" parent="." unique_id=1974578316 node_paths=PackedStringArray("economy_system")]
+script = ExtResource("13_ycdy4")
+economy_system = NodePath("../EconomySystem")
+upgrades = ExtResource("10_4c57u")
+catalog = ExtResource("14_w48qg")

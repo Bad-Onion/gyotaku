@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cqg1mwy0btwtj"]
+
+[ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fishes/fish.tscn" id="1_dnd3g"]
+[ext_resource type="Resource" uid="uid://cevrk20dw6lwn" path="res://resources/gurukun/gurukun_fishing_config.tres" id="2_k387f"]
+[ext_resource type="Resource" uid="uid://dlgdnqnl18esb" path="res://resources/gurukun/gurukun_movement_config.tres" id="3_4i1ug"]
+
+[node name="Gurukun" unique_id=69548390 instance=ExtResource("1_dnd3g")]
+fishing_config = ExtResource("2_k387f")
+catalog_id = "gurukun"
+
+[node name="MovementComponent" parent="." index="2" unique_id=1380834197]
+movement_config = ExtResource("3_4i1ug")

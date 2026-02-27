@@ -2,9 +2,12 @@ class_name StateMachine
 extends Node
 
 
+signal state_changed(new_state_id: int)
+
 @export var initial_state: GameState
 
 var current_state: GameState
+var previous_state_id: int = GameStates.State.MAIN_MENU
 var states: Dictionary[int, GameState] = {}
 
 
@@ -19,6 +22,7 @@ func _ready() -> void:
 	if initial_state:
 		initial_state.enter()
 		current_state = initial_state
+		state_changed.emit(initial_state.get_id())
 
 
 func _process(delta: float) -> void:
@@ -36,9 +40,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		current_state.handle_input(event)
 
 
-func on_child_transitioned(state: GameState, new_state_id: int) -> void:
+func on_child_transitioned(state: GameState, target_state_id: int) -> void:
 	if state != current_state:
 		return
+
+	var new_state_id: int = target_state_id
+	if target_state_id == GameStates.State.PREVIOUS:
+		new_state_id = previous_state_id
 
 	var new_state: GameState = states.get(new_state_id)
 	if not new_state:
@@ -46,7 +54,11 @@ func on_child_transitioned(state: GameState, new_state_id: int) -> void:
 		return
 
 	if current_state:
+		if current_state.get_id() != GameStates.State.PAUSED:
+			previous_state_id = current_state.get_id()
+
 		current_state.exit()
 
 	new_state.enter()
 	current_state = new_state
+	state_changed.emit(new_state_id)

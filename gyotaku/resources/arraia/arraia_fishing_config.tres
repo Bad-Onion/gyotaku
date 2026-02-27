@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishingConfig" format=3 uid="uid://c3cprag8y8o6t"]
+
+[ext_resource type="Script" uid="uid://c50nau0nqic1d" path="res://scenes/entities/fishes/components/fishing_config.gd" id="1_wvmnu"]
+
+[resource]
+script = ExtResource("1_wvmnu")
+player_pull_power = 1.3
+fish_struggle_power = 80.0
+rod_resistance_multiplier = 1.1
+coin_reward = 50
+metadata/_custom_type_script = "uid://c50nau0nqic1d"

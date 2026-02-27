@@ -1,0 +1,368 @@
+[gd_scene format=3 uid="uid://bnk2jwk8ek25f"]
+
+[ext_resource type="PackedScene" uid="uid://mp300i7css66" path="res://scenes/mechanics/fishing_bait_mechanic/fishing_hook.tscn" id="1_7uxs1"]
+[ext_resource type="Script" uid="uid://c6offhed2uwqi" path="res://scenes/levels/level_1/level_1.gd" id="1_58uyj"]
+[ext_resource type="Script" uid="uid://c8d754vqus2jd" path="res://scenes/mechanics/fishing_mechanic/fishing_mechanic_system.gd" id="2_3lh42"]
+[ext_resource type="Script" uid="uid://cvequxdehv1n8" path="res://scenes/mechanics/camera/fishing_camera.gd" id="2_hhmec"]
+[ext_resource type="Texture2D" uid="uid://bol4gj83bfk5p" path="res://assets/sprites/boat/Barco-Sheet.png" id="3_napug"]
+[ext_resource type="Script" uid="uid://ci7g83sbukdl2" path="res://scenes/mechanics/fishing_mechanic/player_fishing_input.gd" id="3_vmhy7"]
+[ext_resource type="PackedScene" uid="uid://cct68w64r5qsd" path="res://scenes/ui/okinawa_background/okinawa_underwater_background.tscn" id="4_1iula"]
+[ext_resource type="Script" uid="uid://d4im07ios3cej" path="res://scenes/mechanics/fishing_mechanic/fish_spawner.gd" id="4_58uyj"]
+[ext_resource type="Script" uid="uid://byhdwncbhrg0u" path="res://scenes/interactables/boat/boat_floating.gd" id="4_w3g2g"]
+[ext_resource type="PackedScene" uid="uid://bcbxhrgo0wlfw" path="res://scenes/ui/okinawa_background/okinawa_background.tscn" id="5_v0dvh"]
+[ext_resource type="Resource" uid="uid://c6u65drbrt1sa" path="res://resources/default_fish_dificulty.tres" id="7_1jeig"]
+[ext_resource type="PackedScene" uid="uid://dqn76wtt7lna1" path="res://scenes/entities/player/player.tscn" id="7_hhmec"]
+[ext_resource type="Script" uid="uid://cgminbcnigia7" path="res://scripts/utilities/state_machine.gd" id="8_8spg0"]
+[ext_resource type="Script" uid="uid://gfc080eddx5p" path="res://scenes/entities/player/states/player_idle_state.gd" id="9_5d3u7"]
+[ext_resource type="PackedScene" uid="uid://up571wp5o825" path="res://scenes/interactables/fishing_cursor_ui/fishing_cursor_ui.tscn" id="9_31rk5"]
+[ext_resource type="Script" uid="uid://dg56ja3bmauvl" path="res://scenes/entities/player/states/player_ready_state.gd" id="10_41r28"]
+[ext_resource type="Script" uid="uid://cdmknqrhjgh4h" path="res://scenes/entities/player/states/player_equip_state.gd" id="11_1iula"]
+[ext_resource type="Script" uid="uid://c303bsdas0x0r" path="res://scenes/entities/player/states/player_cast_state.gd" id="12_v0dvh"]
+[ext_resource type="Script" uid="uid://b5trg2v7qwdrj" path="res://scenes/entities/player/states/player_pull_state.gd" id="13_5d3u7"]
+[ext_resource type="Resource" uid="uid://cgbak6mlrs4ic" path="res://resources/fishing_upgrades/player_fishing_upgrades.tres" id="16_7nyn5"]
+[ext_resource type="Resource" uid="uid://4q1g20kx4k1o" path="res://resources/main_catalog.tres" id="17_dycye"]
+[ext_resource type="Script" uid="uid://btmllpkc3kjpr" path="res://scenes/interactables/fishing_cursor_ui/components/world_line_controller.gd" id="21_1iula"]
+[ext_resource type="Script" uid="uid://bp6jpcuc73prj" path="res://scenes/interactables/fishing_cursor_ui/components/fishing_line_renderer.gd" id="21_41r28"]
+[ext_resource type="Script" uid="uid://14b38vmfp2df" path="res://scenes/entities/fishes/components/fish_spawn_config.gd" id="22_1fq2y"]
+[ext_resource type="Script" uid="uid://dkhbiegwf0u0s" path="res://scenes/mechanics/camera/perspective_transition_controller.gd" id="22_vva6n"]
+[ext_resource type="PackedScene" uid="uid://djc7rhiwtswlk" path="res://scenes/entities/fishes/eel_demon/eel_demon.tscn" id="23_7nyn5"]
+[ext_resource type="PackedScene" uid="uid://cqg1mwy0btwtj" path="res://scenes/entities/fishes/gurukun/gurukun.tscn" id="23_q7p11"]
+[ext_resource type="Script" uid="uid://bokq5kklafrbo" path="res://core/fishing_audio_manager.gd" id="23_yivqu"]
+[ext_resource type="AudioStream" uid="uid://btt4lhi2jxc6b" path="res://assets/sfx/spinning_reel_slow.wav" id="24_g76na"]
+[ext_resource type="PackedScene" uid="uid://cshlrv7ow3bj4" path="res://scenes/entities/fishes/arraia/arraia.tscn" id="24_vva6n"]
+[ext_resource type="AudioStream" uid="uid://c8126jtqma1i5" path="res://assets/sfx/spinning_reel_normal.wav" id="25_658j2"]
+[ext_resource type="PackedScene" uid="uid://b8bsagrbkjjak" path="res://scenes/entities/fishes/ghost_fish/ghost_fish.tscn" id="25_q7p11"]
+[ext_resource type="AudioStream" uid="uid://pthos621k23s" path="res://assets/sfx/spinning_reel_fast.wav" id="26_7nyn5"]
+[ext_resource type="AudioStream" uid="uid://dd8yg1yngmmfe" path="res://assets/audio/estacao1.ogg" id="27_dycye"]
+[ext_resource type="AudioStream" uid="uid://brqp3hbnojxvx" path="res://assets/audio/estacao animada.ogg" id="28_g76na"]
+[ext_resource type="AudioStream" uid="uid://buoqckixsaroc" path="res://assets/sfx/throw_hook.wav" id="28_ynakb"]
+[ext_resource type="AudioStream" uid="uid://b8jqqaebbgoy5" path="res://assets/sfx/splash_water.wav" id="29_5ocxp"]
+[ext_resource type="AudioStream" uid="uid://cnrhcyjj7ut4l" path="res://assets/audio/estacaosoundscape.wav" id="30_ynakb"]
+[ext_resource type="AudioStream" uid="uid://c5j6en4xm5jmd" path="res://assets/sfx/pegapeixe.wav" id="35_it7jt"]
+[ext_resource type="AudioStream" uid="uid://cq57qv81ffl5f" path="res://assets/sfx/fogepeixe.wav" id="36_3jus6"]
+[ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="39_u4rjv"]
+[ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="40_2wfu0"]
+[ext_resource type="Texture2D" uid="uid://yk5ygxcss5ws" path="res://assets/icons/iconecatalogo.png" id="41_c101c"]
+[ext_resource type="AudioStream" uid="uid://dunuu2nmmuw67" path="res://assets/sfx/pressbutton.wav" id="41_it7jt"]
+[ext_resource type="Texture2D" uid="uid://clkuvls1j5ouf" path="res://assets/icons/IconeLoja.png" id="45_2avwm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wloe5"]
+atlas = ExtResource("3_napug")
+region = Rect2(0, 0, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8spg0"]
+atlas = ExtResource("3_napug")
+region = Rect2(0, 38, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d3u7"]
+atlas = ExtResource("3_napug")
+region = Rect2(84, 38, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41r28"]
+atlas = ExtResource("3_napug")
+region = Rect2(168, 38, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iula"]
+atlas = ExtResource("3_napug")
+region = Rect2(0, 76, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0dvh"]
+atlas = ExtResource("3_napug")
+region = Rect2(84, 76, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fq2y"]
+atlas = ExtResource("3_napug")
+region = Rect2(168, 76, 84, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7p11"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wloe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8spg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d3u7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41r28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iula")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0dvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fq2y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_vm2d2"]
+script = ExtResource("22_1fq2y")
+fish_scene = ExtResource("23_q7p11")
+spawn_weight = 10.0
+depth_weight_bonus = -0.5
+metadata/_custom_type_script = "uid://14b38vmfp2df"
+
+[sub_resource type="Resource" id="Resource_hws8l"]
+script = ExtResource("22_1fq2y")
+fish_scene = ExtResource("24_vva6n")
+spawn_weight = 6.0
+depth_weight_bonus = 0.5
+metadata/_custom_type_script = "uid://14b38vmfp2df"
+
+[sub_resource type="Resource" id="Resource_vva6n"]
+script = ExtResource("22_1fq2y")
+fish_scene = ExtResource("25_q7p11")
+spawn_weight = 6.0
+depth_weight_bonus = 0.5
+metadata/_custom_type_script = "uid://14b38vmfp2df"
+
+[sub_resource type="Resource" id="Resource_dycye"]
+script = ExtResource("22_1fq2y")
+fish_scene = ExtResource("23_7nyn5")
+spawn_weight = 4.0
+min_depth = 300.0
+depth_weight_bonus = 0.3
+metadata/_custom_type_script = "uid://14b38vmfp2df"
+
+[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "fish_chest_marker", "fishing_mechanic_system", "fishing_hook")]
+script = ExtResource("1_58uyj")
+main_camera = NodePath("MainCamera")
+fish_chest_marker = NodePath("Boat/FishChestMarker")
+fishing_mechanic_system = NodePath("Systems/FishingMechanicSystem")
+fishing_hook = NodePath("FishingHook/FishingHook")
+
+[node name="MainCamera" type="Camera2D" parent="." unique_id=2093425651]
+unique_name_in_owner = true
+position = Vector2(320, 180)
+limit_top = 0
+limit_bottom = 884
+position_smoothing_enabled = true
+script = ExtResource("2_hhmec")
+
+[node name="Background" type="Node" parent="." unique_id=2001595502]
+unique_name_in_owner = true
+
+[node name="OkinawaBackground" parent="Background" unique_id=1616347244 instance=ExtResource("5_v0dvh")]
+unique_name_in_owner = true
+layer = -2
+
+[node name="OkinawaUnderwaterBackground" parent="Background" unique_id=1010358310 groups=["water"] instance=ExtResource("4_1iula")]
+unique_name_in_owner = true
+layer = -1
+
+[node name="BackgroundExtension" type="CanvasLayer" parent="Background" unique_id=1847411370]
+layer = -3
+
+[node name="ColorRect" type="ColorRect" parent="Background/BackgroundExtension" unique_id=1311083985]
+show_behind_parent = true
+z_index = -3
+offset_top = 3.0
+offset_right = 640.0
+offset_bottom = 816.0
+mouse_filter = 2
+color = Color(0.43529412, 0.79607844, 0.9607843, 1)
+
+[node name="Boat" type="AnimatedSprite2D" parent="." unique_id=1587030661]
+unique_name_in_owner = true
+position = Vector2(306.895, 269.5)
+scale = Vector2(1.0789473, 1.0789474)
+sprite_frames = SubResource("SpriteFrames_q7p11")
+frame_progress = 0.21664254
+script = ExtResource("4_w3g2g")
+
+[node name="Player" parent="Boat" unique_id=448418749 instance=ExtResource("7_hhmec")]
+show_behind_parent = true
+z_as_relative = false
+position = Vector2(14, -24.073181)
+animation = &"pull_line"
+frame = 0
+frame_progress = 0.0
+
+[node name="PlayerStateMachine" type="Node" parent="Boat/Player" unique_id=1698381403 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("8_8spg0")
+initial_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="Boat/Player/PlayerStateMachine" unique_id=265377835 node_paths=PackedStringArray("equip_state", "animated_sprite")]
+script = ExtResource("9_5d3u7")
+equip_state = NodePath("../EquipState")
+animated_sprite = NodePath("../..")
+
+[node name="ReadyState" type="Node" parent="Boat/Player/PlayerStateMachine" unique_id=1118159932 node_paths=PackedStringArray("cast_state", "player_input", "animated_sprite")]
+script = ExtResource("10_41r28")
+cast_state = NodePath("../CastState")
+player_input = NodePath("../../../../Systems/PlayerFishingInput")
+animated_sprite = NodePath("../..")
+
+[node name="EquipState" type="Node" parent="Boat/Player/PlayerStateMachine" unique_id=1362441224 node_paths=PackedStringArray("ready_state", "animated_sprite")]
+script = ExtResource("11_1iula")
+ready_state = NodePath("../ReadyState")
+animated_sprite = NodePath("../..")
+
+[node name="CastState" type="Node" parent="Boat/Player/PlayerStateMachine" unique_id=365707445 node_paths=PackedStringArray("pull_state", "animated_sprite", "fishing_hook", "game_camera", "rod_tip_marker", "fishing_mechanic_system")]
+script = ExtResource("12_v0dvh")
+pull_state = NodePath("../PlayerPullState")
+animated_sprite = NodePath("../..")
+fishing_hook = NodePath("../../../../FishingHook/FishingHook")
+game_camera = NodePath("../../../../MainCamera")
+rod_tip_marker = NodePath("../../RodTipMarker")
+fishing_mechanic_system = NodePath("../../../../Systems/FishingMechanicSystem")
+
+[node name="PlayerPullState" type="Node" parent="Boat/Player/PlayerStateMachine" unique_id=233060263 node_paths=PackedStringArray("ready_state", "animated_sprite")]
+script = ExtResource("13_5d3u7")
+ready_state = NodePath("../ReadyState")
+animated_sprite = NodePath("../..")
+
+[node name="RodTipMarker" type="Marker2D" parent="Boat/Player" unique_id=679528639]
+position = Vector2(29.65857, -12.536575)
+
+[node name="FishChestMarker" type="Marker2D" parent="Boat" unique_id=250055488]
+position = Vector2(-11.024624, 1.3902438)
+
+[node name="Systems" type="Node" parent="." unique_id=358187130]
+
+[node name="FishingMechanicSystem" type="Node" parent="Systems" unique_id=976759568 node_paths=PackedStringArray("input_system", "center_point", "boat_reference")]
+unique_name_in_owner = true
+script = ExtResource("2_3lh42")
+input_system = NodePath("../PlayerFishingInput")
+center_point = NodePath("../CenterPoint")
+default_config = ExtResource("7_1jeig")
+boat_reference = NodePath("../../Boat")
+upgrades = ExtResource("16_7nyn5")
+catalog = ExtResource("17_dycye")
+
+[node name="PlayerFishingInput" type="Node" parent="Systems" unique_id=1893260175]
+script = ExtResource("3_vmhy7")
+
+[node name="CenterPoint" type="Marker2D" parent="Systems" unique_id=1032141304]
+position = Vector2(320, 451)
+
+[node name="FishSpawner" type="Node2D" parent="Systems" unique_id=1585078721 node_paths=PackedStringArray("hook_reference", "fishes_container")]
+position = Vector2(320, 550)
+script = ExtResource("4_58uyj")
+hook_reference = NodePath("../../FishingHook/FishingHook")
+spawn_pool = Array[ExtResource("22_1fq2y")]([SubResource("Resource_vm2d2"), SubResource("Resource_hws8l"), SubResource("Resource_vva6n"), SubResource("Resource_dycye")])
+spawn_area_size = Vector2(560, 200)
+fishes_container = NodePath("../FishesContainer")
+
+[node name="SpawnTimer" type="Timer" parent="Systems/FishSpawner" unique_id=1816201795]
+wait_time = 2.0
+autostart = true
+
+[node name="FishesContainer" type="Node2D" parent="Systems" unique_id=35673712]
+
+[node name="PerspectiveTransitionController" type="Node" parent="Systems" unique_id=1399474559 node_paths=PackedStringArray("main_camera", "boat", "gap_filler_layer")]
+script = ExtResource("22_vva6n")
+main_camera = NodePath("../../MainCamera")
+boat = NodePath("../../Boat")
+gap_filler_layer = NodePath("../../Background/BackgroundExtension")
+
+[node name="FishingAudioManager" type="Node" parent="Systems" unique_id=2062989114 node_paths=PackedStringArray("fishing_mechanic_system", "player_cast_state", "fishing_hook", "bgm_calm_player", "bgm_active_player", "sfx_throw", "sfx_splash", "sfx_reel", "sfx_caught", "sfx_escaped")]
+script = ExtResource("23_yivqu")
+fishing_mechanic_system = NodePath("../FishingMechanicSystem")
+player_cast_state = NodePath("../../Boat/Player/PlayerStateMachine/CastState")
+fishing_hook = NodePath("../../FishingHook/FishingHook")
+bgm_calm_player = NodePath("BGMCalmPlayer")
+bgm_active_player = NodePath("BGMActivePlayer")
+sfx_throw = NodePath("SFXThrow")
+sfx_splash = NodePath("SFXSplash")
+sfx_reel = NodePath("SFXReel")
+sfx_caught = NodePath("SFXCaught")
+sfx_escaped = NodePath("SFXEscaped")
+reel_slow = ExtResource("24_g76na")
+reel_normal = ExtResource("25_658j2")
+reel_fast = ExtResource("26_7nyn5")
+
+[node name="SoundscapeScenarioPlayer" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=1593945320]
+stream = ExtResource("30_ynakb")
+volume_db = -5.0
+autoplay = true
+
+[node name="BGMCalmPlayer" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=438632089]
+stream = ExtResource("27_dycye")
+autoplay = true
+
+[node name="BGMActivePlayer" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=335751966]
+stream = ExtResource("28_g76na")
+
+[node name="SFXThrow" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=1119236680]
+stream = ExtResource("28_ynakb")
+
+[node name="SFXSplash" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=1065680345]
+stream = ExtResource("29_5ocxp")
+
+[node name="SFXReel" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=300887856]
+
+[node name="SFXCaught" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=885211614]
+stream = ExtResource("35_it7jt")
+
+[node name="SFXEscaped" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=1975068712]
+stream = ExtResource("36_3jus6")
+
+[node name="FishingHook" type="Node" parent="." unique_id=209616824]
+
+[node name="FishingHook" parent="FishingHook" unique_id=2042041991 groups=["bait"] instance=ExtResource("1_7uxs1")]
+unique_name_in_owner = true
+z_index = 20
+position = Vector2(320, 451)
+upgrades = ExtResource("16_7nyn5")
+
+[node name="HUD" type="CanvasLayer" parent="FishingHook" unique_id=2041958202]
+
+[node name="FishingCursorUI" parent="FishingHook/HUD" unique_id=782493889 node_paths=PackedStringArray("mechanic_system", "input_system") instance=ExtResource("9_31rk5")]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+mechanic_system = NodePath("../../../Systems/FishingMechanicSystem")
+input_system = NodePath("../../../Systems/PlayerFishingInput")
+
+[node name="WorldLineController" type="Node" parent="FishingHook" unique_id=1844155221 node_paths=PackedStringArray("world_line_renderer", "player_rod_tip", "fishing_hook", "mechanic_system")]
+script = ExtResource("21_1iula")
+world_line_renderer = NodePath("WorldFishingLine")
+player_rod_tip = NodePath("../../Boat/Player/RodTipMarker")
+fishing_hook = NodePath("../FishingHook")
+mechanic_system = NodePath("../../Systems/FishingMechanicSystem")
+
+[node name="WorldFishingLine" type="Line2D" parent="FishingHook/WorldLineController" unique_id=1826571213]
+z_index = 20
+width = 1.0
+script = ExtResource("21_41r28")
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1672648947]
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="HUDLayer" unique_id=1684029634]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.0
+offset_bottom = 108.0
+grow_horizontal = 0
+
+[node name="CatalogButton" type="Button" parent="HUDLayer/ButtonsContainer" unique_id=1660187939]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("41_c101c")
+
+[node name="ButtonSounds" type="Node" parent="HUDLayer/ButtonsContainer/CatalogButton" unique_id=583353]
+script = ExtResource("39_u4rjv")
+hover_sfx = ExtResource("40_2wfu0")
+press_sfx = ExtResource("41_it7jt")
+
+[node name="MarketButton" type="Button" parent="HUDLayer/ButtonsContainer" unique_id=1554711174]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("45_2avwm")
+
+[node name="ButtonSounds" type="Node" parent="HUDLayer/ButtonsContainer/MarketButton" unique_id=1002274180]
+script = ExtResource("39_u4rjv")
+hover_sfx = ExtResource("40_2wfu0")
+press_sfx = ExtResource("41_it7jt")
+
+[connection signal="timeout" from="Systems/FishSpawner/SpawnTimer" to="Systems/FishSpawner" method="_on_spawn_timer_timeout"]

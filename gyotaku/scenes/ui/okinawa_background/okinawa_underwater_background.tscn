@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cct68w64r5qsd"]
+
+[ext_resource type="Texture2D" uid="uid://j361mvliix5y" path="res://assets/backgrounds/okinawa/underwater/Fundo_Agua.png" id="1_0vsfu"]
+[ext_resource type="Texture2D" uid="uid://dru8g3y7swt3w" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_7.png" id="2_epons"]
+[ext_resource type="Texture2D" uid="uid://cslaelrs6suqj" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_6.png" id="3_a3prl"]
+[ext_resource type="Texture2D" uid="uid://bdsl53phsgjcp" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_5.png" id="4_2wyvv"]
+[ext_resource type="Texture2D" uid="uid://dl6722yxg065m" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_4.png" id="5_vgbym"]
+[ext_resource type="Texture2D" uid="uid://dw5ku1msm4gk6" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_3.png" id="6_6i0im"]
+[ext_resource type="Texture2D" uid="uid://cwcfdqwxnup4j" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_2.png" id="7_s4f0x"]
+[ext_resource type="Texture2D" uid="uid://oaj6dwr63xoh" path="res://assets/backgrounds/okinawa/underwater/Terra_Fundo_1.png" id="8_rbxeu"]
+[ext_resource type="Texture2D" uid="uid://5hjy04akbdl5" path="res://assets/backgrounds/okinawa/underwater/water_effect.png" id="9_epons"]
+
+[node name="OkinawaUnderwaterBackground" type="ParallaxBackground" unique_id=288098495]
+layer = -10
+
+[node name="DepthLayer" type="ParallaxLayer" parent="." unique_id=1523264890]
+unique_name_in_owner = true
+motion_scale = Vector2(1, 0.8)
+
+[node name="UnderwaterDepth" type="Sprite2D" parent="DepthLayer" unique_id=942469248]
+unique_name_in_owner = true
+position = Vector2(0, 360)
+texture = ExtResource("1_0vsfu")
+centered = false
+
+[node name="WaterBack7" type="Sprite2D" parent="DepthLayer" unique_id=1472713179]
+position = Vector2(0, 320)
+texture = ExtResource("2_epons")
+centered = false
+
+[node name="WaterBack6" type="Sprite2D" parent="DepthLayer" unique_id=1847503277]
+position = Vector2(0, 320)
+texture = ExtResource("3_a3prl")
+centered = false
+
+[node name="WaterBack5" type="Sprite2D" parent="DepthLayer" unique_id=1084239104]
+position = Vector2(0, 320)
+texture = ExtResource("4_2wyvv")
+centered = false
+
+[node name="WaterBack4" type="Sprite2D" parent="DepthLayer" unique_id=1687866065]
+position = Vector2(0, 320)
+texture = ExtResource("5_vgbym")
+centered = false
+
+[node name="WaterBack3" type="Sprite2D" parent="DepthLayer" unique_id=1439087591]
+position = Vector2(0, 320)
+texture = ExtResource("6_6i0im")
+centered = false
+
+[node name="WaterBack2" type="Sprite2D" parent="DepthLayer" unique_id=606494064]
+position = Vector2(0, 320)
+texture = ExtResource("7_s4f0x")
+centered = false
+
+[node name="WaterBack1" type="Sprite2D" parent="DepthLayer" unique_id=1281090587]
+position = Vector2(0, 320)
+texture = ExtResource("8_rbxeu")
+centered = false
+
+[node name="CeilingLayer" type="ParallaxLayer" parent="." unique_id=1331441684]
+unique_name_in_owner = true
+
+[node name="UnderwaterCeiling" type="Sprite2D" parent="CeilingLayer" unique_id=566132218]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(0, 360)
+texture = ExtResource("9_epons")
+centered = false

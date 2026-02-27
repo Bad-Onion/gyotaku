@@ -14,6 +14,7 @@ func enter() -> void:
 		level_container.add_child(current_level)
 
 	current_level.market_requested.connect(func(): transitioned.emit(self, GameStates.State.MARKET))
+	current_level.catalog_requested.connect(func(): transitioned.emit(self, GameStates.State.CATALOG))
 	current_level.coins_earned.connect(_on_level_coins_earned)
 
 

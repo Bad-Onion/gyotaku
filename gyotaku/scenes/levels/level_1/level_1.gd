@@ -4,6 +4,7 @@ extends Node2D
 
 signal coins_earned(amount: int)
 signal market_requested
+signal catalog_requested
 
 @export var main_camera: Camera2D
 @export var fish_chest_marker: Marker2D
@@ -18,6 +19,7 @@ signal market_requested
 
 func _ready() -> void:
 	market_button.pressed.connect(func(): market_requested.emit())
+	catalog_button.pressed.connect(func(): catalog_requested.emit())
 	fishing_hook.fish_hooked.connect(_on_fish_hooked)
 	fishing_hook.fishing_started.connect(_on_fishing_started)
 	fishing_hook.fishing_ended.connect(_on_fishing_ended)

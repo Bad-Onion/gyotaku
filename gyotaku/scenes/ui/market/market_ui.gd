@@ -25,12 +25,14 @@ signal bait_upgrade_requested
 @onready var info_desc: Label = %InfoPanel/DescriptionLabel
 @onready var info_price: Label = %InfoPanel/PriceLabel
 
+@onready var purchase_sfx: AudioStreamPlayer = %PurchaseSFX
+
 var fade_tween: Tween
 
 
 func _ready() -> void:
 	if upgrades:
-		upgrades.upgrades_changed.connect(_update_market_display)
+		upgrades.upgrades_changed.connect(_on_upgrade_purchased)
 
 	if economy_system:
 		economy_system.coins_changed.connect(_on_coins_changed)
@@ -133,3 +135,11 @@ func _update_market_display() -> void:
 		bait_btn.visible = not upgrades.is_bait_bought
 
 		_clear_info()
+
+
+func _on_upgrade_purchased() -> void:
+	if is_visible_in_tree():
+		if upgrades and purchase_sfx and not purchase_sfx.playing:
+			purchase_sfx.play()
+
+	_update_market_display()

@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bvdwissx0fkdy"]
 
 [ext_resource type="Script" uid="uid://bl3o6lbxxkpg2" path="res://scenes/ui/main_menu/main_menu.gd" id="1_1ch07"]
+[ext_resource type="AudioStream" uid="uid://cyuftuyp5o13a" path="res://assets/audio/menu.ogg" id="2_e8t4i"]
+[ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="2_r70wa"]
+[ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="3_52x6y"]
+[ext_resource type="AudioStream" uid="uid://dunuu2nmmuw67" path="res://assets/sfx/pressbutton.wav" id="4_8ouhi"]
 
 [node name="MainMenu" type="Control" unique_id=476828026]
 process_mode = 3
@@ -40,7 +44,21 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Jogar"
 
+[node name="ButtonSounds" type="Node" parent="ButtonsContainer/PlayButton" unique_id=1722409673]
+script = ExtResource("2_r70wa")
+hover_sfx = ExtResource("3_52x6y")
+press_sfx = ExtResource("4_8ouhi")
+
 [node name="QuitButton" type="Button" parent="ButtonsContainer" unique_id=1225017952]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Sair"
+
+[node name="ButtonSounds" type="Node" parent="ButtonsContainer/QuitButton" unique_id=1615441605]
+script = ExtResource("2_r70wa")
+hover_sfx = ExtResource("3_52x6y")
+press_sfx = ExtResource("4_8ouhi")
+
+[node name="MenuMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=722143964]
+unique_name_in_owner = true
+stream = ExtResource("2_e8t4i")

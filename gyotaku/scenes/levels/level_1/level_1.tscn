@@ -37,6 +37,10 @@
 [ext_resource type="AudioStream" uid="uid://brqp3hbnojxvx" path="res://assets/audio/estacao animada.ogg" id="28_g76na"]
 [ext_resource type="AudioStream" uid="uid://buoqckixsaroc" path="res://assets/sfx/throw_hook.wav" id="28_ynakb"]
 [ext_resource type="AudioStream" uid="uid://b8jqqaebbgoy5" path="res://assets/sfx/splash_water.wav" id="29_5ocxp"]
+[ext_resource type="AudioStream" uid="uid://cnrhcyjj7ut4l" path="res://assets/audio/estacaosoundscape.wav" id="30_ynakb"]
+[ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="39_u4rjv"]
+[ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="40_2wfu0"]
+[ext_resource type="AudioStream" uid="uid://dunuu2nmmuw67" path="res://assets/sfx/pressbutton.wav" id="41_it7jt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wloe5"]
 atlas = ExtResource("3_napug")
@@ -270,6 +274,11 @@ reel_slow = ExtResource("24_g76na")
 reel_normal = ExtResource("25_658j2")
 reel_fast = ExtResource("26_7nyn5")
 
+[node name="SoundscapeScenarioPlayer" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=1593945320]
+stream = ExtResource("30_ynakb")
+volume_db = -5.0
+autoplay = true
+
 [node name="BGMCalmPlayer" type="AudioStreamPlayer" parent="Systems/FishingAudioManager" unique_id=438632089]
 stream = ExtResource("27_dycye")
 autoplay = true
@@ -329,9 +338,19 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Catálogo"
 
+[node name="ButtonSounds" type="Node" parent="HUDLayer/ButtonsContainer/CatalogButton" unique_id=583353]
+script = ExtResource("39_u4rjv")
+hover_sfx = ExtResource("40_2wfu0")
+press_sfx = ExtResource("41_it7jt")
+
 [node name="MarketButton" type="Button" parent="HUDLayer/ButtonsContainer" unique_id=1554711174]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Loja"
+
+[node name="ButtonSounds" type="Node" parent="HUDLayer/ButtonsContainer/MarketButton" unique_id=1002274180]
+script = ExtResource("39_u4rjv")
+hover_sfx = ExtResource("40_2wfu0")
+press_sfx = ExtResource("41_it7jt")
 
 [connection signal="timeout" from="Systems/FishSpawner/SpawnTimer" to="Systems/FishSpawner" method="_on_spawn_timer_timeout"]

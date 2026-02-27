@@ -9,6 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://dbquecs78ilcy" path="res://assets/audio/mercado.ogg" id="6_yj7p1"]
 [ext_resource type="PackedScene" uid="uid://cv55e06k5bift" path="res://scenes/ui/coin_hud/coin_hud.tscn" id="7_e6xbh"]
 [ext_resource type="Texture2D" uid="uid://bj0eyhx3xb6r4" path="res://assets/sprites/market/upgrades/anzol.png" id="7_r4stw"]
+[ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="8_fdggi"]
+[ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="9_2evwu"]
+[ext_resource type="AudioStream" uid="uid://dunuu2nmmuw67" path="res://assets/sfx/pressbutton.wav" id="10_revuy"]
+[ext_resource type="AudioStream" uid="uid://brln08jkyewkf" path="res://assets/sfx/compras.wav" id="13_2evwu"]
 
 [node name="MarketUI" type="Control" unique_id=1187940312]
 process_mode = 3
@@ -88,6 +92,11 @@ offset_bottom = 31.0
 grow_horizontal = 0
 text = "Voltar"
 
+[node name="ButtonSounds" type="Node" parent="BackButton" unique_id=1865098431]
+script = ExtResource("8_fdggi")
+hover_sfx = ExtResource("9_2evwu")
+press_sfx = ExtResource("10_revuy")
+
 [node name="MarketMusic" type="AudioStreamPlayer" parent="." unique_id=1783391980]
 unique_name_in_owner = true
 stream = ExtResource("6_yj7p1")
@@ -128,3 +137,7 @@ offset_left = 10.0
 offset_top = 134.0
 offset_right = 50.0
 offset_bottom = 157.0
+
+[node name="PurchaseSFX" type="AudioStreamPlayer" parent="." unique_id=1403139070]
+unique_name_in_owner = true
+stream = ExtResource("13_2evwu")

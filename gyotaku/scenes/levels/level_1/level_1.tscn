@@ -97,25 +97,27 @@ animations = [{
 script = ExtResource("22_1fq2y")
 fish_scene = ExtResource("23_q7p11")
 spawn_weight = 10.0
+depth_weight_bonus = -0.5
 metadata/_custom_type_script = "uid://14b38vmfp2df"
 
 [sub_resource type="Resource" id="Resource_hws8l"]
 script = ExtResource("22_1fq2y")
 fish_scene = ExtResource("24_vva6n")
 spawn_weight = 6.0
+depth_weight_bonus = 0.5
 metadata/_custom_type_script = "uid://14b38vmfp2df"
 
 [sub_resource type="Resource" id="Resource_vva6n"]
 script = ExtResource("22_1fq2y")
 fish_scene = ExtResource("25_q7p11")
 spawn_weight = 6.0
+depth_weight_bonus = 0.5
 metadata/_custom_type_script = "uid://14b38vmfp2df"
 
-[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "fish_chest_marker", "coin_hud")]
+[node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "fish_chest_marker")]
 script = ExtResource("1_58uyj")
 main_camera = NodePath("MainCamera")
 fish_chest_marker = NodePath("Boat/FishChestMarker")
-coin_hud = NodePath("")
 
 [node name="MainCamera" type="Camera2D" parent="." unique_id=2093425651]
 unique_name_in_owner = true
@@ -208,9 +210,10 @@ script = ExtResource("3_vmhy7")
 [node name="CenterPoint" type="Marker2D" parent="Systems" unique_id=1032141304]
 position = Vector2(320, 451)
 
-[node name="FishSpawner" type="Node2D" parent="Systems" unique_id=1585078721 node_paths=PackedStringArray("fishes_container")]
+[node name="FishSpawner" type="Node2D" parent="Systems" unique_id=1585078721 node_paths=PackedStringArray("hook_reference", "fishes_container")]
 position = Vector2(320, 550)
 script = ExtResource("4_58uyj")
+hook_reference = NodePath("../../FishingHook/FishingHook")
 spawn_pool = Array[ExtResource("22_1fq2y")]([SubResource("Resource_vm2d2"), SubResource("Resource_hws8l"), SubResource("Resource_vva6n")])
 spawn_area_size = Vector2(560, 200)
 fishes_container = NodePath("../FishesContainer")
@@ -261,6 +264,7 @@ stream = ExtResource("29_5ocxp")
 unique_name_in_owner = true
 z_index = 20
 position = Vector2(320, 451)
+upgrades = ExtResource("16_7nyn5")
 
 [node name="HUD" type="CanvasLayer" parent="FishingHook" unique_id=2041958202]
 

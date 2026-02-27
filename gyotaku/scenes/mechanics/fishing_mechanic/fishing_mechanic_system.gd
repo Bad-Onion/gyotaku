@@ -15,6 +15,7 @@ signal depth_updated(current: float, max_val: float)
 @export var default_config: FishingConfig
 @export var boat_reference: Node2D
 @export var upgrades: FishingUpgrades
+@export var water_surface_y: float = 450.0
 
 var _fish: Fish
 var _current_config: FishingConfig
@@ -94,20 +95,37 @@ func _calculate_tension(delta: float) -> void:
 
 
 func _calculate_depth(delta: float) -> void:
-	if _get_fish_distance_from_center() <= _current_config.safe_zone_radius and (_is_tension_in_sweet_spot() or _is_fish_centered()):
-		_current_depth -= _current_config.depth_pull_up_speed * delta # Pull up faster if fish is centered
-	elif _get_fish_distance_from_center() <= _current_config.danger_zone_radius:
-		_current_depth += _current_config.depth_sink_slow_speed * delta # Sink slower if fish is in the danger zone (but not too far)
-	else:
-		_current_depth += _current_config.depth_sink_fast_speed * delta # Sink faster if fish is too far from center
-
-	_current_depth = clampf(_current_depth, 0.0, _current_config.max_depth)
-
 	var range_size := absf(_current_config.bottom_y - _current_config.surface_y)
-	var top_limit := _minigame_start_y - (range_size / 2.0)
-	var bottom_limit := _minigame_start_y + (range_size / 2.0)
+	var old_catch_distance_px := range_size / 2.0
 
-	_fish.set_vertical_position(remap(_current_depth, 0.0, _current_config.max_depth, top_limit, bottom_limit))
+	var new_catch_distance_px := maxf(_minigame_start_y - water_surface_y, 1.0)
+
+	var pull_up_speed_factor := old_catch_distance_px / new_catch_distance_px
+	var sink_speed_factor := 1.0
+
+	var depth_change := 0.0
+
+	if _get_fish_distance_from_center() <= _current_config.safe_zone_radius and (_is_tension_in_sweet_spot() or _is_fish_centered()):
+		depth_change -= _current_config.depth_pull_up_speed * delta * pull_up_speed_factor
+	elif _get_fish_distance_from_center() <= _current_config.danger_zone_radius:
+		depth_change += _current_config.depth_sink_slow_speed * delta * sink_speed_factor
+	else:
+		depth_change += _current_config.depth_sink_fast_speed * delta * sink_speed_factor
+
+	_current_depth = clampf(_current_depth + depth_change, 0.0, _current_config.max_depth)
+
+	var half_depth := _current_config.max_depth / 2.0
+	var new_y: float
+
+	if _current_depth <= half_depth:
+		var weight := _current_depth / half_depth
+		new_y = lerp(water_surface_y, _minigame_start_y, weight)
+	else:
+		var weight := (_current_depth - half_depth) / half_depth
+		var escape_limit := _minigame_start_y + old_catch_distance_px
+		new_y = lerp(_minigame_start_y, escape_limit, weight)
+
+	_fish.set_vertical_position(new_y)
 	depth_updated.emit(_current_depth, _current_config.max_depth)
 
 

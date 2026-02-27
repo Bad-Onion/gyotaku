@@ -7,6 +7,8 @@ signal fish_hooked(fish: Fish)
 
 const MONITORING := "monitoring"
 
+@export var upgrades: FishingUpgrades
+
 @export var sink_speed: float = 150.0
 @export var max_y_limit: float = 500.0
 @export var water_level_y: float = 350.0
@@ -34,8 +36,12 @@ func _physics_process(delta: float) -> void:
 			_has_entered_water = true
 			water_entered.emit()
 
-		if global_position.y >= max_y_limit:
-			global_position.y = max_y_limit
+		var current_max_y := max_y_limit
+		if upgrades:
+			current_max_y *= upgrades.hook_depth_multiplier
+
+		if global_position.y >= current_max_y:
+			global_position.y = current_max_y
 			stop_sinking()
 
 	elif hooked_fish != null and is_instance_valid(hooked_fish):

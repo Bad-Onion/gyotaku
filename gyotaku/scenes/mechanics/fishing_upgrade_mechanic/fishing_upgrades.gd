@@ -6,7 +6,7 @@ signal upgrades_changed
 
 @export_group("Upgraded Multipliers")
 @export var upgraded_reel_force: float = 2.0
-@export var upgraded_hook_depth: float = 1.0
+@export var upgraded_hook_depth: float = 1.5
 @export var upgraded_line_strength: float = 2.0
 @export var upgraded_bait_attraction: float = 2.0
 

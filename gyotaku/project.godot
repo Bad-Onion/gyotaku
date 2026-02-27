@@ -28,6 +28,11 @@ window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
+[input_devices]
+
+pen_tablet/driver.windows="wintab"
+pointing/emulate_touch_from_mouse=true
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

@@ -1,7 +1,7 @@
 extends SubViewport
 
 
-@export var tipo : String
+@export var tipo: String
 @onready var peixe: Sprite2D = $Peixe
 
 #Sprites
@@ -21,6 +21,7 @@ func atualizar_peixe(novo_tipo: String) -> void:
 	peixe.visible = true
 
 	(peixe.material as ShaderMaterial).set_shader_parameter("pintura_tex", pintura_arquivo)
+	# Cannot call method 'get_size' on a null value.
 	var tamanho_do_peixe = peixe.texture.get_size()
 	(peixe.material as ShaderMaterial).set_shader_parameter("fish_size", tamanho_do_peixe)
 
@@ -28,11 +29,11 @@ func retornar_tipo():
 	match tipo:
 		"gurukun":
 			return GURUKUN
-		"raya":
+		"arraia":
 			return RAYA
-		"enguia_demonio":
+		"eel_demon":
 			return ENGUIA_DEMONIO
-		"peixe_fantasma":
+		"ghost_fish":
 			return PEIXE_FANTASMA
 
 func pegar_pintura(nome_do_peixe: String) -> Texture2D:

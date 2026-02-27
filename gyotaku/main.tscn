@@ -18,6 +18,8 @@
 [ext_resource type="Script" uid="uid://4lahn2557g6f" path="res://core/game_states/stamp_state.gd" id="14_074og"]
 [ext_resource type="Resource" uid="uid://4q1g20kx4k1o" path="res://resources/main_catalog.tres" id="14_w48qg"]
 [ext_resource type="PackedScene" uid="uid://beeo85ftp1hn" path="res://scenes/minigames/carimbo.tscn" id="15_cegan"]
+[ext_resource type="AudioStream" uid="uid://cv044wmmpvgig" path="res://assets/sons/carimbo.ogg" id="19_cegan"]
+[ext_resource type="Script" uid="uid://ddpd1n4k7bcg3" path="res://core/shared_ui_music.gd" id="20_82xsv"]
 
 [node name="Main" type="Node2D" unique_id=809898196]
 
@@ -89,3 +91,8 @@ script = ExtResource("13_ycdy4")
 economy_system = NodePath("../EconomySystem")
 upgrades = ExtResource("10_4c57u")
 catalog = ExtResource("14_w48qg")
+
+[node name="SharedCatalogMusic" type="AudioStreamPlayer" parent="." unique_id=1486712165 node_paths=PackedStringArray("state_machine")]
+stream = ExtResource("19_cegan")
+script = ExtResource("20_82xsv")
+state_machine = NodePath("../GameStateMachine")

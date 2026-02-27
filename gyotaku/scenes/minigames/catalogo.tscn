@@ -7,14 +7,16 @@
 [ext_resource type="Material" uid="uid://cy6ns2hik1l2k" path="res://shader/shader_papel_decente.tres" id="3_3aiqf"]
 [ext_resource type="Script" path="res://scripts/peixes_seletor.gd" id="4_747k7"]
 [ext_resource type="Texture2D" uid="uid://looocptmvug0" path="res://assets/peixes/Raya sem contornos p%b.png" id="5_bgowf"]
-[ext_resource type="Script" path="res://scripts/carimbar.gd" id="5_uq8ag"]
+[ext_resource type="Script" uid="uid://bis58b30cdteo" path="res://scripts/carimbar.gd" id="5_uq8ag"]
 [ext_resource type="Texture2D" uid="uid://dwqi2tr1fbc4i" path="res://assets/peixes/peixetest.png" id="7_k7br0"]
 [ext_resource type="Texture2D" uid="uid://o2j2kqbdc7n" path="res://assets/peixes/Raya pequena1.png" id="8_5uvc8"]
 [ext_resource type="Texture2D" uid="uid://cs6obyilhc7fe" path="res://assets/peixes/Enguia Demonio/Enguia pequena.png" id="9_ggxav"]
 [ext_resource type="Texture2D" uid="uid://bllyqiyhkaamq" path="res://assets/peixes/Fantasma/Fantasma pequeno.png" id="10_akqbu"]
 [ext_resource type="StyleBox" uid="uid://odrg3nh1h5o1" path="res://assets/background/nine_botao.tres" id="10_bx3c7"]
 [ext_resource type="FontFile" uid="uid://c02fyhip3telr" path="res://assets/fontes/KiwiSoda.ttf" id="10_i0u0o"]
-[ext_resource type="AudioStream" uid="uid://cv044wmmpvgig" path="res://assets/sons/carimbo.ogg" id="15_akqbu"]
+[ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="15_y2l5f"]
+[ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="16_xk605"]
+[ext_resource type="AudioStream" uid="uid://dunuu2nmmuw67" path="res://assets/sfx/pressbutton.wav" id="17_d8uo0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_akqbu"]
 blend_mode = 3
@@ -116,7 +118,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
 icon = ExtResource("7_k7br0")
 
-[node name="raya" type="Button" parent="Peixes" unique_id=108063004]
+[node name="arraia" type="Button" parent="Peixes" unique_id=108063004]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
@@ -125,7 +127,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
 icon = ExtResource("8_5uvc8")
 
-[node name="enguia_demonio" type="Button" parent="Peixes" unique_id=1346269186]
+[node name="eel_demon" type="Button" parent="Peixes" unique_id=1346269186]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
@@ -134,7 +136,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
 icon = ExtResource("9_ggxav")
 
-[node name="peixe_fantasma" type="Button" parent="Peixes" unique_id=2083734836]
+[node name="ghost_fish" type="Button" parent="Peixes" unique_id=2083734836]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
@@ -172,6 +174,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_kf4j0")
 text = "<"
 
 [node name="Carimbar" type="Button" parent="." unique_id=1025366672]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
 offset_left = 408.0
@@ -187,6 +190,11 @@ theme_override_styles/pressed = ExtResource("10_bx3c7")
 theme_override_styles/hover = ExtResource("10_bx3c7")
 text = "Carimbar"
 script = ExtResource("5_uq8ag")
+
+[node name="ButtonSounds" type="Node" parent="Carimbar" unique_id=712940453]
+script = ExtResource("15_y2l5f")
+hover_sfx = ExtResource("16_xk605")
+press_sfx = ExtResource("17_d8uo0")
 
 [node name="Sair" type="Button" parent="." unique_id=1857928946]
 unique_name_in_owner = true
@@ -204,6 +212,11 @@ theme_override_styles/normal = ExtResource("10_bx3c7")
 theme_override_styles/pressed = ExtResource("10_bx3c7")
 theme_override_styles/hover = ExtResource("10_bx3c7")
 text = "Sair"
+
+[node name="ButtonSounds" type="Node" parent="Sair" unique_id=1944594596]
+script = ExtResource("15_y2l5f")
+hover_sfx = ExtResource("16_xk605")
+press_sfx = ExtResource("17_d8uo0")
 
 [node name="NomeDoPeixe" type="LineEdit" parent="." unique_id=1941594480]
 layout_mode = 0
@@ -297,13 +310,10 @@ text = "VOCÊ AINDA NÃO PESCOU NENHUM PEIXE!!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CatalogMusic" type="AudioStreamPlayer" parent="." unique_id=374169791]
-stream = ExtResource("15_akqbu")
-
 [connection signal="pressed" from="Peixes/gurukun" to="Peixes/gurukun" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/raya" to="Peixes/raya" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/enguia_demonio" to="Peixes/enguia_demonio" method="_on_pressed"]
-[connection signal="pressed" from="Peixes/peixe_fantasma" to="Peixes/peixe_fantasma" method="_on_pressed"]
+[connection signal="pressed" from="Peixes/arraia" to="Peixes/arraia" method="_on_pressed"]
+[connection signal="pressed" from="Peixes/eel_demon" to="Peixes/eel_demon" method="_on_pressed"]
+[connection signal="pressed" from="Peixes/ghost_fish" to="Peixes/ghost_fish" method="_on_pressed"]
 [connection signal="pressed" from="Proximo" to="." method="_on_proximo_pressed"]
 [connection signal="pressed" from="Anterior" to="." method="_on_anterior_pressed"]
 [connection signal="pressed" from="Carimbar" to="Carimbar" method="_on_pressed"]

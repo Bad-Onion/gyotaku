@@ -21,11 +21,9 @@ func enter() -> void:
 	get_tree().paused = true
 
 	if stamp_ui:
-		# Inject the specific fish ID before showing
 		if stamp_ui.has_method("initialize_fish"):
 			stamp_ui.initialize_fish(current_fish_id)
 
-		# Listen for the minigame completion
 		if not stamp_ui.stamp_finished.is_connected(_on_stamp_finished):
 			stamp_ui.stamp_finished.connect(_on_stamp_finished)
 
@@ -35,15 +33,14 @@ func enter() -> void:
 func exit() -> void:
 	if not _is_pausing:
 		get_tree().paused = false
-		
+
 		if stamp_ui:
 			stamp_ui.hide()
 
 
-
-
 func get_id() -> int:
 	return GameStates.State.STAMP
+
 
 func _on_stamp_finished() -> void:
 	_is_pausing = false

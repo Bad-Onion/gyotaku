@@ -27,7 +27,6 @@ var botoes_desbloqueados : Array[Button] = []
 @onready var botao_carimbar: Button = $Carimbar
 @onready var aviso_vazio: Label = $AvisoVazio
 
-@onready var catalog_music: AudioStreamPlayer = $CatalogMusic
 @onready var back_button: Button = %Sair
 
 
@@ -176,12 +175,6 @@ func _on_visibility_changed() -> void:
 			trocar_peixe_na_tela(primeiro_peixe_disponivel)
 		else:
 			alternar_interface(false)
-
-		if catalog_music:
-			catalog_music.play()
-	else:
-		if catalog_music:
-			catalog_music.stop()
 
 
 func _on_back_pressed() -> void:

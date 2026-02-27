@@ -10,7 +10,11 @@
 [ext_resource type="Script" uid="uid://cfcg84d4obhdb" path="res://scripts/catalogo.gd" id="6_i8l8x"]
 [ext_resource type="Script" path="res://scripts/pinceis.gd" id="6_x33oj"]
 [ext_resource type="StyleBox" uid="uid://odrg3nh1h5o1" path="res://assets/background/nine_botao.tres" id="7_y7dd7"]
+[ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="9_bmbhl"]
 [ext_resource type="PackedScene" uid="uid://v74jwe10ydnv" path="res://scenes/SaveManager.tscn" id="9_x33oj"]
+[ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="10_mde3k"]
+[ext_resource type="AudioStream" uid="uid://dunuu2nmmuw67" path="res://assets/sfx/pressbutton.wav" id="11_aiduw"]
+[ext_resource type="AudioStream" uid="uid://c4xupif4n12e6" path="res://assets/sons/CARIMBO.wav" id="13_10xsf"]
 
 [node name="Carimbo" type="Control" unique_id=1211058533]
 process_mode = 3
@@ -181,6 +185,11 @@ theme_override_styles/hover = ExtResource("7_y7dd7")
 text = "Redefinir"
 script = ExtResource("5_i8l8x")
 
+[node name="ButtonSounds" type="Node" parent="GridContainer2/Redefinir" unique_id=1924638769]
+script = ExtResource("9_bmbhl")
+hover_sfx = ExtResource("10_mde3k")
+press_sfx = ExtResource("11_aiduw")
+
 [node name="Salvar" type="Button" parent="GridContainer2" unique_id=1229915821]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 25)
@@ -194,6 +203,11 @@ theme_override_styles/pressed = ExtResource("7_y7dd7")
 theme_override_styles/hover = ExtResource("7_y7dd7")
 text = "Salvar e Carimbar"
 script = ExtResource("6_i8l8x")
+
+[node name="ButtonSounds" type="Node" parent="GridContainer2/Salvar" unique_id=2135748606]
+script = ExtResource("9_bmbhl")
+hover_sfx = ExtResource("10_mde3k")
+press_sfx = ExtResource("13_10xsf")
 
 [node name="Cursor" parent="." unique_id=1434074555 instance=ExtResource("5_fxhco")]
 position = Vector2(9, 12)

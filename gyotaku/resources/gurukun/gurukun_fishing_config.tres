@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FishingConfig" format=3 uid="uid://cevrk20dw6lwn"]
+
+[ext_resource type="Script" uid="uid://c50nau0nqic1d" path="res://scenes/entities/fishes/components/fishing_config.gd" id="1_1buhx"]
+
+[resource]
+script = ExtResource("1_1buhx")
+rod_resistance_multiplier = 0.8
+metadata/_custom_type_script = "uid://c50nau0nqic1d"

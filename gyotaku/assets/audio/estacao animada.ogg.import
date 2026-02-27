@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://brqp3hbnojxvx"
+path="res://.godot/imported/estacao animada.ogg-34f7f4eb64420aca226b8b161da2f780.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/estacao animada.ogg"
+dest_files=["res://.godot/imported/estacao animada.ogg-34f7f4eb64420aca226b8b161da2f780.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://b8bsagrbkjjak"]
+
+[ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fishes/fish.tscn" id="1_ty0vh"]
+[ext_resource type="Resource" uid="uid://b17vj33cmukn3" path="res://resources/ghost_fish/ghost_fish_config.tres" id="2_dinrl"]
+[ext_resource type="Texture2D" uid="uid://domhgov51va8y" path="res://assets/sprites/fishes/ghost_fish/PeixeFantasma-Sheet.png" id="3_iqtfl"]
+[ext_resource type="Resource" uid="uid://cxhiro8qjsq6e" path="res://resources/ghost_fish/ghost_fish_movement_config.tres" id="4_ysjsj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1thd"]
+atlas = ExtResource("3_iqtfl")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r46a4"]
+atlas = ExtResource("3_iqtfl")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq1q8"]
+atlas = ExtResource("3_iqtfl")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydja0"]
+atlas = ExtResource("3_iqtfl")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3k87"]
+atlas = ExtResource("3_iqtfl")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akj3c"]
+atlas = ExtResource("3_iqtfl")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58p7u"]
+atlas = ExtResource("3_iqtfl")
+region = Rect2(288, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lflug"]
+atlas = ExtResource("3_iqtfl")
+region = Rect2(336, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5vofo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1thd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r46a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq1q8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydja0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3k87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akj3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58p7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lflug")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GhostFish" unique_id=69548390 instance=ExtResource("1_ty0vh")]
+fishing_config = ExtResource("2_dinrl")
+catalog_id = "ghost_fish"
+
+[node name="FishSprite" parent="." index="0" unique_id=341686494]
+sprite_frames = SubResource("SpriteFrames_5vofo")
+
+[node name="FishCollision" parent="." index="1" unique_id=502182990]
+position = Vector2(0, 0)
+
+[node name="MovementComponent" parent="." index="2" unique_id=1380834197]
+movement_config = ExtResource("4_ysjsj")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="4" unique_id=1459822460]
+rect = Rect2(-12, -4, 25, 9)

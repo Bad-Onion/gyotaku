@@ -1,0 +1,47 @@
+[gd_resource type="Theme" format=3 uid="uid://bykb414mnc67f"]
+
+[ext_resource type="Texture2D" uid="uid://drluh5qdis5ux" path="res://assets/tileset/tileset_botao.png" id="1_70gfe"]
+[ext_resource type="FontFile" uid="uid://cji5ct4tdom2p" path="res://assets/fonts/KiwiSoda.ttf" id="2_jtx1y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ywy2"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_70gfe")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0.46618086, 0.4661808, 0.4661808, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kh2cq"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_70gfe")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wif3f"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_70gfe")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0.46666667, 0.46666667, 0.46666667, 1)
+
+[resource]
+default_font = ExtResource("2_jtx1y")
+default_font_size = 21
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_1ywy2")
+Button/styles/normal = SubResource("StyleBoxTexture_kh2cq")
+Button/styles/pressed = SubResource("StyleBoxTexture_wif3f")

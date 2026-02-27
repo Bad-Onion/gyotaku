@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://cgb7ob0db0t1f"]
+
+[ext_resource type="Script" uid="uid://baetghgq6xdu0" path="res://scenes/entities/fishes/fish.gd" id="1_0xdpr"]
+[ext_resource type="Resource" uid="uid://c6u65drbrt1sa" path="res://resources/default_fish_dificulty.tres" id="2_71dcr"]
+[ext_resource type="Texture2D" uid="uid://imwffhuc7mdb" path="res://assets/sprites/fishes/gorukun/Gurukun-Sheet.png" id="2_73y4s"]
+[ext_resource type="Script" uid="uid://s3jlwcgbvv2h" path="res://scenes/entities/fishes/components/fish_movement.gd" id="3_ym86q"]
+[ext_resource type="Script" uid="uid://cn1lit6n5jbjw" path="res://scenes/entities/fishes/components/fish_visuals.gd" id="4_1o0gn"]
+[ext_resource type="Resource" uid="uid://cjj465csurnjw" path="res://resources/default_fish_movement.tres" id="5_87yys"]
+[ext_resource type="Resource" uid="uid://cgbak6mlrs4ic" path="res://resources/fishing_upgrades/player_fishing_upgrades.tres" id="6_87yys"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxacc"]
+atlas = ExtResource("2_73y4s")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym86q"]
+atlas = ExtResource("2_73y4s")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o0gn"]
+atlas = ExtResource("2_73y4s")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71dcr"]
+atlas = ExtResource("2_73y4s")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87yys"]
+atlas = ExtResource("2_73y4s")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scunn"]
+atlas = ExtResource("2_73y4s")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkuon"]
+atlas = ExtResource("2_73y4s")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04yj4"]
+atlas = ExtResource("2_73y4s")
+region = Rect2(288, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dowwf"]
+atlas = ExtResource("2_73y4s")
+region = Rect2(336, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1qwp3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxacc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym86q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o0gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71dcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87yys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scunn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkuon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04yj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dowwf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0pc3"]
+size = Vector2(18, 5)
+
+[node name="Fish" type="CharacterBody2D" unique_id=69548390 node_paths=PackedStringArray("movement_component", "visuals_component")]
+z_index = 1
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_0xdpr")
+movement_component = NodePath("MovementComponent")
+visuals_component = NodePath("VisualsComponent")
+fishing_config = ExtResource("2_71dcr")
+
+[node name="FishSprite" type="AnimatedSprite2D" parent="." unique_id=341686494]
+unique_name_in_owner = true
+scale = Vector2(0.7803869, 0.7803869)
+sprite_frames = SubResource("SpriteFrames_1qwp3")
+autoplay = "default"
+
+[node name="FishCollision" type="CollisionShape2D" parent="." unique_id=502182990]
+position = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_a0pc3")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1380834197]
+script = ExtResource("3_ym86q")
+movement_config = ExtResource("5_87yys")
+upgrades = ExtResource("6_87yys")
+
+[node name="VisualsComponent" type="Node" parent="." unique_id=872419871 node_paths=PackedStringArray("sprite")]
+script = ExtResource("4_1o0gn")
+sprite = NodePath("../FishSprite")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1459822460]
+rect = Rect2(-8, -5, 19, 11)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

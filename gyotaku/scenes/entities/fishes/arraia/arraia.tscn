@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://cshlrv7ow3bj4"]
+
+[ext_resource type="PackedScene" uid="uid://cgb7ob0db0t1f" path="res://scenes/entities/fishes/fish.tscn" id="1_cok0a"]
+[ext_resource type="Resource" uid="uid://c3cprag8y8o6t" path="res://resources/arraia/arraia_fishing_config.tres" id="2_phj26"]
+[ext_resource type="Texture2D" uid="uid://dj6j23lby6twa" path="res://assets/sprites/fishes/arraia/Arraia-Sheet.png" id="3_xlx27"]
+[ext_resource type="Resource" uid="uid://l2epnmg8qhwl" path="res://resources/arraia/arraia_movement_config.tres" id="4_kt8f1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0tl6"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(0, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1yfd"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(64, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtpgv"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(128, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvseb"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(192, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fsg4"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(256, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6v14"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(320, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqx26"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(384, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl7e6"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(448, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b730t"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(512, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg17t"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(576, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p17b0"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(640, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jl2k"]
+atlas = ExtResource("3_xlx27")
+region = Rect2(704, 48, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fbtw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0tl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1yfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtpgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvseb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fsg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6v14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqx26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl7e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b730t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg17t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p17b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jl2k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Arraia" unique_id=69548390 instance=ExtResource("1_cok0a")]
+fishing_config = ExtResource("2_phj26")
+catalog_id = "arraia"
+
+[node name="FishSprite" parent="." index="0" unique_id=341686494]
+sprite_frames = SubResource("SpriteFrames_fbtw5")
+frame_progress = 0.20888323
+
+[node name="FishCollision" parent="." index="1" unique_id=502182990]
+position = Vector2(-4, -1)
+
+[node name="MovementComponent" parent="." index="2" unique_id=1380834197]
+movement_config = ExtResource("4_kt8f1")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="4" unique_id=1459822460]
+position = Vector2(8, 0)
+rect = Rect2(-25, -9, 42, 13)

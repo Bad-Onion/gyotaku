@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FishEntry" format=3 uid="uid://buvfstajr5grk"]
+
+[ext_resource type="Script" uid="uid://dnwsws0us2gn1" path="res://core/entries/fish_entry.gd" id="1_86dvl"]
+
+[resource]
+script = ExtResource("1_86dvl")
+id = "gurukun"
+fish_name = "Gurukun"
+description = "Um peixe tropical colorido muito ágil. É o símbolo de Okinawa e fica lindo em carimbos de papel de arroz."
+metadata/_custom_type_script = "uid://dnwsws0us2gn1"

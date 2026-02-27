@@ -1,0 +1,118 @@
+class_name FishingHook
+extends Area2D
+
+
+signal water_entered
+signal fish_hooked(fish: Fish)
+signal fishing_started
+signal fishing_ended
+
+const MONITORING := "monitoring"
+
+@export var upgrades: FishingUpgrades
+
+@export var sink_speed: float = 150.0
+@export var max_y_limit: float = 500.0
+@export var water_level_y: float = 350.0
+@export var max_interested_fishes: int = 3
+
+var is_sinking: bool = false
+var hooked_fish: Fish = null
+var _interested_fishes: Array[Fish] = []
+var _has_entered_water: bool = false
+
+
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+
+	set_physics_process(false)
+	set_deferred(MONITORING, false)
+	hide()
+
+
+func _physics_process(delta: float) -> void:
+	if is_sinking:
+		global_position.y += sink_speed * delta
+
+		if not _has_entered_water and global_position.y >= water_level_y:
+			_has_entered_water = true
+			water_entered.emit()
+
+		var current_max_y := max_y_limit
+		if upgrades:
+			current_max_y *= upgrades.hook_depth_multiplier
+
+		if global_position.y >= current_max_y:
+			global_position.y = current_max_y
+			stop_sinking()
+
+	elif hooked_fish != null and is_instance_valid(hooked_fish):
+		global_position = hooked_fish.global_position
+
+
+func stop_sinking() -> void:
+	is_sinking = false
+
+
+func request_interest(fish: Fish) -> bool:
+	_interested_fishes = _interested_fishes.filter(func(f): return is_instance_valid(f))
+
+	if _interested_fishes.has(fish):
+		return true
+
+	if _interested_fishes.size() < max_interested_fishes:
+		_interested_fishes.append(fish)
+		return true
+
+	return false
+
+
+func remove_interest(fish: Fish) -> void:
+	_interested_fishes.erase(fish)
+
+
+func cast_line(start_position: Vector2) -> void:
+	global_position = start_position
+	show()
+	set_deferred(MONITORING, true)
+	is_sinking = true
+	_has_entered_water = false
+	set_physics_process(true)
+	fishing_started.emit()
+
+	if not is_in_group(NodeGroups.BAIT_GROUP):
+		add_to_group(NodeGroups.BAIT_GROUP)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if is_sinking:
+		return
+
+	if body is Fish:
+		var fish := body as Fish
+
+		if not fish.is_hooked:
+			stop_sinking()
+			hooked_fish = fish
+			fish.hook()
+			fish_hooked.emit(fish)
+
+			_interested_fishes.clear()
+			set_deferred(MONITORING, false)
+
+			if is_in_group(NodeGroups.BAIT_GROUP):
+				remove_from_group(NodeGroups.BAIT_GROUP)
+
+
+func reset() -> void:
+	stop_sinking()
+	hooked_fish = null
+	_interested_fishes.clear()
+	hide()
+	set_deferred(MONITORING, false)
+	set_physics_process(false)
+	fishing_ended.emit()
+
+	if is_in_group(NodeGroups.BAIT_GROUP):
+		remove_from_group(NodeGroups.BAIT_GROUP)
+

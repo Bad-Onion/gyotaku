@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bpfpb7waly5i3"]
 
 [ext_resource type="Script" uid="uid://b8g5j68aiaosf" path="res://scenes/ui/pause_menu/pause_menu.gd" id="1_kgchh"]
+[ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="2_2mh1u"]
+[ext_resource type="PackedScene" uid="uid://cv55e06k5bift" path="res://scenes/ui/coin_hud/coin_hud.tscn" id="2_rbnsh"]
+[ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="3_xtvdp"]
+[ext_resource type="AudioStream" uid="uid://dunuu2nmmuw67" path="res://assets/sfx/pressbutton.wav" id="4_qko8k"]
 
 [node name="PauseMenu" type="Control" unique_id=889904353]
 process_mode = 3
@@ -40,7 +44,22 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Continuar"
 
+[node name="ButtonSounds" type="Node" parent="ButtonsContainer/ResumeButton" unique_id=333889055]
+script = ExtResource("2_2mh1u")
+hover_sfx = ExtResource("3_xtvdp")
+press_sfx = ExtResource("4_qko8k")
+
 [node name="QuitButton" type="Button" parent="ButtonsContainer" unique_id=72564787]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Voltar Para o Menu"
+
+[node name="ButtonSounds" type="Node" parent="ButtonsContainer/QuitButton" unique_id=770854402]
+script = ExtResource("2_2mh1u")
+hover_sfx = ExtResource("3_xtvdp")
+press_sfx = ExtResource("4_qko8k")
+
+[node name="CoinHUD" parent="." unique_id=2050263438 instance=ExtResource("2_rbnsh")]
+unique_name_in_owner = true
+layout_mode = 0
+is_always_visible = true

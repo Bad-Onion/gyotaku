@@ -14,4 +14,8 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
+	Transicao.tocar_som_click()
+	print("Tipo do peixe catalogo: " + peixe_catalogo.tipo)
+	Global.peixe_a_carimbar = peixe_catalogo.tipo
+	print("Peixe a carimbar: " + Global.peixe_a_carimbar)
 	stamp_requested.emit(peixe_catalogo.tipo)

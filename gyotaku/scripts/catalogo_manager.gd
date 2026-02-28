@@ -116,6 +116,7 @@ func alternar_interface(tem_peixe: bool):
 
 func trocar_peixe_na_tela(novo_tipo: String):
 	tipo = novo_tipo
+	print("Peixe do catalogo agora: " + tipo)
 	if tipo == "eel_demon":
 		peixe.global_position.x = 280
 		if peixe.material:
@@ -169,10 +170,16 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_visibility_changed() -> void:
 	if visible:
 		var primeiro_peixe_disponivel = atualizar_botoes_de_selecao()
-
+		
 		if primeiro_peixe_disponivel != "":
-			alternar_interface(true)
-			trocar_peixe_na_tela(primeiro_peixe_disponivel)
+			if Global.ultimo_peixe_carimbado != "":
+				print("Ultimo peixe carimbado catalogo: " + Global.ultimo_peixe_carimbado)
+				alternar_interface(true)
+				trocar_peixe_na_tela(Global.ultimo_peixe_carimbado)
+			else:
+				print("Ultimo peixe disponivel: " + primeiro_peixe_disponivel)
+				alternar_interface(true)
+				trocar_peixe_na_tela(primeiro_peixe_disponivel)
 		else:
 			alternar_interface(false)
 

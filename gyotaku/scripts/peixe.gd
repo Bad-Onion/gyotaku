@@ -18,6 +18,8 @@ func inicializar(novo_tipo: String) -> void:
 	tipo = novo_tipo
 	sprite.texture = retornar_tipo()
 	sombra.texture = retornar_tipo()
+	
+	imagem.redefinir_imagem()
 
 
 func retornar_tipo() -> Texture2D:
@@ -49,4 +51,3 @@ func salvar_imagem() -> void:
 		if FileAccess.file_exists(file_path):
 			DirAccess.remove_absolute(file_path)
 			print("Carimbo apagado do HD!")
-

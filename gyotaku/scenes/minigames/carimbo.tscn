@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://beeo85ftp1hn"]
 
 [ext_resource type="Script" uid="uid://byw66ndwd0aja" path="res://scripts/carimbo.gd" id="1_af0jy"]
-[ext_resource type="Script" path="res://scripts/cores_de_tinta.gd" id="2_5dofo"]
+[ext_resource type="Script" uid="uid://cixtt81vnpfk1" path="res://scripts/cores_de_tinta.gd" id="2_5dofo"]
 [ext_resource type="Texture2D" uid="uid://bbk71vwxpksn7" path="res://assets/background/CenaCarimbo.png" id="2_fqe24"]
 [ext_resource type="PackedScene" uid="uid://d28xw0r1f3qul" path="res://scenes/peixes/peixe.tscn" id="2_xwurr"]
 [ext_resource type="PackedScene" uid="uid://dksa5sfa1b54q" path="res://scenes/cursor/cursor.tscn" id="5_fxhco"]
-[ext_resource type="Script" path="res://scripts/redefinir.gd" id="5_i8l8x"]
+[ext_resource type="Script" uid="uid://dhcf3dxcscjkt" path="res://scripts/redefinir.gd" id="5_i8l8x"]
 [ext_resource type="FontFile" uid="uid://c02fyhip3telr" path="res://assets/fontes/KiwiSoda.ttf" id="6_867ab"]
 [ext_resource type="Script" uid="uid://cfcg84d4obhdb" path="res://scripts/catalogo.gd" id="6_i8l8x"]
-[ext_resource type="Script" path="res://scripts/pinceis.gd" id="6_x33oj"]
+[ext_resource type="Script" uid="uid://doc1snuosefne" path="res://scripts/pinceis.gd" id="6_x33oj"]
 [ext_resource type="StyleBox" uid="uid://odrg3nh1h5o1" path="res://assets/background/nine_botao.tres" id="7_y7dd7"]
 [ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="9_bmbhl"]
 [ext_resource type="PackedScene" uid="uid://v74jwe10ydnv" path="res://scenes/SaveManager.tscn" id="9_x33oj"]
@@ -213,6 +213,10 @@ press_sfx = ExtResource("13_10xsf")
 position = Vector2(9, 12)
 
 [node name="SaveManager" parent="." unique_id=1434010696 instance=ExtResource("9_x33oj")]
+
+[node name="CarimboSfx" type="AudioStreamPlayer" parent="." unique_id=821634311]
+stream = ExtResource("13_10xsf")
+volume_db = 4.0
 
 [connection signal="pressed" from="GridContainer2/Redefinir" to="GridContainer2/Redefinir" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer2/Salvar" to="GridContainer2/Salvar" method="_on_pressed"]

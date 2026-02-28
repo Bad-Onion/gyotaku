@@ -218,5 +218,10 @@ position = Vector2(9, 12)
 stream = ExtResource("13_10xsf")
 volume_db = 4.0
 
+[node name="Timer" type="Timer" parent="." unique_id=2117327622]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="pressed" from="GridContainer2/Redefinir" to="GridContainer2/Redefinir" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer2/Salvar" to="GridContainer2/Salvar" method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="GridContainer2/Salvar" method="_on_timer_timeout"]

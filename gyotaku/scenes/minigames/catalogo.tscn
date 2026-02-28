@@ -310,6 +310,10 @@ text = "VOCÊ AINDA NÃO PESCOU NENHUM PEIXE!!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Timer" type="Timer" parent="." unique_id=130137216]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="pressed" from="Peixes/gurukun" to="Peixes/gurukun" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/arraia" to="Peixes/arraia" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/eel_demon" to="Peixes/eel_demon" method="_on_pressed"]
@@ -318,3 +322,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="Anterior" to="." method="_on_anterior_pressed"]
 [connection signal="pressed" from="Carimbar" to="Carimbar" method="_on_pressed"]
 [connection signal="text_changed" from="NomeDoPeixe" to="." method="_on_nome_do_peixe_text_changed"]
+[connection signal="timeout" from="Timer" to="Carimbar" method="_on_timer_timeout"]

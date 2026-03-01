@@ -22,6 +22,8 @@ Aqui, você tem liberdade criativa para personalizar suas capturas: após pescar
 
 ## Controles e Mecânicas
 
+- Esc: Pausa
+
 O jogo é dividido em duas etapas principais:
 
 ### 1. Pescaria e Sistema de Tensão (Core Gameplay)
@@ -48,8 +50,6 @@ A pescaria exige estratégia e reflexo. O peixe se move apenas horizontalmente, 
 ### 3. Objetivo Final (Fim de Jogo)
 A sua jornada de pesca e arte é concluída assim que você conseguir pescar, pintar e registrar os **5 tipos diferentes de peixes** disponíveis no jogo. Preencha todo o seu catálogo para vencer!
 
-- Esc: Pausa
-
 ## Como Jogar
 
 ## Ferramentas
@@ -61,6 +61,7 @@ A sua jornada de pesca e arte é concluída assim que você conseguir pescar, pi
 ## Créditos de assets externos
 
 - Fonte Kiwi Soda: https://fontenddev.com/fonts/kiwi-soda/
+
 
 
 

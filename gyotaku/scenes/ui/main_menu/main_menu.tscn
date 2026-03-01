@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvdwissx0fkdy"]
 
 [ext_resource type="Script" uid="uid://bl3o6lbxxkpg2" path="res://scenes/ui/main_menu/main_menu.gd" id="1_1ch07"]
+[ext_resource type="Texture2D" uid="uid://dnswfsbddml6" path="res://assets/background/Menuteste.png" id="2_52x6y"]
 [ext_resource type="AudioStream" uid="uid://cyuftuyp5o13a" path="res://assets/audio/menu.ogg" id="2_e8t4i"]
 [ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="2_r70wa"]
 [ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="3_52x6y"]
@@ -25,6 +26,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.29907376, 0.48039544, 0.9300996, 1)
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=710152805]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_52x6y")
+
 [node name="ButtonsContainer" type="VBoxContainer" parent="." unique_id=2009054954]
 layout_mode = 1
 anchors_preset = 8
@@ -32,10 +39,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -36.0
+offset_top = -21.0
+offset_right = 36.0
+offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
 

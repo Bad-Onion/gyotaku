@@ -4,7 +4,9 @@ extends Control
 signal stamp_finished
 
 @onready var peixe: Node2D = %Peixe
+@onready var imagem: Sprite2D = %Peixe/Sprite/Imagem
 @onready var finalize_button: Button = %Salvar
+@onready var cores: GridContainer = $Cores
 
 const cursor = preload("uid://coru6fhwvtq6i")
 @onready var no_cursor: Node2D = $Cursor
@@ -17,6 +19,8 @@ func _ready() -> void:
 
 	if finalize_button:
 		finalize_button.stamp_finished.connect(func(): stamp_finished.emit())
+	
+	imagem.paint_color = cores.get_child(0).color
 
 func _process(delta: float) -> void:
 	if visible and !pause_menu.visible:

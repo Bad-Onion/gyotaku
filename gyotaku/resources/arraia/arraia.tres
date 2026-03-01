@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_mefn1")
 id = "arraia"
-fish_name = "Arraia Pintada"
-description = "Majestosa e gigante. Desliza pela água como se estivesse voando. Cuidado com o ferrão!"
+fish_name = "Arraia-ocelada"
+description = "Ela desliza pela água como se estivesse voando. Esses ocelos dela olham no fundo da alma de qualquer ser que olhe para ela, até na minha. Seu veneno pode ser letal. Por via das dúvidas, melhor nem chegar perto."
 metadata/_custom_type_script = "uid://dnwsws0us2gn1"

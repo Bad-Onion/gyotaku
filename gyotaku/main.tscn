@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://y743pjc6d1ba" path="res://core/game_states/pause_state.gd" id="7_272bh"]
 [ext_resource type="Script" uid="uid://bbasgoop7b4k5" path="res://core/game_states/market_state.gd" id="9_4c57u"]
 [ext_resource type="Resource" uid="uid://cgbak6mlrs4ic" path="res://resources/fishing_upgrades/player_fishing_upgrades.tres" id="10_4c57u"]
-[ext_resource type="Script" path="res://core/economy_system.gd" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://bgs43pjot25cq" path="res://core/economy_system.gd" id="11_efxa6"]
 [ext_resource type="Script" uid="uid://dmiot77hxig6c" path="res://core/game_states/catalog_state.gd" id="13_2cqfq"]
 [ext_resource type="Script" uid="uid://de2kjg36ieaew" path="res://core/save_system.gd" id="13_ycdy4"]
 [ext_resource type="Script" uid="uid://4lahn2557g6f" path="res://core/game_states/stamp_state.gd" id="14_074og"]

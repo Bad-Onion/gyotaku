@@ -6,8 +6,9 @@
 [ext_resource type="Resource" uid="uid://llfn0wydagbd" path="res://resources/eel_demon/eel_demon.tres" id="3_dmewn"]
 [ext_resource type="Resource" uid="uid://dw1ed7qjxwany" path="res://resources/ghost_fish/ghost_fish.tres" id="4_02th8"]
 [ext_resource type="Resource" uid="uid://buvfstajr5grk" path="res://resources/gurukun/gurukun.tres" id="5_cnesd"]
+[ext_resource type="Resource" uid="uid://cmkwyw7cvdomv" path="res://resources/cururu/cururu.tres" id="6_dmewn"]
 
 [resource]
 script = ExtResource("2_2sl4h")
-entries = Array[ExtResource("1_txlfv")]([ExtResource("2_0wuk0"), ExtResource("3_dmewn"), ExtResource("4_02th8"), ExtResource("5_cnesd")])
+entries = Array[ExtResource("1_txlfv")]([ExtResource("2_0wuk0"), ExtResource("3_dmewn"), ExtResource("4_02th8"), ExtResource("5_cnesd"), ExtResource("6_dmewn")])
 metadata/_custom_type_script = "uid://dutkay3jd44wf"

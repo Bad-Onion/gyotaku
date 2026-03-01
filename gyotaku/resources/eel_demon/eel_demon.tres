@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_syea5")
 id = "eel_demon"
-fish_name = "Enguia Demonio"
-description = "Muito muito grande. Quase nem coube no catálogo"
+fish_name = "Moreia-diabo"
+description = "Acho que entendi o porquê do nome. Tem o corpo e a rapidez de uma moreia, misturado com a antena e os dentes de um peixe-diabo. É tão grande que nem cabe direito no catálogo."
 metadata/_custom_type_script = "uid://dnwsws0us2gn1"

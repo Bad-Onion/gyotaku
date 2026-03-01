@@ -6,6 +6,11 @@
 script = ExtResource("1_46eao")
 upgraded_hook_depth = 1.2
 upgraded_hook_depth_2 = 1.5
+reel_cost = 50
+hook_depth_cost = 30
+hook_depth_cost_2 = 100
+line_strength_cost = 30
+bait_cost = 20
 hook_depth_name_2 = "Tamanho da Linha 2"
 reel_description = "Aumenta força que você puxa os peixes"
 hook_depth_description = "Aumenta o quão mais fundo o anzol vai"

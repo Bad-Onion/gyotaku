@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FishEntry" format=3 uid="uid://cmkwyw7cvdomv"]
+
+[ext_resource type="Script" uid="uid://dnwsws0us2gn1" path="res://core/entries/fish_entry.gd" id="1_2anxd"]
+
+[resource]
+script = ExtResource("1_2anxd")
+id = "cururu"
+fish_name = "Peixe Cururu"
+description = "É um peixe que parece muito com um sapo cururu. Curiosidade: \"cururu\" também significa sapo, então o nome do sapo cururu significa: sapo sapo."
+metadata/_custom_type_script = "uid://dnwsws0us2gn1"

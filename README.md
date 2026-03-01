@@ -45,6 +45,9 @@ A pescaria exige estratégia e reflexo. O peixe se move apenas horizontalmente, 
 * **Ferramentas:** Use o mouse para selecionar a cor desejada e o tamanho do pincel.
 * **Objetivo:** Pinte o peixe que você acabou de pescar. Assim que finalizar sua arte, clique no botão **"Carimbar"** para salvar a pintura no seu catálogo.
 
+### 3. Objetivo Final (Fim de Jogo)
+A sua jornada de pesca e arte é concluída assim que você conseguir pescar, pintar e registrar os **5 tipos diferentes de peixes** disponíveis no jogo. Preencha todo o seu catálogo para vencer!
+
 - Esc: Pausa
 
 ## Como Jogar
@@ -58,6 +61,7 @@ A pescaria exige estratégia e reflexo. O peixe se move apenas horizontalmente, 
 ## Créditos de assets externos
 
 - Fonte Kiwi Soda: https://fontenddev.com/fonts/kiwi-soda/
+
 
 
 

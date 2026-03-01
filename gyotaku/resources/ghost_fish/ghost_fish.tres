@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_ongmb")
 id = "ghost_fish"
-fish_name = "Peixe Fantasma"
-description = "Buuuuuuuu"
+fish_name = "Peixe-fantasma"
+description = "Às vezes é difícil até para predadores encontrar ele. Mas, transparência não é invisibilidade, então ossos e órgãos internos ainda são totalmente visíveis."
 metadata/_custom_type_script = "uid://dnwsws0us2gn1"

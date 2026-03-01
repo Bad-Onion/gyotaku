@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FishingConfig" format=3 uid="uid://ba3nqh4w5jcwx"]
+
+[ext_resource type="Script" uid="uid://c50nau0nqic1d" path="res://scenes/entities/fishes/components/fishing_config.gd" id="1_1vcn7"]
+
+[resource]
+script = ExtResource("1_1vcn7")
+fish_struggle_power = 75.0
+coin_reward = 15
+metadata/_custom_type_script = "uid://c50nau0nqic1d"

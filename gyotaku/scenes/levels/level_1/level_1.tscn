@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://bokq5kklafrbo" path="res://core/fishing_audio_manager.gd" id="23_yivqu"]
 [ext_resource type="AudioStream" uid="uid://btt4lhi2jxc6b" path="res://assets/sfx/spinning_reel_slow.wav" id="24_g76na"]
 [ext_resource type="PackedScene" uid="uid://cshlrv7ow3bj4" path="res://scenes/entities/fishes/arraia/arraia.tscn" id="24_vva6n"]
+[ext_resource type="PackedScene" uid="uid://hxvux66q2itm" path="res://scenes/entities/fishes/cururu/cururu.tscn" id="25_2avwm"]
 [ext_resource type="AudioStream" uid="uid://c8126jtqma1i5" path="res://assets/sfx/spinning_reel_normal.wav" id="25_658j2"]
 [ext_resource type="PackedScene" uid="uid://b8bsagrbkjjak" path="res://scenes/entities/fishes/ghost_fish/ghost_fish.tscn" id="25_q7p11"]
 [ext_resource type="AudioStream" uid="uid://pthos621k23s" path="res://assets/sfx/spinning_reel_fast.wav" id="26_7nyn5"]
@@ -130,6 +131,13 @@ script = ExtResource("22_1fq2y")
 fish_scene = ExtResource("23_7nyn5")
 spawn_weight = 4.0
 min_depth = 750.0
+metadata/_custom_type_script = "uid://14b38vmfp2df"
+
+[sub_resource type="Resource" id="Resource_qy6tp"]
+script = ExtResource("22_1fq2y")
+fish_scene = ExtResource("25_2avwm")
+spawn_weight = 6.0
+min_depth = 600.0
 metadata/_custom_type_script = "uid://14b38vmfp2df"
 
 [node name="Level1" type="Node2D" unique_id=1565577455 node_paths=PackedStringArray("main_camera", "fish_chest_marker", "fishing_mechanic_system", "fishing_hook")]
@@ -248,7 +256,7 @@ position = Vector2(320, 451)
 position = Vector2(320, 550)
 script = ExtResource("4_58uyj")
 hook_reference = NodePath("../../FishingHook/FishingHook")
-spawn_pool = Array[ExtResource("22_1fq2y")]([SubResource("Resource_vm2d2"), SubResource("Resource_hws8l"), SubResource("Resource_vva6n"), SubResource("Resource_dycye")])
+spawn_pool = Array[ExtResource("22_1fq2y")]([SubResource("Resource_vm2d2"), SubResource("Resource_hws8l"), SubResource("Resource_vva6n"), SubResource("Resource_dycye"), SubResource("Resource_qy6tp")])
 spawn_area_size = Vector2(560, 200)
 fishes_container = NodePath("../FishesContainer")
 

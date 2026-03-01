@@ -121,7 +121,7 @@ func trocar_peixe_na_tela(novo_tipo: String):
 		peixe.global_position.x = 280
 		if peixe.material:
 			peixe.material.set_shader_parameter("ativar_fade", true)
-	elif tipo == "arraia" or tipo == "ghost_fish":
+	elif tipo == "arraia" or tipo == "ghost_fish" or tipo == "cururu":
 		peixe.global_position.x = 210
 		if peixe.material:
 			peixe.material.set_shader_parameter("ativar_fade", false)

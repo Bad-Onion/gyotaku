@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bllyqiyhkaamq" path="res://assets/peixes/Fantasma/Fantasma pequeno.png" id="10_akqbu"]
 [ext_resource type="StyleBox" uid="uid://odrg3nh1h5o1" path="res://assets/background/nine_botao.tres" id="10_bx3c7"]
 [ext_resource type="FontFile" uid="uid://c02fyhip3telr" path="res://assets/fontes/KiwiSoda.ttf" id="10_i0u0o"]
+[ext_resource type="Texture2D" uid="uid://cjbnys18fysa" path="res://assets/peixes/Cururu/Cururu pequeno.png" id="10_y2l5f"]
 [ext_resource type="Script" uid="uid://73bmd37d57fl" path="res://scripts/services/button_audio_component.gd" id="15_y2l5f"]
 [ext_resource type="AudioStream" uid="uid://4xww4dcxdgki" path="res://assets/sfx/changebutton.wav" id="16_xk605"]
 [ext_resource type="AudioStream" uid="uid://dunuu2nmmuw67" path="res://assets/sfx/pressbutton.wav" id="17_d8uo0"]
@@ -126,6 +127,15 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_0rlum")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
 icon = ExtResource("8_5uvc8")
+
+[node name="cururu" type="Button" parent="Peixes" unique_id=546837134]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.41568628)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0rlum")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggxav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_akqbu")
+icon = ExtResource("10_y2l5f")
 
 [node name="eel_demon" type="Button" parent="Peixes" unique_id=1346269186]
 custom_minimum_size = Vector2(48, 48)
@@ -316,6 +326,7 @@ one_shot = true
 
 [connection signal="pressed" from="Peixes/gurukun" to="Peixes/gurukun" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/arraia" to="Peixes/arraia" method="_on_pressed"]
+[connection signal="pressed" from="Peixes/cururu" to="Peixes/cururu" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/eel_demon" to="Peixes/eel_demon" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/ghost_fish" to="Peixes/ghost_fish" method="_on_pressed"]
 [connection signal="pressed" from="Proximo" to="." method="_on_proximo_pressed"]

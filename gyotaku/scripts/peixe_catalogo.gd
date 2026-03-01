@@ -9,6 +9,7 @@ const GURUKUN = preload("uid://dk8bybnxddsr")
 const RAYA = preload("uid://looocptmvug0")
 const ENGUIA_DEMONIO = preload("uid://cx7h8s5lxtmmw")
 const PEIXE_FANTASMA = preload("uid://drxxqsnpsgngb")
+const CURURU = preload("uid://4mfjpe10qela")
 
 
 func atualizar_peixe(novo_tipo: String) -> void:
@@ -36,6 +37,8 @@ func retornar_tipo():
 			return ENGUIA_DEMONIO
 		"ghost_fish":
 			return PEIXE_FANTASMA
+		"cururu":
+			return CURURU
 
 func pegar_pintura(nome_do_peixe: String) -> Texture2D:
 	var caminho_do_arquivo = "user://" + nome_do_peixe + ".png"

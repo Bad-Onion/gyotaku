@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_l1lfm")
 rod_resistance_multiplier = 0.8
-coin_reward = 20
+coin_reward = 30
 metadata/_custom_type_script = "uid://c50nau0nqic1d"

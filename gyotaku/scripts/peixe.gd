@@ -12,6 +12,7 @@ const GURUKUN = preload("uid://dt4rrortstg0f")
 const RAYA = preload("uid://cvk6cnuie07k1")
 const ENGUIA_DEMONIO = preload("uid://cruwc3xutb6wr")
 const PEIXE_FANTASMA = preload("uid://dmfo171nmdaqw")
+const CURURU = preload("uid://b6rhikan3icll")
 
 
 func inicializar(novo_tipo: String) -> void:
@@ -32,6 +33,8 @@ func retornar_tipo() -> Texture2D:
 			return ENGUIA_DEMONIO
 		"ghost_fish":
 			return PEIXE_FANTASMA
+		"cururu":
+			return CURURU
 
 	return null
 

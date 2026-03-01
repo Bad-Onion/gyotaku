@@ -29,3 +29,5 @@ volume_db = -5.0
 [node name="SfxClick" type="AudioStreamPlayer" parent="." unique_id=1131308372]
 stream = ExtResource("5_i7ive")
 volume_db = -5.0
+
+[node name="MusicaFundo" type="AudioStreamPlayer" parent="." unique_id=1113441961]

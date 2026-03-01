@@ -1,6 +1,7 @@
 class_name SharedUIMusic
 extends AudioStreamPlayer
 
+const CARIMBO = preload("uid://cv044wmmpvgig")
 
 @export var state_machine: Node
 
@@ -12,9 +13,7 @@ func _ready() -> void:
 
 func _on_state_changed(new_state_id: int) -> void:
 	var needs_music = (new_state_id == GameStates.State.CATALOG or new_state_id == GameStates.State.STAMP)
-
 	if needs_music:
-		if not playing:
-			play()
+		Transicao.tocar_musica(CARIMBO)
 	else:
-		stop()
+		Transicao.parar_musica()

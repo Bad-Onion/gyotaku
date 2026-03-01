@@ -4,4 +4,12 @@
 
 [resource]
 script = ExtResource("1_46eao")
+upgraded_hook_depth = 1.2
+upgraded_hook_depth_2 = 1.5
+hook_depth_name_2 = "Tamanho da Linha 2"
+reel_description = "Aumenta força que você puxa os peixes"
+hook_depth_description = "Aumenta o quão mais fundo o anzol vai"
+hook_depth_description_2 = "Aumenta o quão mais fundo o anzol vai"
+line_strength_description = "Deixa mais dificil dos peixes quebrarem a linha"
+bait_description = "Atrai peixes de raridade maior"
 metadata/_custom_type_script = "uid://c2vgveipfffvi"

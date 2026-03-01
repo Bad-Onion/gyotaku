@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bqj1dwpchdo6j" path="res://assets/background/CenaCatalogo.png" id="2_8wrta"]
 [ext_resource type="Resource" uid="uid://4q1g20kx4k1o" path="res://resources/main_catalog.tres" id="2_akqbu"]
 [ext_resource type="Material" uid="uid://cy6ns2hik1l2k" path="res://shader/shader_papel_decente.tres" id="3_3aiqf"]
-[ext_resource type="Script" path="res://scripts/peixes_seletor.gd" id="4_747k7"]
+[ext_resource type="Script" uid="uid://0bnbjp2ba4iu" path="res://scripts/peixes_seletor.gd" id="4_747k7"]
 [ext_resource type="Texture2D" uid="uid://looocptmvug0" path="res://assets/peixes/Raya sem contornos p%b.png" id="5_bgowf"]
 [ext_resource type="Script" uid="uid://bis58b30cdteo" path="res://scripts/carimbar.gd" id="5_uq8ag"]
 [ext_resource type="Texture2D" uid="uid://dwqi2tr1fbc4i" path="res://assets/peixes/peixetest.png" id="7_k7br0"]
@@ -310,6 +310,10 @@ text = "VOCÊ AINDA NÃO PESCOU NENHUM PEIXE!!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Timer" type="Timer" parent="." unique_id=130137216]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="pressed" from="Peixes/gurukun" to="Peixes/gurukun" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/arraia" to="Peixes/arraia" method="_on_pressed"]
 [connection signal="pressed" from="Peixes/eel_demon" to="Peixes/eel_demon" method="_on_pressed"]
@@ -318,3 +322,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="Anterior" to="." method="_on_anterior_pressed"]
 [connection signal="pressed" from="Carimbar" to="Carimbar" method="_on_pressed"]
 [connection signal="text_changed" from="NomeDoPeixe" to="." method="_on_nome_do_peixe_text_changed"]
+[connection signal="timeout" from="Timer" to="Carimbar" method="_on_timer_timeout"]

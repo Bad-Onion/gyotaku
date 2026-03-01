@@ -5,6 +5,7 @@ signal back_requested
 signal reel_upgrade_requested
 signal line_strength_upgrade_requested
 signal line_size_upgrade_requested
+signal line_size_upgrade_requested_2
 signal bait_upgrade_requested
 
 
@@ -17,6 +18,7 @@ signal bait_upgrade_requested
 @onready var reel_btn: TextureButton = %SpinningReelUpgrade
 @onready var line_strength_btn: TextureButton = %LineStrengthUpgrade
 @onready var line_size_btn: TextureButton = %LineSizeUpgrade
+@onready var line_size_btn_2: TextureButton = %LineSizeUpgrade2
 @onready var bait_btn: TextureButton = %FoodBaitUpgrade
 @onready var coin_hud: CoinHUD = %CoinHUD
 
@@ -42,12 +44,14 @@ func _ready() -> void:
 	reel_btn.pressed.connect(func(): reel_upgrade_requested.emit())
 	line_strength_btn.pressed.connect(func(): line_strength_upgrade_requested.emit())
 	line_size_btn.pressed.connect(func(): line_size_upgrade_requested.emit())
+	line_size_btn_2.pressed.connect(func(): line_size_upgrade_requested_2.emit())
 	bait_btn.pressed.connect(func(): bait_upgrade_requested.emit())
 
 	# Hover
 	reel_btn.mouse_entered.connect(_on_hover_reel)
 	line_strength_btn.mouse_entered.connect(_on_hover_line_strength)
 	line_size_btn.mouse_entered.connect(_on_hover_line_size)
+	line_size_btn_2.mouse_entered.connect(_on_hover_line_size_2)
 	bait_btn.mouse_entered.connect(_on_hover_bait)
 
 	# Exit
@@ -55,6 +59,7 @@ func _ready() -> void:
 	reel_btn.mouse_exited.connect(clear_func)
 	line_strength_btn.mouse_exited.connect(clear_func)
 	line_size_btn.mouse_exited.connect(clear_func)
+	line_size_btn_2.mouse_exited.connect(clear_func)
 	bait_btn.mouse_exited.connect(clear_func)
 
 	_clear_info()
@@ -111,6 +116,10 @@ func _on_hover_line_size() -> void:
 	_show_info(upgrades.hook_depth_name, upgrades.hook_depth_description, upgrades.hook_depth_cost)
 
 
+func _on_hover_line_size_2() -> void:
+	_show_info(upgrades.hook_depth_name_2, upgrades.hook_depth_description_2, upgrades.hook_depth_cost_2)
+
+
 func _on_hover_bait() -> void:
 	_show_info(upgrades.bait_name, upgrades.bait_description, upgrades.bait_cost)
 
@@ -131,7 +140,8 @@ func _update_market_display() -> void:
 	if upgrades:
 		reel_btn.visible = not upgrades.is_reel_bought
 		line_strength_btn.visible = not upgrades.is_line_strength_bought
-		line_size_btn.visible = not upgrades.is_hook_depth_bought
+		line_size_btn.visible = not upgrades.is_hook_depth_bought and not upgrades.is_hook_depth_bought_2
+		line_size_btn_2.visible = not upgrades.is_hook_depth_bought_2
 		bait_btn.visible = not upgrades.is_bait_bought
 
 		_clear_info()

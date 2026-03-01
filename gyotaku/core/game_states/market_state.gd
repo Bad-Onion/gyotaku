@@ -15,6 +15,7 @@ func _ready() -> void:
 		market_ui.reel_upgrade_requested.connect(_on_reel_upgraded)
 		market_ui.line_strength_upgrade_requested.connect(_on_line_strength_upgraded)
 		market_ui.line_size_upgrade_requested.connect(_on_line_size_upgraded)
+		market_ui.line_size_upgrade_requested_2.connect(_on_line_size_upgraded_2)
 		market_ui.bait_upgrade_requested.connect(_on_bait_upgraded)
 
 	var state_machine = get_parent()
@@ -80,6 +81,11 @@ func _on_line_strength_upgraded() -> void:
 func _on_line_size_upgraded() -> void:
 	if _try_purchase(upgrades.hook_depth_cost):
 		if upgrades: upgrades.upgrade_hook_depth()
+
+func _on_line_size_upgraded_2() -> void:
+	if upgrades.is_hook_depth_bought:
+		if _try_purchase(upgrades.hook_depth_cost_2):
+			if upgrades: upgrades.upgrade_hook_depth_2()
 
 
 func _on_bait_upgraded() -> void:

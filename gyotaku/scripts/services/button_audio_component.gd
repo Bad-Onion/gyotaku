@@ -25,7 +25,6 @@ func _on_mouse_entered() -> void:
 		_audio_player.stream = hover_sfx
 		_audio_player.play()
 
-
 func _on_pressed() -> void:
 	if press_sfx:
 		_audio_player.stream = press_sfx

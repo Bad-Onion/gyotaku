@@ -4,7 +4,9 @@ extends Button
 signal stamp_finished
 
 
+@onready var carimbo_sfx: AudioStreamPlayer = $"../../CarimboSfx"
 @onready var peixe: Node2D = $"../../Peixe"
+@onready var timer: Timer = $"../../Timer"
 
 
 func _ready() -> void:
@@ -15,6 +17,12 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
+	Global.ultimo_peixe_carimbado = peixe.tipo
+	print("Ultimo peixe carimbado: " + Global.ultimo_peixe_carimbado)
+	carimbo_sfx.play()
 	peixe.salvar_imagem()
+	Transicao.mudar_cena()
+	timer.start()
+	
+func _on_timer_timeout() -> void:
 	stamp_finished.emit()
-

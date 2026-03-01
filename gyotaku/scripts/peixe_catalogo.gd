@@ -13,6 +13,7 @@ const PEIXE_FANTASMA = preload("uid://drxxqsnpsgngb")
 
 func atualizar_peixe(novo_tipo: String) -> void:
 	tipo = novo_tipo
+	print("tipo peixe catalogo: " + tipo)
 
 	peixe.texture = retornar_tipo()
 

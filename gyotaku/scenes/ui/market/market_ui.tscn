@@ -51,9 +51,9 @@ texture_normal = ExtResource("2_2pdf6")
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 224.0
-offset_top = 111.0
+offset_top = 45.0
 offset_right = 304.0
-offset_bottom = 175.0
+offset_bottom = 109.0
 texture_normal = ExtResource("4_mqcme")
 
 [node name="LineSizeUpgrade" type="TextureButton" parent="UpgradesContainer" unique_id=429807092]
@@ -62,6 +62,15 @@ layout_mode = 0
 offset_left = 86.0
 offset_top = 103.0
 offset_right = 166.0
+offset_bottom = 167.0
+texture_normal = ExtResource("5_r4stw")
+
+[node name="LineSizeUpgrade2" type="TextureButton" parent="UpgradesContainer" unique_id=886485663]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 185.0
+offset_top = 103.0
+offset_right = 265.0
 offset_bottom = 167.0
 texture_normal = ExtResource("5_r4stw")
 
@@ -112,14 +121,14 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_left = 323.0
 offset_top = 21.0
-offset_right = 501.0
+offset_right = 553.0
 offset_bottom = 183.0
 
 [node name="NameLabel" type="Label" parent="InfoPanel" unique_id=890158419]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 11.0
-offset_right = 173.0
+offset_right = 221.0
 offset_bottom = 23.0
 
 [node name="DescriptionLabel" type="Label" parent="InfoPanel" unique_id=1995190988]
@@ -127,7 +136,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_left = 11.0
 offset_top = 32.0
-offset_right = 171.0
+offset_right = 219.0
 offset_bottom = 133.0
 autowrap_mode = 3
 
@@ -136,7 +145,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_left = 10.0
 offset_top = 134.0
-offset_right = 50.0
+offset_right = 89.0
 offset_bottom = 157.0
 
 [node name="PurchaseSFX" type="AudioStreamPlayer" parent="." unique_id=1403139070]

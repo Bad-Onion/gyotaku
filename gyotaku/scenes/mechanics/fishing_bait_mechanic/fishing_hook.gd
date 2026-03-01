@@ -115,4 +115,3 @@ func reset() -> void:
 
 	if is_in_group(NodeGroups.BAIT_GROUP):
 		remove_from_group(NodeGroups.BAIT_GROUP)
-

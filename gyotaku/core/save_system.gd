@@ -46,6 +46,7 @@ func save_game() -> void:
 			"is_reel_bought": upgrades.is_reel_bought if upgrades else false,
 			"is_line_strength_bought": upgrades.is_line_strength_bought if upgrades else false,
 			"is_hook_depth_bought": upgrades.is_hook_depth_bought if upgrades else false,
+			"is_hook_depth_bought_2": upgrades.is_hook_depth_bought_2 if upgrades else false,
 			"is_bait_bought": upgrades.is_bait_bought if upgrades else false
 		},
 		"catalog": catalog_data
@@ -95,6 +96,7 @@ func _apply_data(data: Dictionary) -> void:
 		upgrades.is_reel_bought = bool(up_data.get("is_reel_bought", false))
 		upgrades.is_line_strength_bought = bool(up_data.get("is_line_strength_bought", false))
 		upgrades.is_hook_depth_bought = bool(up_data.get("is_hook_depth_bought", false))
+		upgrades.is_hook_depth_bought_2 = bool(up_data.get("is_hook_depth_bought_2", false))
 		upgrades.is_bait_bought = bool(up_data.get("is_bait_bought", false))
 		upgrades.upgrades_changed.emit()
 		print("-> Upgrades loaded.")

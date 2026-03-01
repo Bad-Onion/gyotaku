@@ -20,6 +20,7 @@ extends Resource
 @export var danger_zone_radius: float = 120.0
 @export var max_depth: float = 100.0
 @export var depth_pull_up_speed: float = 20.0
+@export var line_upgrade_pull_multiplier: float = 3.0
 @export var depth_sink_slow_speed: float = 5.0
 @export var depth_sink_fast_speed: float = 30.0
 

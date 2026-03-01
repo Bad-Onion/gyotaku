@@ -105,6 +105,12 @@ func _calculate_depth(delta: float) -> void:
 	var new_catch_distance_px := maxf(_minigame_start_y - water_surface_y, 1.0)
 
 	var pull_up_speed_factor := old_catch_distance_px / new_catch_distance_px
+
+	if upgrades and (upgrades.is_hook_depth_bought or upgrades.is_hook_depth_bought_2):
+		pull_up_speed_factor *= _current_config.line_upgrade_pull_multiplier
+
+		pull_up_speed_factor = maxf(pull_up_speed_factor, 1.0)
+
 	var sink_speed_factor := 1.0
 
 	var depth_change := 0.0

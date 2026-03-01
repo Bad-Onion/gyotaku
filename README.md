@@ -50,6 +50,12 @@ A pescaria exige estratégia e reflexo. O peixe se move apenas horizontalmente, 
 ### 3. Objetivo Final (Fim de Jogo)
 A sua jornada de pesca e arte é concluída assim que você conseguir pescar, pintar e registrar os **5 tipos diferentes de peixes** disponíveis no jogo. Preencha todo o seu catálogo para vencer!
 
+## Como jogar
+
+- Linux: Baixar todos os arquivos e clicar no executavel do jogo dentro de compiled/linux
+
+- Windows: Baixar todos os arquivos e clicar no executavel do jogo dentro de compiled/windows
+
 ## Ferramentas
 - Godot Engine
 - Aseprite

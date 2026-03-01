@@ -20,16 +20,30 @@ Aqui, você tem liberdade criativa para personalizar suas capturas: após pescar
 
 - 10 Anos
 
-## Controles e Instruções
+## Controles e Mecânicas
+
 O jogo é dividido em duas etapas principais:
 
-Pescaria
-- Movimento: Clique, segure e arraste o mouse. Isso puxa o peixe para a direção que você está arrastando.
-- Objetivo: Mantenha o peixe no centro da tela para puxá-lo lentamente para a superficie.
+### 1. Pescaria e Sistema de Tensão (Core Gameplay)
+A pescaria exige estratégia e reflexo. O peixe se move apenas horizontalmente, e você deve lutar contra ele.
+* **Como puxar:** Clique na tela, segure e arraste na direção **oposta** ao movimento do peixe.
 
-Carimbo e Pintura
-- Ferramentas: Use o mouse para selecionar a cor desejada e o tamanho do pincel.
-- Objetivo: Pinte o peixe que você acabou de pescar. Assim que finalizar sua arte, clique no botão "Carimbar" para salvar a pintura no seu catálogo.
+**Regras e Posicionamento:**
+* **Força da Puxada:** Quanto mais longe você arrastar o mouse, mais força é aplicada, mas **maior a chance da linha romper**.
+* **Comportamento do Peixe:**
+  * 🟢 **No centro da tela:** O peixe sobe em direção à superfície automaticamente.
+  * 🟡 **Pouco afastado do centro:** O peixe resiste e começa a descer lentamente.
+  * 🔴 **Muito longe do centro:** O peixe ganha força e desce rápido.
+  * ❌ **Abaixo da linha limite:** O peixe escapa!
+
+**Risco e Recompensa:**
+* **Puxadas curtas:** São seguras, mas o progresso é lento.
+* **Puxadas longas:** Trazem o peixe rápido, mas são muito arriscadas.
+* **Atenção:** Se a linha *quase* quebrar, o peixe ganha um impulso extra e foge bruscamente na direção da puxada.
+
+### 2. Carimbo e Pintura
+* **Ferramentas:** Use o mouse para selecionar a cor desejada e o tamanho do pincel.
+* **Objetivo:** Pinte o peixe que você acabou de pescar. Assim que finalizar sua arte, clique no botão **"Carimbar"** para salvar a pintura no seu catálogo.
 
 - Esc: Pausa
 
@@ -44,5 +58,6 @@ Carimbo e Pintura
 ## Créditos de assets externos
 
 - Fonte Kiwi Soda: https://fontenddev.com/fonts/kiwi-soda/
+
 
 

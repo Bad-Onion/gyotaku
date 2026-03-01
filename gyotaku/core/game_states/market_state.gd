@@ -6,6 +6,8 @@ extends GameState
 @export var upgrades: FishingUpgrades
 @export var economy_system: EconomySystem
 
+@onready var failed_purchase_sfx: AudioStreamPlayer = %FailedPurchaseSFX
+
 var _is_pausing: bool = false
 
 
@@ -103,5 +105,7 @@ func _try_purchase(cost: int) -> bool:
 		print("MarketState: You bought successfully")
 		return true
 
-	print("Not enough coins!") # Trigger a UI feedback signal here later
+	if upgrades and failed_purchase_sfx and not failed_purchase_sfx.playing:
+		failed_purchase_sfx.play()
+
 	return false

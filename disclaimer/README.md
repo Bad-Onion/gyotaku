@@ -1,4 +1,4 @@
-﻿# GYOTAKU: Peixes e Carimbos
+# GYOTAKU: Peixes e Carimbos
 
 # Equipe: Time Bad Onion
 - Link da Equipe: https://felpojam.com/team/019c54c6-b521-7e64-814c-ca11d9737ce2
@@ -50,7 +50,11 @@ A pescaria exige estratégia e reflexo. O peixe se move apenas horizontalmente, 
 ### 3. Objetivo Final (Fim de Jogo)
 A sua jornada de pesca e arte é concluída assim que você conseguir pescar, pintar e registrar os **5 tipos diferentes de peixes** disponíveis no jogo. Preencha todo o seu catálogo para vencer!
 
-## Como Jogar
+## Como jogar
+
+- Linux: Baixar todos os arquivos e clicar no executavel do jogo dentro de compiled/linux
+
+- Windows: Baixar todos os arquivos e clicar no executavel do jogo dentro de compiled/windows
 
 ## Ferramentas
 - Godot Engine
@@ -61,7 +65,6 @@ A sua jornada de pesca e arte é concluída assim que você conseguir pescar, pi
 ## Créditos de assets externos
 
 - Fonte Kiwi Soda: https://fontenddev.com/fonts/kiwi-soda/
-
 
 
 

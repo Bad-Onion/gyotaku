@@ -83,12 +83,16 @@ animations = [{
 }]
 
 [node name="PeixeCururu" unique_id=69548390 instance=ExtResource("1_erktv")]
+catalog_id = "cururu"
 
 [node name="FishSprite" parent="." index="0" unique_id=341686494]
 sprite_frames = SubResource("SpriteFrames_kqxc6")
 
 [node name="FishCollision" parent="." index="1" unique_id=502182990]
-position = Vector2(2, 0)
+position = Vector2(2.5, -1.25)
 
 [node name="MovementComponent" parent="." index="2" unique_id=1380834197]
 movement_config = ExtResource("3_t35xn")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="4" unique_id=1459822460]
+rect = Rect2(-12, -8, 30, 16)

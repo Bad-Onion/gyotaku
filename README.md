@@ -31,6 +31,8 @@ Carimbo e Pintura
 - Ferramentas: Use o mouse para selecionar a cor desejada e o tamanho do pincel.
 - Objetivo: Pinte o peixe que você acabou de pescar. Assim que finalizar sua arte, clique no botão "Carimbar" para salvar a pintura no seu catálogo.
 
+- Esc: Pausa
+
 ## Como Jogar
 
 ## Ferramentas
@@ -42,4 +44,5 @@ Carimbo e Pintura
 ## Créditos de assets externos
 
 - Fonte Kiwi Soda: https://fontenddev.com/fonts/kiwi-soda/
+
 

@@ -1,0 +1,19 @@
+Disclaimer V1
+
+# Declaração de Autoria e Créditos (Disclaimer)
+
+Este documento detalha a autoria dos elementos presentes no jogo **GYOTAKU: Peixes e Carimbos**, desenvolvido pela equipe **Time Bad Onion** para a Felpo Jam. 
+
+## Autoria da Equipe (Criado durante a Jam)
+
+- **Pixel Art:** 100% original. Toda a arte foi criada exclusivamente para o projeto e durante o período do evento.
+- **Música:** 100% original. Composta e produzida pela nossa equipe exclusivamente durante a jam.
+- **Código:** Toda a programação e lógica do jogo foram desenvolvidas pela equipe durante o período estipulado.
+
+## Efeitos Sonoros (SFX)
+- Utilizamos áudios em Domínio Público (CC0) como base. Esses sons foram editados, modificados e mixados por nossa equipe para criar os efeitos sonoros originais que estão no jogo final.
+
+## Assets de Terceiros (Créditos)
+Os seguintes recursos externos foram utilizados de acordo com suas respectivas licenças:
+
+- **Fonte de Texto:** Kiwi Soda (https://fontenddev.com/fonts/kiwi-soda/)

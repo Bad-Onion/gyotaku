@@ -1,0 +1,3 @@
+AI V1
+
+- Não utilizamos nenhum tipo de IA generativa.

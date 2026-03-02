@@ -27,7 +27,7 @@
 [ext_resource type="Script" uid="uid://dkhbiegwf0u0s" path="res://scenes/mechanics/camera/perspective_transition_controller.gd" id="22_vva6n"]
 [ext_resource type="PackedScene" uid="uid://djc7rhiwtswlk" path="res://scenes/entities/fishes/eel_demon/eel_demon.tscn" id="23_7nyn5"]
 [ext_resource type="PackedScene" uid="uid://cqg1mwy0btwtj" path="res://scenes/entities/fishes/gurukun/gurukun.tscn" id="23_q7p11"]
-[ext_resource type="Script" uid="uid://bokq5kklafrbo" path="res://core/fishing_audio_manager.gd" id="23_yivqu"]
+[ext_resource type="Script" path="res://core/fishing_audio_manager.gd" id="23_yivqu"]
 [ext_resource type="AudioStream" uid="uid://btt4lhi2jxc6b" path="res://assets/sfx/spinning_reel_slow.wav" id="24_g76na"]
 [ext_resource type="PackedScene" uid="uid://cshlrv7ow3bj4" path="res://scenes/entities/fishes/arraia/arraia.tscn" id="24_vva6n"]
 [ext_resource type="PackedScene" uid="uid://hxvux66q2itm" path="res://scenes/entities/fishes/cururu/cururu.tscn" id="25_2avwm"]
